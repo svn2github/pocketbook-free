@@ -1,0 +1,10 @@
+prefix=/mingw
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libgcj
+Description: libgcj
+Version: 3.4.4
+Libs: -L${libdir} -lgcj
+Cflags: -I${includedir}

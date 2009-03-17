@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <group name="SmallScrolling">
+    <option name="ScrollingDelay" value="0"/>
+  </group>
+  <group name="LargeScrolling">
+    <option name="ScrollingDelay" value="0"/>
+  </group>
+  <group name="TapScrolling">
+    <option name="Enabled" value="false"/>
+  </group>
+  <group name="Options">
+    <option name="KeyDelay" value="0"/>
+    <option name="BookPath" value="~/FBooks:~/Books"/>
+  </group>
+</config>

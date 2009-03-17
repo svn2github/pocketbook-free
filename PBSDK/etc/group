@@ -1,0 +1,12 @@
+root:S-1-5-32-544:0:
+SYSTEM:S-1-5-18:18:
+None:S-1-5-21-299502267-507921405-725345543-513:513:
+Administrators:S-1-5-32-544:544:
+Backup Operators:S-1-5-32-551:551:
+Guests:S-1-5-32-546:546:
+Network Configuration Operators:S-1-5-32-556:556:
+Power Users:S-1-5-32-547:547:
+Remote Desktop Users:S-1-5-32-555:555:
+Replicator:S-1-5-32-552:552:
+Users:S-1-5-32-545:545:
+HelpServicesGroup:S-1-5-21-299502267-507921405-725345543-1001:1001:
