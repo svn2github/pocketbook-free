@@ -1,7 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=0041A53D
-eax=00000000 ebx=00000000 ecx=0000000E edx=00836134 esi=0047F380 edi=00000000
-ebp=00000000 esp=0022CB80 program=Z:\pocketbook\PBSDK\sources\inkdemo\inkdemo.exe, pid 460, thread main
-cs=001B ds=0023 es=0023 fs=0038 gs=0000 ss=0023
-Stack trace:
-Frame     Function  Args
-End of stack trace
