@@ -3,12 +3,12 @@
 
 #include <inkview.h>
 
-struct raster {
+typedef struct raster_s {
 	int w,h;
 	char* data;
-};
+} raster;
 
-typedef struct raster * praster;
+typedef raster * praster;
 
 praster load_png_grayscale(const char* fname); 
 praster load_jpg_grayscale(const char* fname);

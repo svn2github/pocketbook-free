@@ -3,11 +3,13 @@
 #include "main.h"
 #include "raster.h"
 #include "goog.h"
+#include "locations.h"
 
 /***** STATE *****/
 uint32_t centerx, centery;
 int zoom, layer;
 int orientation;
+int last_location;
 
 /***** TILE CACHE ****/
 struct cached_tile {
@@ -116,6 +118,12 @@ void NOT_IMPLEMENTED(void) {
 	Message(ICON_WARNING, "Sorry", "Sorry, this function is not implemented yet", 5000);
 }
 
+void OUT_OF_MEMORY(void) {
+	Message(ICON_ERROR, "Sorry", "Out of memory", 5000);
+	CloseApp();
+}
+void main_repaint();
+
 void show_info() {
 	double lat,lon;
 	char buf[200];
@@ -129,13 +137,50 @@ void rotate_screen() {
 	SetOrientation(orientation);
 }
 
+void zoom_world() {
+	centerx=0x80000000U;
+	centery=0x80000000U;
+	zoom=MAX_ZOOM-1;
+}
+
+void toc_handler(long long pos) {
+	location *loc=get_location(pos);
+	coord2xy(loc->lat, loc->lon, &centerx, &centery);
+	zoom=loc->zoom;
+	fprintf(stderr, "Jump to %s (%g, %g, %d)\n", loc->name, loc->lat, loc->lon, loc->zoom);
+	last_location=pos;
+	main_repaint();
+}
+
+void show_locations() {
+	// implemented as TOC
+	int i;
+	int nloc=get_location_count();
+	if(nloc==0) {
+		Message(ICON_WARNING, "No locations loaded", "We don't know about locations", 5000);
+		return;
+	}
+	tocentry* toc=calloc(nloc, sizeof(tocentry));
+	if(!toc) {
+		OUT_OF_MEMORY();
+		return;
+	}
+	for(i=0; i<nloc; ++i) {
+		location *loc=get_location(i);
+		toc[i].level=0;
+		toc[i].page=loc->zoom;
+		toc[i].text=loc->name;
+		toc[i].position=i;
+	}
+	OpenContents(toc,nloc,last_location,toc_handler);
+	free(toc);
+}
+
 void m3x3_handler(int choice) {
 	fprintf(stderr, "m3x3_handler(%d)\n", choice);
 	switch(choice) {
 	case 0: /* Show world */
-		centerx=0x80000000U;
-		centery=0x80000000U;
-		zoom=MAX_ZOOM-1;
+		zoom_world();
 		Repaint();
 		break;
 	case 1: /* Zoom in */
@@ -153,7 +198,8 @@ void m3x3_handler(int choice) {
 		/* Do nothing */
 		break;
 	case 5: /* Locations */
-		NOT_IMPLEMENTED();
+		show_locations();
+		Repaint();
 		break;
 	case 6: /* Rotate screen */
 		rotate_screen();
@@ -182,6 +228,16 @@ int show_statusbar() {
 	return DrawPanel(NULL, layer_name[layer], buf, percent);
 }
 
+void main_repaint() {
+	int h;
+	fprintf(stderr,"EVT_SHOW\n");
+	ClearScreen();
+	h=show_statusbar();
+	show_tiles(h);
+	FullUpdate();
+	FineUpdate();
+}
+
 int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		fprintf(stderr,"EVT_INIT\n");
@@ -189,16 +245,10 @@ int main_handler(int type, int par1, int par2) {
 		zoom=TEST_ZOOM;
 		layer=TEST_LAYER;
 		orientation=0;
+		last_location=0;
 	}
 	if (type == EVT_SHOW) {
-		int h;
-		fprintf(stderr,"EVT_SHOW\n");
-		ClearScreen();
-		h=show_statusbar();
-		show_tiles(h);
-		FullUpdate();
-		FineUpdate();
-
+		main_repaint();
 	}
 	if (type == EVT_KEYPRESS) {
 		fprintf(stderr,"EVT_KEYPRESS(%d)\n", par1);
@@ -239,6 +289,8 @@ int main_handler(int type, int par1, int par2) {
 }
 
 int main(int argc, char **argv) {
+	snprintf(filename, sizeof(filename), "%s/locations", MAP_DIR);
+	load_locations(filename);
 	create_tile_cache();
 	InkViewMain(main_handler);
 	destroy_tile_cache();

@@ -23,7 +23,7 @@ praster load_png_grayscale(const char* fname) {
 	png_bytepp rows=NULL;
 	char* bytes=NULL;
 
-	struct raster* r=NULL;
+	raster* r=NULL;
 	unsigned long width, height;
 	int bit_depth, color_type, row_bytes;
 	
@@ -83,7 +83,7 @@ praster load_png_grayscale(const char* fname) {
 	png_read_image(png_ptr, rows);
 
 	/* save result */
-	r=malloc(sizeof(struct raster));
+	r=malloc(sizeof(raster));
 	if(!r) goto out;
 	r->w=width;
 	r->h=height;
@@ -124,7 +124,7 @@ praster load_jpg_grayscale(const char* fname) {
 	struct my_error_mgr jerr;
 
 	JSAMPARRAY bytes = NULL;
-	struct raster *r = NULL;
+	raster *r = NULL;
 	int row_stride;
 	int width, height;
 	int i, i0, nread;
@@ -149,7 +149,7 @@ praster load_jpg_grayscale(const char* fname) {
 	width=cinfo.image_width;
 	height=cinfo.image_height;
 
-	r=malloc(sizeof(struct raster));
+	r=malloc(sizeof(raster));
 	if(!r) goto out;
 	r->w=width;
 	r->h=height;
