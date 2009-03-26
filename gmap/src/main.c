@@ -7,6 +7,7 @@
 /***** STATE *****/
 uint32_t centerx, centery;
 int zoom, layer;
+int orientation;
 
 /***** TILE CACHE ****/
 struct cached_tile {
@@ -79,21 +80,23 @@ praster get_tile(uint32_t tx, uint32_t ty, int zoom, int layer) {
 	return r;
 }
 
-void show_tiles() {
+void show_tiles(int statusbar_heigth) {
+        int xmax=ScreenWidth();
+        int ymax=ScreenHeight()-statusbar_heigth;
 	uint32_t pixelsz=tile_pixel_size(zoom);
-	uint32_t x0=(centerx/pixelsz)-XMAX/2, 
-		 y0=(centery/pixelsz)-YMAX/2;
+	uint32_t x0=(centerx/pixelsz)-xmax/2,
+		 y0=(centery/pixelsz)-ymax/2;
 	uint32_t tx0=x0/TILE_SIZE, ty0=y0/TILE_SIZE;
 	uint32_t tx,ty;
 	int dx,dy;
 	fprintf(stderr,"center=(%lu,%lu) zoom=%d\n", centerx, centery, zoom);
 	fprintf(stderr, "x0,y0=(%lu,%lu) pixelsz=%lu\n", x0, y0, pixelsz);
-	for(dx=tx0*TILE_SIZE-x0,tx=tx0; dx<XMAX; dx+=TILE_SIZE,++tx)
-	    	for(dy=ty0*TILE_SIZE-y0,ty=ty0; dy<YMAX; dy+=TILE_SIZE,++ty) {
+	for(dx=tx0*TILE_SIZE-x0,tx=tx0; dx<xmax; dx+=TILE_SIZE,++tx)
+	    	for(dy=ty0*TILE_SIZE-y0,ty=ty0; dy<ymax; dy+=TILE_SIZE,++ty) {
 			praster r=get_tile(tx, ty, zoom, layer);
 			if(r) {
 				fprintf(stderr,"show_raster(r,%d,%d)\n",dx,dy);
-				show_raster(r,dx,dy);
+				show_raster(r, dx,dy, 0,0, xmax,ymax);
 			} else {
 				fprintf(stderr,"not found\n");
 			}
@@ -121,6 +124,11 @@ void show_info() {
 	Message(ICON_INFORMATION, PROGRAM_NAME " " VERSION, buf, 10000);
 }
 
+void rotate_screen() {
+	orientation=1-orientation;
+	SetOrientation(orientation);
+}
+
 void m3x3_handler(int choice) {
 	fprintf(stderr, "m3x3_handler(%d)\n", choice);
 	switch(choice) {
@@ -142,12 +150,14 @@ void m3x3_handler(int choice) {
 		Repaint();
 		break;
 	case 4: /* Menu */
+		/* Do nothing */
 		break;
 	case 5: /* Locations */
 		NOT_IMPLEMENTED();
 		break;
 	case 6: /* Rotate screen */
-		NOT_IMPLEMENTED();
+		rotate_screen();
+                Repaint();
 		break;
 	case 7: /* Zoom out */
 		if(zoom<MAX_ZOOM) ++zoom;
@@ -160,17 +170,32 @@ void m3x3_handler(int choice) {
 	}
 }
 
+const char* layer_name[] = { "MAP", "SAT", "TER" };
+
+int show_statusbar() {
+	// TODO: bitmap with map/satellite/terrain
+	double lat, lon;
+	char buf[200];
+	xy2coord(centerx, centery, &lat, &lon);
+	snprintf(buf, sizeof(buf), "lat=%.5f lon=%.5f", lat, lon);
+	int percent=100*(zoom-MIN_ZOOM)/(MAX_ZOOM-MIN_ZOOM);
+	return DrawPanel(NULL, layer_name[layer], buf, percent);
+}
+
 int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		fprintf(stderr,"EVT_INIT\n");
 		coord2xy(TEST_LAT, TEST_LON, &centerx, &centery);
 		zoom=TEST_ZOOM;
 		layer=TEST_LAYER;
+		orientation=0;
 	}
 	if (type == EVT_SHOW) {
+		int h;
 		fprintf(stderr,"EVT_SHOW\n");
 		ClearScreen();
-		show_tiles();
+		h=show_statusbar();
+		show_tiles(h);
 		FullUpdate();
 		FineUpdate();
 

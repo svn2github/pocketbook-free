@@ -177,29 +177,30 @@ out:
 	return r;
 }
 
-void show_raster(praster r, int x0, int y0) {
+void show_raster(praster r, int x0, int y0,
+        int xmin, int ymin, int xmax, int ymax) {
 	char* rpos=r->data;
 	int rw=r->w, rh=r->h, rs=r->w;
-	if(x0<0) {
-		rw+=x0;
-		if(rw<0) return;
-		rpos-=x0;
-		x0=0;
+	if(x0<xmin) {
+		rw-=xmin-x0;
+		if(rw<=0) return;
+		rpos+=xmin-x0;
+		x0=xmin;
 	}
 	if(y0<0) {
-		rh+=y0;
-		if(rh<0) return;
-		rpos-=y0*rs;
-		y0=0;
+		rh-=ymin-y0;
+		if(rh<=0) return;
+		rpos+=(ymin-y0)*rs;
+		y0=ymin;
 	}
-	if(x0+rw>XMAX) {
-		rw=XMAX-x0;
-		if(rw<0) return;
+	if(x0+rw>xmax) {
+		rw=xmax-x0;
+		if(rw<=0) return;
 	}
-	if(y0+rh>YMAX) {
-		rh=YMAX-y0;
-		if(rh<0) return;
+	if(y0+rh>ymax) {
+		rh=ymax-y0;
+		if(rh<=0) return;
 	}
 	Stretch(rpos, IMAGE_GRAY8, rw, rh, rs, x0, y0, rw, rh, 0);
-	DitherArea(rw, rh, x0, y0, 16, DITHER_PATTERN);
+	DitherArea(x0, y0, rw, rh, 16, DITHER_PATTERN);
 }
