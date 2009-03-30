@@ -5,11 +5,12 @@
 #include "goog.h"
 #include "locations.h"
 
-/***** STATE *****/
+/***** STATE & CONFIG *****/
 uint32_t centerx, centery;
 int zoom, layer;
 int orientation;
 int last_location;
+char map_dir[256] = MAP_DIR;
 
 /***** TILE CACHE ****/
 struct cached_tile {
@@ -109,9 +110,9 @@ void show_tiles(int statusbar_heigth) {
 
 extern ibitmap m3x3;
 static const char* s3x3[9] = {
-	"Show world",    "Zoom in",     "Info",
-	"Map/Satellite", "Menu",        "Locations",	
-	"Rotate screen", "Zoom out",    "Options"
+	"Show world",    "@KA_zmin",    "@Info",
+	"Map/Satellite", "@Menu",       "Locations",	
+	"@KA_rtte",      "@KA_zout",    "Options"
 };
 
 void NOT_IMPLEMENTED(void) {
@@ -119,22 +120,29 @@ void NOT_IMPLEMENTED(void) {
 }
 
 void OUT_OF_MEMORY(void) {
-	Message(ICON_ERROR, "Sorry", "Out of memory", 5000);
+	Message(ICON_ERROR, "Sorry", T("@No_memory"), 5000);
 	CloseApp();
 }
+
 void main_repaint();
+void load_config();
+void edit_config();
+void save_config();
 
 void show_info() {
 	double lat,lon;
 	char buf[200];
 	xy2coord(centerx, centery, &lat, &lon);
-	snprintf(buf, sizeof(buf), "Current location lat=%.5f lon=%.5f\nZoom=%d Layer=%d", lat, lon, zoom, layer);
+	snprintf(buf, sizeof(buf), "Current location lat=%.5f lon=%.5f\nZoom=%d Layer=%d", 
+		lat, lon, zoom, layer);
 	Message(ICON_INFORMATION, PROGRAM_NAME " " VERSION, buf, 10000);
 }
 
-void rotate_screen() {
-	orientation=1-orientation;
-	SetOrientation(orientation);
+void rotate_handler(int o) {
+	if(o==orientation) return; // nothing to do
+	SetOrientation(o);
+	orientation=o;
+	main_repaint();
 }
 
 void zoom_world() {
@@ -144,7 +152,7 @@ void zoom_world() {
 }
 
 void toc_handler(long long pos) {
-	location *loc=get_location(pos);
+	const location *loc=get_location(pos);
 	coord2xy(loc->lat, loc->lon, &centerx, &centery);
 	zoom=loc->zoom;
 	fprintf(stderr, "Jump to %s (%g, %g, %d)\n", loc->name, loc->lat, loc->lon, loc->zoom);
@@ -166,13 +174,14 @@ void show_locations() {
 		return;
 	}
 	for(i=0; i<nloc; ++i) {
-		location *loc=get_location(i);
+		const location *loc=get_location(i);
 		toc[i].level=0;
 		toc[i].page=loc->zoom;
-		toc[i].text=loc->name;
+		toc[i].text=strdup(loc->name);
 		toc[i].position=i;
 	}
 	OpenContents(toc,nloc,last_location,toc_handler);
+	for(i=0; i<nloc; ++i) free(toc[i].text);
 	free(toc);
 }
 
@@ -202,15 +211,15 @@ void m3x3_handler(int choice) {
 		Repaint();
 		break;
 	case 6: /* Rotate screen */
-		rotate_screen();
-                Repaint();
+		OpenRotateBox(&rotate_handler);
 		break;
 	case 7: /* Zoom out */
 		if(zoom<MAX_ZOOM) ++zoom;
 		Repaint();
 		break;
 	case 8: /* Options */
-		NOT_IMPLEMENTED();
+		edit_config();
+		main_repaint();
 		break;
 
 	}
@@ -225,7 +234,7 @@ int show_statusbar() {
 	xy2coord(centerx, centery, &lat, &lon);
 	snprintf(buf, sizeof(buf), "lat=%.5f lon=%.5f", lat, lon);
 	int percent=100*(zoom-MIN_ZOOM)/(MAX_ZOOM-MIN_ZOOM);
-	return DrawPanel(NULL, layer_name[layer], buf, percent);
+	return DrawPanel(NULL, (char*)layer_name[layer], buf, percent);
 }
 
 void main_repaint() {
@@ -241,11 +250,7 @@ void main_repaint() {
 int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		fprintf(stderr,"EVT_INIT\n");
-		coord2xy(TEST_LAT, TEST_LON, &centerx, &centery);
-		zoom=TEST_ZOOM;
-		layer=TEST_LAYER;
-		orientation=0;
-		last_location=0;
+		SetOrientation(orientation);
 	}
 	if (type == EVT_SHOW) {
 		main_repaint();
@@ -288,11 +293,93 @@ int main_handler(int type, int par1, int par2) {
 	return 0;
 }
 
+/***** CONFIG *****/
+
+iconfig * cfg=NULL;
+
+static char* choice_startwith[] =
+        { "Last position", "World map", NULL };
+static char* choice_disk[] = 
+	{ "SD card", "Internal memory", NULL };
+static char* choice_orientation[] =
+	{ "Portrait", "Left landscape", "Upside-down", "Right landscape", NULL };
+
+static iconfigedit confedit[] = {
+	{ "Start position", "cfg.pos", CFG_INDEX, "Last position", choice_startwith },
+	{ "Maps located in", "cfg.disk", CFG_INDEX, "SD card", choice_disk },
+	{ "Path within disk", "cfg.path", CFG_TEXT, "system/googlemaps", NULL },
+	{ "Initial orientation", "cfg.orientation", CFG_INDEX, "Portrait", choice_orientation },
+	{ NULL, NULL, 0, NULL, NULL}
+};
+
+void load_config_2() {
+	orientation=ReadInt(cfg, "cfg.orientation", 0);
+
+	snprintf(map_dir, sizeof(map_dir), "/mnt/%s/%s",
+		ReadInt(cfg, "cfg.disk", 0) ? "ext1":"ext2",
+		ReadString(cfg, "cfg.path", "system/googlemaps"));
+	fprintf(stderr, "orientation=%d MAP_DIR=%s\n", orientation, map_dir);
+}
+
+void load_config() {
+	char *p;
+	double lat,lon,z,l;
+	int k;
+	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
+	fprintf(stderr, "OpenConfig -> %p\n", cfg);
+	k=ReadInt(cfg, "cfg.pos", 1);
+	if(k==0) { /* Last position */
+		p=ReadString(cfg, "last.lat", "0.0");
+		lat=atof(p);
+		p=ReadString(cfg, "last.lon", "0.0");
+		lon=atof(p);
+		z=ReadInt(cfg, "last.zoom", MAX_ZOOM-1);
+		l=ReadInt(cfg, "last.layer", 0);
+        } else { /* World map */
+		lat=0.0;
+		lon=0.0;
+		z=MAX_ZOOM-1;
+		l=0;
+	}
+	coord2xy(lat, lon, &centerx, &centery);
+	zoom=z;
+	layer=l;
+	fprintf(stderr, "x=%lu y-=%lu z=%d l-%d\n", centerx, centery, zoom, layer);
+	last_location=0;
+	load_config_2();
+}
+
+void save_config() {
+	double lat,lon;
+	char p[30];
+	xy2coord(centerx, centery, &lat, &lon);
+	snprintf(p,sizeof(p),"%.6f",lat);
+	WriteString(cfg,"last.lat",p);
+	snprintf(p,sizeof(p),"%.6f",lon);
+	WriteString(cfg,"last.lon",p);
+	WriteInt(cfg,"last.zoom",zoom);
+	WriteInt(cfg,"last.layer",layer);
+	SaveConfig(cfg);
+}
+
+void config_handler() {
+	SaveConfig(cfg);
+	load_config_2();
+}
+
+void edit_config() {
+	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
+	OpenConfigEditor("Configuration	", cfg, confedit, config_handler, NULL);
+}
+
 int main(int argc, char **argv) {
-	snprintf(filename, sizeof(filename), "%s/locations", MAP_DIR);
-	load_locations(filename);
 	create_tile_cache();
+	load_config();
+	snprintf(filename, sizeof(filename), "%s/locations", map_dir);
+	load_locations(filename);
 	InkViewMain(main_handler);
+	save_config();
+	CloseConfig(cfg);
 	destroy_tile_cache();
 	return 0;
 }

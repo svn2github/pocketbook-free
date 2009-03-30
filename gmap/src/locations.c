@@ -28,11 +28,12 @@ location="Mountain View, CA"	lat="37.400465"	lng="-122.073003"	zoom="5"
 */
 
 void load_locations(const char* filename) {
-	FILE* f=fopen(filename,"r");
 	char buf[500];
 	char *p, *q;
 	location cur;
 	int known, what;
+	FILE* f=fopen(filename,"r");
+	if(!f) return;
 	while(fgets(buf, sizeof(buf), f)) {
 		memset(&cur, 0, sizeof(cur));
 		known=0;

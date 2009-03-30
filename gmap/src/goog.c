@@ -1,7 +1,6 @@
 #include <math.h>
 #include <stdint.h>
 #include "goog.h"
-#include "main.h"
 
 #include <stdio.h>
 
@@ -34,6 +33,14 @@ void xy2coord(uint32_t x, uint32_t y, double *plat, double *plon) {
 	*plat=180.0/M_PI*asin(e);
 }
 
+#define EARTH_RADIUS 6371.
+
+double km_per_pixel(uint32_t x, uint32_t y, int zoom) {
+	double lat,lon;
+	xy2coord(x,y,&lat,&lon);
+	return 2*M_PI*EARTH_RADIUS/tile_count(zoom)/TILE_SIZE * cos(lat*M_PI/180.);
+}
+
 uint32_t tile_pixel_size(int zoom) {
 	return 1UL<<(32-MAX_ZOOM+zoom-8);
 }
@@ -49,11 +56,16 @@ static const char layer_names[][20] = {
 };
 
 char* tile_file_name(char* buf, unsigned tx, unsigned ty, int zoom, int layer) {
+        extern char map_dir[];
 	int tc=tile_count(zoom);
 	tx%=tc; if(tx<0) tx+=tc;
 	ty%=tc; if(ty<0) ty+=tc;
 	fprintf(stderr,"%d %d %d %d\n",tx,ty,zoom,layer);
-	snprintf(buf, FILENAME_MAX, MAP_DIR "/%s/%d/%d/%d/%d/%d.png",
-			layer_names[layer], zoom, tx/1024, tx%1024, ty/1024, ty%1024);
+	snprintf(buf, FILENAME_MAX, "%s/%s/%d/%d/%d/%d/%d.png",
+	                map_dir,
+			layer_names[layer], 
+                        zoom, 
+                        tx/1024, tx%1024, 
+                        ty/1024, ty%1024);
 	return buf;
 }

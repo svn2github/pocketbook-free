@@ -20,4 +20,5 @@ char* tile_file_name(char* buf, unsigned tx, unsigned ty, int zoom, int layer);
 
 uint32_t tile_pixel_size(int zoom);
 uint32_t tile_count(int zoom);
+double km_per_pixel(uint32_t x, uint32_t y, int zoom);
 #endif

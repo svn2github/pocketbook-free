@@ -13,8 +13,10 @@
 /* how many pixels to shift on holding left/right/up/down */
 #define HOLD_SHIFT 256
 
-/* Where are the maps (temporarily hardcoded, sorry) */
+/* Where are the maps */
 #define MAP_DIR SDCARDDIR "/googlemaps"
+
+#define CONFIG_FILE USERDATA "/gmap.conf"
 
 /* Test location */
 //   location="Paris, France"	lat="48.856667"	lng="2.350987"	zoom="5" 
