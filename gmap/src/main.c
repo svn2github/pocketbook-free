@@ -9,8 +9,9 @@
 uint32_t centerx, centery;
 int zoom, layer;
 int orientation;
-int last_location;
+int last_location=0;
 char map_dir[256] = MAP_DIR;
+int use_last_pos=0;
 
 /***** TILE CACHE ****/
 struct cached_tile {
@@ -83,6 +84,13 @@ praster get_tile(uint32_t tx, uint32_t ty, int zoom, int layer) {
 	return r;
 }
 
+static praster r_empty=NULL;
+praster get_empty_raster() {
+	if(r_empty) return r_empty;
+	r_empty=create_empty_raster(TILE_SIZE, TILE_SIZE, 0x77);
+	return r_empty;
+}
+
 void show_tiles(int statusbar_heigth) {
         int xmax=ScreenWidth();
         int ymax=ScreenHeight()-statusbar_heigth;
@@ -102,17 +110,20 @@ void show_tiles(int statusbar_heigth) {
 				show_raster(r, dx,dy, 0,0, xmax,ymax);
 			} else {
 				fprintf(stderr,"not found\n");
+				show_raster(get_empty_raster(), dx,dy, 0,0, xmax,ymax);
 			}
 	}
 }
 
 /***** INTERFACE *****/
 
+const char* layer_short_name[] = { "MAP", "SAT", "TER", NULL };
+
 extern ibitmap m3x3;
-static const char* s3x3[9] = {
-	"Show world",    "@KA_zmin",    "@Info",
+static const char* s3x3[9] = {       
+	"Show world",    "Zoom in",     "@Info",
 	"Map/Satellite", "@Menu",       "Locations",	
-	"@KA_rtte",      "@KA_zout",    "Options"
+	"@KA_rtte",      "Zoom out",    "Options"
 };
 
 void NOT_IMPLEMENTED(void) {
@@ -128,6 +139,8 @@ void main_repaint();
 void load_config();
 void edit_config();
 void save_config();
+void load_position();
+void save_position();
 
 void show_info() {
 	double lat,lon;
@@ -200,6 +213,7 @@ void m3x3_handler(int choice) {
 		show_info();
 		break;
 	case 3: /* Map/Satellite/Terrain */
+		// TODO: OpenMenu
 		layer=(layer+1)%3;
 		Repaint();
 		break;
@@ -225,8 +239,6 @@ void m3x3_handler(int choice) {
 	}
 }
 
-const char* layer_name[] = { "MAP", "SAT", "TER" };
-
 int show_statusbar() {
 	// TODO: bitmap with map/satellite/terrain
 	double lat, lon;
@@ -234,7 +246,7 @@ int show_statusbar() {
 	xy2coord(centerx, centery, &lat, &lon);
 	snprintf(buf, sizeof(buf), "lat=%.5f lon=%.5f", lat, lon);
 	int percent=100*(zoom-MIN_ZOOM)/(MAX_ZOOM-MIN_ZOOM);
-	return DrawPanel(NULL, (char*)layer_name[layer], buf, percent);
+	return DrawPanel(NULL, (char*)layer_short_name[layer], buf, percent);
 }
 
 void main_repaint() {
@@ -302,82 +314,75 @@ static char* choice_startwith[] =
 static char* choice_disk[] = 
 	{ "SD card", "Internal memory", NULL };
 static char* choice_orientation[] =
-	{ "Portrait", "Left landscape", "Upside-down", "Right landscape", NULL };
+	{ "Portrait", "Left landscape", "Right landscape", "Upside-down", NULL };
 
 static iconfigedit confedit[] = {
-	{ "Start position", "cfg.pos", CFG_INDEX, "Last position", choice_startwith },
-	{ "Maps located in", "cfg.disk", CFG_INDEX, "SD card", choice_disk },
-	{ "Path within disk", "cfg.path", CFG_TEXT, "system/googlemaps", NULL },
-	{ "Initial orientation", "cfg.orientation", CFG_INDEX, "Portrait", choice_orientation },
+	{ "Start position", "usepos", CFG_INDEX, "Last position", choice_startwith },
+	{ "Maps located in", "disk", CFG_INDEX, "SD card", choice_disk },
+	{ "Path within disk", "path", CFG_TEXT, "system/googlemaps", NULL },
+	{ "Initial orientation", "orientation", CFG_INDEX, "Portrait", choice_orientation },
 	{ NULL, NULL, 0, NULL, NULL}
 };
 
-void load_config_2() {
-	orientation=ReadInt(cfg, "cfg.orientation", 0);
-
+void load_config() {
+	orientation = ReadInt(cfg, "orientation", 0);
 	snprintf(map_dir, sizeof(map_dir), "/mnt/%s/%s",
-		ReadInt(cfg, "cfg.disk", 0) ? "ext1":"ext2",
-		ReadString(cfg, "cfg.path", "system/googlemaps"));
+		ReadInt(cfg, "disk", 0) ? "ext1":"ext2",
+		ReadString(cfg, "path", "system/googlemaps"));
+	use_last_pos = 0==ReadInt(cfg,"usepos",0);
+
 	fprintf(stderr, "orientation=%d MAP_DIR=%s\n", orientation, map_dir);
 }
 
-void load_config() {
-	char *p;
-	double lat,lon,z,l;
-	int k;
-	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
-	fprintf(stderr, "OpenConfig -> %p\n", cfg);
-	k=ReadInt(cfg, "cfg.pos", 1);
-	if(k==0) { /* Last position */
-		p=ReadString(cfg, "last.lat", "0.0");
-		lat=atof(p);
-		p=ReadString(cfg, "last.lon", "0.0");
-		lon=atof(p);
-		z=ReadInt(cfg, "last.zoom", MAX_ZOOM-1);
-		l=ReadInt(cfg, "last.layer", 0);
-        } else { /* World map */
-		lat=0.0;
-		lon=0.0;
-		z=MAX_ZOOM-1;
-		l=0;
-	}
-	coord2xy(lat, lon, &centerx, &centery);
-	zoom=z;
-	layer=l;
-	fprintf(stderr, "x=%lu y-=%lu z=%d l-%d\n", centerx, centery, zoom, layer);
-	last_location=0;
-	load_config_2();
-}
-
 void save_config() {
-	double lat,lon;
-	char p[30];
-	xy2coord(centerx, centery, &lat, &lon);
-	snprintf(p,sizeof(p),"%.6f",lat);
-	WriteString(cfg,"last.lat",p);
-	snprintf(p,sizeof(p),"%.6f",lon);
-	WriteString(cfg,"last.lon",p);
-	WriteInt(cfg,"last.zoom",zoom);
-	WriteInt(cfg,"last.layer",layer);
 	SaveConfig(cfg);
 }
+
 
 void config_handler() {
 	SaveConfig(cfg);
-	load_config_2();
 }
 
 void edit_config() {
 	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
-	OpenConfigEditor("Configuration	", cfg, confedit, config_handler, NULL);
+	OpenConfigEditor("Configuration", cfg, confedit, config_handler, NULL);
+}
+
+void load_position() {
+	double lat,lon;
+	int z,l;
+	FILE* f=fopen(LAST_POSITION_FILE,"r");
+	if(!f) goto fail;
+	if(fscanf(f, "%lf %lf %d %d", &lat, &lon, &z, &l)!=4) goto fail;
+	coord2xy(lat, lon, &centerx, &centery);
+	zoom=z;
+	layer=l;
+	fprintf(stderr, "x=%lu y-=%lu z=%d l=%d\n", centerx, centery, zoom, layer);
+	fclose(f);
+	return;
+fail:
+	if(f) fclose(f);
+	zoom_world();
+}
+
+void save_position() {
+	double lat,lon;
+	FILE* f=fopen(LAST_POSITION_FILE,"w");
+	if(!f) return;
+	xy2coord(centerx, centery, &lat, &lon);
+	fprintf(f,"%.5lf %.5lf %d %d\n", lat, lon, zoom, layer);
+	fclose(f);
 }
 
 int main(int argc, char **argv) {
 	create_tile_cache();
 	load_config();
+	if(use_last_pos) load_position();
+	else zoom_world();
 	snprintf(filename, sizeof(filename), "%s/locations", map_dir);
 	load_locations(filename);
 	InkViewMain(main_handler);
+	save_position();
 	save_config();
 	CloseConfig(cfg);
 	destroy_tile_cache();

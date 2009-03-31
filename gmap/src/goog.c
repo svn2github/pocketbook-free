@@ -50,9 +50,9 @@ uint32_t tile_count(int zoom) {
 }
 
 static const char layer_names[][20] = {
-	"tiles_Map",
-	"tiles_Satellite",
-	"tiles_Terrain"
+	"tiles",
+	"sat_tiles",
+	"ter_tiles"
 };
 
 char* tile_file_name(char* buf, unsigned tx, unsigned ty, int zoom, int layer) {

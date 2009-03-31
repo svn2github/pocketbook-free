@@ -177,6 +177,20 @@ out:
 	return r;
 }
 
+praster create_empty_raster(int width, int height, char fill) {
+	praster	r=malloc(sizeof(raster));
+	if(!r) return NULL;
+	r->w=width;
+	r->h=height;
+	r->data=malloc(width*height);
+	if(!r->data) {
+		free(r);
+		return NULL;
+	}
+	memset(r->data, fill, width*height);
+	return r;
+}
+
 void show_raster(praster r, int x0, int y0,
         int xmin, int ymin, int xmax, int ymax) {
 	char* rpos=r->data;
