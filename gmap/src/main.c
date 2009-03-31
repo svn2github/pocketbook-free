@@ -317,21 +317,23 @@ static char* choice_orientation[] =
 	{ "Portrait", "Left landscape", "Right landscape", "Upside-down", NULL };
 
 static iconfigedit confedit[] = {
-	{ "Start position", "usepos", CFG_INDEX, "Last position", choice_startwith },
-	{ "Maps located in", "disk", CFG_INDEX, "SD card", choice_disk },
+	{ "Start position", "usepos", CFG_INDEX, "0", choice_startwith },
+	{ "Maps located in", "disk", CFG_INDEX, "0", choice_disk },
 	{ "Path within disk", "path", CFG_TEXT, "system/googlemaps", NULL },
-	{ "Initial orientation", "orientation", CFG_INDEX, "Portrait", choice_orientation },
+	{ "Initial orientation", "orientation", CFG_INDEX, "0", choice_orientation },
 	{ NULL, NULL, 0, NULL, NULL}
 };
 
 void load_config() {
+	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
 	orientation = ReadInt(cfg, "orientation", 0);
 	snprintf(map_dir, sizeof(map_dir), "/mnt/%s/%s",
 		ReadInt(cfg, "disk", 0) ? "ext1":"ext2",
 		ReadString(cfg, "path", "system/googlemaps"));
 	use_last_pos = 0==ReadInt(cfg,"usepos",0);
 
-	fprintf(stderr, "orientation=%d MAP_DIR=%s\n", orientation, map_dir);
+	fprintf(stderr, "orientation=%d MAP_DIR=%s usepos=%d\n", 
+		orientation, map_dir, use_last_pos);
 }
 
 void save_config() {
@@ -341,6 +343,7 @@ void save_config() {
 
 void config_handler() {
 	SaveConfig(cfg);
+	SetEventHandler(main_handler);
 }
 
 void edit_config() {

@@ -1,6 +1,6 @@
-* BUG: crash after saving configuration
-* Better status bar 
+* BUG: corrupted TOC
+* Better status bar (coord, scale)
 * Better icon3x3
 * Organize maps into downloadable bundles
 * Support for Yandex maps
-* Show several layers in time
+* Show several layers on one screen
