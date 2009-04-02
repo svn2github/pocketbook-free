@@ -164,38 +164,49 @@ void zoom_world() {
 	zoom=MAX_ZOOM-1;
 }
 
+tocentry* toc=NULL;
+int toc_count=0;
+
+void delete_toc() {
+	int i;
+	if(toc==NULL) return;
+	for(i=0; i<toc_count; ++i)
+		if(toc[i].text) free(toc[i].text);
+	free(toc);
+	toc=NULL; toc_count=0;
+}
+
 void toc_handler(long long pos) {
 	const location *loc=get_location(pos);
 	coord2xy(loc->lat, loc->lon, &centerx, &centery);
 	zoom=loc->zoom;
 	fprintf(stderr, "Jump to %s (%g, %g, %d)\n", loc->name, loc->lat, loc->lon, loc->zoom);
 	last_location=pos;
+	delete_toc();
 	main_repaint();
 }
 
 void show_locations() {
 	// implemented as TOC
 	int i;
-	int nloc=get_location_count();
-	if(nloc==0) {
+	toc_count=get_location_count();
+	if(toc_count==0) {
 		Message(ICON_WARNING, "No locations loaded", "We don't know about locations", 5000);
 		return;
 	}
-	tocentry* toc=calloc(nloc, sizeof(tocentry));
+	toc=calloc(toc_count, sizeof(tocentry));
 	if(!toc) {
 		OUT_OF_MEMORY();
 		return;
 	}
-	for(i=0; i<nloc; ++i) {
+	for(i=0; i<toc_count; ++i) {
 		const location *loc=get_location(i);
 		toc[i].level=0;
 		toc[i].page=loc->zoom;
 		toc[i].text=strdup(loc->name);
 		toc[i].position=i;
 	}
-	OpenContents(toc,nloc,last_location,toc_handler);
-	for(i=0; i<nloc; ++i) free(toc[i].text);
-	free(toc);
+	OpenContents(toc,toc_count,last_location,toc_handler);
 }
 
 void m3x3_handler(int choice) {
@@ -222,7 +233,6 @@ void m3x3_handler(int choice) {
 		break;
 	case 5: /* Locations */
 		show_locations();
-		Repaint();
 		break;
 	case 6: /* Rotate screen */
 		OpenRotateBox(&rotate_handler);
@@ -233,7 +243,6 @@ void m3x3_handler(int choice) {
 		break;
 	case 8: /* Options */
 		edit_config();
-		main_repaint();
 		break;
 
 	}
