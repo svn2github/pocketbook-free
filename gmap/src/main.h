@@ -6,7 +6,7 @@
 #define VERSION "0.02-090330"
 
 /* how many tiles to store in memory */
-#define TILE_CACHE_SIZE 2049
+#define TILE_CACHE_SIZE 253
 
 /* how many pixels to shift on pressing left/right/up/down */
 #define CLICK_SHIFT 64

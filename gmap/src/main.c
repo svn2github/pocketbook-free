@@ -1,4 +1,5 @@
 #include <inkview.h>
+#include <math.h>
 
 #include "main.h"
 #include "raster.h"
@@ -106,7 +107,6 @@ void show_tiles(int statusbar_heigth) {
 	    	for(dy=ty0*TILE_SIZE-y0,ty=ty0; dy<ymax; dy+=TILE_SIZE,++ty) {
 			praster r=get_tile(tx, ty, zoom, layer);
 			if(r) {
-				fprintf(stderr,"show_raster(r,%d,%d)\n",dx,dy);
 				show_raster(r, dx,dy, 0,0, xmax,ymax);
 			} else {
 				fprintf(stderr,"not found\n");
@@ -117,6 +117,8 @@ void show_tiles(int statusbar_heigth) {
 
 /***** INTERFACE *****/
 
+const int layer_count=3;
+const char* layer_name[] = { "Map", "Satellite", "Terrain", NULL };
 const char* layer_short_name[] = { "MAP", "SAT", "TER", NULL };
 
 extern ibitmap m3x3;
@@ -125,6 +127,9 @@ static const char* s3x3[9] = {
 	"Map/Satellite", "@Menu",       "Locations",	
 	"@KA_rtte",      "Zoom out",    "Options"
 };
+
+ifont *small_font = NULL;
+ifont *large_font = NULL;
 
 void NOT_IMPLEMENTED(void) {
 	Message(ICON_WARNING, "Sorry", "Sorry, this function is not implemented yet", 5000);
@@ -204,9 +209,35 @@ void show_locations() {
 		toc[i].level=0;
 		toc[i].page=loc->zoom;
 		toc[i].text=strdup(loc->name);
+		if(!toc[i].text) OUT_OF_MEMORY();
 		toc[i].position=i;
 	}
 	OpenContents(toc,toc_count,last_location,toc_handler);
+}
+
+imenu *layer_menu=NULL;
+
+void select_layer_handler(int l) {
+	if(layer!=l) {
+		layer=l;
+		main_repaint();
+	}
+	free(layer_menu);
+	layer_menu=NULL;
+}
+
+void select_layer() {
+	int i;
+	layer_menu=calloc(layer_count+2,sizeof(imenu));
+	layer_menu[0].type=ITEM_HEADER;
+	layer_menu[0].text="Layers";
+	layer_menu[0].index=-42;
+	for(i=0; i<layer_count; ++i) {
+		layer_menu[i+1].type=ITEM_ACTIVE;
+		layer_menu[i+1].text=(char*)layer_name[i];
+		layer_menu[i+1].index=i;
+	}
+	OpenMenu(layer_menu, layer, 20, 20, select_layer_handler);
 }
 
 void m3x3_handler(int choice) {
@@ -224,9 +255,7 @@ void m3x3_handler(int choice) {
 		show_info();
 		break;
 	case 3: /* Map/Satellite/Terrain */
-		// TODO: OpenMenu
-		layer=(layer+1)%3;
-		Repaint();
+		select_layer();
 		break;
 	case 4: /* Menu */
 		/* Do nothing */
@@ -252,10 +281,47 @@ int show_statusbar() {
 	// TODO: bitmap with map/satellite/terrain
 	double lat, lon;
 	char buf[200];
+	int w=ScreenWidth(), yb=ScreenHeight(), yt=yb-20;
+	DrawLine(0, yt, w, yt, DGRAY);
+	DrawLine(0, yt+1, w, yt+1, LGRAY);
+	FillArea(0, yt+2, w, yb-yt-2, DGRAY);
+	SetFont(large_font,WHITE);
+	DrawString(3, yt+2, layer_short_name[layer]);
 	xy2coord(centerx, centery, &lat, &lon);
-	snprintf(buf, sizeof(buf), "lat=%.5f lon=%.5f", lat, lon);
-	int percent=100*(zoom-MIN_ZOOM)/(MAX_ZOOM-MIN_ZOOM);
-	return DrawPanel(NULL, (char*)layer_short_name[layer], buf, percent);
+	snprintf(buf, sizeof(buf), "lat=%.5f lon=%.5f zoom=%d", lat, lon, zoom);
+	SetFont(small_font,WHITE);
+	DrawString(60, yt+5, buf);
+	{
+		// compute ruler step
+		double kmpp, rulerstep, r;
+		int i,n;
+		kmpp=km_per_pixel(centerx, centery, zoom);
+		rulerstep=kmpp*100;
+		r=pow(10,floor(log10(rulerstep)));
+		if(rulerstep/r>5)
+			rulerstep=5*r;
+		else if(rulerstep/r>2)
+			rulerstep=2*r;
+		else
+			rulerstep=r;
+		// draw ruler
+		n=floor(270/(rulerstep/kmpp));
+		fprintf(stderr, "kmpp=%g rulerstep=%g n=%d\n", kmpp, rulerstep, n);
+
+		for(i=0; i<n; ++i) {
+			int xl=w-300+(int)(round(i*rulerstep/kmpp));
+			int xr=w-300+(int)(round((i+1)*rulerstep/kmpp));
+			int w;
+			fprintf(stderr, "%d xl=%d xr=%d\n", i, xl, xr);
+			FillArea(xl, yb-5, xr-xl, 4, i%2?WHITE:BLACK);
+			snprintf(buf, sizeof(buf), "%g",
+				(i+1)*rulerstep*(rulerstep<1 ? 1000:1));
+			w=StringWidth(buf);
+			DrawString(xr-w,yt+3,buf);
+			if(i==n-1) DrawString(xr+1,yt+3,(rulerstep<1 ? "m":"km"));
+		}
+	}
+	return yb-yt;
 }
 
 void main_repaint() {
@@ -272,6 +338,8 @@ int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		fprintf(stderr,"EVT_INIT\n");
 		SetOrientation(orientation);
+		small_font=OpenFont("sans-serif", 12, 1);
+		large_font=OpenFont("sans-serif", 16, 1);
 	}
 	if (type == EVT_SHOW) {
 		main_repaint();

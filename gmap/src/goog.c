@@ -60,7 +60,6 @@ char* tile_file_name(char* buf, unsigned tx, unsigned ty, int zoom, int layer) {
 	int tc=tile_count(zoom);
 	tx%=tc; if(tx<0) tx+=tc;
 	ty%=tc; if(ty<0) ty+=tc;
-	fprintf(stderr,"%d %d %d %d\n",tx,ty,zoom,layer);
 	snprintf(buf, FILENAME_MAX, "%s/%s/%d/%d/%d/%d/%d.png",
 	                map_dir,
 			layer_names[layer], 
