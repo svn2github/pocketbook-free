@@ -1,0 +1,7 @@
+Import('env progname')
+
+images_c='images.temp.c'
+sources=Split('main.c goog.c locations.c raster.c')
+
+env.PBRes(images_c, Glob('#images/*.bmp'))
+p=env.Program('#'+progname+'$EXESUFFIX', sources+[images_c])

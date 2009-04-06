@@ -1,0 +1,51 @@
+import os,sys
+
+progname='gmap'
+Export('progname')
+
+sdkdir='/usr/local/pocketbook'
+
+pbres=Builder(action='$SDKDIR/bin/pbres -c $TARGET $SOURCE')
+
+target=ARGUMENTS.get('target','emu')
+debug=int(ARGUMENTS.get('debug',0))
+if debug:
+    cflags=['-g']
+else:
+    cflags=['-O2','-fomit-frame-pointer']
+    
+emu = Environment(CC='winegcc', ENV=os.environ)
+emu.Prepend(
+    SDKDIR=sdkdir,
+    CFLAGS=['-I$SDKDIR/include','-Wall']+cflags,
+    LINKFLAGS=['-mwindows','-m32'],
+    LIBPATH=['$SDKDIR/lib'],
+    LIBS=['-linkview','-ljpeg','-lz'],
+    BUILDERS={ 'PBRes':pbres },
+    EXESUFFIX=''
+)
+emu.ParseConfig('freetype-config --libs --cflags')
+emu.ParseConfig('libpng-config --libs --cflags')
+
+arm = Environment(CC='arm-linux-gnu-gcc-3.4', ENV=os.environ)
+arm.Prepend(
+    SDKDIR=sdkdir,
+    CFLAGS=['-I$SDKDIR/arm-linux/include','-I$SDKDIR/include','-I/usr/include',
+        '-DARM','-Wall']+cflags,
+    LIBS=['-linkview','-lfreetype','-ljpeg','-lpng','-lz'],
+    LIBPATH=['$SDKDIR/arm-linux/lib'],
+    LINKFLAGS=['-s'],
+    BUILDERS={ 'PBRes':pbres },
+    EXESUFFIX='.app'
+)
+
+if target=='emu':
+    env=emu
+elif target=='arm':
+    env=arm
+else:
+    print "unknown target, should be emu or arm"
+    sys.exit(1)
+
+build_dir='build-'+target
+SConscript('src/SConscript', exports='env', variant_dir=build_dir)
