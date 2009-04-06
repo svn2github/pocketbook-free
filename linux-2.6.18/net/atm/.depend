@@ -1,0 +1,356 @@
+addr.o: addr.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   signaling.h \
+   addr.h
+addr.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h
+	@touch addr.h
+atm_misc.o: atm_misc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h
+clip.o: clip.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/notifier.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmclip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmarp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inetdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/route.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/icmp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   common.h \
+   resources.h \
+   ipcommon.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/atmclip.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/clip/no/icmp.h)
+common.o: common.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmclip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmarp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/socket.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/ioctls.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/lane.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/lane/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmlec.h \
+   lec.h \
+   lec_arpc.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/mpoa.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/mpoa/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h \
+   mpc.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/tcp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/tcp/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_tcp.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pppoatm.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pppoatm/module.h) \
+   resources.h \
+   common.h \
+   protocols.h \
+   addr.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/clip.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/atmclip.h \
+   signaling.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge/module.h)
+common.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h
+	@touch common.h
+ipcommon.o: ipcommon.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmclip.h \
+   common.h \
+   ipcommon.h
+ipcommon.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h
+	@touch ipcommon.h
+lec_arpc.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ether.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmlec.h
+	@touch lec_arpc.h
+lec.o: lec.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ether.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/dst.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/tr.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/trdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmlec.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_bridge.h \
+   ../bridge/br_private.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   lec.h \
+   lec_arpc.h \
+   resources.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inetdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/route.h
+lec.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmlec.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_bridge.h
+	@touch lec.h
+mpc.o: mpc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ether.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/checksum.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/dst.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmlec.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   lec.h \
+   mpc.h \
+   resources.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+mpc.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   mpoa_caches.h
+	@touch mpc.h
+mpoa_caches.o: mpoa_caches.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   mpoa_caches.h \
+   mpc.h
+mpoa_caches.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h
+	@touch mpoa_caches.h
+mpoa_proc.o: mpoa_proc.c \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmmpc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   mpc.h \
+   mpoa_caches.h
+pppoatm.o: pppoatm.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ppp_defs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ppp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ppp_channel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmppp.h
+proc.o: proc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmclip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmarp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h \
+   resources.h \
+   common.h \
+   signaling.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/clip.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/atmclip.h \
+   ipcommon.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/lane.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/lane/module.h) \
+   lec.h \
+   lec_arpc.h
+pvc.o: pvc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmclip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/clip.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/atmclip.h \
+   resources.h \
+   common.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+raw.o: raw.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   common.h \
+   protocols.h
+resources.o: resources.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   common.h \
+   resources.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+resources.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h
+	@touch resources.h
+signaling.o: signaling.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmsap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmsvc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   resources.h \
+   signaling.h
+signaling.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmsvc.h
+	@touch signaling.h
+svc.o: svc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmsap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmsvc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   resources.h \
+   common.h \
+   signaling.h \
+   addr.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h
+.PRECIOUS:	addr.h \
+	common.h \
+	ipcommon.h \
+	lec_arpc.h \
+	lec.h \
+	mpc.h \
+	mpoa_caches.h \
+	resources.h \
+	signaling.h \
+

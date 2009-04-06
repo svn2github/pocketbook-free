@@ -1,0 +1,57 @@
+init/main.o: init/main.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/S3C2410.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/cpu_s3c2410.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/unistd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/utsname.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/iobuf.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bugs.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/s390.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/dio.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/dio.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/zorro.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/zorro.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/nubus.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/nubus.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/isapnp.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isapnp.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/irda.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/x86/local/apic.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/smp.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/tc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sysvipc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/perfmon.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/dev/initrd.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/cpq/da.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/cpq/da/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/cpq/ciss/da.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/cpq/ciss/da/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/smp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/modules.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sysctl.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sbus.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ppc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mca.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/acorn.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pcmcia.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/dev/ram.h)
+init/version.o: init/version.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uts.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/utsname.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h

@@ -1,0 +1,1 @@
+#undef  CONFIG_BIT_SA1100_GPIO

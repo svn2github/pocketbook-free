@@ -1,0 +1,42 @@
+balloc.o: balloc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/locks.h
+dir.o: dir.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h
+file.o: file.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h
+ialloc.o: ialloc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stddef.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/locks.h
+inode.o: inode.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/locks.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/highuid.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h
+itree.o: itree.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/locks.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h
+namei.o: namei.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h
+super.o: super.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysv_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h
+symlink.o: symlink.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h

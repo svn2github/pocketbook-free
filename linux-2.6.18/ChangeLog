@@ -1,0 +1,10 @@
+rel-1-0-0 laputa: s3c2410 smdk  
+                  - the file for default configuration is "arch/arm/def-configs/smdk2410"
+				  - the default lcd controller is set the aiji board base
+				  - if you need to support the meritech board you should be
+					changed aiji item off of menuconfig
+rel-1-1-0 laputa: s3c2410 smdk add the i2c interface 
+                  - to be added i2c algorithm & h/w define set
+				  - s3c2410 register defined
+rel-1-1-1 laputa: debug message head file for the i2c dbg
+

@@ -1,0 +1,38 @@
+Date: Wed, 05 Jun 2002 13:38:53 -0700
+From: Frank Becker <fbecker@intrinsyc.com>
+To: Nicolas Pitre <nico@cam.org>
+Subject: [PATCH] PXA-USB
+
+Hi Nicolas,
+
+one more patch...
+
+This patch adds minimal USB client (UDC) support.
+
+Some notes:
+It adds just enough to get usb-eth working. I.e.
+endpoints 0-2, no dma. Performance isn't stellar
+partially due to UDC bug workarounds...
+(~350K @ 100Mhz, ~550K @ 200Mhz).
+
+Endpoint 1&2 have changed direction compared to
+the SA, so the host side requires a change to
+usbnet.c to flip endpoints (in:2/out:1 -> in:1/out:2).
+
+usb-eth and usb-char for PXA are almost identical
+to the SA versions, so they could probably be merged at
+one point. I made some minor changes to the eth driver
+to grab the usb resources at open, rather than at init
+and allow eth&char to be loaded at the same time.
+
+Stuart Lynne was working on his own USB client driver
+(and he was getting higher throughput than my driver).
+Assuming you guys have something in the oven for USB
+as well, there should be good selection for best of
+breed :)
+
+Cheers,
+Frank.
+-- 
+Frank Becker - Intrinsyc Software, Inc. - http://www.intrinsyc.com/
+Need a break? http://criticalmass.sf.net/

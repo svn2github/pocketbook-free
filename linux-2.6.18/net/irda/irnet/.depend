@@ -1,0 +1,38 @@
+irnet.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ppp_defs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ppp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ppp_channel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/irda.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/iriap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/irias_object.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/irlmp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/irttp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/irda/discovery.h
+	@touch irnet.h
+irnet_irda.o: irnet_irda.c \
+   irnet_irda.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+irnet_irda.h: \
+   irnet.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+	@touch irnet_irda.h
+irnet_ppp.o: irnet_ppp.c \
+   irnet_ppp.h
+irnet_ppp.h: \
+   irnet.h
+	@touch irnet_ppp.h
+.PRECIOUS:	irnet.h \
+	irnet_irda.h \
+	irnet_ppp.h \
+

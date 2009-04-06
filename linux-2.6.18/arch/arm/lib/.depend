@@ -1,0 +1,161 @@
+ashldi3.o: ashldi3.c \
+   gcclib.h
+ashrdi3.o: ashrdi3.c \
+   gcclib.h
+backtrace.o: backtrace.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/frame/pointer.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/32.h)
+changebit.o: changebit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+clearbit.o: clearbit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+copy_page.o: copy_page.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h
+csumipv6.o: csumipv6.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+csumpartialcopy.o: csumpartialcopy.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   csumpartialcopygeneric.S
+csumpartialcopyuser.o: csumpartialcopyuser.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/32.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/26.h) \
+   csumpartialcopygeneric.S
+csumpartial.o: csumpartial.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+delay.o: delay.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+ecard.o: ecard.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/26.h)
+findbit.o: findbit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+floppydma.o: floppydma.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+getuser.o: getuser.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h
+io-acorn.o: io-acorn.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/26.h)
+io-readsb.o: io-readsb.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-readsl-armv3.o: io-readsl-armv3.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-readsl-armv4.o: io-readsl-armv4.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-readsw-armv3.o: io-readsw-armv3.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-readsw-armv4.o: io-readsw-armv4.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-shark.o: io-shark.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h
+io-writesb.o: io-writesb.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-writesl.o: io-writesl.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-writesw-armv3.o: io-writesw-armv3.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+io-writesw-armv4.o: io-writesw-armv4.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+kbd.o: kbd.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kd.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/magic/sysrq.h)
+lib1funcs.o: lib1funcs.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/26.h)
+lshrdi3.o: lshrdi3.c \
+   gcclib.h
+memchr.o: memchr.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+memcpy.o: memcpy.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+memset.o: memset.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+memzero.o: memzero.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+muldi3.o: muldi3.c \
+   gcclib.h
+putuser.o: putuser.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h
+setbit.o: setbit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+strchr.o: strchr.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+strncpy_from_user.o: strncpy_from_user.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h
+strnlen_user.o: strnlen_user.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h
+strrchr.o: strrchr.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+testchangebit.o: testchangebit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+testclearbit.o: testclearbit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+testsetbit.o: testsetbit.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+uaccess-armo.o: uaccess-armo.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h
+uaccess.o: uaccess.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h
+ucmpdi2.o: ucmpdi2.c \
+   gcclib.h
+udivdi3.o: udivdi3.c \
+   gcclib.h \
+   longlong.h

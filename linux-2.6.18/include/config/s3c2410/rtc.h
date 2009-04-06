@@ -1,0 +1,1 @@
+#define CONFIG_S3C2410_RTC 1

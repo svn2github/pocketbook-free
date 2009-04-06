@@ -1,0 +1,1 @@
+#undef  CONFIG_PCMCIA_SA1100

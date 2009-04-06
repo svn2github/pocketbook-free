@@ -1,0 +1,1 @@
+#define CONFIG_UMSDOS_FS 1

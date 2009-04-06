@@ -1,0 +1,178 @@
+background.o: background.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/unistd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/completion.h \
+   nodelist.h
+build.o: build.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   nodelist.h
+compr.o: compr.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h
+compr_rtime.o: compr_rtime.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h
+compr_rubin.o: compr_rubin.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   compr_rubin.h \
+   histo_mips.h
+compr_rubin.h: \
+   pushpull.h
+	@touch compr_rubin.h
+comprtest.o: comprtest.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/types.h
+compr_zlib.o: compr_zlib.c \
+   zlib.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   nodelist.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/types.h
+crc32.o: crc32.c \
+   crc32.h
+crc32.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h
+	@touch crc32.h
+dir.o: dir.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2_fs_i.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2_fs_sb.h \
+   nodelist.h \
+   crc32.h
+erase.o: erase.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   nodelist.h \
+   crc32.h
+file.o: file.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   nodelist.h \
+   crc32.h
+gc.o: gc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h \
+   nodelist.h \
+   crc32.h
+ioctl.o: ioctl.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h
+malloc.o: malloc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   nodelist.h
+nodelist.o: nodelist.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   nodelist.h
+nodelist.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2_fs_sb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2_fs_i.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/jffs2/fs/debug.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mizi.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+	@touch nodelist.h
+nodemgmt.o: nodemgmt.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   nodelist.h
+pushpull.o: pushpull.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   pushpull.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h
+read.o: read.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   nodelist.h \
+   crc32.h
+readinode.o: readinode.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   nodelist.h \
+   crc32.h
+scan.o: scan.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h \
+   nodelist.h \
+   crc32.h
+super.o: super.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/list.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pagemap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   nodelist.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/jffs2/fs/debug.h)
+symlink.o: symlink.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   nodelist.h
+write.o: write.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/jffs2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   nodelist.h \
+   crc32.h
+zlib.o: zlib.c \
+   zlib.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h
+.PRECIOUS:	compr_rubin.h \
+	crc32.h \
+	nodelist.h \
+

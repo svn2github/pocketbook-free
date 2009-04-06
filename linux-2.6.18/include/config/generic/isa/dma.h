@@ -1,0 +1,1 @@
+#undef  CONFIG_GENERIC_ISA_DMA

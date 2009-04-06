@@ -1,0 +1,1 @@
+#define CONFIG_NLS_CODEPAGE_936 1

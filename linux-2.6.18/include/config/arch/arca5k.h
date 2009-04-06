@@ -1,0 +1,1 @@
+#undef  CONFIG_ARCH_ARCA5K

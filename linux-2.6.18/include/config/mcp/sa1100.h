@@ -1,0 +1,1 @@
+#undef  CONFIG_MCP_SA1100

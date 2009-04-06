@@ -1,0 +1,282 @@
+alignment.o: alignment.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/compiler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/unaligned.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm922t.h)
+consistent.o: consistent.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h)
+discontig.o: discontig.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h
+extable.o: extable.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/modules.h)
+fault-armo.o: fault-armo.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h
+fault-armv.o: fault-armv.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/alignment/trap.h)
+fault-common.o: fault-common.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/unaligned.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/26.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/32.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/debug/user.h)
+init.o: init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/swap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/swapctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach-types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/arch.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/discontigmem.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/32.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/no/pgt/cache.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/blk/dev/initrd.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1111.h)
+ioremap.o: ioremap.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h
+mm-armo.o: mm-armo.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/memory.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-armv.o: mm-armv.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-clps7500.o: mm-clps7500.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/proc/domain.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-ftvpci.o: mm-ftvpci.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-l7200.o: mm-l7200.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/proc/domain.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-rpc.o: mm-rpc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/proc/domain.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+mm-tbox.o: mm-tbox.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach/map.h
+proc-arm1020.o: proc-arm1020.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/branch/prediction.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/d/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/i/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/force/write/through.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/cpu/idle.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm1020/round/robin.h)
+proc-arm2,3.o: proc-arm2,3.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h
+proc-arm6,7.o: proc-arm6,7.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h
+proc-arm720.o: proc-arm720.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+proc-arm920.o: proc-arm920.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm920/cpu/idle.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm920/writethrough.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm920/i/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm920/d/cache/on.h)
+proc-arm922.o: proc-arm922.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm922/cpu/idle.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm922/writethrough.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm922/i/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm922/d/cache/on.h)
+proc-arm926.o: proc-arm926.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm926/cpu/idle.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm926/writethrough.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm926/i/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm926/d/cache/on.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/arm926/round/robin.h)
+proc-sa110.o: proc-sa110.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+proc-syms.o: proc-syms.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/proc-fns.h
+proc-xscale.o: proc-xscale.S \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/assembler.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/constants.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/procinfo.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/proc/pgtable.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/xscale/cache/errata.h)
+small_page.o: small_page.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/swap.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h

@@ -1,0 +1,1 @@
+#undef  CONFIG_SERIAL_CLPS711X

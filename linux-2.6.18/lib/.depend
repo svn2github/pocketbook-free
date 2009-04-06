@@ -1,0 +1,42 @@
+brlock.o: brlock.c \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/smp.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/brlock.h
+bust_spinlocks.o: bust_spinlocks.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vt_kern.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/vt.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/console/pm.h)
+cmdline.o: cmdline.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h
+ctype.o: ctype.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h
+dec_and_lock.o: dec_and_lock.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h
+rbtree.o: rbtree.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/rbtree.h
+rwsem.o: rwsem.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/rwsem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h
+rwsem-spinlock.o: rwsem-spinlock.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/rwsem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h
+string.o: string.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h
+vsprintf.o: vsprintf.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/div64.h

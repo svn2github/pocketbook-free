@@ -1,0 +1,35 @@
+af_econet.o: af_econet.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/socket.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sockios.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ether.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inetdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/route.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wireless.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/inet_common.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_ec.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/udp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/econet/aunudp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/econet/native.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h

@@ -1,0 +1,1 @@
+#define CONFIG_PC_KEYMAP 1

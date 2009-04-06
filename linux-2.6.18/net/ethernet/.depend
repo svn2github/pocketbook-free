@@ -1,0 +1,33 @@
+eth.o: eth.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/socket.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/dst.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ipv6.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/checksum.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/inet.h)
+pe2.o: pe2.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/datalink.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h
+sysctl_net_ether.o: sysctl_net_ether.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysctl.h

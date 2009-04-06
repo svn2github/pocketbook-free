@@ -1,0 +1,113 @@
+netsyms.o: netsyms.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inetdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fddidevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/trdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/neighbour.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/snmp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/dst.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/checksum.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/route.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/hippi.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hippidevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/pkt_sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/scm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_bridge.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_vlan.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/random.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/divert.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/divert.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/inet.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/protocol.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ip.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/udp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/tcp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/icmp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/inet_common.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/inet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mroute.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/igmp.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ipv6.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ipv6/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/khttpd.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/khttpd/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in6.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/icmpv6.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ipv6.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ndisc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/transp_v6.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/addrconf.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/rtnetlink.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ipx/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atalk/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sysctl.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/filter.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arpd.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/vlan/8021q.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/vlan/8021q/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bridge/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/dlci/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/ip6_route.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/netlink/dev.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/netlink/dev/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/tr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fddi.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/kmod.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/hw/flowcontrol.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/fastroute.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/sched.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/estimator.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/cls/police.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/cls.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/netfilter.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netfilter.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netfilter_ipv4.h
+socket.o: socket.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/socket.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/file.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/net.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wanrouter.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netlink.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/rtnetlink.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/cache.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/highmem.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/kmod.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/sock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/net/scm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netfilter.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/smp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/wan/router.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/bluez.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/netlink/dev.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/netfilter.h)
+sysctl_net.o: sysctl_net.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysctl.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/inet.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ipv6.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/tr.h)

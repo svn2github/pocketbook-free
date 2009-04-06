@@ -1,0 +1,1 @@
+#define CONFIG_NLS_DEFAULT "ISO 8859-1"
