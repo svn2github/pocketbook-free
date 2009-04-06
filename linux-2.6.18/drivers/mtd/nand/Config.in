@@ -1,0 +1,44 @@
+# drivers/mtd/nand/Config.in
+
+# $Id: Config.in,v 1.1.1.1 2004/02/04 12:56:25 laputa Exp $
+
+mainmenu_option next_comment
+
+comment 'NAND Flash Device Drivers'
+
+dep_tristate '  NAND Device Support' CONFIG_MTD_NAND $CONFIG_MTD
+if [ "$CONFIG_MTD_NAND" = "y" -o "$CONFIG_MTD_NAND" = "m" ]; then
+   bool '    Enable ECC correction algorithm'  CONFIG_MTD_NAND_ECC
+   bool '    Verify NAND page writes' CONFIG_MTD_NAND_VERIFY_WRITE
+   if [ "$CONFIG_JFFS2_FS" = "y" -o "$CONFIG_JFFS2_FS" = "m" ]; then
+   	bool '    Use JFFS2 layout for OOB area' CONFIG_MTD_NAND_ECC_JFFS2
+   fi
+fi
+
+if [ "$CONFIG_ARM" = "y" -a "$CONFIG_ARCH_P720T" = "y" ]; then
+   dep_tristate '  NAND Flash device on SPIA board' CONFIG_MTD_NAND_SPIA $CONFIG_MTD_NAND
+fi
+
+if [ "$CONFIG_ARCH_AUTCPU12" = "y" ]; then
+   dep_tristate ' SmartMedia Card on AUTCPU12 board' CONFIG_MTD_NAND_AUTCPU12 $CONFIG_MTD_NAND
+fi
+
+dep_tristate '  SMC Device Support' CONFIG_MTD_SMC $CONFIG_MTD
+if [ "$CONFIG_MTD_SMC" != "n" ]; then
+   define_bool CONFIG_MTD_NANDY     y
+   define_bool CONFIG_MTD_NAND_ECC     y
+   bool '    Verify NAND page writes' CONFIG_MTD_NAND_VERIFY_WRITE
+   dep_tristate '  Simple Block Device for Nand Flash(BON FS)' CONFIG_MTD_NAND_BONFS $CONFIG_MTD_SMC
+   if [ "$CONFIG_S3C2400_GAMEPARK" = "y" ]; then
+     dep_tristate '  SMC device on GamePark machine' CONFIG_MTD_SMC_GAMEPARK $CONFIG_MTD_SMC
+   fi
+   if [ "$CONFIG_S3C2410_SMDK" = "y" ]; then
+      dep_tristate '  SMC device on S3C2410 SMDK' CONFIG_MTD_SMC_S3C2410_SMDK $CONFIG_MTD_SMC
+   fi
+   if [ "$CONFIG_ARCH_PREMIUM" = "y" ]; then
+      dep_tristate '  NAND device on Premium' CONFIG_MTD_NAND_PREMIUM $CONFIG_MTD_SMC
+   fi
+else
+   define_bool CONFIG_MTD_NANDY     n
+fi
+endmenu

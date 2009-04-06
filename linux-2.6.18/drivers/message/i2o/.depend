@@ -1,0 +1,149 @@
+i2o_block.o: i2o_block.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/file.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blkdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blkpg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/notifier.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/reboot.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/completion.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h
+i2o_config.o: i2o_config.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h
+i2o_core.o: i2o_core.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/completion.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/reboot.h \
+   i2o_lan.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2o/pci/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2o/pci.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2o/block.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2o/lan.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2o/proc.h)
+i2o_lan.o: i2o_lan.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/etherdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fddidevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/trdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/if_arp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   i2o_lan.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/net/fc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/tr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fddi.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/anylan.h)
+i2o_lan.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fddidevice.h
+	@touch i2o_lan.h
+i2o_pci.o: i2o_pci.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h)
+i2o_proc.o: i2o_proc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   i2o_lan.h
+i2o_scsi.o: i2o_scsi.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/prefetch.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2o.h \
+   ../../scsi/scsi.h \
+   ../../scsi/hosts.h \
+   ../../scsi/sd.h \
+   i2o_scsi.h \
+   ../../scsi/scsi_module.c
+i2o_scsi.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kdev_t.h
+	@touch i2o_scsi.h
+.PRECIOUS:	i2o_lan.h \
+	i2o_scsi.h \
+

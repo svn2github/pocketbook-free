@@ -1,0 +1,141 @@
+afs.o: afs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/map.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/partitions.h
+cmdline.o: cmdline.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/partitions.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bootmem.h
+ftl.o: ftl.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blkpg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/ftl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h
+mtdblock.o: mtdblock.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/devfs/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h
+mtdblock_ro.o: mtdblock_ro.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h
+mtdchar.o: mtdchar.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mizi.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/devfs/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h
+mtdchar-compat.o: mtdchar-compat.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/devfs/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h
+mtdconcat.o: mtdconcat.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/concat.h
+mtdcore.o: mtdcore.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pm.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pm.h
+mtdpart.o: mtdpart.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/list.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/partitions.h
+nftlcore.o: nftlcore.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blkpg.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/kmod.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/nftl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/nftl/rw.h)
+nftlmount.o: nftlmount.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/nftl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/compatmac.h
+redboot.o: redboot.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/mtd.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtd/partitions.h

@@ -1,0 +1,19 @@
+hwacpi.o: hwacpi.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h
+hwgpe.o: hwgpe.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h
+hwregs.o: hwregs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+hwsleep.o: hwsleep.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h
+hwtimer.o: hwtimer.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h

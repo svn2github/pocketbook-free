@@ -1,0 +1,60 @@
+ixj.o: ixj.c \
+   ixj-ver.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isapnp.h \
+   ixj.h
+ixj.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ixjuser.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/phonedev.h
+	@touch ixj.h
+ixj_pcmcia.o: ixj_pcmcia.c \
+   ixj-ver.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ds.h \
+   ixj.h
+phonedev.o: phonedev.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/phonedev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sem.h
+.PRECIOUS:	ixj.h \
+

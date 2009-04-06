@@ -1,0 +1,302 @@
+fc-10.o: fc-10.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/fc-10.h
+fdc-io.o: fdc-io.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/fdc-isr.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-calibr.h \
+   ../lowlevel/fc-10.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/base.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/irq.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/dma.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/thr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/max/rate.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/probe/fc10.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/mach2.h)
+fdc-io.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fdreg.h \
+   ../lowlevel/ftape-bsm.h
+	@touch fdc-io.h
+fdc-isr.o: fdc-isr.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/fdc-isr.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-calibr.h \
+   ../lowlevel/ftape-bsm.h
+ftape-bsm.o: ftape-bsm.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-bsm.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h
+ftape-bsm.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape-header-segment.h
+	@touch ftape-bsm.h
+ftape-buffer.o: ftape-buffer.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wrapper.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-tracing.h
+ftape-calibr.o: ftape-calibr.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timex.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-calibr.h \
+   ../lowlevel/fdc-io.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/alpha/clock.h)
+ftape-ctl.o: ftape-ctl.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wrapper.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-bsm.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/two/drives.h)
+ftape-ctl.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape-vendors.h \
+   ../lowlevel/ftape-rw.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape-header-segment.h
+	@touch ftape-ctl.h
+ftape-ecc.o: ftape-ecc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-ecc.h
+ftape-ecc.h: \
+   ../lowlevel/ftape-bsm.h
+	@touch ftape-ecc.h
+ftape-format.o: ftape-format.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-ecc.h \
+   ../lowlevel/ftape-bsm.h \
+   ../lowlevel/ftape-format.h
+ftape-init.o: ftape-init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/zftape.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/zftape.h \
+   ../lowlevel/ftape-init.h \
+   ../lowlevel/ftape_syms.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-buffer.h \
+   ../lowlevel/ftape-proc.h \
+   ../lowlevel/ftape-tracing.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/nr/buffers.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/no/trace/at/all.h)
+ftape-init.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/linkage.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h
+	@touch ftape-init.h
+ftape-io.o: ftape-io.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mtio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-init.h \
+   ../lowlevel/ftape-calibr.h
+ftape-io.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape-vendors.h
+	@touch ftape-io.h
+ftape-proc.o: ftape-proc.c \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/proc/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-proc.h \
+   ../lowlevel/ftape-tracing.h
+ftape-proc.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h
+	@touch ftape-proc.h
+ftape-read.o: ftape-read.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-ecc.h \
+   ../lowlevel/ftape-bsm.h
+ftape-rw.o: ftape-rw.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-init.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-ecc.h \
+   ../lowlevel/ftape-bsm.h
+ftape-rw.h: \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-init.h \
+   ../lowlevel/ftape-bsm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/unaligned.h
+	@touch ftape-rw.h
+ftape-setup.o: ftape-setup.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/fdc-io.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/no/trace/at/all.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/base.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/irq.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/dma.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/thr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/fdc/max/rate.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/probe/fc10.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/mach2.h)
+ftape_syms.o: ftape_syms.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-init.h \
+   ../lowlevel/fdc-io.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-bsm.h \
+   ../lowlevel/ftape-buffer.h \
+   ../lowlevel/ftape-format.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/no/trace/at/all.h)
+ftape_syms.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h
+	@touch ftape_syms.h
+ftape-tracing.o: ftape-tracing.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   ../lowlevel/ftape-tracing.h
+ftape-tracing.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/no/trace/at/all.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/no/trace.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ft/full/debug.h)
+	@touch ftape-tracing.h
+ftape-write.o: ftape-write.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ftape.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/qic117.h \
+   ../lowlevel/ftape-tracing.h \
+   ../lowlevel/ftape-write.h \
+   ../lowlevel/ftape-read.h \
+   ../lowlevel/ftape-io.h \
+   ../lowlevel/ftape-ctl.h \
+   ../lowlevel/ftape-rw.h \
+   ../lowlevel/ftape-ecc.h \
+   ../lowlevel/ftape-bsm.h \
+   ../lowlevel/fdc-isr.h
+.PRECIOUS:	fdc-io.h \
+	ftape-bsm.h \
+	ftape-ctl.h \
+	ftape-ecc.h \
+	ftape-init.h \
+	ftape-io.h \
+	ftape-proc.h \
+	ftape-rw.h \
+	ftape_syms.h \
+	ftape-tracing.h \
+

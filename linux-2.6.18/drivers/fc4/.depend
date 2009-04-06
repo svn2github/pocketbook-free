@@ -1,0 +1,95 @@
+fc.o: fc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   fcp_impl.h \
+   ../scsi/hosts.h
+fcp_impl.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   ../scsi/scsi.h \
+   fc.h \
+   fcp.h \
+   fc-al.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h
+	@touch fcp_impl.h
+fc_syms.o: fc_syms.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/modules.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   fcp_impl.h
+socal.o: socal.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   fcp_impl.h \
+   socal.h
+socal.h: \
+   fc.h \
+   fcp.h \
+   fcp_impl.h
+	@touch socal.h
+soc.o: soc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/in.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   fcp_impl.h \
+   soc.h
+soc.h: \
+   fc.h \
+   fcp.h \
+   fcp_impl.h
+	@touch soc.h
+.PRECIOUS:	fcp_impl.h \
+	socal.h \
+	soc.h \
+

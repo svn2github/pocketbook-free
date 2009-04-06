@@ -1,0 +1,74 @@
+nsaccess.o: nsaccess.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdispat.h
+nsalloc.o: nsalloc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h
+nsdump.o: nsdump.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/actables.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acparser.h
+nseval.o: nseval.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acparser.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+nsinit.o: nsinit.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdispat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h
+nsload.o: nsload.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acparser.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdispat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdebug.h
+nsnames.o: nsnames.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+nsobject.o: nsobject.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/actables.h
+nssearch.o: nssearch.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+nsutils.o: nsutils.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/actables.h
+nswalk.o: nswalk.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+nsxfname.o: nsxfname.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acparser.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdispat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h
+nsxfobj.o: nsxfobj.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acdispat.h

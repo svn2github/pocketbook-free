@@ -1,0 +1,439 @@
+bulkmem.o: bulkmem.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h
+cardbus.o: cardbus.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h
+cistpl.o: cistpl.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bus_ops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cisreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h)
+clps6700.o: clps6700.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/clps7111.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   clps6700.h
+cs.o: cs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cisreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bus_ops.h \
+   cs_internal.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pm.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/s3c2410/smdk.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/locked.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/io/req.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/irq/req.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pcmcia/probe.h)
+cs_internal.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+	@touch cs_internal.h
+ds.o: ds.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/major.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ds.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h)
+hd64465_ss.o: hd64465_ss.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h
+i82092.o: i82092.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   i82092aa.h \
+   i82365.h
+i82365.o: i82365.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isapnp.h \
+   i82365.h \
+   cirrus.h \
+   vg468.h \
+   ricoh.h \
+   o2micro.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/ebsa110.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/s3c2410/smdk.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/isa.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/isapnp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/isapnp/module.h)
+pci_socket.o: pci_socket.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   pci_socket.h
+rsrc_mgr.o: rsrc_mgr.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pcmcia/probe.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h)
+sa1100_adsbitsy.o: sa1100_adsbitsy.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100_assabet.o: sa1100_assabet.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_badge4.o: sa1100_badge4.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/sa1111.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100_cerf.o: sa1100_cerf.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/cerf.h) \
+   sa1100_cerf.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/cerf/cpld.h)
+sa1100_cerf.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pxa/cerf.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pxa/cerf/pda.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pxa/cerf/board.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/cerf.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/cerf/cpld.h)
+	@touch sa1100_cerf.h
+sa1100_flexanet.o: sa1100_flexanet.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_freebird.o: sa1100_freebird.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_graphicsclient.o: sa1100_graphicsclient.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_graphicsmaster.o: sa1100_graphicsmaster.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   cs_internal.h \
+   sa1100_generic.h
+	@touch sa1100.h
+sa1100_h3600.o: sa1100_h3600.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_jornada720.o: sa1100_jornada720.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100_neponset.o: sa1100_neponset.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/sa1111.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100_pangolin.o: sa1100_pangolin.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/pangolin/pcmcia/ide.h)
+sa1100_pfs168.o: sa1100_pfs168.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+sa1100_shannon.o: sa1100_shannon.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_simpad.o: sa1100_simpad.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_stork.o: sa1100_stork.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_xp860.o: sa1100_xp860.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1100_yopy.o: sa1100_yopy.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h
+sa1111_generic.o: sa1111_generic.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/sa1111.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   sa1100_generic.h \
+   sa1111_generic.h
+tcic.o: tcic.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fcntl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   tcic.h
+ti113x.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cardbus.h)
+	@touch ti113x.h
+yenta.o: yenta.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   yenta.h \
+   i82365.h \
+   ti113x.h \
+   ricoh.h
+yenta.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   pci_socket.h
+	@touch yenta.h
+.PRECIOUS:	cs_internal.h \
+	sa1100_cerf.h \
+	sa1100.h \
+	ti113x.h \
+	yenta.h \
+

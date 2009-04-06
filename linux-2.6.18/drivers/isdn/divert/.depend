@@ -1,0 +1,27 @@
+divert_init.o: divert_init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   isdn_divert.h
+divert_procfs.o: divert_procfs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isdnif.h \
+   isdn_divert.h
+isdn_divert.o: isdn_divert.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   isdn_divert.h
+isdn_divert.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isdnif.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isdn_divertif.h
+	@touch isdn_divert.h
+.PRECIOUS:	isdn_divert.h \
+

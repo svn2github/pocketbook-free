@@ -1,0 +1,46 @@
+l3-algo-bit.o: l3-algo-bit.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/l3/l3.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/l3/algo-bit.h
+l3-bit-sa1100.o: l3-bit-sa1100.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c-algo-bit.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/l3/algo-bit.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach-types.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/i2c/bit/sa1100/gpio.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/l3/bit/sa1100/gpio.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/h3600.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/h3100.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/stork.h)
+l3-core.o: l3-core.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/l3/l3.h
+l3-sa1111.o: l3-sa1111.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/l3/l3.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach-types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/sa1111.h

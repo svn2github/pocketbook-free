@@ -1,0 +1,190 @@
+datafab.o: datafab.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   datafab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h
+debug.o: debug.c \
+   debug.h
+debug.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/cdrom.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/scsi.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/debug.h)
+	@touch debug.h
+dpcm.o: dpcm.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   dpcm.h \
+   sddr09.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/sddr09.h)
+freecom.o: freecom.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   freecom.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/debug.h)
+initializers.o: initializers.c \
+   initializers.h \
+   debug.h
+initializers.h: \
+   usb.h
+	@touch initializers.h
+isd200.o: isd200.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   scsiglue.h \
+   isd200.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/hdreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ide.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/debug.h)
+jumpshot.o: jumpshot.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   jumpshot.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h
+protocol.o: protocol.c \
+   protocol.h \
+   usb.h \
+   debug.h \
+   scsiglue.h \
+   transport.h
+protocol.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/scsi.h \
+   usb.h
+	@touch protocol.h
+scsiglue.o: scsiglue.c \
+   scsiglue.h \
+   usb.h \
+   debug.h \
+   transport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h
+scsiglue.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/scsi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/hosts.h
+	@touch scsiglue.h
+sddr09.o: sddr09.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   sddr09.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h
+sddr55.o: sddr55.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   sddr55.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/debug.h)
+shuttle_usbat.o: shuttle_usbat.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   shuttle_usbat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h
+transport.o: transport.c \
+   transport.h \
+   protocol.h \
+   usb.h \
+   debug.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/debug.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124/module.h)
+transport.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   usb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/scsi.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/hp8200e.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/sddr09.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/freecom.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/datafab.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/jumpshot.h)
+	@touch transport.h
+unusual_devs.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124/module.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/hp8200e.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/dpcm.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/sddr09.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/isd200.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/jumpshot.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/freecom.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/datafab.h)
+	@touch unusual_devs.h
+usb.o: usb.c \
+   usb.h \
+   scsiglue.h \
+   transport.h \
+   protocol.h \
+   debug.h \
+   initializers.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/hp8200e.h) \
+   shuttle_usbat.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/sddr09.h) \
+   sddr09.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/dpcm.h) \
+   dpcm.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/freecom.h) \
+   freecom.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/isd200.h) \
+   isd200.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/datafab.h) \
+   datafab.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/storage/jumpshot.h) \
+   jumpshot.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   unusual_devs.h \
+   unusual_devs.h
+usb.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/usb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/blk.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/completion.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/scsi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/scsi/hosts.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/usb/uhci124/module.h)
+	@touch usb.h
+.PRECIOUS:	debug.h \
+	initializers.h \
+	protocol.h \
+	scsiglue.h \
+	transport.h \
+	unusual_devs.h \
+	usb.h \
+

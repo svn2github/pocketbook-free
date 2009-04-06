@@ -1,0 +1,145 @@
+i2c-matroxfb.o: i2c-matroxfb.c \
+   matroxfb_base.h \
+   matroxfb_maven.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c-algo-bit.h
+matroxfb_accel.o: matroxfb_accel.c \
+   matroxfb_accel.h \
+   matroxfb_DAC1064.h \
+   matroxfb_Ti3026.h \
+   matroxfb_misc.h
+matroxfb_accel.h: \
+   matroxfb_base.h
+	@touch matroxfb_accel.h
+matroxfb_base.o: matroxfb_base.c \
+   matroxfb_base.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   matroxfb_DAC1064.h \
+   matroxfb_Ti3026.h \
+   matroxfb_maven.h \
+   matroxfb_crtc2.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ppc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/32mb.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/multihead.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/compat/xpmac.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/millenium.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/mystique.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/g100.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/g450.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/all/ppc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/nvram.h)
+matroxfb_base.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/console.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/selection.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/unaligned.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb4.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb8.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb16.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb24.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb32.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/compat/xpmac.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/ppc.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/macmodes.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/mystique.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/g100.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/millenium.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/32mb.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/multihead.h)
+	@touch matroxfb_base.h
+matroxfb_crtc2.o: matroxfb_crtc2.c \
+   matroxfb_maven.h \
+   matroxfb_crtc2.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h
+matroxfb_crtc2.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c-algo-bit.h \
+   matroxfb_base.h
+	@touch matroxfb_crtc2.h
+matroxfb_DAC1064.o: matroxfb_DAC1064.c \
+   matroxfb_DAC1064.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/mystique.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/g100.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/32mb.h)
+matroxfb_DAC1064.h: \
+   matroxfb_base.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/mystique.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/g100.h)
+	@touch matroxfb_DAC1064.h
+matroxfb_g450.o: matroxfb_g450.c \
+   matroxfb_g450.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h
+matroxfb_g450.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   matroxfb_base.h
+	@touch matroxfb_g450.h
+matroxfb_maven.o: matroxfb_maven.c \
+   matroxfb_maven.h \
+   matroxfb_misc.h \
+   matroxfb_DAC1064.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/div64.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h
+matroxfb_maven.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/i2c-algo-bit.h \
+   matroxfb_base.h
+	@touch matroxfb_maven.h
+matroxfb_misc.o: matroxfb_misc.c \
+   matroxfb_misc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/matroxfb.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/multihead.h)
+matroxfb_misc.h: \
+   matroxfb_base.h
+	@touch matroxfb_misc.h
+matroxfb_Ti3026.o: matroxfb_Ti3026.c \
+   matroxfb_Ti3026.h \
+   matroxfb_misc.h \
+   matroxfb_accel.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/millenium.h)
+matroxfb_Ti3026.h: \
+   matroxfb_base.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/fb/matrox/millenium.h)
+	@touch matroxfb_Ti3026.h
+.PRECIOUS:	matroxfb_accel.h \
+	matroxfb_base.h \
+	matroxfb_crtc2.h \
+	matroxfb_DAC1064.h \
+	matroxfb_g450.h \
+	matroxfb_maven.h \
+	matroxfb_misc.h \
+	matroxfb_Ti3026.h \
+

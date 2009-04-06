@@ -1,0 +1,356 @@
+ati_pcigart.h: \
+   drmP.h
+	@touch ati_pcigart.h
+drm_agpsupport.h: \
+   drmP.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h
+	@touch drm_agpsupport.h
+drm_auth.h: \
+   drmP.h
+	@touch drm_auth.h
+drm_bufs.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   drmP.h
+	@touch drm_bufs.h
+drm_context.h: \
+   drmP.h
+	@touch drm_context.h
+drm_dma.h: \
+   drmP.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h
+	@touch drm_dma.h
+drm_drawable.h: \
+   drmP.h
+	@touch drm_drawable.h
+drm_fops.h: \
+   drmP.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h
+	@touch drm_fops.h
+drm.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/ioctl.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/xfree86/version.h) \
+   mga_drm.h \
+   i810_drm.h \
+   r128_drm.h \
+   radeon_drm.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/drm/sis.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/drm/sis/module.h) \
+   sis_drm.h
+	@touch drm.h
+drm_init.h: \
+   drmP.h
+	@touch drm_init.h
+drm_ioctl.h: \
+   drmP.h
+	@touch drm_ioctl.h
+drm_lists.h: \
+   drmP.h
+	@touch drm_lists.h
+drm_lock.h: \
+   drmP.h
+	@touch drm_lock.h
+drm_memory.h: \
+   drmP.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wrapper.h
+	@touch drm_memory.h
+drmP.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/current.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/file.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wrapper.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mman.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/agp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/agp/module.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/agp_backend.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgalloc.h \
+   drm.h
+	@touch drmP.h
+drm_proc.h: \
+   drmP.h
+	@touch drm_proc.h
+drm_scatter.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   drmP.h
+	@touch drm_scatter.h
+drm_stub.h: \
+   drmP.h
+	@touch drm_stub.h
+drm_vm.h: \
+   drmP.h
+	@touch drm_vm.h
+ffb_context.o: ffb_context.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   ffb.h \
+   drmP.h \
+   ffb_drv.h
+ffb_drv.o: ffb_drv.c \
+   ffb.h \
+   drmP.h \
+   ffb_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/shmparam.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+gamma_dma.o: gamma_dma.c \
+   gamma.h \
+   drmP.h \
+   gamma_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+gamma_drv.o: gamma_drv.c \
+   gamma.h \
+   drmP.h \
+   gamma_drv.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lists.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+i810_dma.o: i810_dma.c \
+   i810.h \
+   drmP.h \
+   i810_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h
+i810_drm.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/xfree86/version.h)
+	@touch i810_drm.h
+i810_drv.o: i810_drv.c \
+   i810.h \
+   drmP.h \
+   i810_drv.h \
+   drm_agpsupport.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_lists.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+mga_dma.o: mga_dma.c \
+   mga.h \
+   drmP.h \
+   mga_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+mga_drv.o: mga_drv.c \
+   mga.h \
+   drmP.h \
+   mga_drv.h \
+   drm_agpsupport.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+mga_state.o: mga_state.c \
+   mga.h \
+   drmP.h \
+   mga_drv.h \
+   drm.h
+mga_warp.o: mga_warp.c \
+   mga.h \
+   drmP.h \
+   mga_drv.h \
+   mga_ucode.h
+r128_cce.o: r128_cce.c \
+   r128.h \
+   drmP.h \
+   r128_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+r128_drm.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/xfree86/version.h)
+	@touch r128_drm.h
+r128_drv.o: r128_drv.c \
+   r128.h \
+   drmP.h \
+   r128_drv.h \
+   ati_pcigart.h \
+   drm_agpsupport.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h \
+   drm_scatter.h
+r128_state.o: r128_state.c \
+   r128.h \
+   drmP.h \
+   r128_drv.h \
+   drm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+radeon_cp.o: radeon_cp.c \
+   radeon.h \
+   drmP.h \
+   radeon_drv.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+radeon_drv.o: radeon_drv.c \
+   radeon.h \
+   drmP.h \
+   radeon_drv.h \
+   ati_pcigart.h \
+   drm_agpsupport.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h \
+   drm_scatter.h
+radeon_state.o: radeon_state.c \
+   radeon.h \
+   drmP.h \
+   radeon_drv.h \
+   drm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h
+sis_drv.o: sis_drv.c \
+   sis.h \
+   drmP.h \
+   sis_drm.h \
+   sis_drv.h \
+   drm_auth.h \
+   drm_agpsupport.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lists.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+sis_ds.o: sis_ds.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/malloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   sis_ds.h
+sis_mm.o: sis_mm.c \
+   sis.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sisfb.h \
+   drmP.h \
+   sis_drm.h \
+   sis_drv.h \
+   sis_ds.h
+tdfx_drv.o: tdfx_drv.c \
+   tdfx.h \
+   drmP.h \
+   drm_auth.h \
+   drm_bufs.h \
+   drm_context.h \
+   drm_dma.h \
+   drm_drawable.h \
+   drm_drv.h \
+   drm_fops.h \
+   drm_init.h \
+   drm_ioctl.h \
+   drm_lock.h \
+   drm_memory.h \
+   drm_proc.h \
+   drm_vm.h \
+   drm_stub.h
+.PRECIOUS:	ati_pcigart.h \
+	drm_agpsupport.h \
+	drm_auth.h \
+	drm_bufs.h \
+	drm_context.h \
+	drm_dma.h \
+	drm_drawable.h \
+	drm_fops.h \
+	drm.h \
+	drm_init.h \
+	drm_ioctl.h \
+	drm_lists.h \
+	drm_lock.h \
+	drm_memory.h \
+	drmP.h \
+	drm_proc.h \
+	drm_scatter.h \
+	drm_stub.h \
+	drm_vm.h \
+	i810_drm.h \
+	r128_drm.h \
+

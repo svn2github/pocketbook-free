@@ -1,0 +1,377 @@
+ambassador.o: ambassador.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   ambassador.h
+ambassador.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/ambassador/debug.h)
+	@touch ambassador.h
+atmdev_init.o: atmdev_init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/zatm.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/nicstar.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/ambassador.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/horizon.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/ia.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/lanai.h)
+atmtcp.o: atmtcp.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_tcp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h
+eni.o: eni.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_eni.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   tonga.h \
+   midway.h \
+   suni.h \
+   eni.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/tune/burst.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/debug.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/rx/16w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/rx/8w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/rx/4w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/rx/2w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/tx/16w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/tx/8w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/tx/4w.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/eni/burst/tx/2w.h)
+eni.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   midway.h
+	@touch eni.h
+firestream.o: firestream.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   firestream.h
+fore200e.o: fore200e.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_suni.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/page.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/sba.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/pgtable.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   fore200e.h \
+   suni.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/debug.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/pca.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/tx/retry.h)
+fore200e.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/sba.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/fore200e/pca.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h
+	@touch fore200e.h
+horizon.o: horizon.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   horizon.h
+horizon.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/horizon/debug.h)
+	@touch horizon.h
+idt77105.o: idt77105.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_idt77105.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   idt77105.h
+idt77105.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmioc.h
+	@touch idt77105.h
+idt77252.o: idt77252.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/idt77252/use/suni.h) \
+   suni.h \
+   idt77252.h \
+   idt77252_tables.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/idt77252/debug.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/idt77252/rcv/all.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/idt77252/send/idle.h)
+idt77252.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/idt77252/debug.h)
+	@touch idt77252.h
+iphase.o: iphase.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/time.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   iphase.h \
+   suni.h
+iphase.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/ia/debug.h)
+	@touch iphase.h
+lanai.o: lanai.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/vmalloc.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h)
+nicstar.o: nicstar.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   nicstar.h \
+   nicstarmac.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/nicstar/use/suni.h) \
+   suni.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/nicstar/use/idt77105.h) \
+   idt77105.h \
+   nicstarmac.c
+nicstar.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_nicstar.h
+	@touch nicstar.h
+suni.o: suni.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_suni.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   suni.h
+suni.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmioc.h
+	@touch suni.h
+uPD98402.o: uPD98402.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   uPD98402.h
+zatm.o: zatm.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/netdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/uio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm_zatm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/capability.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/bitops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/byteorder.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/atomic.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   uPD98401.h \
+   uPD98402.h \
+   zeprom.h \
+   zatm.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/zatm/exact/ts.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/zatm/debug.h)
+zatm.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/skbuff.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/atmdev.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sonet.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/atm/zatm/exact/ts.h)
+	@touch zatm.h
+.PRECIOUS:	ambassador.h \
+	eni.h \
+	fore200e.h \
+	horizon.h \
+	idt77105.h \
+	idt77252.h \
+	iphase.h \
+	nicstar.h \
+	suni.h \
+	zatm.h \
+

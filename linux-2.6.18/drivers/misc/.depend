@@ -1,0 +1,132 @@
+adc.o: adc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/S3C2410.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+mcp-core.o: mcp-core.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   mcp.h
+mcp.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/sa1100.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h
+	@touch mcp.h
+mcp-pxa.o: mcp-pxa.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ac97_codec.h \
+   mcp.h
+mcp-sa1100.o: mcp-sa1100.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   mcp.h
+pvi_pm1.o: pvi_pm1.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/dio.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/devfs_fs_kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/stat.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/S3C2410.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+ucb1x00-audio.o: ucb1x00-audio.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sound.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/soundcard.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/list.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   ucb1x00.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/../drivers/sound/sa1100-audio.h
+ucb1x00-core.o: ucb1x00-core.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/mach-types.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/sa1100.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   ucb1x00.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/cerf.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/freebird.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/graphicsclient.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/grapicsmaster.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/lart.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/pfs168.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/simpad.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sa1100/yopy.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/pxa/idp.h)
+ucb1x00.h: \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/pxa.h) \
+   mcp.h
+	@touch ucb1x00.h
+ucb1x00-ts.o: ucb1x00-ts.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/smp_lock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/completion.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/semaphore.h \
+   ucb1x00.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/input.h) \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/miscdevice.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/poll.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/input.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pm.h)
+.PRECIOUS:	mcp.h \
+	ucb1x00.h \
+

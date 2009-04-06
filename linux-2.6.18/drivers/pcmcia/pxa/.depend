@@ -1,0 +1,49 @@
+lubbock.o: lubbock.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware/sa1111.h
+pxa.o: pxa.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/cpufreq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tqueue.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/notifier.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/proc_fs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/cpufreq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bus_ops.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/system.h \
+   pxa.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/cpu/freq.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/arch/lubbock.h)
+pxa.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ss.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/bulkmem.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   ../cs_internal.h
+	@touch pxa.h
+pxa_idp.o: pxa_idp.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h
+.PRECIOUS:	pxa.h \
+

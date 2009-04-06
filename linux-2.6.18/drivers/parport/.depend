@@ -1,0 +1,188 @@
+daisy.o: daisy.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h
+ieee1284.o: ieee1284.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/threads.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/lp/console.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h)
+ieee1284_ops.o: ieee1284_ops.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/lp/console.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h)
+init.o: init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/threads.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/pc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sysctl.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/amiga.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/mfc3.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/atari.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/arc.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/sunbpp.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h)
+parport_amiga.o: parport_amiga.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h
+parport_arc.o: parport_arc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/threads.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/arch/irqs.h
+parport_atari.o: parport_atari.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h
+parport_cs.o: parport_cs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport_pc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs_types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cs.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cistpl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ds.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/cisreg.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/pcmcia/ciscode.h
+parport_gsc.o: parport_gsc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/hardware.h
+parport_mfc3.o: parport_mfc3.c \
+   multiface.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mc6821.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/zorro.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/setup.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h
+parport_pc.o: parport_pc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport_pc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/parport.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/pc/fifo.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/pc/superio.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h)
+parport_serial.o: parport_serial.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport_pc.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/serial.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/serialP.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/list.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/serial.h
+parport_sunbpp.o: parport_sunbpp.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/ptrace.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/dma.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h
+probe.o: probe.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h
+procfs.o: procfs.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ctype.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sysctl.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/uaccess.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/sysctl.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/proc/fs.h) \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h)
+share.o: share.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/threads.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/parport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/interrupt.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kmod.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/spinlock.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/irq.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/parport/1284.h)

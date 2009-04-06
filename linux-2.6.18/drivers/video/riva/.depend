@@ -1,0 +1,35 @@
+accel.o: accel.c \
+   rivafb.h
+fbdev.o: fbdev.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/selection.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/tty.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/pci.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/console.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h) \
+   rivafb.h \
+   nvreg.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/pci.h)
+rivafb.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/fb.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb4.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb8.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb16.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/video/fbcon-cfb32.h \
+   riva_hw.h \
+   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/mtrr.h)
+	@touch rivafb.h
+riva_hw.o: riva_hw.c \
+   riva_hw.h \
+   riva_tbl.h
+.PRECIOUS:	rivafb.h \
+

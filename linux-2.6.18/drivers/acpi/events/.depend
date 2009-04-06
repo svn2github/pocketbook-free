@@ -1,0 +1,49 @@
+evevent.o: evevent.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h
+evmisc.o: evmisc.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h
+evregion.o: evregion.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h
+evrgnini.o: evrgnini.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h
+evsci.o: evsci.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h
+evxface.o: evxface.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h
+evxfevnt.o: evxfevnt.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h
+evxfregn.o: evxfregn.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acpi.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/achware.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acnamesp.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acevents.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/amlcode.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/drivers/acpi/include/acinterp.h

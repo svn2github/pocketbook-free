@@ -1,0 +1,78 @@
+card.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isdnif.h \
+   message.h
+	@touch card.h
+command.o: command.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h \
+   scioc.h
+debug.o: debug.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/string.h
+event.o: event.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h
+hardware.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/param.h
+	@touch hardware.h
+includes.h: \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/version.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/errno.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/segment.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/delay.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/mm.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/ioport.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/timer.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/wait.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/isdnif.h \
+   debug.h
+	@touch includes.h
+init.o: init.c \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
+   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
+   includes.h \
+   hardware.h \
+   card.h
+interrupt.o: interrupt.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h
+ioctl.o: ioctl.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h \
+   scioc.h
+message.o: message.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h
+packet.o: packet.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h
+shmem.o: shmem.c \
+   includes.h \
+   hardware.h \
+   card.h
+timer.o: timer.c \
+   includes.h \
+   hardware.h \
+   message.h \
+   card.h
+.PRECIOUS:	card.h \
+	hardware.h \
+	includes.h \
+
