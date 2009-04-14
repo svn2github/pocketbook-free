@@ -58,19 +58,17 @@
 
 
 
-#include <ZLImage.h>
-
-#include "ZLNXImageManager.h"
-
 extern "C" {
+#include <png.h>
 #include <stdio.h>
 #include <jpeglib.h>
 #include <setjmp.h>
 }
 
-
-#include <png.h>
 #include <gif_lib.h>
+
+#include <ZLImage.h>
+#include "ZLNXImageManager.h"
 
 extern int lock_drawing;
 

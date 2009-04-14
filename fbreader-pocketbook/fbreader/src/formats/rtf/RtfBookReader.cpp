@@ -25,6 +25,8 @@
 #include "../../bookmodel/BookModel.h"
 #include "RtfImage.h"
 
+#include <string.h>
+
 RtfBookReader::RtfBookReader(BookModel &model, const std::string &encoding) : RtfReader(encoding), myBookReader(model) {
 }
 

@@ -24,6 +24,8 @@
 
 #include "../description/BookDescription.h"
 
+#include <string.h>
+
 extern char *encoding_override;
 
 void FormatPlugin::detectEncodingAndLanguage(BookDescription &description, ZLInputStream &stream) {
