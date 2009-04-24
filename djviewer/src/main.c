@@ -25,10 +25,18 @@
 #include <math.h>
 #include <sys/wait.h>
 
+#ifdef WIN32
+#undef WIN32
 #include "libdjvu/ddjvuapi.h"
+#define WIN32
+#else
+#include "libdjvu/ddjvuapi.h"
+#endif
 
-extern "C" const ibitmap zoombm;
-extern "C" const ibitmap hgicon;
+#include "zoomer.h"
+
+extern const ibitmap zoombm;
+extern const ibitmap hgicon;
 
 #define MAXRESULTS 200
 
@@ -96,7 +104,7 @@ static char *book_title="";
 static int orient=0;
 static int cpage=1, npages=1;
 static int cpagew, cpageh;
-static int offx, offy;
+static int offx, offy, oldoffy;
 static int scale=100;
 static int thx, thy, thw, thh, thix, thiy, thiw, thih, panh, pgbottom;
 static int zoom_mode=0;
@@ -118,6 +126,8 @@ static void find_off(int step)
 {
 	int sw=ScreenWidth();
 	int sh=ScreenHeight();
+
+        oldoffy = offy;
 
 	offy+=((sh-panh*2)*step);
 
@@ -281,6 +291,25 @@ static void draw_page_image() {
 		ddjvu_page_release(page);
 		return;
 	}
+
+        if (scale > 50 && scale < 200)
+        {
+            int final_offset_y = thy - (offy - oldoffy);
+
+            if (final_offset_y > 100)
+            {
+                int x;
+                for (x =0; x < ScreenWidth() / 10; x += 3)
+                {
+                    data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
+                }
+
+                for (x =ScreenWidth() - 1; x > 9 * ScreenWidth() / 10; x -= 3)
+                {
+                    data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
+                }
+            }
+        }
 
 	w = rrect.w;
 	h = rrect.h;
@@ -508,7 +537,7 @@ static void out_page(int full) {
 	thw = (thh*6)/8;
 	FillArea(thx, thy, thw, thh, WHITE);
 	thx+=1; thy+=1; thw-=2; thh-=2;
-	if (scale >= 200) {
+	if (1/*scale >= 200*/) {
 		FillArea(thx+(thw*thix)/100, thy+(thh*thiy)/100, (thw*thiw)/100, (thh*thih)/100, BLACK);
 	}
 	draw_bmk_flag(0);
@@ -711,6 +740,26 @@ static void mp3_pause() { TogglePlaying(); }
 static void volume_up() { int r = GetVolume(); SetVolume(r+3); }
 static void volume_down() { int r = GetVolume(); SetVolume(r-3); }
 
+static void on_close_zoomer(ZoomerParameters* params)
+{
+    if (scale != params->zoom)
+    {
+        scale = params->zoom;
+        out_page(1);
+    }
+}
+
+static void open_new_zoomer()
+{
+    ZoomerParameters params = {0};
+    params.zoom = scale;
+    params.doc = doc;
+    params.cpage = cpage;
+    params.orient = orient;
+
+    ShowZoomer(&params, on_close_zoomer);
+}
+
 static void handle_navikey(int key) {
 
 	int pageinc=1;
@@ -790,7 +839,7 @@ static const struct {
 	//{ "@KA_cnts", open_contents, NULL, NULL },
 	//{ "@KA_srch", start_search, NULL, NULL },
 	{ "@KA_dict", open_dictionary, NULL, NULL },
-	{ "@KA_zoom", open_zoomer, NULL, NULL },
+	{ "@KA_zoom", open_new_zoomer, NULL, NULL },
 	{ "@KA_zmin", zoom_in, NULL, NULL },
 	{ "@KA_zout", zoom_out, NULL, NULL },
 	{ "@KA_rtte", open_rotate, NULL, NULL },
