@@ -292,7 +292,7 @@ static void draw_page_image() {
 		return;
 	}
 
-        if (scale > 50 && scale < 200)
+        /*if (scale > 50 && scale < 200)
         {
             int final_offset_y = thy - (offy - oldoffy);
 
@@ -309,7 +309,7 @@ static void draw_page_image() {
                     data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
                 }
             }
-        }
+        }*/
 
 	w = rrect.w;
 	h = rrect.h;

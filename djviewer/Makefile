@@ -49,5 +49,5 @@ $(OUT): $(OBJECTS)
 clean:
 	rm -r -f $(TEMPFILES)
 	
-.PHONY: clean arm pc
+.PHONY: clean arm wine
 
