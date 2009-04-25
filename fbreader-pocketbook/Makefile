@@ -3,7 +3,11 @@ ROOTDIR = $(CURDIR)
 include makefiles/platforms.mk
 
 ZLIBDIRS = zlibrary/core zlibrary/text zlibrary/ui
-APPDIRS = images fbreader
+ifeq "$(TARGET_ARCH)" "pocketbook"
+  APPDIRS = images fbreader
+else
+  APPDIRS = fbreader
+endif
 
 all:
 	@for dir in $(ZLIBDIRS) $(APPDIRS); do \
