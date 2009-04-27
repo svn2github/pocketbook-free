@@ -344,23 +344,24 @@ int main_handler(int type, int par1, int par2) {
 	if (type == EVT_SHOW) {
 		main_repaint();
 	}
-	if (type == EVT_KEYPRESS) {
+	if (type == EVT_KEYPRESS || type == EVT_KEYREPEAT) {
+                int shift = (type==EVT_KEYPRESS)?CLICK_SHIFT:HOLD_SHIFT;
 		fprintf(stderr,"EVT_KEYPRESS(%d,%d)\n", par1,par2);
 		switch(par1) {
 		case KEY_LEFT:
-			centerx-=CLICK_SHIFT*tile_pixel_size(zoom);
+			centerx-=shift*tile_pixel_size(zoom);
 			Repaint();
 			break;
 		case KEY_RIGHT:
-			centerx+=CLICK_SHIFT*tile_pixel_size(zoom);
+			centerx+=shift*tile_pixel_size(zoom);
 			Repaint();
 			break;
 		case KEY_UP:
-			centery-=CLICK_SHIFT*tile_pixel_size(zoom);
+			centery-=shift*tile_pixel_size(zoom);
 			Repaint();
 			break;
 		case KEY_DOWN:
-			centery+=CLICK_SHIFT*tile_pixel_size(zoom);
+			centery+=shift*tile_pixel_size(zoom);
 			Repaint();
 			break;
 		case KEY_PLUS:
@@ -372,7 +373,7 @@ int main_handler(int type, int par1, int par2) {
 			Repaint();
 			break;
 		case KEY_OK:
-			OpenMenu3x3(&m3x3, s3x3, m3x3_handler);
+                        if(type == EVT_KEYPRESS) OpenMenu3x3(&m3x3, s3x3, m3x3_handler);
 			break;
 		case KEY_BACK:
 			CloseApp();

@@ -1,7 +1,13 @@
+Как собрать (linux hist):
+
+Установить SCons (http://www.scons.org/)
+Для эмулятора: scons target=emu
+Для работы: scons target=arm
+
 Как пользоваться:
 
 Скопируйте gmap.app в папку Games на устройстве.
-Распакуйте googlemaps.zip на SD карту в папку system/googlemaps
+Распакуйте googlemaps.zip на SD карту в папку .googlemaps
 
 Управление:
 
