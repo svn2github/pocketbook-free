@@ -1,11 +1,14 @@
-import os,sys
+import os,sys,copy
 
 progname='gmap'
 Export('progname')
 
 sdkdir='/usr/local/pocketbook'
 
-pbres=Builder(action='$SDKDIR/bin/pbres -c $TARGET $SOURCE')
+myenv=copy.copy(os.environ)
+myenv['PATH']='/%s/bin:%s' % (sdkdir,os.environ['PATH'])
+
+pbres=Builder(action='pbres -c $TARGET $SOURCE')
 
 target=ARGUMENTS.get('target','emu')
 debug=int(ARGUMENTS.get('debug',0))
@@ -14,7 +17,7 @@ if debug:
 else:
     cflags=['-O2','-fomit-frame-pointer']
     
-emu = Environment(CC='winegcc', ENV=os.environ)
+emu = Environment(CC='winegcc', ENV=myenv)
 emu.Prepend(
     SDKDIR=sdkdir,
     CFLAGS=['-I$SDKDIR/include','-Wall']+cflags,
@@ -27,12 +30,12 @@ emu.Prepend(
 emu.ParseConfig('freetype-config --libs --cflags')
 emu.ParseConfig('libpng-config --libs --cflags')
 
-arm = Environment(CC='arm-linux-gnu-gcc-3.4', ENV=os.environ)
+arm = Environment(CC='arm-linux-gcc', ENV=myenv)
 arm.Prepend(
     SDKDIR=sdkdir,
     CFLAGS=['-I$SDKDIR/arm-linux/include','-I$SDKDIR/include','-I/usr/include',
         '-DARM','-Wall']+cflags,
-    LIBS=['-linkview','-lfreetype','-ljpeg','-lpng','-lz'],
+    LIBS=['-linkview','-lfreetype','-ljpeg','-lpng','-lz','-lm'],
     LIBPATH=['$SDKDIR/arm-linux/lib'],
     LINKFLAGS=['-s'],
     BUILDERS={ 'PBRes':pbres },

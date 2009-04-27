@@ -11,7 +11,7 @@ uint32_t centerx, centery;
 int zoom, layer;
 int orientation;
 int last_location=0;
-char map_dir[256] = MAP_DIR;
+char map_dir[256] = SDCARDDIR "/" MAP_DEFAULT_DIR;
 int use_last_pos=0;
 
 /***** TILE CACHE ****/
@@ -345,7 +345,7 @@ int main_handler(int type, int par1, int par2) {
 		main_repaint();
 	}
 	if (type == EVT_KEYPRESS) {
-		fprintf(stderr,"EVT_KEYPRESS(%d)\n", par1);
+		fprintf(stderr,"EVT_KEYPRESS(%d,%d)\n", par1,par2);
 		switch(par1) {
 		case KEY_LEFT:
 			centerx-=CLICK_SHIFT*tile_pixel_size(zoom);
@@ -389,14 +389,14 @@ iconfig * cfg=NULL;
 static char* choice_startwith[] =
         { "Last position", "World map", NULL };
 static char* choice_disk[] = 
-	{ "SD card", "Internal memory", NULL };
+	{ "SD card", "Internal flash", NULL };
 static char* choice_orientation[] =
 	{ "Portrait", "Left landscape", "Right landscape", "Upside-down", NULL };
 
 static iconfigedit confedit[] = {
 	{ "Start position", "usepos", CFG_INDEX, "0", choice_startwith },
-	{ "Maps located in", "disk", CFG_INDEX, "0", choice_disk },
-	{ "Path within disk", "path", CFG_TEXT, "system/googlemaps", NULL },
+	{ "Maps located on", "disk", CFG_INDEX, "0", choice_disk },
+	{ "Path within disk", "path", CFG_TEXT, MAP_DEFAULT_DIR, NULL },
 	{ "Initial orientation", "orientation", CFG_INDEX, "0", choice_orientation },
 	{ NULL, NULL, 0, NULL, NULL}
 };
@@ -404,9 +404,9 @@ static iconfigedit confedit[] = {
 void load_config() {
 	if(!cfg) cfg=OpenConfig(CONFIG_FILE, confedit);
 	orientation = ReadInt(cfg, "orientation", 0);
-	snprintf(map_dir, sizeof(map_dir), "/mnt/%s/%s",
-		ReadInt(cfg, "disk", 0) ? "ext1":"ext2",
-		ReadString(cfg, "path", "system/googlemaps"));
+	snprintf(map_dir, sizeof(map_dir), "%s/%s",
+		ReadInt(cfg, "disk", 0) ? FLASHDIR:SDCARDDIR,
+		ReadString(cfg, "path", MAP_DEFAULT_DIR));
 	use_last_pos = 0==ReadInt(cfg,"usepos",0);
 
 	fprintf(stderr, "orientation=%d MAP_DIR=%s usepos=%d\n", 
