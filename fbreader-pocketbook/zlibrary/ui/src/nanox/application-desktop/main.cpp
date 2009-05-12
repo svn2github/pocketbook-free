@@ -22,6 +22,7 @@
 #include <ZLApplication.h>
 #include "../../../../../fbreader/src/fbreader/FBReader.h"
 #include "../../../../../fbreader/src/fbreader/BookTextView.h"
+#include "../../../../../fbreader/src/fbreader/FootnoteView.h"
 #include "../../../../../fbreader/src/fbreader/FBReaderActions.h"
 #include "../../../../../fbreader/src/formats/FormatPlugin.h"
 #include "../view/ZLNXViewWidget.h"
@@ -34,25 +35,33 @@
 #include "main.h"
 
 extern char *encoding_override;
+extern int break_override;
+extern int hyph_override;
 extern int book_open_ok;
 
 extern "C" const ibitmap searchbm;
 extern "C" const ibitmap arrow_back;
 extern "C" const ibitmap count_pages;
 
+extern "C" const ibitmap ci_font, ci_enc, ci_spacing, ci_margins, ci_textfmt, ci_hyphen;
+
 static char *strings3x3[9];
 
 static char *spacing_variants[] = { "90", "100", "120", "150", "200", NULL };
 static char *border_variants[] = { "@border_small", "@border_medium", "@border_large", NULL };
 static char *encoding_variants[] = { "auto", "WINDOWS-1251", "KOI8-R", "KOI8-U", "IBM866", "ISO-8859-1", "ISO-8859-5", "UTF-8", NULL };
+static char *textfmt_variants[] = { "auto", "@fmt_newline", "@fmt_emptyline", "@fmt_indent", NULL };
+static char *hyph_variants[] = { "@Off", "@On", NULL };
 
 static iconfigedit fbreader_ce[] = {
 
-	{ "@Font", "font", CFG_FONT, DEFREADERFONT, NULL },
-	{ "@Encoding", "encoding", CFG_CHOICE, "auto", encoding_variants },
-	{ "@Linespacing", "linespacing", CFG_CHOICE, "100", spacing_variants },
-	{ "@Pagemargins", "border", CFG_INDEX, "1", border_variants },
-	{ NULL, NULL, 0, NULL, NULL}
+  { CFG_FONT,   &ci_font,   "@Font",       NULL, "font", DEFREADERFONT, NULL, NULL },
+  { CFG_CHOICE, &ci_enc,    "@Encoding",   NULL, "encoding", "auto", encoding_variants, NULL },
+  { CFG_CHOICE, &ci_spacing,"@Linespacing",NULL, "linespacing", "100", spacing_variants, NULL },
+  { CFG_INDEX,  &ci_margins,"@Pagemargins",NULL, "border", "1", border_variants, NULL },
+  { CFG_INDEX,  &ci_hyphen, "@Hyphenation",NULL, "hyphenations", "1", hyph_variants, NULL },
+  { CFG_INDEX,  &ci_textfmt,"@TextFormat", NULL, "preformatted", "0", textfmt_variants, NULL },
+  { 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
 
 };
 
@@ -118,6 +127,7 @@ static long long calc_current_position;
 
 extern ZLApplication *mainApplication;
 BookTextView *bookview;
+FootnoteView *footview;
 
 unsigned char *screenbuf;
 int use_antialiasing;
@@ -159,19 +169,25 @@ static void draw_searchpan() {
 	DrawBitmap(ScreenWidth()-searchbm.width-10, ScreenHeight()-searchbm.height-35, &searchbm);
 }
 
+static int is_footnote_mode() {
+
+	return (((FBReader *)mainApplication)->getMode() == FBReader::FOOTNOTE_MODE);
+
+}
+
 static long long get_position() {
 
-	ZLTextWordCursor cr = bookview->startCursor();
+	ZLTextWordCursor cr = is_footnote_mode() ? footview->startCursor() : bookview->startCursor();
 	return pack_position(cr.paragraphCursor().index(), cr.wordNumber(), cr.charNumber());
 
 }
 
 static long long get_end_position() {
 
-	ZLTextWordCursor cr = bookview->endCursor();
+	ZLTextWordCursor cr = is_footnote_mode() ? footview->endCursor() : bookview->endCursor();
 	if (cr.isNull()) {
 		mainApplication->refreshWindow();
-		cr = bookview->endCursor();
+		cr = is_footnote_mode() ? footview->endCursor() : bookview->endCursor();
 	}
 	if (cr.isNull()) return get_position();
 	return pack_position(cr.paragraphCursor().index(), cr.wordNumber(), cr.charNumber());
@@ -194,12 +210,6 @@ static void draw_bmk_flag(int update) {
 	if (update) PartialUpdate(x, y, bmk_flag->width, bmk_flag->height);
 }
 
-static int is_footnote_mode() {
-
-	return (((FBReader *)mainApplication)->getMode() == FBReader::FOOTNOTE_MODE);
-
-}
-
 static void printpos(char *s, long long n) {
 
 	int p, w, l, cpage;
@@ -209,10 +219,12 @@ static void printpos(char *s, long long n) {
 
 }
 
-static void repaint(int full) {
+static void repaint(int update_mode) {
+
+	/* update_mode: -1=none 0=soft 1=full */
 
 	char buf[32];
-	int cpage, p, w, l;
+	int cpage, percent;
 	ibitmap *icon, *bgnd;
 
 	ClearScreen();
@@ -229,11 +241,14 @@ static void repaint(int full) {
 	if (calc_in_progress) {
 		icon = (ibitmap *) &count_pages;
 		sprintf(buf, "...       ");
+		percent = -1;
 	} else if (! is_footnote_mode()) {
 		cpage = position_to_page(get_position());
 		sprintf(buf, "  %i / %i", cpage, npages);
+		percent = (cpage * 100) / npages;
 	} else {
 		buf[0] = 0;
+		percent = -1;
 	}
 
 	if (links_mode) {
@@ -247,22 +262,22 @@ static void repaint(int full) {
 	}
 
 
-	shared_ptr<ZLTextModel> model = bookview->model();
-	int npar = model->paragraphsNumber();
-	if (npar <= 0) npar = 1;
-	unpack_position(get_position(), &p, &w, &l);
-	DrawPanel(icon, buf, book_title, (p * 100) / npar);
+	//shared_ptr<ZLTextModel> model = bookview->model();
+	//int npar = model->paragraphsNumber();
+	//if (npar <= 0) npar = 1;
+	//unpack_position(get_position(), &p, &w, &l);
+
+	DrawPanel(icon, buf, book_title, percent);
 	draw_bmk_flag(0);
 
-	if (full==1) {
-		FullUpdate();
-	} else if (full==0) {
-		SoftUpdate();
+	switch (update_mode) {
+		case 0: SoftUpdate(); break;
+		case 1: FullUpdate(); break;
 	}
 
 }
 
-static void prev_page() {
+static int one_page_back(int update_mode) {
 	restore_current_position();
 	mainApplication->refreshWindow();
 	long long tmppos=get_position();
@@ -280,11 +295,13 @@ static void prev_page() {
 	if (cpos == tmppos && is_footnote_mode()) {
 		mainApplication->doAction(ActionCode::CANCEL);
 		mainApplication->refreshWindow();
+		cpos = get_position();
 	}
-	repaint(1); 
+	repaint(update_mode); 
+	return (cpos != tmppos);
 }
 
-static void next_page() {
+static int one_page_forward(int update_mode) {
 	restore_current_position();
 	long long tmppos=get_position();
 	int p = position_to_page(tmppos);
@@ -297,8 +314,12 @@ static void next_page() {
 	cpos = get_position();
 	printpos("> ", cpos);
 	calc_position_changed = 1;
-	repaint(1); 
+	repaint(update_mode); 
+	return (cpos != tmppos);
 }
+
+static void prev_page() { one_page_back(1); }
+static void next_page() { one_page_forward(1); }
 
 static void prev_section() {
 	restore_current_position();
@@ -370,25 +391,28 @@ static void font_change(int d) {
 	}
 
 	size += d;
-	if (size >= 36) size = 15;
-	if (size < 15) size = 36;
+	if (size >= 36) {
+		while (size > 15) size -= d;
+	} else if (size < 15) {
+		while (size < 36) size -= d;
+	}
 	sprintf(p, ",%i", size);
 	WriteString(cfg, "font", buf);
-	apply_config(1);
+	apply_config(1, 1);
 	repaint(1);
 
 }
 
-static void apply_config(int recalc) {
+static void apply_config(int recalc, int canrestart) {
 
 	char buf[256], *p, *newenc;
-	int size;
+	int size, newfmt;
 
 	char *xfont = ReadString(cfg, "font", DEFREADERFONT);
 	strcpy(buf, xfont);
 	p = strchr(buf, ',');
 	if (p) *(p++) = 0;
-	size = p ? atoi(p)/2 : 12;
+	size = p ? atoi(p) : 12;
 	ifont *f = OpenFont(buf, size, 1);
 
 	ZLStringOption &ffoption = ZLTextStyleCollection::instance().baseStyle().FontFamilyOption;
@@ -407,16 +431,27 @@ static void apply_config(int recalc) {
 	ZLIntegerOption &lspaceoption = ZLTextStyleCollection::instance().baseStyle().LineSpacePercentOption;
 	lspaceoption.setValue(linespacing);
 
+	ZLTextStyleCollection::instance().SetUserDelta(0); /////.....
+
+	hyph_override = ReadInt(cfg, "hyphenations", 1);
+
 	FBIndicatorStyle &indicatorInfo = bookview->commonIndicatorInfo();
 	indicatorInfo.ShowOption.setValue(false);
 
 	newenc = ReadString(cfg, "encoding", "auto");
-	if (strcmp(newenc, docstate.encoding) != 0) {
+	newfmt = ReadInt(cfg, "preformatted", 0);
+	if (canrestart && (strcmp(newenc, docstate.encoding) != 0 || newfmt != docstate.preformatted)) {
+		/*
+			ShowHourglass();
+			xxx_myTOC.clear();
+			FBReader *fbr = (FBReader *)mainApplication;
+			strncpy(docstate.encoding, newenc, 15);
+			fbr->openFile(FileName);
+		*/
+		//save_state();
+		//fprintf(stderr, "OpenBook(\"%s\")\n", OriginalName);
 		ShowHourglass();
-		xxx_myTOC.clear();
-		FBReader *fbr = (FBReader *)mainApplication;
-		strncpy(docstate.encoding, newenc, 15);
-		fbr->openFile(FileName);
+		OpenBook(OriginalName, NULL, 0);
 	}
 
 	orient = ReadInt(cfg, "orientation", 0);
@@ -476,7 +511,7 @@ static void rotate_handler(int n) {
 	restore_current_position();
 	int cn = ReadInt(cfg, "orientation", 0);
 	WriteInt(cfg, "orientation", n);
-	apply_config((cn+n == 3) ? 0 : 1);
+	apply_config((cn+n == 3) ? 0 : 1, 1);
 	repaint(1);
 
 }
@@ -487,6 +522,7 @@ static void save_state() {
   if (docstate.magic != 0x9751) return;
   docstate.position = cpos;
   strncpy(docstate.encoding, ReadString(cfg, "encoding", "auto"), 15);
+  docstate.preformatted = ReadInt(cfg, "preformatted", 0);
 
   fprintf(stderr, "fbreader - save settings...\n");
 
@@ -666,7 +702,7 @@ static void bmk_paint(int page, long long pos) {
 
 	set_position(pos);
 	mainApplication->refreshWindow();
-	repaint(2);
+	repaint(-1);
 	set_position(cpos);
 
 }	
@@ -799,7 +835,7 @@ static void configuration_updated() {
 
 	SaveConfig(cfg);
 	SetEventHandler(main_handler);
-	apply_config(1);
+	apply_config(1, 1);
 
 }
 
@@ -872,6 +908,7 @@ static void open_int_ext_link(char *href) {
 	if (pp != NULL) {
 		*(pp++) = 0;
 	}
+	ShowHourglass();
 	OpenBook(buf, pp, 1);
 
 }
@@ -1150,7 +1187,16 @@ static void stop_jump() {
 static void open_pageselector() { OpenPageSelector(select_page); }
 static void first_page() { select_page(1); }
 static void last_page() { select_page(999999); }
-static void new_note() { CreateNote(OriginalName, book_title, cpos); }
+//static void new_note() { CreateNote(OriginalName, book_title, cpos); }
+static void new_note() {
+	ibitmap *bm1=NULL, *bm2=NULL;
+	bm1 = BitmapFromScreen(0, 0, ScreenWidth(), ScreenHeight()-PanelHeight());
+	if (one_page_forward(-1)) {
+		bm2 = BitmapFromScreen(0, 0, ScreenWidth(), ScreenHeight()-PanelHeight());
+		one_page_back(-1);
+	}
+	CreateNoteFromImages(OriginalName, book_title, cpos, bm1, bm2);
+}
 static void save_page_note() { CreateNoteFromPage(OriginalName, book_title, cpos); }
 static void open_notes() { OpenNotepad(NULL); }
 static void start_search() { OpenKeyboard("@Search", kbdbuffer, 30, 0, search_enter); }
@@ -1446,6 +1492,9 @@ int main(int argc, char **argv) {
 	WriteString(cfg, "encoding", docstate.encoding);
 	encoding_override = docstate.encoding;
 
+	WriteInt(cfg, "preformatted", docstate.preformatted);
+	break_override = docstate.preformatted;
+
 	screenbuf = (unsigned char *)malloc(800*800/4);
 	npages = 0;
 
@@ -1472,8 +1521,9 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 	bookview = &(((FBReader *)mainApplication)->bookTextView());
+	footview = &(((FBReader *)mainApplication)->footnoteView());
 
-	apply_config(1);
+	apply_config(1, 0);
 	if (argc >= 3) {
 		jump_ref(argv[2]);
 	} else {

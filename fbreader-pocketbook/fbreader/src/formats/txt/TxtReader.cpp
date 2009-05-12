@@ -51,8 +51,9 @@ void TxtReader::readDocument(ZLInputStream &stream) {
 					myConverter->convert(str, start, ptr + 1);
 					characterDataHandler(str);
 				}
-				start = ptr + 1;
+				start = ptr+1;
 				newLineHandler();
+
 			} else if (*ptr == '\r') {
 				continue;
 			} else if (isspace((unsigned char)*ptr)) {

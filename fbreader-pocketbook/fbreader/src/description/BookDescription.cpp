@@ -29,8 +29,6 @@
 #include "../formats/FormatPlugin.h"
 #include "../options/FBOptions.h"
 
-#include <string.h>
-
 char *encoding_override=NULL;
 
 std::map<std::string,BookDescriptionPtr> BookDescription::ourDescriptions;

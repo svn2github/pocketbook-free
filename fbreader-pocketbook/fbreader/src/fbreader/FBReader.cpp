@@ -385,6 +385,10 @@ BookTextView &FBReader::bookTextView() const {
 	return (BookTextView&)*myBookTextView;
 }
 
+FootnoteView &FBReader::footnoteView() const {
+	return (FootnoteView&)*myFootnoteView;
+}
+
 void FBReader::showBookTextView() {
 	setMode(BOOK_TEXT_MODE);
 }

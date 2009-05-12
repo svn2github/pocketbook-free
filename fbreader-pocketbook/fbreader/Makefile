@@ -24,7 +24,7 @@ all: .resources
 #	$(LD) $(LDFLAGS) -Wl,-soname,$(TARGET).so -o $(TARGET).so `find src -name *.o` -L$(ROOTDIR)/zlibrary/text -lzltext $(CORE_LIBS)
 
 ifeq "$(EMULATOR)" "1" 
-	$(LD) $(LDFLAGS) -Wl,-soname,$(TARGET).exe -o $(TARGET).exe `find src -name *.o` $(ROOTDIR)/images/c/images.o -L$(ROOTDIR)/zlibrary/text -lzltext $(CORE_LIBS) -linkview -lfreetype -lgdi32 -ljpeg -lrt -lz #-liconv
+	$(LD) $(LDFLAGS) -static -Wl,-soname,$(TARGET).exe -o $(TARGET).exe `find src -name *.o` $(ROOTDIR)/images/c/images.o -L$(ROOTDIR)/zlibrary/text -lzltext $(CORE_LIBS) -linkview -lfreetype -lgdi32 -liconv -ljpeg -lz
 else
 	$(LD) $(LDFLAGS) -Wl,-soname,$(target).app -o $(target).app `find src -name *.o` $(ROOTDIR)/images/c/images.o -L$(ROOTDIR)/zlibrary/text -lzltext -L/arm-linux/lib $(CORE_LIBS) -linkview -lfreetype -ljpeg -lrt -lz
 endif

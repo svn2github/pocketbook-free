@@ -24,7 +24,7 @@
 #define MAXNOTEPADS 15
 
 #define MAXLINKS 100
-#define DEFREADERFONT "default,20"
+#define DEFREADERFONT "default,25"
 
 #define CONVTMP "/tmp/fbreader.temp"
 
@@ -32,8 +32,11 @@ typedef struct tdocstate_s {
 
 	int magic;
 	long long position;
-	int reserved1;
-	int reserved2;
+	char preformatted;
+	char  reserved11;
+	short reserved2;
+	short reserved3;
+	short reserved4;
 	char encoding[16];
 	int nbmk;
 	long long bmk[30];
@@ -52,7 +55,8 @@ static void select_page(int page);
 static void invert_current_link();
 static void menu_handler(int pos);
 static void calc_pages();
-static void apply_config(int recalc);
+static void apply_config(int recalc, int canrestart);
+static void save_state();
 
 static int main_handler(int type, int par1, int par2);
 

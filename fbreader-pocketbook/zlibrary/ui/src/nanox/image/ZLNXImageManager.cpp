@@ -58,17 +58,19 @@
 
 
 
+#include <ZLImage.h>
+
+#include "ZLNXImageManager.h"
+
 extern "C" {
-#include <png.h>
 #include <stdio.h>
 #include <jpeglib.h>
 #include <setjmp.h>
 }
 
-#include <gif_lib.h>
 
-#include <ZLImage.h>
-#include "ZLNXImageManager.h"
+#include <png.h>
+#include <gif_lib.h>
 
 extern int lock_drawing;
 
@@ -490,11 +492,10 @@ void ZLNXImageManager::convertImageDirectPng(const std::string &stringData, ZLIm
 	if (bit_depth < 8)
 		png_set_packing(png_ptr);
 
-	//if (color_type == PNG_COLOR_TYPE_RGB)
 	png_set_filler(png_ptr, 0, PNG_FILLER_AFTER);
 
 	//if (color_type == PNG_COLOR_TYPE_RGB_ALPHA)
-	//    png_set_swap_alpha(png_ptr);
+	//png_set_swap_alpha(png_ptr);
 
 	if (color_type == PNG_COLOR_TYPE_GRAY ||
 			color_type == PNG_COLOR_TYPE_GRAY_ALPHA)
@@ -521,9 +522,11 @@ void ZLNXImageManager::convertImageDirectPng(const std::string &stringData, ZLIm
 			png_read_rows(png_ptr, (unsigned char **)&row, png_bytepp_NULL, 1);
 
 			p = row;
-
 			for(int i = 0; i < width; i++) {			
-				pixel = Dither2BitColor(*p, i, y);
+
+				int v = *p;
+				v = (v & 0x80000000) ? 0xffffffff : v;
+				pixel = Dither2BitColor(v, i, y);
 
 				c = idata + i / 4 + iL * y;
 				s = (i & 3) << 1;
@@ -617,7 +620,7 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
     GifRowType *ScreenBuffer;
 	ColorMapObject *ColorMap;
 
-	int transparent;
+	int transparent = -1;
 		
     ScreenBuffer = (GifRowType *) malloc(GifFile->SHeight * sizeof(GifRowType *));
 
@@ -629,7 +632,6 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
     for (i = 1; i < GifFile->SHeight; i++) {
 		/* Allocate the other rows, and set their color to background too: */
 		ScreenBuffer[i] = (GifRowType) malloc(Size);
-
 		memcpy(ScreenBuffer[i], ScreenBuffer[0], Size);
     }
 
@@ -645,13 +647,12 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
 			if (DGifGetExtension(GifFile, &ExtCode, &Extension) == GIF_ERROR) {
 				break;
 			}
-/*			printf("%d\n", *Extension);
 			if(ExtCode == GRAPHICS_EXT_FUNC_CODE)
 				if(Extension[0] == 4 ) {
 					int flag = Extension[1];
 					transparent = (flag & 0x1) ? Extension[4] : -1;
 				}
-*/				
+
 			while (Extension != NULL) {
 				if (DGifGetExtensionNext(GifFile, &Extension) == GIF_ERROR) {
 					break;
@@ -662,7 +663,7 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
 						int flag = Extension[1];
 						transparent = (flag & 0x1) ? Extension[4] : -1;
 						}
-						*/
+*/
 			}
 		}
 	} while((RecordType != IMAGE_DESC_RECORD_TYPE) && (RecordType != TERMINATE_RECORD_TYPE));
@@ -699,18 +700,6 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
     unsigned long ValueMask;
     GifColorType *ColorMapEntry = ColorMap->Colors;
 
-    /* Let find out what are the intensities in the color map: */
-/*    MaxIntensity = 0;
-    MinIntensity = 256 * 100;
-    for (i = 0; i < ColorMapSize; i++) {
-		p = ColorMapEntry[i].Red * 30 +
-			ColorMapEntry[i].Green * 59 +
-			ColorMapEntry[i].Blue * 11;
-		if (p > MaxIntensity) MaxIntensity = p;
-		if (p < MinIntensity) MinIntensity = p;
-    }
-    AvgIntensity = (MinIntensity + MaxIntensity) / 2;
-*/	
 
 	Width = GifFile->SWidth;
 	Height = GifFile->SHeight;
@@ -722,12 +711,15 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
 			//				ColorMapEntry[p].Green * 59 +
 			//				ColorMapEntry[p].Blue * 11 > AvgIntensity;			
 
-//			pixel = Dither2BitColor((ColorMapEntry[p].Red << 16 | ColorMapEntry[p].Green << 8 | ColorMapEntry[p].Blue << 0), i, j);
+			if (p == transparent) {
 
+				pixel = 0xc0;
 
-			unsigned char x = ColorMapEntry[p].Red * 0.299 +
-							ColorMapEntry[p].Green * 0.587 +
-							ColorMapEntry[p].Blue * 0.114;			
+			} else {
+
+			unsigned int x = (ColorMapEntry[p].Red * 77 + ColorMapEntry[p].Green * 151 +
+				ColorMapEntry[p].Blue * 28) >> 8;
+
 			if(x < 64)
 				pixel = 0x00;
 			else if(x <= 128)
@@ -737,6 +729,7 @@ void ZLNXImageManager::convertImageDirectGif(const std::string &stringData, ZLIm
 			else
 				pixel = 0xc0;
 
+			}
 
 			c = idata + i / 4 + iL * j;
 			s = (i & 3) << 1;
@@ -797,10 +790,8 @@ rearrangePixels(unsigned char* buf, uint32 width, uint32 bit_count, int row, ZLI
     
   case 24:
     for (i = 0; i < width; i++, buf += 3) {
-		unsigned char x = buf[2] * 0.299 +
-			buf[1] * 0.587 +
-			buf[0] * 0.114;
 
+		unsigned int x = (buf[2] * 77 + buf[1] * 151 + buf[0] * 28) >> 8;
 
 		if(x < 64)
 			pixel = 0x00;
@@ -825,10 +816,8 @@ rearrangePixels(unsigned char* buf, uint32 width, uint32 bit_count, int row, ZLI
     {
       unsigned char* buf1 = buf;
       for (i = 0; i < width; i++, buf += 4) {
-		unsigned char x = buf[2] * 0.299 +
-			buf[1] * 0.587 +
-			buf[0] * 0.114;
 
+		unsigned int x = (buf[2] * 77 + buf[1] * 151 + buf[0] * 28) >> 8;
 
 		if(x < 64)
 			pixel = 0x00;
@@ -895,10 +884,7 @@ void ZLNXImageManager::convertImageDirectBmp(const std::string &stringData, ZLIm
 //			pixel = Dither2BitColor((p[0] << 16 | p[1] << 8 | p[2] << 0), i, j);
 
 
-			unsigned char x = p[2] * 0.299 +
-							p[1] * 0.587 +
-							p[0] * 0.114;
-
+			unsigned int x = (buf[2] * 77 + buf[1] * 151 + buf[0] * 28) >> 8;
 
 			if(x < 64)
 				pixel = 0x00;
@@ -1186,10 +1172,7 @@ void ZLNXImageManager::convertImageDirectBmp(const std::string &stringData, ZLIm
 
 							char *c;	
 							int pixel, s;
-							unsigned char x = rgb_ptr[0] * 0.299 +
-								rgb_ptr[1] * 0.587 +
-								rgb_ptr[2] * 0.114;
-
+							unsigned int x = (rgb_ptr[0] * 77 + rgb_ptr[1] * 151 + rgb_ptr[2] * 28) >> 8;
 
 							if(x < 64)
 								pixel = 0x00;
@@ -1213,11 +1196,7 @@ void ZLNXImageManager::convertImageDirectBmp(const std::string &stringData, ZLIm
 						for (int i = 0; i < w; i++, b++) {
 							char *c;	
 							int pixel, s;
-							unsigned char x = 
-						   		clr_tbl[*b*n_clr_elems+2] * 0.299 +
-								clr_tbl[*b*n_clr_elems+1] * 0.587 +
-								clr_tbl[*b*n_clr_elems] * 0.114;
-
+							unsigned int x = (clr_tbl[*b*n_clr_elems+2] * 77 + clr_tbl[*b*n_clr_elems+1] * 151 + clr_tbl[*b*n_clr_elems] * 28) >> 8;
 
 							if(x < 64)
 								pixel = 0x00;

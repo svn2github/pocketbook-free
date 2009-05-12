@@ -60,6 +60,21 @@ public:
 	virtual bool allowHyphenations() const = 0;
 
 	int lineSpacePercent() const;
+
+	// Denis //
+	
+	int GetUserDelta(){
+		return UserDelta; 
+	}
+	void SetUserDelta(int UD){
+		UserDelta=UD;
+	}
+
+private:
+	int UserDelta;
+	
+	// Denis //
+
 };
 
 typedef shared_ptr<ZLTextStyle> ZLTextStylePtr;
@@ -276,7 +291,7 @@ public:
 	double lineSpace() const;
 
 private:
-	const ZLTextFullStyleDecoration &myDecoration;
+	const ZLTextFullStyleDecoration &myDecoration;	
 };
 
 class ZLTextPositionIndicatorInfo {
@@ -310,6 +325,17 @@ public:
 	ZLTextStylePtr baseStylePtr() const;
 	ZLTextBaseStyle &baseStyle() const;
 	ZLTextStyleDecoration *decoration(ZLTextKind kind) const;
+
+	// Denis //
+	
+	int GetUserDelta(){
+		return myBaseStyle->GetUserDelta();
+	}
+	void SetUserDelta(int UD){
+		myBaseStyle->SetUserDelta(UD);
+	}
+	
+	// Denis //
 
 private:
 	ZLTextStyleCollection();

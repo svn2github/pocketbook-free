@@ -29,6 +29,8 @@
 
 #include "../../options/FBOptions.h"
 
+int break_override=0;
+
 const std::string OPTION_Initialized = "Initialized";
 const std::string OPTION_BreakType = "BreakType";
 const std::string OPTION_IgnoredIndent = "IgnoredIndent";
@@ -156,11 +158,28 @@ void PlainTextFormatDetector::detect(ZLInputStream &stream, PlainTextFormat &for
 
 	{
 		int breakType = 0;
-		breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_EMPTY_LINE;
-		if (stringsWithLengthLessThan81Counter < 0.3 * nonEmptyLineCounter) {
-			breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_NEW_LINE;
+		//fprintf(stderr, "----- break: %i\n", break_override);
+		if (break_override == 0) {
+			breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_EMPTY_LINE;
+			if (stringsWithLengthLessThan81Counter < 0.3 * nonEmptyLineCounter) {
+				breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_NEW_LINE;
+			} else {
+				breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_LINE_WITH_INDENT;
+			}
 		} else {
-			breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_LINE_WITH_INDENT;
+			switch (break_override) {
+				case 1:
+					breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_EMPTY_LINE;
+					breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_NEW_LINE;
+					break;
+				case 2:
+					breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_EMPTY_LINE;
+					break;
+				case 3:
+					breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_EMPTY_LINE;
+					breakType |= PlainTextFormat::BREAK_PARAGRAPH_AT_LINE_WITH_INDENT;
+					break;
+			}
 		}
 		format.BreakTypeOption.setValue(breakType);
 	}

@@ -23,6 +23,8 @@
 
 #include "ZLTextStyle.h"
 
+int hyph_override=1;
+
 static const std::string STYLE = "Style";
 
 ZLTextStyleDecoration::ZLTextStyleDecoration(const std::string &name, int fontSizeDelta, ZLBoolean3 bold, ZLBoolean3 italic, int verticalShift, ZLBoolean3 allowHyphenations) :
@@ -75,13 +77,25 @@ bool ZLTextPartialDecoratedStyle::italic() const {
 }
 
 bool ZLTextPartialDecoratedStyle::allowHyphenations() const {
+	return (hyph_override != 0);
+/*
 	ZLBoolean3 a = myDecoration.AllowHyphenationsOption.value();
 	return (a == B3_UNDEFINED) ? base()->allowHyphenations() : (a == B3_TRUE);
 	return true;
+*/
 }
 
 int ZLTextFullDecoratedStyle::firstLineIndentDelta() const {
+
+	// Denis //
+
+//	Раскоментировать для отмены
 	return (alignment() == ALIGN_CENTER) ? 0 : base()->firstLineIndentDelta() + myDecoration.FirstLineIndentDeltaOption.value();
+
+//	закоментировать для отмены
+//	return (alignment() == ALIGN_CENTER) ? 0 : base()->firstLineIndentDelta() + myDecoration.FirstLineIndentDeltaOption.value()+base()->GetUserDelta();
+
+	// Denis //
 }
 
 const std::string &ZLTextFullDecoratedStyle::fontFamily() const {
@@ -109,9 +123,12 @@ ZLTextAlignmentType ZLTextFullDecoratedStyle::alignment() const {
 }
 
 bool ZLTextFullDecoratedStyle::allowHyphenations() const {
+	return (hyph_override != 0);
+/*
 	ZLBoolean3 a = myDecoration.AllowHyphenationsOption.value();
 	return (a == B3_UNDEFINED) ? base()->allowHyphenations() : (a == B3_TRUE);
 	return true;
+*/
 }
 
 ZLColor ZLTextPartialDecoratedStyle::color() const {

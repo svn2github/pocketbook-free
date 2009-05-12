@@ -17,10 +17,6 @@
  * 02110-1301, USA.
  */
 
-extern "C" {
-#include <stdio.h>
-#include <time.h>
-}
 
 #include "ZLNXTime.h"
 

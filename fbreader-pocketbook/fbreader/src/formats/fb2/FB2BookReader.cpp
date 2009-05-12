@@ -95,7 +95,12 @@ void FB2BookReader::startElementHandler(int tag, const char **xmlattributes) {
 			break;
 		case _SECTION:
 			if (myReadMainText) {
-				myModelReader.insertEndOfSectionParagraph();
+	// Denis //
+	//закоментировавано, раскоментировать для отмены
+//				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+
 				++mySectionDepth;
 				myModelReader.beginContentsParagraph();
 				mySectionStarted = true;
@@ -105,7 +110,12 @@ void FB2BookReader::startElementHandler(int tag, const char **xmlattributes) {
 			if (myInsidePoem) {
 				myModelReader.pushKind(POEM_TITLE);
 			} else if (mySectionDepth == 0) {
-				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+	//закоментировавано, раскоментировать для отмены
+//				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
 				myModelReader.pushKind(TITLE);
 			} else {
 				myModelReader.pushKind(SECTION_TITLE);
@@ -248,6 +258,14 @@ void FB2BookReader::endElementHandler(int tag) {
 				myModelReader.endContentsParagraph();
 				--mySectionDepth;
 				mySectionStarted = false;
+
+	// Denis //
+	//Добавлено, Удалить для отмены
+
+				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+
 			} else {
 				myModelReader.unsetTextModel();
 			}
@@ -271,14 +289,27 @@ void FB2BookReader::endElementHandler(int tag) {
 		case _ANNOTATION:
 			myModelReader.popKind();
 			if (myBodyCounter == 0) {
+
+	// Denis //
+	//закоментировавано, раскоментировать для отмены
+
 				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+
 				myModelReader.unsetTextModel();
 			}
 			break;
 		case _COVERPAGE:
 			if (myBodyCounter == 0) {
 				myInsideCoverpage = false;
-				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+	//закоментировавано, раскоментировать для отмены
+//				myModelReader.insertEndOfSectionParagraph();
+
+	// Denis //
+
 				myModelReader.unsetTextModel();
 			}
 			break;

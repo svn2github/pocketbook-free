@@ -114,6 +114,7 @@ public:
 
 	void tryShowFootnoteView(const std::string &id, bool external);
 	BookTextView &bookTextView() const;
+	FootnoteView &footnoteView() const;
 	void showBookTextView();
 	void openBook(BookDescriptionPtr description);
 

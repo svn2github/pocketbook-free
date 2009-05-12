@@ -31,6 +31,11 @@ struct xxx_toc_entry {
 extern std::vector<struct xxx_toc_entry> xxx_myTOC;
 
 HHCReader::HHCReader(CHMReferenceCollection &collection, BookModel &model, const std::string &encoding) : HtmlReader(encoding), myReferenceCollection(collection), myBookReader(model) {
+// Denis //
+
+//fprintf(stderr, "\nDenis - HHCReader.cpp - Encoding=%s\n", encoding.data());
+
+// Denis //
 }
 
 HHCReader::~HHCReader() {
@@ -96,6 +101,18 @@ bool HHCReader::tagHandler(const HtmlTag &tag) {
 				if (myText.empty()) {
 					myText = "...";
 				}
+				
+// Denis //				
+
+				std::string my;
+	myConverter->convert(my, myText.data(), myText.data()+myText.length());
+//	myConverter->convert(myText, myText.data());
+	myText.erase();
+	myText=my;
+
+//		fprintf(stderr, "\nDenis - HHCReader.cpp - myText=%s\n",myText.data());
+//		sleep(1);
+// Denis //				
 				myBookReader.addContentsData(myText.empty() ? "..." : myText);
 				myReferenceVector.push_back(ZLUnicodeUtil::toLower(myReference));
 			}
@@ -111,9 +128,9 @@ bool HHCReader::characterDataHandler(const char*, int, bool) {
 void HHCReader::setReferences() {
 	for (size_t i = 0; i < myReferenceVector.size(); ++i) {
 		myBookReader.setReference(i, myBookReader.model().label(myReferenceVector[i]).ParagraphNumber);
-
+		
 		if(xxx_myTOC.size() > i)
 			xxx_myTOC[i].paragraph = myBookReader.model().label(myReferenceVector[i]).ParagraphNumber;
-			xxx_myTOC[i].level = 0;
+	xxx_myTOC[i].level = 0;
 	}
 }
