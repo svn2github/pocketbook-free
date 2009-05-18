@@ -10,8 +10,7 @@
 typedef struct tagZoomerParameters
 {
     int zoom;
-    int leftMarginForEvenPage, rightMarginForEvenPage;
-    int leftMarginForOddPage, rightMarginForOddPage;
+    int offset;
 
     ddjvu_document_t* doc;
     int cpage;
@@ -27,6 +26,9 @@ typedef void (*CloseHandler)(ZoomerParameters* params);
 
 // show new zoomer
 void ShowZoomer(ZoomerParameters* params, CloseHandler closeHandler);
+
+// calculate optimal zoom
+void CalculateOptimalZoom(ddjvu_document_t* doc, int cpage, int* zoom, int* offset);
 
 #ifdef __cplusplus
 }

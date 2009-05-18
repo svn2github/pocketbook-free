@@ -78,15 +78,25 @@ static imenu zoom_menu_l[] = {
 static const char *def_menutext[9] = {
 	"@Goto_page", "@Exit", "",
 	"@Bookmarks", "@Menu", "@Rotate",
-	"@Dictionary", "@Zoom", ""
+	"@Dictionary", "@Zoom", "@Settings"
 };
 
 static const char *def_menuaction[9] = {
 	"@KA_goto", "@KA_exit", "@KA_none",
 	"@KA_obmk", "@KA_none", "@KA_rtte",
-	"@KA_dict", "@KA_zoom", "@KA_none"
+	"@KA_dict", "@KA_zoom", "@KA_stgs"
 };
 
+static char *yes_no_variants[] = { "No", "Yes", NULL };
+
+static char *level_of_black_variants[] = { "Default", "+10%", "+20%", "+30%", "+40%", "+50%", "+60%", "+70%", "+80%", "+90%", "+100%", NULL};
+
+static iconfigedit djvu_config[] = {
+	{ "Calculate optimal zoom", "calc_optimal_zoom", CFG_INDEX, "0", yes_no_variants },
+	{ "Draw end of page", "draw_end_of_page", CFG_INDEX, "0", yes_no_variants },
+	{ "Level of black", "level_of_black", CFG_INDEX, "0", level_of_black_variants },
+	{ NULL, NULL, 0, NULL, NULL}
+};
 
 char *strings3x3[9];
 
@@ -97,6 +107,8 @@ tdocstate docstate;
 
 pid_t bgpid = 0;
 
+static iconfig* djvucfg;
+
 static int SCALES[9] = { 33, 50, 90, 100, 110, 120, 200, 300, 400};
 #define NSCALES ((int)(sizeof(SCALES)/sizeof(int)))
 
@@ -106,6 +118,7 @@ static int cpage=1, npages=1;
 static int cpagew, cpageh;
 static int offx, offy, oldoffy;
 static int scale=100;
+static int offset;
 static int thx, thy, thw, thh, thix, thiy, thiw, thih, panh, pgbottom;
 static int zoom_mode=0;
 static char *FileName;
@@ -286,30 +299,53 @@ static void draw_page_image() {
 		fprintf(stderr, "Cannot allocate image buffer\n");
 	}
 
+        rrect.x += offset;
+
 	if (! ddjvu_page_render(page, mode, &prect, &rrect, fmt, rowsize, (char *)data)) {
 		fprintf(stderr, "Cannot render image\n");
 		ddjvu_page_release(page);
 		return;
 	}
 
-        /*if (scale > 50 && scale < 200)
+        if (ReadInt(djvucfg, "draw_end_of_page", 0) != 0)
         {
-            int final_offset_y = thy - (offy - oldoffy);
-
-            if (final_offset_y > 100)
+            if (scale > 50 && scale < 200 && offy > oldoffy)
             {
-                int x;
-                for (x =0; x < ScreenWidth() / 10; x += 3)
-                {
-                    data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
-                }
+                int final_offset_y = thy - (offy - oldoffy);
 
-                for (x =ScreenWidth() - 1; x > 9 * ScreenWidth() / 10; x -= 3)
+                if (final_offset_y > 100)
                 {
-                    data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
+                    int x;
+                    for (x =0; x < ScreenWidth(); x += 10)
+                    {
+                        data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
+                    }
                 }
             }
-        }*/
+        }
+
+        int level_of_black = ReadInt(djvucfg, "level_of_black", 0);
+
+        if (level_of_black != 0)
+        {
+            level_of_black = 10 * level_of_black;
+
+            int i;
+            for (i = 0; i < rowsize * rrect.h; ++i)
+            {
+                if (data[i] < 200)
+                {
+                    if (data[i] < level_of_black)
+                    {
+                        data[i] = 0;
+                    }
+                    else
+                    {
+                        data[i] -= level_of_black;
+                    }
+                }
+            }
+        }
 
 	w = rrect.w;
 	h = rrect.h;
@@ -518,6 +554,12 @@ static void out_page(int full) {
 	int n=1, h;
 
 	ClearScreen();
+
+        if (ReadInt(djvucfg, "calc_optimal_zoom", 0) != 0)
+        {
+            CalculateOptimalZoom(doc, cpage, &scale, &offset);
+        }
+
 	if (scale>50)
 			draw_page_image();
 		else
@@ -742,9 +784,10 @@ static void volume_down() { int r = GetVolume(); SetVolume(r-3); }
 
 static void on_close_zoomer(ZoomerParameters* params)
 {
-    if (scale != params->zoom)
+    if (scale != params->zoom || offset != params->offset)
     {
         scale = params->zoom;
+        offset = params->offset;
         out_page(1);
     }
 }
@@ -758,6 +801,17 @@ static void open_new_zoomer()
     params.orient = orient;
 
     ShowZoomer(&params, on_close_zoomer);
+}
+
+void config_ok()
+{
+    SaveConfig(djvucfg);
+    SetEventHandler(main_handler);
+}
+
+static void open_settings()
+{
+    OpenConfigEditor("Configuration", djvucfg, djvu_config, config_ok, NULL);
 }
 
 static void handle_navikey(int key) {
@@ -840,6 +894,7 @@ static const struct {
 	//{ "@KA_srch", start_search, NULL, NULL },
 	{ "@KA_dict", open_dictionary, NULL, NULL },
 	{ "@KA_zoom", open_new_zoomer, NULL, NULL },
+	{ "@KA_stgs", open_settings, NULL, NULL },
 	{ "@KA_zmin", zoom_in, NULL, NULL },
 	{ "@KA_zout", zoom_out, NULL, NULL },
 	{ "@KA_rtte", open_rotate, NULL, NULL },
@@ -860,6 +915,11 @@ static void menu_handler(int pos) {
 	if (pos < 0) return;
 	sprintf(buf, "qmenu.djviewer.%i.action", pos);
 	act = GetThemeString(buf, (char *)def_menuaction[pos]);
+
+        if (pos == 8)
+        {
+            act = "@KA_stgs";
+        }
 
 	for (i=0; KA[i].action != NULL; i++) {
 		if (strcmp(act, KA[i].action) != 0) continue;
@@ -966,7 +1026,8 @@ static void save_settings() {
   docstate.page = cpage;
   docstate.offx = offx;
   docstate.offy = offy;
-  docstate.scale = scale;
+
+  docstate.scale = scale | (abs(offset) << 16) | (offset > 0 ? (1<<31) : 0);
   docstate.orient = orient;
 
   FILE *f = iv_fopen(DataFile, "wb");
@@ -975,6 +1036,8 @@ static void save_settings() {
 	iv_fclose(f);
   }
   fprintf(stderr, "djviewer: saving settings done\n");
+
+  CloseConfig(djvucfg);
 
 }
 
@@ -1012,6 +1075,8 @@ int main(int argc, char **argv) {
   bi = GetBookInfo(FileName);
   if (bi->title) book_title = strdup(bi->title);
 
+  djvucfg = OpenConfig("/mnt/ext1/system/config/djvu.cfg", djvu_config);
+
   /* Create context and document */
   if (! (ctx = ddjvu_context_create(argv[0])))
     die("Cannot create djvu context.");
@@ -1024,6 +1089,7 @@ int main(int argc, char **argv) {
 
   DataFile = GetAssociatedFile(FileName, 0);
   f = fopen(DataFile, "rb");
+  
   if (f == NULL || fread(&docstate, 1, sizeof(tdocstate), f) != sizeof(tdocstate) || docstate.magic != 0x9751) {
 		docstate.magic = 0x9751;
 		docstate.page = 1;
@@ -1038,7 +1104,11 @@ int main(int argc, char **argv) {
   cpage = docstate.page;
   offx = docstate.offx;
   offy = docstate.offy;
-  scale = docstate.scale;
+  scale = docstate.scale & 0xFFFF;
+  offset = (docstate.scale >> 16) & 0x7FFF;
+
+  if (!(docstate.scale >> 31)) offset =-offset;
+
   orient = docstate.orient;
   panh = PanelHeight();
 

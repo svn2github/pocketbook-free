@@ -281,3 +281,17 @@ void ShowZoomer(ZoomerParameters* params, CloseHandler closeHandler)
 {
     Zoomer::CreateInstance(*params, closeHandler).Show();
 }
+
+// calculate optimal width
+void CalculateOptimalZoom(ddjvu_document_t* doc, int cpage, int* zoom, int* offset)
+{
+    ZoomerParameters params = {0};
+    params.doc = doc;
+    params.cpage = cpage;
+
+    FitWidthStrategy fit(params);
+    fit.CalculateZoom();
+
+    *zoom = fit.GetZoomParameters().zoom;
+    *offset = fit.GetZoomParameters().offset;
+}

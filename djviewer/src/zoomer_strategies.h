@@ -20,14 +20,14 @@ public:
     // get description of zoom strategy
     virtual void GetDescription(char* buffer, unsigned int size) const = 0;
 
+    // calculate zoom
+    virtual void CalculateZoom() = 0;
+
     // increase zoom
-    virtual void ZoomIn() {}
+    virtual void ZoomIn() = 0;
 
     // decrease zoom
-    virtual void ZoomOut() {}
-
-    // calculate zoom
-    virtual void CalculateZoom() {}
+    virtual void ZoomOut() = 0;
 
     // get zoom parameters
     const ZoomerParameters& GetZoomParameters() const
@@ -50,6 +50,15 @@ public:
     {
         snprintf(buffer, size, "Dummy");
     }
+
+    // calculate zoom
+    virtual void CalculateZoom() {}
+
+    // increase zoom
+    virtual void ZoomIn() {}
+
+    // decrease zoom
+    virtual void ZoomOut() {}
 };
 
 // do zoom by whole pages
@@ -66,6 +75,8 @@ public:
         {
             m_Parameters.zoom = 50;
         }
+
+        m_Parameters.offset = 0;
     }
 
     // increase zoom
@@ -113,6 +124,7 @@ public:
         if (page == 0)
         {
             m_Parameters.zoom = 100;
+            m_Parameters.offset = 0;
             return;
         }
 
@@ -123,6 +135,7 @@ public:
             ddjvu_page_release(page);
 
             m_Parameters.zoom = 100;
+            m_Parameters.offset = 0;
             return;
         }
 
@@ -136,22 +149,45 @@ public:
         if (ddjvu_page_render(page, DDJVU_RENDER_COLOR, &rect, &rect, fmt, ScreenWidth(), reinterpret_cast<char*>(data)))
         {
             // calculate left offset
-            int left = CalculateOffset(data, 0, ScreenHeight() / 4, ScreenWidth() / 4, ScreenHeight() / 2, true);
+            int left = CalculateOffset(data, 0, ScreenHeight() / 4, ScreenWidth() / 2, ScreenHeight() / 2, true);
 
             // calculate right offset
-            int right = CalculateOffset(data, 3 * ScreenWidth() / 4, ScreenHeight() / 4 - 1, ScreenWidth() / 4, ScreenHeight() / 2, false);
+            int right = CalculateOffset(data, ScreenWidth() / 2, ScreenHeight() / 4 - 1, ScreenWidth() / 2, ScreenHeight() / 2, false);
 
             // select smaller from two offsets and calculate zoom based on this value
-            m_Parameters.zoom = 100 * (0.5 * ScreenWidth() / (0.5 * ScreenWidth() - (left < right ? left : right)));
+            //m_Parameters.zoom = 100 * (0.5 * ScreenWidth() / (0.5 * ScreenWidth() - (left < right ? left : right)));
+
+            // select zoom based on average of left and right offsets
+            m_Parameters.zoom = 100 * (0.5 * ScreenWidth() / (0.5 * ScreenWidth() - (left + right) / 2));
+
+            // limit maximum zoom
+            if (m_Parameters.zoom >= 200)
+            {
+                m_Parameters.zoom = 199;
+            }
+
+            // caclulate additional offset
+            m_Parameters.offset =  (left - right) / 2 * m_Parameters.zoom / 100;
         }
         else
         {
             m_Parameters.zoom = 100;
+            m_Parameters.offset = 0;
         }
 
         delete[] data;
         ddjvu_format_release(fmt);
         ddjvu_page_release(page);
+    }
+
+    // increase zoom
+    virtual void ZoomIn()
+    {
+    }
+
+    // decrease zoom
+    virtual void ZoomOut()
+    {
     }
 
     // get description of zoom strategy
@@ -162,38 +198,40 @@ public:
 private:
     int CalculateOffset(unsigned char* data, int x, int y, int w, int h, bool startFromLeft)
     {
-        if (startFromLeft)
-        {
-            unsigned char* p = data + x + ScreenWidth() * y;
+        int delta = startFromLeft ? 1 : -1;
+        int offset = startFromLeft ? x : x + w;
 
-            for (int i = x; i < x + w; ++i, p = data + i + x + ScreenWidth() * y)
+        unsigned char* p = data + offset + ScreenWidth() * y;
+
+        for (int i = 0, count = 0; i < w; ++i, p = data + delta * i + offset + ScreenWidth() * y)
+        {
+            int non_white_pixels = 0;
+            int j;
+            for (j = y; j < y + h; ++j, p += ScreenWidth())
             {
-                for (int j = y; j < y + h; ++j, p += ScreenWidth())
+                if (*p < 200)
                 {
-                    if (*p != 0xFF)
+                    if (++non_white_pixels > 0.0125 * h)
                     {
-                        return i - x;
+                        if (++count > 3)
+                        {
+                            return i - count - 1;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            unsigned char* p = data + (ScreenWidth() - (x + w)) + ScreenWidth() * y;
 
-            for (int i = x + w; i > x; --i, p = data + i + (ScreenWidth() - (x + w)) + ScreenWidth() * y)
+            if (j == y + h)
             {
-                for (int j = y; j < y + h; ++j, p += ScreenWidth())
-                {
-                    if (*p != 0xFF)
-                    {
-                        return (x + w) - i;
-                    }
-                }
+                count = 0;
             }
         }
 
-        return h;
+        return w;
     }
 
     ddjvu_document_t* m_Document;
@@ -206,6 +244,11 @@ class ManualZoomStrategy : public ZoomStrategy
 public:
     // constructor
     ManualZoomStrategy(const ZoomerParameters& parameters) : ZoomStrategy(parameters) {}
+
+    // calculate zoom
+    virtual void CalculateZoom()
+    {
+    }
 
     // increase zoom
     virtual void ZoomIn()
@@ -254,6 +297,8 @@ public:
         {
             m_Parameters.zoom = 100;
         }
+        
+        m_Parameters.offset = 0;
     }
 
     // increase zoom
