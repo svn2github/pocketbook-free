@@ -1,4 +1,4 @@
-SDKDIR = ../../PBSDK-linux-libwine
+SDKDIR = /usr/local/pocketbook
 
 # common data
 CFLAGS = -Wall -fomit-frame-pointer -O2
