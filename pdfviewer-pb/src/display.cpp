@@ -304,6 +304,8 @@ static void draw_page_image() {
 	data = (unsigned char *)(splashOut->getBitmap()->getDataPtr());
 	row = splashOut->getBitmap()->getRowSize();
 
+        printf("dx=%d\n",dx);
+
 	Stretch(data+(USE4?dx/2:dx), USE4 ? IMAGE_GRAY4 : IMAGE_GRAY8, sw, sh-panelh, row, scrx, scry, sw, sh-panelh, 0);
 	//DitherArea(scrx, scry, w, h, 4, DITHER_PATTERN);
 
