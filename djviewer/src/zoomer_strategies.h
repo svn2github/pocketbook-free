@@ -39,28 +39,6 @@ protected:
     ZoomerParameters m_Parameters;
 };
 
-// do nothing
-class EmptyZoomStrategy : public ZoomStrategy
-{
-public:
-    EmptyZoomStrategy(const ZoomerParameters& parameters) : ZoomStrategy(parameters) {}
-
-    // get description of zoom strategy
-    virtual void GetDescription(char* buffer, unsigned int size) const
-    {
-        snprintf(buffer, size, "Dummy");
-    }
-
-    // calculate zoom
-    virtual void CalculateZoom() {}
-
-    // increase zoom
-    virtual void ZoomIn() {}
-
-    // decrease zoom
-    virtual void ZoomOut() {}
-};
-
 // do zoom by whole pages
 class PagesZoomStrategy : public ZoomStrategy
 {
@@ -77,6 +55,7 @@ public:
         }
 
         m_Parameters.offset = 0;
+        m_Parameters.optimal_zoom = 0;
     }
 
     // increase zoom
@@ -125,6 +104,7 @@ public:
         {
             m_Parameters.zoom = 100;
             m_Parameters.offset = 0;
+            m_Parameters.optimal_zoom = 0;
             return;
         }
 
@@ -136,6 +116,7 @@ public:
 
             m_Parameters.zoom = 100;
             m_Parameters.offset = 0;
+            m_Parameters.optimal_zoom = 0;
             return;
         }
 
@@ -168,11 +149,13 @@ public:
 
             // caclulate additional offset
             m_Parameters.offset =  (left - right) / 2 * m_Parameters.zoom / 100;
+            m_Parameters.optimal_zoom = 1;
         }
         else
         {
             m_Parameters.zoom = 100;
             m_Parameters.offset = 0;
+            m_Parameters.optimal_zoom = 0;
         }
 
         delete[] data;
@@ -258,6 +241,9 @@ public:
         {
             m_Parameters.zoom = 195;
         }
+
+        m_Parameters.optimal_zoom = 0;
+        m_Parameters.offset = 0;
     }
 
     // decrease zoom
@@ -274,6 +260,9 @@ public:
         {
             m_Parameters.zoom = 55;
         }
+
+        m_Parameters.optimal_zoom = 0;
+        m_Parameters.offset = 0;
     }
 
     // get description of zoom strategy
@@ -299,6 +288,7 @@ public:
         }
         
         m_Parameters.offset = 0;
+        m_Parameters.optimal_zoom = 0;
     }
 
     // increase zoom

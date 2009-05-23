@@ -92,7 +92,6 @@ static char *yes_no_variants[] = { "No", "Yes", NULL };
 static char *level_of_black_variants[] = { "Default", "+10%", "+20%", "+30%", "+40%", "+50%", "+60%", "+70%", "+80%", "+90%", "+100%", NULL};
 
 static iconfigedit djvu_config[] = {
-	{ "Calculate optimal zoom", "calc_optimal_zoom", CFG_INDEX, "0", yes_no_variants },
 	{ "Draw end of page", "draw_end_of_page", CFG_INDEX, "0", yes_no_variants },
 	{ "Level of black", "level_of_black", CFG_INDEX, "0", level_of_black_variants },
 	{ NULL, NULL, 0, NULL, NULL}
@@ -119,6 +118,7 @@ static int cpagew, cpageh;
 static int offx, offy, oldoffy;
 static int scale=100;
 static int offset;
+static int calc_optimal_zoom;
 static int thx, thy, thw, thh, thix, thiy, thiw, thih, panh, pgbottom;
 static int zoom_mode=0;
 static char *FileName;
@@ -555,7 +555,7 @@ static void out_page(int full) {
 
 	ClearScreen();
 
-        if (ReadInt(djvucfg, "calc_optimal_zoom", 0) != 0)
+        if (calc_optimal_zoom)
         {
             CalculateOptimalZoom(doc, cpage, &scale, &offset);
         }
@@ -788,6 +788,10 @@ static void on_close_zoomer(ZoomerParameters* params)
     {
         scale = params->zoom;
         offset = params->offset;
+        calc_optimal_zoom = params->optimal_zoom;
+
+        printf("params->optimal_zoom=%d\n",params->optimal_zoom);
+
         out_page(1);
     }
 }
@@ -1027,8 +1031,17 @@ static void save_settings() {
   docstate.offx = offx;
   docstate.offy = offy;
 
-  docstate.scale = scale | (abs(offset) << 16) | (offset > 0 ? (1<<31) : 0);
-  docstate.orient = orient;
+  docstate.scale = scale | (abs(offset) << 16);
+
+  if (offset > 0)
+  {
+      docstate.scale |= 1 << 31;
+  }
+
+  if (calc_optimal_zoom)
+  {
+      docstate.scale |= 1 << 30;
+  }
 
   FILE *f = iv_fopen(DataFile, "wb");
   if (f != NULL) {
@@ -1105,9 +1118,10 @@ int main(int argc, char **argv) {
   offx = docstate.offx;
   offy = docstate.offy;
   scale = docstate.scale & 0xFFFF;
-  offset = (docstate.scale >> 16) & 0x7FFF;
+  offset = (docstate.scale >> 16) & 0x3FFF;
 
   if (!(docstate.scale >> 31)) offset =-offset;
+  if (((docstate.scale >> 30) & 0x1)) calc_optimal_zoom = 1;
 
   orient = docstate.orient;
   panh = PanelHeight();

@@ -40,8 +40,7 @@ private:
         ZOOM_STRATEGY_FIT_WIDTH,
         ZOOM_STRATEGY_MANUAL_ZOOM,
         ZOOM_STRATEGY_MANUAL_COLUMNS,
-        ZOOM_STRATEGY_CUSTOM,
-        ZOOM_STRATEGY_LAST = ZOOM_STRATEGY_CUSTOM
+        ZOOM_STRATEGY_LAST = ZOOM_STRATEGY_MANUAL_COLUMNS
     };
 
     // constructor
@@ -86,7 +85,7 @@ private:
 // initialization of static variables
 Zoomer* Zoomer::m_Instance;
 int Zoomer::m_Position = ZOOM_STRATEGY_MANUAL_ZOOM;
-const int Zoomer::m_IconsNumber = 5;
+const int Zoomer::m_IconsNumber = 4;
 const int Zoomer::m_IconWidth = djvumode.width / m_IconsNumber;
 const int Zoomer::m_IconHeight = djvumode.height;
 
@@ -106,7 +105,6 @@ Zoomer::Zoomer(const ZoomerParameters& params, CloseHandler closeHandler) : m_Pr
     s_Strategies[ZOOM_STRATEGY_FIT_WIDTH] = new FitWidthStrategy(params);
     s_Strategies[ZOOM_STRATEGY_MANUAL_ZOOM] = new ManualZoomStrategy(params);
     s_Strategies[ZOOM_STRATEGY_MANUAL_COLUMNS] = new ColumnsZoomStrategy(params);
-    s_Strategies[ZOOM_STRATEGY_CUSTOM] = new EmptyZoomStrategy(params);
 }
 
 // destructor

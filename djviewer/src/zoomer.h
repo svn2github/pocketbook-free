@@ -11,6 +11,7 @@ typedef struct tagZoomerParameters
 {
     int zoom;
     int offset;
+    int optimal_zoom;
 
     ddjvu_document_t* doc;
     int cpage;
