@@ -24,6 +24,7 @@ static char *strings3x3[9];
 
 int cpage=1, npages=1, subpage=0, nsubpages=1;
 int scale=100, rscale=150;
+int calc_optimal_zoom;
 int reflow_mode=0;
 int orient=0;
 int clock_left=0;
@@ -869,6 +870,8 @@ static void save_settings() {
   docstate.offx = offx;
   docstate.offy = offy;
   docstate.scale = scale;
+  if (calc_optimal_zoom) docstate.scale |= 1 << 15;
+
   docstate.rscale = rscale;
   docstate.orient = orient;
   if (reflow_mode) docstate.orient |= 0x80;
@@ -1020,10 +1023,12 @@ fprintf(stderr, "password: %s\n", spwd);
   subpage = docstate.subpage;
   offx = docstate.offx;
   offy = docstate.offy;
-  scale = docstate.scale;
+  scale = docstate.scale & 0x7FFF;
   rscale = docstate.rscale;
   reflow_mode = (docstate.orient & 0x80) ? 1 : 0;
   orient = docstate.orient & 0x7f;
+
+  calc_optimal_zoom = docstate.scale >> 15;
 
   if (argc >= 3) {
 	if (argv[2][0] == '=') {

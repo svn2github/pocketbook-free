@@ -4,7 +4,12 @@ extern "C" const ibitmap zoombm;
 extern "C" const ibitmap searchbm;
 extern "C" const ibitmap hgicon;
 
+extern int calc_optimal_zoom;
+
 static pid_t bgpid = 0;
+
+// uncomment to enable automatical panning on zoom
+//#define ENABLE_PANNING_ON_ZOOM
 
 void bg_monitor() {
 
@@ -163,6 +168,14 @@ void find_off_x(int step)
 
 static int center_image(int w, int h, int sw, int *rw) {
 
+#ifndef ENABLE_PANNING_ON_ZOOM
+    if (!calc_optimal_zoom)
+    {
+        return w/2-sw/2;
+    }
+
+#endif // ENABLE_PANNING_ON_ZOOM
+
 	unsigned char *data, *p, mask;
 	int row, x1, x2, y, pxinbyte;
 	int xleft, xright, ytop, ybottom;
@@ -180,27 +193,53 @@ static int center_image(int w, int h, int sw, int *rw) {
 		pxinbyte = 1;
 	}
 
-	xleft = w/4;
-	xright = w - w/4;
+	xleft = w/2;
+	xright = w - w/2;
 	ytop = h/8;
 	ybottom = h - h/8;
 
+        int count = 0;
+
 	for (x1=0; x1<xleft; x1+=pxinbyte) {
 		p = data + x1/pxinbyte + row * ytop;
+
 		for (y=ytop; y<ybottom; y++) {
-			if ((*p | mask) != 0xff) break;
+
+			if ((*p | mask) < 200)
+                        {
+                            if (++count > 5)
+                            {
+                                break;
+                            }
+                        }
 			p += row;
 		}
+
 		if (y != ybottom) break;
+                count = 0;
 	}
+
+        count = 0;
+
 	for (x2=w-pxinbyte*2; x2>xright; x2-=pxinbyte) {
 		p = data + x2/pxinbyte + row * ytop;
 		for (y=ytop; y<ybottom; y++) {
-			if ((*p | mask) != 0xff) break;
+			if ((*p | mask) < 200)
+                        {
+                            if (++count > 5)
+                            {
+                                break;
+                            }
+                        }
 			p += row;
 		}
 		if (y != ybottom) break;
+                count=0;
 	}
+
+        if (x1==xleft) x2=w-pxinbyte*2;
+        else if (x2<xright) x1=xleft;
+
 	//fprintf(stderr, "w=%i h=%i (%i,%i)=%i\n", w, h, x2, x1, x1+(x2-x1)/2);
 	if (rw) *rw = x2-x1;
 	return (x1 + x2) / 2 - sw / 2;
@@ -208,7 +247,6 @@ static int center_image(int w, int h, int sw, int *rw) {
 }
 
 int get_fit_scale() {
-
 	int sw, sh, pw, ph, marginx, marginy, rw;
 	double res;
 
@@ -217,14 +255,15 @@ int get_fit_scale() {
 	sh = ScreenHeight();
 	getpagesize(cpage, &pw, &ph, &res, &marginx, &marginy);
 	splashOut->setup(gFalse, 0, 0, 0, sw, sh-panelh, 0, 0, 0, 0, res);
-	doc->displayPageSlice(splashOut, cpage, res, res, 0, gTrue, gFalse, gFalse, 0, 0, pw, ph);
+	doc->displayPageSlice(splashOut, cpage, res, res, 0, gFalse, gFalse, gFalse, 0, 0, pw, ph);
 	center_image(pw, ph, sw, &rw);
-	return (sw * 95) / rw;
 
+        int new_scale = (sw * 99) / rw;
+
+	return new_scale > 199 ? 199 : new_scale;
 }
 
 static void draw_page_image() {
-
 	int sw, sh, pw, ph, x, y, w, h, dx, row, i;
 	double tx, ty, tw, th, cw, mw;
 	int marginx, marginy;
@@ -244,7 +283,8 @@ static void draw_page_image() {
 	//if (ph-(sh-panelh-15)-marginy < offy) offy = ph-(sh-panelh-15)-marginy;
 	if (ph-(sh-panelh) < offy) offy = ph-(sh-panelh);
 	if (offy < 0) offy = 1;
-	if (offy == 0) offy = marginy;
+	//if (offy == 0) offy = marginy;
+        if (offy == 0) offy = 1;
 
 	/*
 	  void displayPageSlice(OutputDev *out, int page,
@@ -264,9 +304,22 @@ static void draw_page_image() {
 			offx = 0;
 		}
 		splashOut->setup(gFalse, 0, 0, 0, sw, sh-panelh, 0, 0, 0, 0, res);
-		if (scale > 100 && scale <= 199) {
+
+		if (scale > 50 && scale <= 199) {
+                        static int lastCPage = cpage;
+
+                        if (calc_optimal_zoom && lastCPage != cpage)
+                        {
+                            scale = get_fit_scale();
+                            getpagesize(cpage, &pw, &ph, &res, &marginx, &marginy);
+                        }
+
 			doc->displayPageSlice(splashOut, cpage, res, res, 0, gFalse, gTrue/*gFalse*/, gFalse, 0, offy, pw, sh);
+
+                        lastCPage = cpage;
+
 			dx = center_image(pw, sh-panelh, sw, NULL);
+
 			offx = dx;
 			if (dx < 0) dx = 0;
 		} else {
@@ -303,8 +356,6 @@ static void draw_page_image() {
 
 	data = (unsigned char *)(splashOut->getBitmap()->getDataPtr());
 	row = splashOut->getBitmap()->getRowSize();
-
-        printf("dx=%d\n",dx);
 
 	Stretch(data+(USE4?dx/2:dx), USE4 ? IMAGE_GRAY4 : IMAGE_GRAY8, sw, sh-panelh, row, scrx, scry, sw, sh-panelh, 0);
 	//DitherArea(scrx, scry, w, h, 4, DITHER_PATTERN);

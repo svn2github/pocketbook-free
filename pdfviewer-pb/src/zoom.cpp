@@ -15,6 +15,8 @@ static int dx, dy, dw, dh, th;
 static int new_scale, new_rscale, new_reflow;
 static int pos;
 
+extern int calc_optimal_zoom;
+
 /*  0:preview  1:fit  2:normal  3:columns  4:reflow  */
 
 void update_value(int *val, int d, const int *variants) {
@@ -101,6 +103,9 @@ static void draw_new_zoomer(int update) {
 static void close_zoomer() {
 
 	DrawBitmap(dx, dy, isaves);
+
+        PartialUpdate(dx, dy, dw+4,dh+4);
+
 	free(isaves);
 	isaves = NULL;
 	iv_seteventhandler(prevhandler);
@@ -155,18 +160,34 @@ static int newzoomer_handler(int type, int par1, int par2) {
 			break;
 
 		case KEY_OK:
+                {
 			close_zoomer();
 			// ... for "fit width", calculate new zoom
+
+                        int old_scale = scale;
+                        int old_calc_optimal_zoom = calc_optimal_zoom;
+                        int old_reflow_mode = reflow_mode;
+
 			reflow_mode = new_reflow;
 			if (pos == 1) {
+                                calc_optimal_zoom = 1;
 				scale = get_fit_scale();
 			} else {
+                            calc_optimal_zoom = 0;
 				scale = new_scale;
 			}
 			rscale = new_rscale;
 			if (new_reflow != reflow_mode) subpage = 0;
-			out_page(1);
+                        
+                        if (old_scale != scale || old_calc_optimal_zoom != calc_optimal_zoom || old_reflow_mode != reflow_mode)
+                        {
+                            out_page(1);
+                        }
+
+                        close_zoomer();
+
 			break;
+                }
 
 		case KEY_BACK:
 		case KEY_MENU:
@@ -200,9 +221,12 @@ void open_zoomer() {
 		pos = 0;
 	} else if (scale >= 200) {
 		pos = 3;
-	} else {
-		pos = 2;
+	} else if (calc_optimal_zoom) {
+		pos = 1;
 	}
+        else {
+            pos = 2;
+        }
 
 	prevhandler = iv_seteventhandler(newzoomer_handler);
 	if (ivstate.needupdate) {
