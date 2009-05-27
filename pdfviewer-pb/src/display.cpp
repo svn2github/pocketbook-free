@@ -521,7 +521,7 @@ void out_page(int full) {
 	thy = ScreenHeight()-h+4;
 	FillArea(thx, thy, thw, thh, WHITE);
 	thx+=1; thy+=1; thw-=2; thh-=2;
-	if ((scale >= 200 || (scale >= 100 && !is_portrait())) && !reflow_mode) {
+	if ((scale >= 200 || (scale >= 100 /*&& !is_portrait()*/)) && !reflow_mode) {
 		FillArea(thx+(thw*thix)/100, thy+(thh*thiy)/100, (thw*thiw)/100, (thh*thih)/100, BLACK);
 	}
 
