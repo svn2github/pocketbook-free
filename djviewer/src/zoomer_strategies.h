@@ -186,31 +186,18 @@ private:
 
         unsigned char* p = data + offset + ScreenWidth() * y;
 
-        for (int i = 0, count = 0; i < w; ++i, p = data + delta * i + offset + ScreenWidth() * y)
+        for (int i = 0; i < w; ++i, p = data + delta * i + offset + ScreenWidth() * y)
         {
             int non_white_pixels = 0;
-            int j;
-            for (j = y; j < y + h; ++j, p += ScreenWidth())
+            for (int j = y; j < y + h; ++j, p += ScreenWidth())
             {
                 if (*p < 200)
                 {
-                    if (++non_white_pixels > 0.0125 * h)
+                    if (++non_white_pixels > 5)
                     {
-                        if (++count > 3)
-                        {
-                            return i - count - 1;
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        return i - 2;
                     }
                 }
-            }
-
-            if (j == y + h)
-            {
-                count = 0;
             }
         }
 
