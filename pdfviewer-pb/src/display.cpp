@@ -237,8 +237,8 @@ static int center_image(int w, int h, int sw, int *rw) {
                 count=0;
 	}
 
-        if (x1==xleft) x2=w-pxinbyte*2;
-        else if (x2<xright) x1=xleft;
+        if (x1==xleft) x1=0;
+        else if (x2<xright) x2=w;
 
 	//fprintf(stderr, "w=%i h=%i (%i,%i)=%i\n", w, h, x2, x1, x1+(x2-x1)/2);
 	if (rw) *rw = x2-x1;
