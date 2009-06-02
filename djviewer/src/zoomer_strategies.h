@@ -201,7 +201,7 @@ private:
             }
         }
 
-        return w;
+        return 0;
     }
 
     ddjvu_document_t* m_Document;
