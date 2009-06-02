@@ -130,10 +130,16 @@ public:
         if (ddjvu_page_render(page, DDJVU_RENDER_COLOR, &rect, &rect, fmt, ScreenWidth(), reinterpret_cast<char*>(data)))
         {
             // calculate left offset
-            int left = CalculateOffset(data, 0, ScreenHeight() / 4, ScreenWidth() / 2, ScreenHeight() / 2, true);
+            int left = CalculateOffset(data, 0, ScreenHeight() / 8, ScreenWidth() / 2 - 1, 6*ScreenHeight() / 8, true);
 
             // calculate right offset
-            int right = CalculateOffset(data, ScreenWidth() / 2, ScreenHeight() / 4 - 1, ScreenWidth() / 2, ScreenHeight() / 2, false);
+            int right = CalculateOffset(data, ScreenWidth() / 2, ScreenHeight() / 8, ScreenWidth() / 2 - 1, ScreenHeight() / 2, false);
+
+            if (left == ScreenWidth() / 2 - 1 && right == ScreenWidth() / 2 - 1)
+            {
+                left = 0;
+                right = 0;
+            }
 
             // select smaller from two offsets and calculate zoom based on this value
             //m_Parameters.zoom = 100 * (0.5 * ScreenWidth() / (0.5 * ScreenWidth() - (left < right ? left : right)));
@@ -201,7 +207,7 @@ private:
             }
         }
 
-        return 0;
+        return w;
     }
 
     ddjvu_document_t* m_Document;
