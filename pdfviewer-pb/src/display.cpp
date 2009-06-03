@@ -186,10 +186,10 @@ static int center_image(int w, int h, int sw, int *rw) {
 	//Stretch(data, USE4 ? IMAGE_GRAY4 : IMAGE_GRAY8, sw, sh-panelh, row, scrx, scry, sw, sh-panelh, 0);
 
 	if (USE4) {
-		mask = 0x77;
+		mask = 0xf;
 		pxinbyte = 2;
 	} else {
-		mask = 0x7f;
+		mask = 0xff;
 		pxinbyte = 1;
 	}
 
