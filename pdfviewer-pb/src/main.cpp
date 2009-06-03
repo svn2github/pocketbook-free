@@ -20,6 +20,8 @@
 
 #include "pdfviewer.h"
 
+#define WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
+
 static char *strings3x3[9];
 
 int cpage=1, npages=1, subpage=0, nsubpages=1;
@@ -166,7 +168,7 @@ static void wordlist_reflow() {
 	if (diclist) {
 		for (diclen=0; diclist[diclen].word != NULL; diclen++) ;
 	}
-	OpenDictionaryView(diclist, NULL);
+	//OpenDictionaryView(diclist, NULL);
 
 }
 
@@ -180,7 +182,26 @@ void open_dictionary() {
 		diclist = NULL;
 	}
 	reflow_mode ? wordlist_reflow() : wordlist_normal();
-	OpenDictionaryView(diclist, NULL);
+
+#ifdef WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
+    if (diclen == 0)
+    {
+        static iv_wlist diclist[2];
+        diclist[0].word="";
+        diclist[0].x1=0;
+        diclist[0].x2=0;
+        diclist[0].y1=0;
+        diclist[0].y2=0;
+        diclist[1].word=0;
+        OpenDictionaryView(diclist, NULL);
+    }
+    else
+    {
+        OpenDictionaryView(diclist, NULL);
+    }
+#else
+    OpenDictionaryView(diclist, NULL);
+#endif
 
 }
 

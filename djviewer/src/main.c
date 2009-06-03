@@ -40,6 +40,8 @@ extern const ibitmap hgicon;
 
 #define MAXRESULTS 200
 
+#define WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
+
 // #define die(x...) { fprintf(stderr, x); exit(1); }
 
 static imenu zoom_menu_p[] = {
@@ -770,7 +772,21 @@ static void last_page() { page_selected(npages); }
 static void new_note() { CreateNote(FileName, book_title, cpage); }
 static void save_page_note() { CreateNoteFromPage(FileName, book_title, cpage); }
 static void open_notes() { OpenNotepad(NULL); }
-static void open_dictionary() { OpenDictionaryView(NULL, NULL); }
+static void open_dictionary()
+{
+#ifdef WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
+    static iv_wlist diclist[2];
+    diclist[0].word="";
+    diclist[0].x1=0;
+    diclist[0].x2=0;
+    diclist[0].y1=0;
+    diclist[0].y2=0;
+    diclist[1].word=0;
+    OpenDictionaryView(diclist, NULL);
+#else
+    OpenDictionaryView(NULL, NULL);
+#endif
+}
 static void open_zoomer() { OpenMenu(is_portrait() ? zoom_menu_p : zoom_menu_l, scale, -1, -1, zoom_menu_handler); }
 static void zoom_in() { do_zoom(+1); }
 static void zoom_out() { do_zoom(-1); }
