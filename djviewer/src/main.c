@@ -805,9 +805,6 @@ static void on_close_zoomer(ZoomerParameters* params)
         scale = params->zoom;
         offset = params->offset;
         calc_optimal_zoom = params->optimal_zoom;
-
-        printf("params->optimal_zoom=%d\n",params->optimal_zoom);
-
         out_page(1);
     }
 }
