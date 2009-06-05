@@ -278,7 +278,7 @@ static void draw_page_image() {
 		offy = 0;
 		rrect.h = prect.h;
 	} else {
-		if (offy>prect.h-sh) {
+		if (offy>=prect.h-sh) {
 			offy=prect.h-sh;
 			pgbottom=1;
 		}
