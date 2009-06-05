@@ -14,6 +14,7 @@ static ibitmap *isaves;
 static int dx, dy, dw, dh, th;
 static int new_scale, new_rscale, new_reflow;
 static int pos;
+static int value_was_changed;
 
 extern int calc_optimal_zoom;
 
@@ -77,7 +78,7 @@ static void draw_new_zoomer(int update) {
 			break;
 		case 2:
 			if (new_scale >= 200) new_scale = 100;
-			update_value(&new_scale, 0, SC_NORMAL);
+			//update_value(&new_scale, 0, SC_NORMAL);
 			snprintf(buf, sizeof(buf),
 			   "%s: %i%%%c", GetLangText("@Normal_page"), new_scale, 0x16);
 			break;
@@ -113,6 +114,8 @@ static void close_zoomer() {
 }
 
 static void change_value(int d) {
+
+    value_was_changed = 1;
 
 	switch (pos) {
 		case 0:
@@ -173,8 +176,15 @@ static int newzoomer_handler(int type, int par1, int par2) {
                                 calc_optimal_zoom = 1;
 				scale = get_fit_scale();
 			} else {
-                            calc_optimal_zoom = 0;
+                            if (pos == 2 && calc_optimal_zoom && !value_was_changed)
+                            {
+                                // do nothing
+                            }
+                            else
+                            {
+                                calc_optimal_zoom = 0;
 				scale = new_scale;
+                            }
 			}
 			rscale = new_rscale;
 			if (new_reflow != reflow_mode) subpage = 0;
@@ -227,6 +237,8 @@ void open_zoomer() {
         else {
             pos = 2;
         }
+
+        value_was_changed = 0;
 
 	prevhandler = iv_seteventhandler(newzoomer_handler);
 	if (ivstate.needupdate) {
