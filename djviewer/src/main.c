@@ -816,6 +816,7 @@ static void open_new_zoomer()
     params.doc = doc;
     params.cpage = cpage;
     params.orient = orient;
+    params.optimal_zoom = calc_optimal_zoom;
 
     ShowZoomer(&params, on_close_zoomer);
 }

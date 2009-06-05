@@ -71,7 +71,7 @@ private:
     ZoomStrategy* s_Strategies[ZOOM_STRATEGY_LAST + 1];
 
     // variables
-    static int m_Position;
+    int m_Position;
     iv_handler m_PrevHandler;
     ibitmap* m_SavedArea;
     CloseHandler m_CloseHandler;
@@ -84,7 +84,6 @@ private:
 
 // initialization of static variables
 Zoomer* Zoomer::m_Instance;
-int Zoomer::m_Position = ZOOM_STRATEGY_MANUAL_ZOOM;
 const int Zoomer::m_IconsNumber = 4;
 const int Zoomer::m_IconWidth = djvumode.width / m_IconsNumber;
 const int Zoomer::m_IconHeight = djvumode.height;
@@ -105,6 +104,24 @@ Zoomer::Zoomer(const ZoomerParameters& params, CloseHandler closeHandler) : m_Pr
     s_Strategies[ZOOM_STRATEGY_FIT_WIDTH] = new FitWidthStrategy(params);
     s_Strategies[ZOOM_STRATEGY_MANUAL_ZOOM] = new ManualZoomStrategy(params);
     s_Strategies[ZOOM_STRATEGY_MANUAL_COLUMNS] = new ColumnsZoomStrategy(params);
+
+    // select appropriate position
+    if (params.optimal_zoom)
+    {
+        m_Position = ZOOM_STRATEGY_FIT_WIDTH;
+    }
+    else if (params.zoom <= 50)
+    {
+        m_Position = ZOOM_STRATEGY_PAGES;
+    }
+    else if (params.zoom >= 200)
+    {
+        m_Position = ZOOM_STRATEGY_MANUAL_COLUMNS;
+    }
+    else
+    {
+        m_Position = ZOOM_STRATEGY_MANUAL_ZOOM;
+    }
 }
 
 // destructor
