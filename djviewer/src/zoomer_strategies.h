@@ -201,7 +201,7 @@ private:
                 {
                     if (++non_white_pixels > 5)
                     {
-                        return i - 2;
+                        return i >= 2 ? i - 2 : i;
                     }
                 }
             }

@@ -303,6 +303,13 @@ static void draw_page_image() {
 
         rrect.x += offset;
 
+        if (rrect.x < 0) rrect.x=0;
+
+        if (rrect.x + rrect.w >= prect.w)
+        {
+            rrect.x = prect.w - rrect.w;
+        }
+
 	if (! ddjvu_page_render(page, mode, &prect, &rrect, fmt, rowsize, (char *)data)) {
 		fprintf(stderr, "Cannot render image\n");
 		ddjvu_page_release(page);
