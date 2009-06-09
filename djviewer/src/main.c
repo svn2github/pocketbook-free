@@ -140,7 +140,7 @@ static inline int is_portrait() { return (orient == 0 || orient == 3); }
 static void find_off(int step)
 {
 	int sw=ScreenWidth();
-	int sh=ScreenHeight();
+	int sh=ScreenHeight()-thh;
 
         oldoffy = offy;
 
@@ -229,7 +229,7 @@ static void draw_page_image() {
 
 	SetOrientation(orient);
 	sw = ScreenWidth();
-	sh = ScreenHeight();
+	sh = ScreenHeight()-thh;
 
 	if (! (page = ddjvu_page_create_by_pageno(doc, cpage-1))) {
 		fprintf(stderr, "Cannot access page %d.\n", cpage);
@@ -399,7 +399,7 @@ static int draw_pages() {
 	pid_t pid;
 
 	sw = ScreenWidth();
-	sh = ScreenHeight();
+	sh = ScreenHeight()-thh;
 
 	if (is_portrait() && scale == 50) {
 		nx = ny = 2;
