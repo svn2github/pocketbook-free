@@ -168,6 +168,7 @@ static int newzoomer_handler(int type, int par1, int par2) {
 			// ... for "fit width", calculate new zoom
 
                         int old_scale = scale;
+                        int old_rscale = rscale;
                         int old_calc_optimal_zoom = calc_optimal_zoom;
                         int old_reflow_mode = reflow_mode;
 
@@ -188,8 +189,8 @@ static int newzoomer_handler(int type, int par1, int par2) {
 			}
 			rscale = new_rscale;
 			if (new_reflow != reflow_mode) subpage = 0;
-                        
-                        if (old_scale != scale || old_calc_optimal_zoom != calc_optimal_zoom || old_reflow_mode != reflow_mode)
+
+                        if (rscale != old_rscale || old_scale != scale || old_calc_optimal_zoom != calc_optimal_zoom || old_reflow_mode != reflow_mode)
                         {
                             out_page(1);
                         }
