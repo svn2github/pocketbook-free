@@ -1067,6 +1067,12 @@ fprintf(stderr, "password: %s\n", spwd);
   if (cpage > npages) cpage = npages;
 
   InkViewMain(main_handler);
+
+    if (diclist != NULL) {
+            for (i=0; i<diclen; i++) free(diclist[i].word);
+            free(diclist);
+    }
+
   return 0;
 
 }
