@@ -98,28 +98,6 @@ public:
     // calculate zoom
     virtual void CalculateZoom()
     {
-        ddjvu_page_t* page = ddjvu_page_create_by_pageno(m_Parameters.doc, m_Parameters.cpage - 1);
-
-        if (page == 0)
-        {
-            m_Parameters.zoom = 100;
-            m_Parameters.offset = 0;
-            m_Parameters.optimal_zoom = 0;
-            return;
-        }
-
-        while (!ddjvu_page_decoding_done(page));
-
-        if (ddjvu_page_decoding_error(page))
-        {
-            ddjvu_page_release(page);
-
-            m_Parameters.zoom = 100;
-            m_Parameters.offset = 0;
-            m_Parameters.optimal_zoom = 0;
-            return;
-        }
-
         ddjvu_rect_t rect = {0, 0, ScreenWidth(), ScreenHeight()};
         ddjvu_format_t* fmt = ddjvu_format_create(DDJVU_FORMAT_GREY8, 0, 0);
         ddjvu_format_set_row_order(fmt, 1);
@@ -127,13 +105,14 @@ public:
 
         unsigned char* data = new unsigned char[ScreenWidth() * ScreenHeight()];
 
-        if (ddjvu_page_render(page, DDJVU_RENDER_COLOR, &rect, &rect, fmt, ScreenWidth(), reinterpret_cast<char*>(data)))
+        if (ddjvu_page_render(m_Parameters.page, DDJVU_RENDER_COLOR, &rect, &rect, fmt, ScreenWidth(), reinterpret_cast<char*>(data)))
         {
             // calculate left offset
             int left = CalculateOffset(data, 0, ScreenHeight() / 8, ScreenWidth() / 2 - 1, 6*ScreenHeight() / 8, true);
 
             // calculate right offset
             int right = CalculateOffset(data, ScreenWidth() / 2, ScreenHeight() / 8, ScreenWidth() / 2 - 1, ScreenHeight() / 2, false);
+
 
             if (left == ScreenWidth() / 2 - 1 && right == ScreenWidth() / 2 - 1)
             {
@@ -166,7 +145,6 @@ public:
 
         delete[] data;
         ddjvu_format_release(fmt);
-        ddjvu_page_release(page);
     }
 
     // increase zoom
@@ -192,19 +170,30 @@ private:
 
         unsigned char* p = data + offset + ScreenWidth() * y;
 
+        int number_of_lines = 1;
+
         for (int i = 0; i < w; ++i, p = data + delta * i + offset + ScreenWidth() * y)
         {
             int non_white_pixels = 0;
+            int found = 0;
             for (int j = y; j < y + h; ++j, p += ScreenWidth())
             {
                 if (*p < 200)
                 {
                     if (++non_white_pixels > 5)
                     {
-                        return i >= 2 ? i - 2 : i;
+                        if (++number_of_lines > 3)
+                        {
+                            return (i >= 2 ? i - 2 : i) - (number_of_lines - 1);
+                        }
+
+                        found = 1;
+                        break;
                     }
                 }
             }
+
+            if (found == 0) number_of_lines = 0;
         }
 
         return w;

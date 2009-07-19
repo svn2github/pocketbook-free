@@ -298,11 +298,11 @@ void ShowZoomer(ZoomerParameters* params, CloseHandler closeHandler)
 }
 
 // calculate optimal width
-void CalculateOptimalZoom(ddjvu_document_t* doc, int cpage, int* zoom, int* offset)
+void CalculateOptimalZoom(ddjvu_document_t* doc, ddjvu_page_t* page, int* zoom, int* offset)
 {
     ZoomerParameters params = {0};
     params.doc = doc;
-    params.cpage = cpage;
+    params.page = page;
 
     FitWidthStrategy fit(params);
     fit.CalculateZoom();

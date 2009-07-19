@@ -158,7 +158,7 @@ typedef struct ddjvu_rectmapper_s ddjvu_rectmapper_t;
    Always use the following idiom to include this file.
 
      #include <libdjvu/ddjvuapi.h>
-     #include <libdjvu/miniexp.h>
+//      #include <libdjvu/miniexp.h>
 
    This file does not declare functions ddjvu_get_DjVuImage() 
    and djvu_get_DjVuDocument() unless you include files 

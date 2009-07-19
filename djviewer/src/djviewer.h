@@ -39,7 +39,6 @@ typedef struct tdocstate_s {
 
 static void draw_page_image();
 static int main_handler(int type, int par1, int par2);
-static int zoom_handler(int type, int par1, int par2);
 static void menu_handler(int pos);
 static void save_settings();
 

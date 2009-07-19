@@ -27,10 +27,12 @@
 
 #ifdef WIN32
 #undef WIN32
-#include "libdjvu/ddjvuapi.h"
+#include <libdjvu/miniexp.h>
+#include <libdjvu/ddjvuapi.h>
 #define WIN32
 #else
-#include "libdjvu/ddjvuapi.h"
+#include <libdjvu/miniexp.h>
+#include <libdjvu/ddjvuapi.h>
 #endif
 
 #include "zoomer.h"
@@ -44,59 +46,16 @@ extern const ibitmap hgicon;
 
 // #define die(x...) { fprintf(stderr, x); exit(1); }
 
-static imenu zoom_menu_p[] = {
-
-	{ ITEM_HEADER, 0, "@Zoom", NULL },
-	{ ITEM_ACTIVE, 33, "@9_pages", NULL },
-	{ ITEM_ACTIVE, 50, "@4_pages", NULL },
-	{ ITEM_ACTIVE, 90, "90%", NULL },
-	{ ITEM_ACTIVE, 100, "100%", NULL },
-	{ ITEM_ACTIVE, 110, "110%", NULL },
-	{ ITEM_ACTIVE, 120, "120%", NULL },
-	{ ITEM_ACTIVE, 200, "@2_columns", NULL },
-	{ ITEM_ACTIVE, 300, "@3_columns", NULL },
-	{ ITEM_ACTIVE, 400, "@4_columns", NULL },
-	{ 0, 0, NULL, NULL }
-
-};
-
-static imenu zoom_menu_l[] = {
-
-	{ ITEM_HEADER, 0, "@Zoom", NULL },
-	{ ITEM_ACTIVE, 33, "@6_pages", NULL },
-	{ ITEM_ACTIVE, 50, "@2_pages", NULL },
-	{ ITEM_ACTIVE, 90, "90%", NULL },
-	{ ITEM_ACTIVE, 100, "100%", NULL },
-	{ ITEM_ACTIVE, 110, "110%", NULL },
-	{ ITEM_ACTIVE, 120, "120%", NULL },
-	{ ITEM_ACTIVE, 200, "@2_columns", NULL },
-	{ ITEM_ACTIVE, 300, "@3_columns", NULL },
-	{ ITEM_ACTIVE, 400, "@4_columns", NULL },
-	{ 0, 0, NULL, NULL }
-
-};
-
-
 static const char *def_menutext[9] = {
-	"@Goto_page", "@Exit", "",
+	"@Goto_page", "@Exit", "@Search",
 	"@Bookmarks", "@Menu", "@Rotate",
-	"@Dictionary", "@Zoom", "@Settings"
+	"@Dictionary", "@Zoom", "@Contents"
 };
 
 static const char *def_menuaction[9] = {
-	"@KA_goto", "@KA_exit", "@KA_none",
+	"@KA_goto", "@KA_exit", "@KA_srch",
 	"@KA_obmk", "@KA_none", "@KA_rtte",
-	"@KA_dict", "@KA_zoom", "@KA_stgs"
-};
-
-static char *yes_no_variants[] = { "No", "Yes", NULL };
-
-static char *level_of_black_variants[] = { "Default", "+10%", "+20%", "+30%", "+40%", "+50%", "+60%", "+70%", "+80%", "+90%", "+100%", NULL};
-
-static iconfigedit djvu_config[] = {
-	{ "Draw end of page", "draw_end_of_page", CFG_INDEX, "0", yes_no_variants },
-	{ "Level of black", "level_of_black", CFG_INDEX, "0", level_of_black_variants },
-	{ NULL, NULL, 0, NULL, NULL}
+	"@KA_dict", "@KA_zoom", "@KA_cnts"
 };
 
 char *strings3x3[9];
@@ -107,8 +66,6 @@ ddjvu_document_t *doc;
 tdocstate docstate;
 
 pid_t bgpid = 0;
-
-static iconfig* djvucfg;
 
 static int SCALES[9] = { 33, 50, 90, 100, 110, 120, 200, 300, 400};
 #define NSCALES ((int)(sizeof(SCALES)/sizeof(int)))
@@ -127,6 +84,15 @@ static char *FileName;
 static char *DataFile;
 static int ready_sent = 0;
 static int bmkrem;
+static tocentry* toc;
+static int toclen;
+static float pagescalex;
+static float pagescaley;
+static int pageoffsetx;
+static int pageoffsety;
+
+static iv_wlist *diclist=NULL;
+static int diclen=0;
 
 static long long bmkpos[32];
 
@@ -134,6 +100,30 @@ static char *keyact0[32], *keyact1[32];
 
 static ibitmap *m3x3;
 static ibitmap *bmk_flag;
+
+static ddjvu_page_t* last_decoded_page;
+static int last_decoded_cpage = -1;
+
+static void handle(int wait)
+{
+  const ddjvu_message_t *msg;
+  if (!ctx)
+    return;
+  if (wait)
+    msg = ddjvu_message_wait(ctx);
+  while ((msg = ddjvu_message_peek(ctx)))
+    {
+      switch(msg->m_any.tag)
+        {
+        case DDJVU_ERROR:
+          fprintf(stderr,"ddjvu: %s\n", msg->m_error.message);
+	  break;
+        default:
+          break;
+        }
+      ddjvu_message_pop(ctx);
+    }
+}
 
 static inline int is_portrait() { return (orient == 0 || orient == 3); }
 
@@ -189,28 +179,6 @@ static void find_off(int step)
 
 /* Djvuapi events */
 
-static void handle(int wait)
-{
-  const ddjvu_message_t *msg;
-  if (!ctx)
-    return;
-  if (wait)
-    msg = ddjvu_message_wait(ctx);
-  while ((msg = ddjvu_message_peek(ctx)))
-    {
-      switch(msg->m_any.tag)
-        {
-        case DDJVU_ERROR:
-          fprintf(stderr,"ddjvu: %s\n", msg->m_error.message);
-	  break;
-        default:
-          break;
-        }
-      ddjvu_message_pop(ctx);
-    }
-}
-
-
 static void draw_page_image() {
 
 	int sw, sh, pw, ph, scrx, scry, w, h, rowsize;
@@ -231,18 +199,45 @@ static void draw_page_image() {
 	sw = ScreenWidth();
 	sh = ScreenHeight()-thh;
 
-	if (! (page = ddjvu_page_create_by_pageno(doc, cpage-1))) {
-		fprintf(stderr, "Cannot access page %d.\n", cpage);
-		return;
-	}
-	while (! ddjvu_page_decoding_done(page))
-		handle(TRUE);
-	if (ddjvu_page_decoding_error(page)) {
-		fprintf(stderr, "Cannot decode page %d.\n", cpage);
-		ddjvu_page_release(page);
-		return;
-	}
+        if (last_decoded_cpage != cpage - 1)
+        {
+            
+            if (! (page = ddjvu_page_create_by_pageno(doc, cpage-1))) {
+                    fprintf(stderr, "Cannot access page %d.\n", cpage);
+                    return;
+            }
+            while (! ddjvu_page_decoding_done(page))
+                    handle(TRUE);
+            if (ddjvu_page_decoding_error(page)) {
+                    fprintf(stderr, "Cannot decode page %d.\n", cpage);
+                    ddjvu_page_release(page);
+                    return;
+            }
 
+            if (last_decoded_page != 0)
+            {
+                ddjvu_page_release(last_decoded_page);
+            }
+
+            last_decoded_page = page;
+            last_decoded_cpage = cpage - 1;
+
+            //printf("Page was decoded\n");
+
+        }
+        else
+        {
+            page = last_decoded_page;
+
+            //printf("Page was taken from cache\n");
+        }
+
+        if (calc_optimal_zoom)
+        {
+            CalculateOptimalZoom(doc, page, &scale, &offset);
+        }
+
+        
 	pw = ddjvu_page_get_width(page);
 	ph = ddjvu_page_get_height(page);
 
@@ -260,7 +255,6 @@ static void draw_page_image() {
 		offx = (cpagew - sw) / 2;
 		//if (is_portrait()) offy = (cpageh - sh) / 2;
 	}
-
 
 	rrect.w = sw;
 	rrect.h = sh;
@@ -310,59 +304,42 @@ static void draw_page_image() {
             rrect.x = prect.w - rrect.w;
         }
 
+        pagescalex = (float)prect.w / pw;
+        pagescaley = (float)prect.h / ph;
+        pageoffsetx = rrect.x;
+        pageoffsety = rrect.y;
+
 	if (! ddjvu_page_render(page, mode, &prect, &rrect, fmt, rowsize, (char *)data)) {
 		fprintf(stderr, "Cannot render image\n");
-		ddjvu_page_release(page);
+		//ddjvu_page_release(page);
 		return;
 	}
 
-        if (ReadInt(djvucfg, "draw_end_of_page", 0) != 0)
+        // auto adjust
+        int i, min = 255, max = 0;
+        for (i = 0; i < rrect.w * rrect.h; ++i)
         {
-            if (scale > 50 && scale < 200 && offy > oldoffy)
-            {
-                int final_offset_y = thy - (offy - oldoffy);
-
-                if (final_offset_y > 100)
-                {
-                    int x;
-                    for (x =0; x < ScreenWidth(); x += 10)
-                    {
-                        data[(thy - (offy - oldoffy)) * ScreenWidth() + x] = 0;
-                    }
-                }
-            }
+            if (data[i] < min) min = data[i];
+            if (data[i] > max) max = data[i];
         }
 
-        int level_of_black = ReadInt(djvucfg, "level_of_black", 0);
-
-        if (level_of_black != 0)
+        if (min > 255 / 8)
         {
-            level_of_black = 10 * level_of_black;
+            float coeff = (float)max / (max - min);
 
-            int i;
-            for (i = 0; i < rowsize * rrect.h; ++i)
+            for (i = 0; i < rrect.w * rrect.h; ++i)
             {
-                if (data[i] < 200)
-                {
-                    if (data[i] < level_of_black)
-                    {
-                        data[i] = 0;
-                    }
-                    else
-                    {
-                        data[i] -= level_of_black;
-                    }
-                }
+                data[i] = (data[i] - min) * coeff;
             }
         }
 
 	w = rrect.w;
 	h = rrect.h;
 	Stretch(data, IMAGE_GRAY8, w, h, rowsize, scrx, scry, w, h, 0);
-	
+
 	ddjvu_format_release(fmt);
 	free(data);
-	ddjvu_page_release(page);
+	//ddjvu_page_release(page);
 
 	thiw = (sw * 100) / cpagew; if (thiw > 100) thiw = 100;
 	thih = (sh * 100) / cpageh; if (thih > 100) thih = 100;
@@ -397,6 +374,14 @@ static int draw_pages() {
 	ddjvu_format_t *fmt;
 	unsigned char *data;
 	pid_t pid;
+
+        // free as much memory as we can
+        if (last_decoded_page != 0)
+        {
+            ddjvu_page_release(last_decoded_page);
+            last_decoded_page = 0;
+            last_decoded_cpage = -1;
+        }
 
 	sw = ScreenWidth();
 	sh = ScreenHeight()-thh;
@@ -564,11 +549,6 @@ static void out_page(int full) {
 
 	ClearScreen();
 
-        if (calc_optimal_zoom)
-        {
-            CalculateOptimalZoom(doc, cpage, &scale, &offset);
-        }
-
 	if (scale>50)
 			draw_page_image();
 		else
@@ -598,12 +578,6 @@ static void out_page(int full) {
 	} else {
 		PartialUpdate(0, 0, ScreenWidth(), ScreenHeight());
 	}
-}
-
-static void open_notes_menu() {
-
-	OpenNotesMenu(FileName, book_title, cpage);
-
 }
 
 static void page_selected(int page) {
@@ -655,14 +629,6 @@ static void new_bookmark() {
 	for (i=0; i<docstate.nbmk; i++) bmkpos[i] = docstate.bmk[i];
 	SwitchBookmark(cpage, cpage, docstate.bmk, bmkpos, &docstate.nbmk, 30, bmk_handler);
 	if (bmkrem) out_page(0);
-
-}
-
-static void zoom_menu_handler(int index) {
-
-	if (index < 0) return;
-	scale = index;
-	out_page(1);
 
 }
 
@@ -734,38 +700,183 @@ static void jump_pages(int n) {
 
 }
 
-static int zoom_handler(int type, int par1, int par2) {
+void readTocRecurse(miniexp_t exp, int offset, int only_calculate)
+{
+     if ( !miniexp_listp( exp ) )
+        return;
 
-	if (type == EVT_SHOW) {
-		//out_page(0);
-	}
+    int l = miniexp_length( exp );
+    int i;
+    for ( i = offset; i < l; ++i )
+    {
+        miniexp_t cur = miniexp_nth( i, exp );
 
-	if (type == EVT_KEYPRESS) {
+        if ( miniexp_consp( cur ) && ( miniexp_length( cur ) > 0 ) &&
+             miniexp_stringp( miniexp_nth( 0, cur ) ) && miniexp_stringp( miniexp_nth( 1, cur ) ) )
+        {
+            const char* name = miniexp_to_str( miniexp_nth( 0, cur ) );
+            const char* dst = miniexp_to_str( miniexp_nth( 1, cur ) );
 
-		kill_bgpainter();
+            if (*dst != 0 && dst[0] == '#' )
+            {
+                int page = atoi(&dst[1]);
 
-		if (par1 == KEY_UP) {
-			do_zoom(+1);
-		}
-		if (par1 == KEY_DOWN) {
-			do_zoom(-1);
-		}
-		if (par1 == KEY_LEFT) {
-			turn_page(-1);
-		}
-		if (par1 == KEY_RIGHT) {
-			turn_page(+1);
-		}
-		if (par1 == KEY_OK || par1 == KEY_BACK) {
-			zoom_mode = 0;
-			SetEventHandler(main_handler);
-		}
+                if (!only_calculate)
+                {
+                    toc[toclen].level = offset - 1;
+                    toc[toclen].page = page;
+                    toc[toclen].position = page;
+                    toc[toclen].text = strdup(name);
+                }
 
-	}
+                ++toclen;
+            }
 
-	return 0;
+            if ((miniexp_length(cur) > 2))
+            {
+                readTocRecurse( cur, offset+1, only_calculate );
+            }
+        }
+    }
 
 }
+
+static void toc_handler(long long page)
+{
+    if (page < 1) page = 1;
+    if (page > npages) page = npages;
+    cpage = page;
+    offx = offy = 0;
+    out_page(1);
+}
+
+static void BuildToc()
+{
+    miniexp_t outline;
+    while ( ( outline = ddjvu_document_get_outline( doc) ) == miniexp_dummy)
+        handle(1 );
+
+    if ( miniexp_listp( outline ) && ( miniexp_length( outline ) > 0 ) && miniexp_symbolp( miniexp_nth( 0, outline ) ) &&
+         ( !strcmp(miniexp_to_name( miniexp_nth( 0, outline ) ), "bookmarks" ) ))
+    {
+        readTocRecurse( outline, 1, 1 );
+
+        toc = malloc(sizeof(tocentry) * toclen);
+
+        toclen = 0;
+
+        readTocRecurse( outline, 1, 0 );
+
+        ddjvu_miniexp_release( doc, outline );
+    }
+
+}
+
+static void FreeToc()
+{
+    int i;
+    for (i = 0; i < toclen; ++i)
+    {
+        free(toc[i].text);
+    }
+
+    if (toc != 0) free(toc);
+}
+
+static void open_contents()
+{
+    if (toclen == 0)
+    {
+        Message(ICON_INFORMATION, "DJVU Viewer", "@No_contents", 2000);
+    }
+    else
+    {
+        OpenContents(toc, toclen, 1, toc_handler);
+    }
+}
+
+int add_word(miniexp_t word, int page_height, int just_calculate)
+{
+    int size = miniexp_length( word );
+    if ( size >= 6 )
+    {
+        int xmin = miniexp_to_int( miniexp_nth( 1, word ) );
+        int ymin = miniexp_to_int( miniexp_nth( 2, word ) );
+        int xmax = miniexp_to_int( miniexp_nth( 3, word ) );
+        int ymax = miniexp_to_int( miniexp_nth( 4, word ) );
+
+        xmin = xmin * pagescalex - pageoffsetx+offx;
+        ymin = (page_height - ymin) * pagescaley + pageoffsety-offy;
+        xmax = xmax * pagescalex - pageoffsetx+offx;
+        ymax = (page_height - ymax) * pagescaley + pageoffsety-offy;
+
+        if (ymax > offy && ymin < ScreenHeight() + offy - thh &&  xmin > offx && xmax < ScreenWidth() + offx)
+        {
+            if (!just_calculate)
+            {
+                diclist[diclen].word = strdup(miniexp_to_str( miniexp_nth( 5, word ) ));
+                diclist[diclen].x1 = xmin-offx;
+                diclist[diclen].y1 = ymin-offy;
+                diclist[diclen].x2 = xmax-offx;
+                diclist[diclen].y2 = ymax-offy;
+            }
+
+            ++diclen;
+        }
+    }
+
+    return 1;
+}
+
+void fill_words( int page, int just_calculate)
+{
+    miniexp_t r;
+    while ( ( r = ddjvu_document_get_pagetext( doc, page, 0 ) ) == miniexp_dummy )
+        handle( 1 );
+
+    if ( r == miniexp_nil )
+        return;
+
+//    int height = d->m_pages.at( page )->height();
+
+    ddjvu_pageinfo_t in;
+    ddjvu_document_get_pageinfo(doc,page,&in);
+
+    int l = miniexp_length( r );
+
+    int i;
+    for ( i = 0; i < l;++i)
+    {
+            miniexp_t cur = miniexp_nth( i, r );
+            int size = miniexp_length(cur);
+
+        if ( miniexp_listp( cur )
+             && ( miniexp_length( cur ) > 0 )
+             && miniexp_symbolp( miniexp_nth( 0, cur ) ) )
+        {
+            const char* tag = miniexp_to_name( miniexp_nth( 0, cur ) );
+
+            if (!strcmp(tag, "line"))
+            {
+                int j;
+                for ( j = 5; j < size; ++j )
+                {
+                    miniexp_t word = miniexp_nth( j, cur );
+
+                    if (!strcmp(miniexp_to_name( miniexp_nth( 0, word ) ), "word"))
+                    {
+                        if (!add_word(word, in.height, just_calculate)) return;
+                    }
+                }
+            }
+            else if (!strcmp(tag, "word"))
+            {
+                if (!add_word(cur, in.height, just_calculate)) return;
+            }
+        }
+    }
+}
+
 
 static void open_quickmenu() { OpenMenu3x3(m3x3, (const char **)strings3x3, menu_handler); }
 static void prev_page() { turn_page(-1); }
@@ -781,20 +892,45 @@ static void save_page_note() { CreateNoteFromPage(FileName, book_title, cpage); 
 static void open_notes() { OpenNotepad(NULL); }
 static void open_dictionary()
 {
+    if (diclist != NULL) {
+            int i;
+            for (i=0; i<diclen; i++) free(diclist[i].word);
+            free(diclist);
+            diclist = NULL;
+            diclen = 0;
+    }
+
+    if (scale > 50)
+    {
+        fill_words(cpage-1, 1);
+
+        diclist = (iv_wlist *) malloc((diclen+1) * sizeof(iv_wlist));
+        diclist[diclen].word = NULL;
+        diclen = 0;
+
+        fill_words(cpage-1, 0);
+    }
+
 #ifdef WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
-    static iv_wlist diclist[2];
-    diclist[0].word="";
-    diclist[0].x1=0;
-    diclist[0].x2=0;
-    diclist[0].y1=0;
-    diclist[0].y2=0;
-    diclist[1].word=0;
-    OpenDictionaryView(diclist, NULL);
+    if (diclen == 0)
+    {
+        static iv_wlist diclist[2];
+        diclist[0].word="";
+        diclist[0].x1=0;
+        diclist[0].x2=0;
+        diclist[0].y1=0;
+        diclist[0].y2=0;
+        diclist[1].word=0;
+        OpenDictionaryView(diclist, NULL);
+    }
+    else
+    {
+        OpenDictionaryView(diclist, NULL);
+    }
 #else
-    OpenDictionaryView(NULL, NULL);
+    OpenDictionaryView(diclist, NULL);
 #endif
 }
-static void open_zoomer() { OpenMenu(is_portrait() ? zoom_menu_p : zoom_menu_l, scale, -1, -1, zoom_menu_handler); }
 static void zoom_in() { do_zoom(+1); }
 static void zoom_out() { do_zoom(-1); }
 static void open_rotate() { OpenRotateBox(rotate_handler); }
@@ -821,22 +957,11 @@ static void open_new_zoomer()
     ZoomerParameters params = {0};
     params.zoom = scale;
     params.doc = doc;
-    params.cpage = cpage;
+    params.page = last_decoded_page;
     params.orient = orient;
     params.optimal_zoom = calc_optimal_zoom;
 
     ShowZoomer(&params, on_close_zoomer);
-}
-
-void config_ok()
-{
-    SaveConfig(djvucfg);
-    SetEventHandler(main_handler);
-}
-
-static void open_settings()
-{
-    OpenConfigEditor("Configuration", djvucfg, djvu_config, config_ok, NULL);
 }
 
 static void handle_navikey(int key) {
@@ -919,7 +1044,7 @@ static const struct {
 	//{ "@KA_srch", start_search, NULL, NULL },
 	{ "@KA_dict", open_dictionary, NULL, NULL },
 	{ "@KA_zoom", open_new_zoomer, NULL, NULL },
-	{ "@KA_stgs", open_settings, NULL, NULL },
+	{ "@KA_cnts", open_contents, NULL, NULL },
 	{ "@KA_zmin", zoom_in, NULL, NULL },
 	{ "@KA_zout", zoom_out, NULL, NULL },
 	{ "@KA_rtte", open_rotate, NULL, NULL },
@@ -938,13 +1063,8 @@ static void menu_handler(int pos) {
 	int i;
 
 	if (pos < 0) return;
-	sprintf(buf, "qmenu.djviewer.%i.action", pos);
+	sprintf(buf, "qmenu.pdfviewer.%i.action", pos);
 	act = GetThemeString(buf, (char *)def_menuaction[pos]);
-
-        if (pos == 8)
-        {
-            act = "@KA_stgs";
-        }
 
 	for (i=0; KA[i].action != NULL; i++) {
 		if (strcmp(act, KA[i].action) != 0) continue;
@@ -1070,9 +1190,6 @@ static void save_settings() {
 	iv_fclose(f);
   }
   fprintf(stderr, "djviewer: saving settings done\n");
-
-  CloseConfig(djvucfg);
-
 }
 
 #define die(x...) { \
@@ -1091,12 +1208,12 @@ int main(int argc, char **argv) {
 
   OpenScreen();
 
-  m3x3 = GetResource("djviewer_menu", NULL);
+  m3x3 = GetResource("pdfviewer_menu", NULL);
   if (m3x3 == NULL) m3x3 = NewBitmap(128, 128);
   bmk_flag = GetResource("bmk_flag", NULL);
 
   for (i=0; i<9; i++) {
-	sprintf(buf, "qmenu.djviewer.%i.text", i);
+	sprintf(buf, "qmenu.pdfviewer.%i.text", i);
 	strings3x3[i] = GetThemeString(buf, (char *)def_menutext[i]);
   }
 
@@ -1108,8 +1225,6 @@ int main(int argc, char **argv) {
   FileName=argv[1];
   bi = GetBookInfo(FileName);
   if (bi->title) book_title = strdup(bi->title);
-
-  djvucfg = OpenConfig("/mnt/ext1/system/config/djvu.cfg", djvu_config);
 
   /* Create context and document */
   if (! (ctx = ddjvu_context_create(argv[0])))
@@ -1151,7 +1266,23 @@ int main(int argc, char **argv) {
   if (cpage < 1) cpage = 1;
   if (cpage > npages) cpage = npages;
 
+  BuildToc();
+
   InkViewMain(main_handler);
+
+  FreeToc();
+
+  free(book_title);
+
+    if (diclist != NULL)
+    {
+            int i;
+            for (i=0; i<diclen; i++) free(diclist[i].word);
+            free(diclist);
+    }
+
+  if (last_decoded_cpage != 0) ddjvu_page_release(last_decoded_page);
+
   return 0;
 }
 	
