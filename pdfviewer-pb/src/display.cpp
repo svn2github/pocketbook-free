@@ -166,7 +166,12 @@ void find_off_x(int step)
 
 }
 
-static int center_image(int w, int h, int sw, int *rw) {
+static int cached_offset_for_page = -1;
+static int cached_x1;
+static int cached_x2;
+static int cached_orientation = -1;
+
+static int center_image(int w, int h, int sw, int *rw, int* _x1, int* _x2) {
 
 #ifndef ENABLE_PANNING_ON_ZOOM
     if (!calc_optimal_zoom)
@@ -175,6 +180,13 @@ static int center_image(int w, int h, int sw, int *rw) {
     }
 
 #endif // ENABLE_PANNING_ON_ZOOM
+
+
+    if (calc_optimal_zoom && cached_offset_for_page == cpage && cached_orientation == GetOrientation())
+    {
+        if (rw) *rw = cached_x2 - cached_x1;
+        return (cached_x1 + cached_x2) / 2 - sw / 2;
+    }
 
 	unsigned char *data, *p, mask;
 	int row, x1, x2, y, pxinbyte;
@@ -237,17 +249,26 @@ static int center_image(int w, int h, int sw, int *rw) {
                 count=0;
 	}
 
+        //printf("xleft=%d,xright=%d\n",x1,x2);
+
         if (x1==xleft) x1=0;
         else if (x2<xright) x2=w;
 
 	//fprintf(stderr, "w=%i h=%i (%i,%i)=%i\n", w, h, x2, x1, x1+(x2-x1)/2);
+        if (_x1) *_x1 = x1;
+        if (_x2) *_x2 = x2;
 	if (rw) *rw = x2-x1;
+
+        //printf("x1_not_fit=%d,x2_not_fit=%d\n",x1,x2);
+
 	return (x1 + x2) / 2 - sw / 2;
 
 }
 
 int get_fit_scale() {
-	int sw, sh, pw, ph, marginx, marginy, rw;
+        cached_offset_for_page = -1;
+
+	int sw, sh, pw, ph, marginx, marginy, rw, x1, x2;
 	double res;
 
 	scale = 100;
@@ -256,11 +277,17 @@ int get_fit_scale() {
 	getpagesize(cpage, &pw, &ph, &res, &marginx, &marginy);
 	splashOut->setup(gFalse, 0, 0, 0, sw, sh-panelh, 0, 0, 0, 0, res);
 	doc->displayPageSlice(splashOut, cpage, res, res, 0, gFalse, gFalse, gFalse, 0, 0, pw, ph);
-	center_image(pw, ph, sw, &rw);
+	center_image(pw, ph, sw, &rw, &x1, &x2);
 
         int new_scale = (sw * 99) / rw;
+        if (new_scale > 199) new_scale = 199;
 
-	return new_scale > 199 ? 199 : new_scale;
+        cached_offset_for_page = cpage;
+        cached_orientation = GetOrientation();
+        cached_x1 = x1 * new_scale / 100;
+        cached_x2 = x2 * new_scale / 100;
+
+	return new_scale;
 }
 
 static void draw_page_image() {
@@ -318,7 +345,7 @@ static void draw_page_image() {
 
                         lastCPage = cpage;
 
-			dx = center_image(pw, sh-panelh, sw, NULL);
+			dx = center_image(pw, sh-panelh, sw, NULL, NULL, NULL);
 
 			offx = dx;
 			if (dx < 0) dx = 0;

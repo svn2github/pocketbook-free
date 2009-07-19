@@ -181,7 +181,11 @@ void open_dictionary() {
 		free(diclist);
 		diclist = NULL;
 	}
-	reflow_mode ? wordlist_reflow() : wordlist_normal();
+
+        if (scale > 50)
+        {
+            reflow_mode ? wordlist_reflow() : wordlist_normal();
+        }
 
 #ifdef WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
     if (diclen == 0)
@@ -1049,7 +1053,7 @@ fprintf(stderr, "password: %s\n", spwd);
   reflow_mode = (docstate.orient & 0x80) ? 1 : 0;
   orient = docstate.orient & 0x7f;
 
-  calc_optimal_zoom = docstate.scale >> 15;
+  calc_optimal_zoom = (docstate.scale >> 15) != 0 ? 1 : 0;
 
   if (argc >= 3) {
 	if (argv[2][0] == '=') {
