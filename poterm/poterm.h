@@ -6,6 +6,8 @@
 #ifndef POTERM_H
 #define POTERM_H
 
+#define POTERM_VERSION "1.01"
+
 /* Keyboard buffer length */
 #define KBUFFER_LEN 80
 
@@ -17,6 +19,10 @@
 #else
 #error "Invalid architecture"
 #endif
+
+// Debug printouts
+//#define P(args...)      do { fprintf(stderr, args); fflush(stderr); } while (0)
+#define P(args...)
 
 /*
  * How to call underlayed shell - define one of them

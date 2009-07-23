@@ -23,11 +23,13 @@ public:
     char *prompt();
     void check_output(int &was_read);
     void redraw();
+    void redrawAll();
     void rotate();
-    void lineUp()   { redraw_backward(_lastVisible - 1);  }
-    void lineDown() { redraw_forward(_firstVisible + 1);  }
-    void pageUp()   { redraw_backward(_firstVisible - 1); }
-    void pageDown() { redraw_forward(_lastVisible + 1);   }
+    void lineUp()              { redraw_backward(_lastVisible - 1);  }
+    void lineDown()            { redraw_forward(_firstVisible + 1);  }
+    void pageUp()              { redraw_backward(_firstVisible - 1); }
+    void pageDown()            { redraw_forward(_lastVisible + 1);   }
+    void setHeightNoKbd(int h) { _heightNoKbd = h;                   }
     void log(const char *format, va_list args);
     void log(const char *format, ...) __attribute__ ((format (printf, 2, 3)));
     int  checkInterval();
@@ -38,7 +40,6 @@ private:
     static void     trim(std::string &l);
     unsigned        toInt(const char *s, const char *k);
     void            output(const char c);
-    void            initBorders();
     void            readConfig();
     void            redraw_backward(int index);
     bool            redrawLine_backward(const std::string &line, int &y);
@@ -65,6 +66,7 @@ private:
     unsigned        _firstVisible;
     unsigned        _lastVisible;
     bool            _currVisible;
+    int             _heightNoKbd;
     std::string                        _currLine;
     std::vector<std::string>           _lines;
     std::map<std::string, std::string> _config;

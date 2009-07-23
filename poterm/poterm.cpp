@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 #include "inkview.h"
+#include "inkinternal.h"
 #include "poterm.h"
 #include "Term.h"
 
@@ -17,6 +18,8 @@ static char timer_name[] = "poterm_timer";
 ///////////////////////////////////////////////////////////////////////
 void keyboard_entry(char *s)
 {
+    term->setHeightNoKbd(0);
+    term->redrawAll();
     if (s  && *s)
         term->command(s);
 } // keyboard_entry
@@ -24,6 +27,7 @@ void keyboard_entry(char *s)
 ///////////////////////////////////////////////////////////////////////
 void timer_handler()
 {
+    P("Shell output polling timer\n");
     int was_read;
     term->check_output(was_read);
     if (was_read > 0)
@@ -34,8 +38,10 @@ void timer_handler()
 ///////////////////////////////////////////////////////////////////////
 int main_handler(int type, int par1, int)
 {
-    int oldOrientation = 0;
+    static int prevEvent = 0;
+    int        oldOrientation = 0;
 
+    P("main_handler(%d, %d, ...)\n", type, par1);
     switch (type)
     {
         case EVT_INIT:
@@ -51,7 +57,8 @@ int main_handler(int type, int par1, int)
             //}
             break;
         case EVT_SHOW:
-            term->redraw();
+            if (prevEvent != EVT_INIT)
+                term->redraw();
             break;
         case EVT_EXIT:
             delete term;
@@ -62,6 +69,8 @@ int main_handler(int type, int par1, int)
             {
                 case KEY_OK:
                     OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, keyboard_entry);
+                    term->setHeightNoKbd(iv_msgtop());
+                    term->redrawAll();
                     break;
                 case KEY_BACK:
                     CloseApp();
@@ -92,9 +101,11 @@ int main_handler(int type, int par1, int)
                 default:
                     break;
             }
+            break;
         default:
             break;
     }
+    prevEvent = type;
     return 0;
 } // main_handler
 

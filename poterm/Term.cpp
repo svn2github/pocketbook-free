@@ -2,9 +2,6 @@
  * PoTerm: primitive xterm for PocketBook - Term class implementation
  * ------------------------------------------------------------------
  */
-#include <iostream>
-#include <fstream>
-
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -17,6 +14,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+#include <iostream>
+#include <fstream>
+#ifdef HOST_WINDOWS
+#include <asm/socket.h>
+#endif
 
 #include "inkview.h"
 #include "Term.h"
@@ -55,9 +58,6 @@ static struct {
     { "Tab",           "8"              },
     { "Orientation",   "1"              }
 };
-
-//#define P(args...)      do { fprintf(stderr, args); fflush(stderr); } while (0)
-#define P(args...)
 
 #define BORDER_WIDTH    toInt(_config["BorderWidth"].c_str(), "BorderWidth")
 #define BORDER_COLOR    toInt(_config["BorderColor"].c_str(), "BorderColor")
@@ -162,6 +162,7 @@ Term::Term()
     , _firstVisible(0)
     , _lastVisible(0)
     , _currVisible(false)
+    , _heightNoKbd(0)
 
 {
     readConfig();
@@ -348,7 +349,7 @@ Term::Term()
 #error "PTY_SHELL or PIPE_SHELL should be defined"
 #endif
 
-    initBorders();
+    redrawAll();
 
     _initialized = true;
 } // Term::Term
@@ -369,7 +370,7 @@ void Term::rotate()
     _orientation++;
     _orientation = _orientation % (sizeof(orientations)/sizeof(orientations[0]));
     SetOrientation(orientations[_orientation]);
-    initBorders();
+    redrawAll();
 } // Term::rotate
 
 ///////////////////////////////////////////////////////////////////////
@@ -401,13 +402,13 @@ void Term::increaseFont()
 } // Term::increaseFont
 
 ///////////////////////////////////////////////////////////////////////
-void Term::initBorders()
+void Term::redrawAll()
 {
-    ClearScreen();
+    P("Term::redrawAll()\n");
 
     // Initialize screen parameters
     _width = ScreenWidth();
-    _height = ScreenHeight();
+    _height = _heightNoKbd ? _heightNoKbd : ScreenHeight();
 
     // Draw border
     FillArea(0, 0, _width, BORDER_WIDTH, BORDER_COLOR);
@@ -419,54 +420,57 @@ void Term::initBorders()
     _width -= 2*BORDER_WIDTH;
     _height -= 2*BORDER_WIDTH;
 
-    // Draw botton line
-    char text1[] = ": Command";
-#ifndef DISABLE_ROTATION
-    char text2[] = "Menu: Rotate";
-#endif
-    char text3[] = ": Page up/down";
-    char text4[] = "<>: Line up/down";
-    char text5[] = "+/-: Incr./Decr. font";
-    if (!_blineFont)
-        _blineFont = OpenFont((char *)BFONT_NAME, BFONT_SIZE, 0);
-    if (!_blineFont)
+    if (!_heightNoKbd)
     {
-        log("---ERROR: Can't open font \"%s\", size: %d\n", (char *)BFONT_NAME, BFONT_SIZE);
-        CloseApp();
-    }
-    SetFont(_blineFont, BLACK);
-    int symbol_heigh = 16;
-    int symbol_width = 12;
+        // Draw botton line
+        char text1[] = ": Command";
 #ifndef DISABLE_ROTATION
-    int gap = 15;
-    int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text2) + StringWidth(text3)
-                                + StringWidth(text4) + StringWidth(text5)
-                                + 4*gap + 2*symbol_width )) /2;
+        char text2[] = "Menu: Rotate";
+#endif
+        char text3[] = ": Page up/down";
+        char text4[] = "<>: Line up/down";
+        char text5[] = "+/-: Incr./Decr. font";
+        if (!_blineFont)
+            _blineFont = OpenFont((char *)BFONT_NAME, BFONT_SIZE, 0);
+        if (!_blineFont)
+        {
+            log("---ERROR: Can't open font \"%s\", size: %d\n", (char *)BFONT_NAME, BFONT_SIZE);
+            CloseApp();
+        }
+        SetFont(_blineFont, BLACK);
+        int symbol_heigh = 16;
+        int symbol_width = 12;
+#ifndef DISABLE_ROTATION
+        int gap = 15;
+        int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text2) + StringWidth(text3)
+                                    + StringWidth(text4) + StringWidth(text5)
+                                    + 4*gap + 2*symbol_width )) /2;
 #else
-    int gap = 30;
-    int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text3) + StringWidth(text4)
-                                + StringWidth(text5)
-                                + 3*gap + 2*symbol_width )) /2;
+        int gap = 30;
+        int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text3) + StringWidth(text4)
+                                    + StringWidth(text5)
+                                    + 3*gap + 2*symbol_width )) /2;
 #endif
-    int h = TextRectHeight(StringWidth(text1), text1, 0);
-    FillArea(_offsx, _offsy + _height - h, _width, h, LGRAY);
-    DrawSymbol(x, _offsy + _height-symbol_heigh, SYMBOL_OK);
-    x += symbol_width;
-    DrawString(x, _offsy + _height - h, text1);
-    x += StringWidth(text1) + gap;
+        int h = TextRectHeight(StringWidth(text1), text1, 0);
+        FillArea(_offsx, _offsy + _height - h, _width, h, LGRAY);
+        DrawSymbol(x, _offsy + _height-symbol_heigh, SYMBOL_OK);
+        x += symbol_width;
+        DrawString(x, _offsy + _height - h, text1);
+        x += StringWidth(text1) + gap;
 #ifndef DISABLE_ROTATION
-    DrawString(x, _offsy + _height - h, text2);
-    x += StringWidth(text2) + gap;
+        DrawString(x, _offsy + _height - h, text2);
+        x += StringWidth(text2) + gap;
 #endif
-    DrawSymbol(x, _offsy + _height-symbol_heigh, ARROW_UPDOWN);
-    x += symbol_width;
-    DrawString(x, _offsy + _height - h, text3);
-    x += StringWidth(text3) + gap;
-    DrawString(x, _offsy + _height - h, text4);
-    x += StringWidth(text4) + gap;
-    DrawString(x, _offsy + _height - h, text5);
-    x += StringWidth(text5) + gap;
-    _height -= h;
+        DrawSymbol(x, _offsy + _height-symbol_heigh, ARROW_UPDOWN);
+        x += symbol_width;
+        DrawString(x, _offsy + _height - h, text3);
+        x += StringWidth(text3) + gap;
+        DrawString(x, _offsy + _height - h, text4);
+        x += StringWidth(text4) + gap;
+        DrawString(x, _offsy + _height - h, text5);
+        x += StringWidth(text5) + gap;
+        _height -= h;
+    }
 
     // Draw scrollbar
     _width += BORDER_WIDTH;
@@ -490,7 +494,7 @@ void Term::initBorders()
     }
 
     redraw();
-} // Term::initBorders
+} // Term::redrawAll
 
 ///////////////////////////////////////////////////////////////////////
 void Term::updateScroll()
