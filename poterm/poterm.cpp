@@ -87,10 +87,8 @@ int main_handler(int type, int par1, int)
                 case KEY_DOWN:
                     term->pageDown();
                     break;
-                case KEY_MENU:
-#ifndef DISABLE_ROTATION
+                case KEY_DELETE:
                     term->rotate();
-#endif
                     break;
                 case KEY_MINUS:
                     term->decreaseFont();

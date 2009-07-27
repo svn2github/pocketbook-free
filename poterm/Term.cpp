@@ -424,9 +424,7 @@ void Term::redrawAll()
     {
         // Draw botton line
         char text1[] = ": Command";
-#ifndef DISABLE_ROTATION
-        char text2[] = "Menu: Rotate";
-#endif
+        char text2[] = "Del: Rotate";
         char text3[] = ": Page up/down";
         char text4[] = "<>: Line up/down";
         char text5[] = "+/-: Incr./Decr. font";
@@ -440,27 +438,18 @@ void Term::redrawAll()
         SetFont(_blineFont, BLACK);
         int symbol_heigh = 16;
         int symbol_width = 12;
-#ifndef DISABLE_ROTATION
         int gap = 15;
         int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text2) + StringWidth(text3)
                                     + StringWidth(text4) + StringWidth(text5)
                                     + 4*gap + 2*symbol_width )) /2;
-#else
-        int gap = 30;
-        int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text3) + StringWidth(text4)
-                                    + StringWidth(text5)
-                                    + 3*gap + 2*symbol_width )) /2;
-#endif
         int h = TextRectHeight(StringWidth(text1), text1, 0);
         FillArea(_offsx, _offsy + _height - h, _width, h, LGRAY);
         DrawSymbol(x, _offsy + _height-symbol_heigh, SYMBOL_OK);
         x += symbol_width;
         DrawString(x, _offsy + _height - h, text1);
         x += StringWidth(text1) + gap;
-#ifndef DISABLE_ROTATION
         DrawString(x, _offsy + _height - h, text2);
         x += StringWidth(text2) + gap;
-#endif
         DrawSymbol(x, _offsy + _height-symbol_heigh, ARROW_UPDOWN);
         x += symbol_width;
         DrawString(x, _offsy + _height - h, text3);

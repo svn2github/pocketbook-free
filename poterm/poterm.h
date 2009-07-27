@@ -6,7 +6,7 @@
 #ifndef POTERM_H
 #define POTERM_H
 
-#define POTERM_VERSION "1.01"
+#define POTERM_VERSION "1.02"
 
 /* Keyboard buffer length */
 #define KBUFFER_LEN 80
@@ -31,19 +31,5 @@
  */
 #define PIPE_SHELL
 //#define PTY_SHELL
-
-/*
- * I discovered some strange bug with SetOrientation - after SetOrientation() call
- * the task fails. It may be bug in the appllication itself but I suspect bug in
- * inkview because of two reasons:
- *   1. When I use SetOrientation() once on start - everything works fine
- *   2. Using SetOrientation() during normal work causes crash even on emulator
- * The second possibility - because of documentation lack I don't understand the
- * correct SetOrientation() call usage . PocketBook team, please help!
- *
- * Meanwhile I disable on the fly rotation. However application can be used
- * with any orientation - just edit poterm.ini file
- */
-#define DISABLE_ROTATION
 
 #endif
