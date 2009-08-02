@@ -1,4 +1,3 @@
-//TODO: Store last played level
 //TODO: Pick level packs from drive
 //TODO: Add scrolling
 
@@ -21,8 +20,25 @@ ifont *font;
 char *level =
 				";MINICOSMOS 01\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n## #   #\n #@  ###\n #####\n\n;MINICOSMOS 02\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n##$#.  #\n #@  ###\n #####\n\n;MINICOSMOS 03\n\n  #####\n###   #\n# $ # ##\n# #  . #\n# .  # #\n##$#.$ #\n #@  ###\n #####\n\n;MINICOSMOS 04\n\n    ####\n#####  #\n#   $  #\n#  .#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 05\n\n    ####\n#####  #\n#   $  #\n# *.#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 06\n\n    ####\n#####  #\n#   *  #\n# *.#  #\n## ## ##\n# $    #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 07\n\n #####\n #   ##\n## #$ ##\n# $    #\n#. .#  #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 08\n\n #####\n #   ##\n##.#$ ##\n# $    #\n#. .#$ #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 09\n\n #####\n #   #\n##$# ###\n#   $@ #\n# #  # #\n# #. . #\n#   ####\n#####\n\n;MINICOSMOS 10\n\n #####\n #   #\n##$# ###\n#  .$@ #\n# #  # #\n# #..$ #\n#   ####\n#####\n\n;MINICOSMOS 11\n\n #####\n##   ###\n# . .  #\n# # ## ##\n#    $$@#\n### #   #\n  #   ###\n  #####\n\n;MINICOSMOS 12\n\n #####\n##   ###\n# . . .#\n# # ## ##\n#    $$@#\n### # $ #\n  #   ###\n  #####\n\n;MINICOSMOS 13\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@.   ##\n## # #  #\n #      #\n #  #####\n ####\n\n;MINICOSMOS 14\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@..  ##\n## # #  #\n #   $  #\n #  #####\n ####\n\n;MINICOSMOS 15\n\n   ####\n####  #\n# $   #\n#  .# ##\n## #.  #\n# @  $ #\n#   ####\n#####\n\n;MINICOSMOS 16\n\n   ####\n####  #\n# $ $ #\n#  .# ##\n## #.  #\n# @  $ #\n#.  ####\n#####\n\n;MINICOSMOS 17\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##    #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 18\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##  * #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 19\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$  ##\n# . .@ #\n####   #\n   #####\n\n;MINICOSMOS 20\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$$ ##\n# ...@ #\n####   #\n   #####\n\n;MINICOSMOS 21\n\n#####\n#   ###\n#     #\n##    #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 22\n\n#####\n#   ###\n# .   #\n## $  #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 23\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n#  $## # ##\n###   @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 24\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n# $$## # ##\n### . @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 25\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#       #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 26\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#  *    #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 27\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#      #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 28\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#    * #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 29\n\n########\n#   #  #\n#      #\n## #.  #\n#    ###\n# # . #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 30\n\n########\n#   #  #\n#      #\n## #. .#\n#    ###\n# # * #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 31\n\n#####\n#   ##\n# #  ##\n#. #$ #\n#  @  #\n#.##$##\n#    #\n######\n\n;MINICOSMOS 32\n\n####\n#  ###\n#    ##\n# .#$ #\n## @  #\n #.#$##\n #   #\n #####\n\n;MINICOSMOS 33\n\n #######\n #  #  ##\n## **$. #\n#   #   #\n#   @ ###\n#  ####\n####\n\n;MINICOSMOS 34\n\n #######\n##  #  #\n#  **$.##\n#   #   #\n### @   #\n  ####  #\n     ####\n\n;MINICOSMOS 35\n\n  ####\n###  ###\n#   *$ #\n# #  #@#\n# # *. #\n#   ####\n#####\n\n;MINICOSMOS 36\n\n#####\n#   ##\n# #  ###\n#   *$ #\n###  #@#\n  # *. #\n  #  ###\n  ####\n\n;MINICOSMOS 37\n\n  ####\n ##  #\n##   ##\n#  *$ #\n# # #@#\n#  *. #\n###  ##\n  #  #\n  ####\n\n;MINICOSMOS 38\n\n  ####\n  #  ###\n ## .  #\n##@$$$ #\n# . . ##\n#   ###\n#  ##\n####\n\n;MINICOSMOS 39\n\n  #####\n###   #\n#     #\n#  #.###\n##@$$$ #\n #.#.# #\n #     #\n #  ####\n ####\n\n;MINICOSMOS 40\n\n  ####\n ##  #\n## . ##\n#@$$$ #\n#. .# #\n# #   #\n#   ###\n#####\n";
 
-int levelNo = 0;
+#ifndef EMULATOR
+const char *configFileName = STATEPATH "/sokoban.cfg";
+#else
+const char *configFileName = "sokoban.cfg";
+#endif
+
+int levelNo;
 int levels;
+
+void PrepareBoard();
+void DrawBoard();
+
+void setLevelNo(int newLevelNo) {
+	levelNo = newLevelNo;
+	FILE *config = fopen(configFileName, "w");
+	fprintf(config, "%i", levelNo);
+	PrepareBoard();
+	DrawBoard();
+}
 
 enum BoardElement {
 	Box = '$',
@@ -212,8 +228,6 @@ int moveBox(int x, int y, int dx, int dy) {
 	return 0;
 }
 
-void DrawBoard();
-
 void PrepareBoard() {
 	boardReset();
 	resetMovesStack();
@@ -358,7 +372,7 @@ void Move(int dx, int dy) {
 
 void Undo() {
 	int dx, dy, pull;
-	if (popMove(&dx, &dy, &pull)) {
+	while (popMove(&dx, &dy, &pull)) {
 		//This is reversed movement of player
 		movePlayer(-dx, -dy);
 		if (pull) {
@@ -374,6 +388,9 @@ void Undo() {
 			DrawCell(playerX + 2 * dx, playerY + 2 * dy);
 		}
 		UpdateRegion(playerX, playerY, (pull + 1) * dx, (pull + 1) * dy);
+		if (pull == 1) {
+			return;
+		}
 	}
 }
 
@@ -384,16 +401,12 @@ void KeyPressed(int key) {
 		return;
 	case KEY_PLUS:
 		if (levelNo < levels) {
-			levelNo++;
-			PrepareBoard();
-			DrawBoard();
+			setLevelNo(levelNo + 1);
 		}
 		return;
 	case KEY_MINUS:
 		if (levelNo > 0) {
-			levelNo--;
-			PrepareBoard();
-			DrawBoard();
+			setLevelNo(levelNo - 1);
 		}
 		return;
 	case KEY_UP:
@@ -416,9 +429,7 @@ void KeyPressed(int key) {
 		if (levelNo < levels) {
 			Message(ICON_INFORMATION, "Congratulations!",
 					"You completed the level, press any key to continue", 10000);
-			levelNo++;
-			PrepareBoard();
-			DrawBoard();
+			setLevelNo(levelNo + 1);
 		}
 		else {
 			Message(ICON_INFORMATION, "Congratulations!",
@@ -441,6 +452,12 @@ int main_handler(int type, int par1, int par2) {
 }
 
 int main(int argc, char **argv) {
+	FILE *config = fopen(configFileName, "r");
+	if (config != NULL) {
+		fscanf(config, "%i", &levelNo);
+	} else {
+		levelNo = 0;
+	}
 	InkViewMain(main_handler);
 	return 0;
 }
