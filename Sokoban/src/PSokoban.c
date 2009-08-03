@@ -1,5 +1,4 @@
 //TODO: Pick level packs from drive
-//TODO: Add scrolling
 
 #include <stdio.h>
 #include <string.h>
@@ -11,10 +10,10 @@
 #include "inkview.h"
 
 #define historyLimit 1000
-#define boardMaxSize 15
-#define rowMaxSize 12
+#define boardMaxSize 25 //Hard to tell - currently this is 25 = (800 - 50)/30.
 
-extern const ibitmap box, boxOnTheSpot, empty, player, playerOnTheSpot, spot, wall;
+extern const ibitmap box30, boxOnTheSpot30, empty30, player30, playerOnTheSpot30, spot30, wall30;
+extern const ibitmap box50, boxOnTheSpot50, empty50, player50, playerOnTheSpot50, spot50, wall50;
 ifont *font;
 
 char *level =
@@ -50,7 +49,7 @@ enum BoardElement {
 	Wall = '#'
 };
 
-const int tileSize = 50;
+int tileSize;
 int playerX, playerY;
 int boxCount;
 int boxesOnPlace;
@@ -103,15 +102,33 @@ void boardCompress(int newWidth, int newHeight) {
 			board[i + j * newWidth] = board[i + j * boardMaxSize];
 		}
 	}
-	if (newWidth > rowMaxSize) {// && newHeight <= rowMaxSize) {
+	
+	int width50 = ScreenWidth() / 50;
+	int height50 = (ScreenHeight() - 50) / 50;
+	int width30 = ScreenWidth() / 30;
+	int height30 = (ScreenHeight() - 50) / 30;
+
+	if (newWidth > newHeight) {
 		transpose = 1;
-		//prevention of too big level
-		boardWidth = newHeight > rowMaxSize ? rowMaxSize : newHeight;
-		boardHeight = newWidth;
-	} else {
+		int swap = newWidth;
+		newWidth = newHeight;
+		newHeight = swap;
+	}
+	else {
 		transpose = 0;
+	}
+	
+	
+	if (newWidth <= width50 && newHeight <= height50) {
 		boardWidth = newWidth;
 		boardHeight = newHeight;
+		tileSize = 50;
+	}
+	else {
+		//prevention of too big level
+		boardWidth = newWidth > width30 ? width30 : newWidth;
+		boardHeight = newHeight > height30 ? height30 : newHeight;
+		tileSize = 30;
 	}
 }
 ///****end of board
@@ -275,8 +292,8 @@ void PrepareBoard() {
 	}
 	boardCompress(currentLevelWidth, currentLevelHeight);
 
-	baseX = (rowMaxSize - boardWidth) * tileSize / 2;
-	baseY = (boardMaxSize - boardHeight) * tileSize / 2;
+	baseX = (ScreenWidth() - boardWidth * tileSize) / 2;
+	baseY = (ScreenHeight() - 50 - boardHeight * tileSize) / 2;
 }
 
 void GetLevelCount() {
@@ -297,27 +314,58 @@ void GetLevelCount() {
 
 void DrawCell(int i, int j) {
 	//NOTE: failed usage of ibitmap *image = &name; and then DrawBitmap(,, image); - find out why?
-	switch (getBoard(i, j)) {
-	case Box:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &box);
+	int x = baseX + i * tileSize;
+	int y = baseY + j * tileSize;
+	switch (tileSize){
+	case 30:
+		switch (getBoard(i, j)) {
+		case Box:
+			DrawBitmap(x, y, &box30);
+			break;
+		case BoxOnTheSpot:
+			DrawBitmap(x, y, &boxOnTheSpot30);
+			break;
+		case Empty:
+			DrawBitmap(x, y, &empty30);
+			break;
+		case Player:
+			DrawBitmap(x, y, &player30);
+			break;
+		case PlayerOnTheSpot:
+			DrawBitmap(x, y, &playerOnTheSpot30);
+			break;
+		case Spot:
+			DrawBitmap(x, y, &spot30);
+			break;
+		case Wall:
+			DrawBitmap(x, y, &wall30);
+			break;
+		}
 		break;
-	case BoxOnTheSpot:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &boxOnTheSpot);
-		break;
-	case Empty:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &empty);
-		break;
-	case Player:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &player);
-		break;
-	case PlayerOnTheSpot:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &playerOnTheSpot);
-		break;
-	case Spot:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &spot);
-		break;
-	case Wall:
-		DrawBitmap(baseX + i * tileSize, baseY + j * tileSize, &wall);
+	case 50:
+		switch (getBoard(i, j)) {
+		case Box:
+			DrawBitmap(x, y, &box50);
+			break;
+		case BoxOnTheSpot:
+			DrawBitmap(x, y, &boxOnTheSpot50);
+			break;
+		case Empty:
+			DrawBitmap(x, y, &empty50);
+			break;
+		case Player:
+			DrawBitmap(x, y, &player50);
+			break;
+		case PlayerOnTheSpot:
+			DrawBitmap(x, y, &playerOnTheSpot50);
+			break;
+		case Spot:
+			DrawBitmap(x, y, &spot50);
+			break;
+		case Wall:
+			DrawBitmap(x, y, &wall50);
+			break;
+		}
 		break;
 	}
 }
@@ -342,11 +390,11 @@ void DrawBoard() {
 	}
 	SetFont(font, WHITE);
 
-	FillArea(0, boardMaxSize * tileSize, rowMaxSize * tileSize, tileSize, DGRAY);
+	FillArea(0, ScreenHeight() - 50, ScreenWidth(), 50, DGRAY);
 	char buf[16];
 	sprintf(buf, "Level %i/%i", levelNo + 1, levels + 1);
-	DrawString(5, boardMaxSize * tileSize + 5, buf);
-	DrawString(5, boardMaxSize * tileSize + 30, "Move: Up/Down/Left/Right. Undo: OK. Level navigation: +/-");
+	DrawString(5, ScreenHeight() - 45, buf);
+	DrawString(5, ScreenHeight() - 20, "Move: Up/Down/Left/Right. Undo: OK. Level navigation: +/-");
 	FullUpdate();
 }
 
