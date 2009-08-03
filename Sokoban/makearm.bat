@@ -12,7 +12,7 @@ rm -f %OUTPUT%
 
 set IMAGES=
 if not exist images\*.bmp goto NOIMG
-set IMAGES=%TEMP%\images.temp.c
+set IMAGES=images/temp.c
 pbres -c %IMAGES% images/*.bmp
 if errorlevel 1 goto L_ER
 :NOIMG
