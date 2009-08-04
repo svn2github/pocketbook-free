@@ -12,8 +12,8 @@
 #define historyLimit 1000
 #define boardMaxSize 25 //Hard to tell - currently this is 25 = (800 - 50)/30.
 
-extern const ibitmap box30, boxOnTheSpot30, empty30, player30, playerOnTheSpot30, spot30, wall30;
-extern const ibitmap box50, boxOnTheSpot50, empty50, player50, playerOnTheSpot50, spot50, wall50;
+extern const ibitmap box30, boxOnTheSpot30, empty30, player30, playerRight30, playerOnTheSpot30, playerOnTheSpotRight30, spot30, wall30;
+extern const ibitmap box50, boxOnTheSpot50, empty50, player50, playerRight50, playerOnTheSpot50, playerOnTheSpotRight50, spot50, wall50;
 ifont *font;
 
 char *level =
@@ -53,6 +53,7 @@ int tileSize;
 int playerX, playerY;
 int boxCount;
 int boxesOnPlace;
+int lastMoveLeft = 1;
 
 ///****This bunch of items creates something like incapsulated two-dimensional array - that's just because I've forget, and unable to find
 //an example, how to manage dynamic two-dimensional array in C
@@ -329,10 +330,20 @@ void DrawCell(int i, int j) {
 			DrawBitmap(x, y, &empty30);
 			break;
 		case Player:
-			DrawBitmap(x, y, &player30);
+			if (lastMoveLeft == 1) {
+				DrawBitmap(x, y, &player30);
+			}
+			else {
+				DrawBitmap(x, y, &playerRight30);
+			}
 			break;
 		case PlayerOnTheSpot:
-			DrawBitmap(x, y, &playerOnTheSpot30);
+			if (lastMoveLeft == 1) {
+				DrawBitmap(x, y, &playerOnTheSpot30);
+			}
+			else {
+				DrawBitmap(x, y, &playerOnTheSpotRight30);
+			}
 			break;
 		case Spot:
 			DrawBitmap(x, y, &spot30);
@@ -354,10 +365,20 @@ void DrawCell(int i, int j) {
 			DrawBitmap(x, y, &empty50);
 			break;
 		case Player:
-			DrawBitmap(x, y, &player50);
+			if (lastMoveLeft == 1) {
+				DrawBitmap(x, y, &player50);
+			}
+			else {
+				DrawBitmap(x, y, &playerRight50);
+			}
 			break;
 		case PlayerOnTheSpot:
-			DrawBitmap(x, y, &playerOnTheSpot50);
+			if (lastMoveLeft == 1) {
+				DrawBitmap(x, y, &playerOnTheSpot50);
+			}
+			else {
+				DrawBitmap(x, y, &playerOnTheSpotRight50);
+			}
 			break;
 		case Spot:
 			DrawBitmap(x, y, &spot50);
@@ -402,6 +423,15 @@ void Move(int dx, int dy) {
 	//if there is box in front of player - it will be pushed one square further if possible.
 	//Then, if there free space in front of player - it definitely will, if there was box and it was moved - he'll move himself
 	//sum of this actions will inform us how much squares to update
+	int refresh = 0;
+	if (dx > 0) {
+		lastMoveLeft = 1;
+		refresh = 1;
+	}
+	else if (dx < 0) {
+		lastMoveLeft = 0;
+		refresh = 1;
+	}
 	int shift = moveBox(playerX + dx, playerY + dy, dx, dy) + movePlayer(dx, dy);
 	if (shift != 0) {
 		DrawCell(playerX, playerY);
@@ -415,6 +445,10 @@ void Move(int dx, int dy) {
 		playerY = playerY + dy;
 		//last value allows to distinguish, was box pushed on this stage.
 		pushMove(dx, dy, shift - 1);
+	} 
+	else if (refresh != 0) {
+		DrawCell(playerX, playerY);
+		UpdateRegion(playerX, playerY, 0, 0);
 	}
 }
 
