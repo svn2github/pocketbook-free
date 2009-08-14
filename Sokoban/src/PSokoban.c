@@ -1,5 +1,3 @@
-//TODO: Pick level packs from drive
-
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -16,17 +14,22 @@ extern const ibitmap box30, boxOnTheSpot30, empty30, player30, playerRight30, pl
 extern const ibitmap box50, boxOnTheSpot50, empty50, player50, playerRight50, playerOnTheSpot50, playerOnTheSpotRight50, spot50, wall50;
 ifont *font;
 
-char *level =
+char *originalLevel =
 				";MINICOSMOS 01\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n## #   #\n #@  ###\n #####\n\n;MINICOSMOS 02\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n##$#.  #\n #@  ###\n #####\n\n;MINICOSMOS 03\n\n  #####\n###   #\n# $ # ##\n# #  . #\n# .  # #\n##$#.$ #\n #@  ###\n #####\n\n;MINICOSMOS 04\n\n    ####\n#####  #\n#   $  #\n#  .#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 05\n\n    ####\n#####  #\n#   $  #\n# *.#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 06\n\n    ####\n#####  #\n#   *  #\n# *.#  #\n## ## ##\n# $    #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 07\n\n #####\n #   ##\n## #$ ##\n# $    #\n#. .#  #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 08\n\n #####\n #   ##\n##.#$ ##\n# $    #\n#. .#$ #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 09\n\n #####\n #   #\n##$# ###\n#   $@ #\n# #  # #\n# #. . #\n#   ####\n#####\n\n;MINICOSMOS 10\n\n #####\n #   #\n##$# ###\n#  .$@ #\n# #  # #\n# #..$ #\n#   ####\n#####\n\n;MINICOSMOS 11\n\n #####\n##   ###\n# . .  #\n# # ## ##\n#    $$@#\n### #   #\n  #   ###\n  #####\n\n;MINICOSMOS 12\n\n #####\n##   ###\n# . . .#\n# # ## ##\n#    $$@#\n### # $ #\n  #   ###\n  #####\n\n;MINICOSMOS 13\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@.   ##\n## # #  #\n #      #\n #  #####\n ####\n\n;MINICOSMOS 14\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@..  ##\n## # #  #\n #   $  #\n #  #####\n ####\n\n;MINICOSMOS 15\n\n   ####\n####  #\n# $   #\n#  .# ##\n## #.  #\n# @  $ #\n#   ####\n#####\n\n;MINICOSMOS 16\n\n   ####\n####  #\n# $ $ #\n#  .# ##\n## #.  #\n# @  $ #\n#.  ####\n#####\n\n;MINICOSMOS 17\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##    #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 18\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##  * #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 19\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$  ##\n# . .@ #\n####   #\n   #####\n\n;MINICOSMOS 20\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$$ ##\n# ...@ #\n####   #\n   #####\n\n;MINICOSMOS 21\n\n#####\n#   ###\n#     #\n##    #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 22\n\n#####\n#   ###\n# .   #\n## $  #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 23\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n#  $## # ##\n###   @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 24\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n# $$## # ##\n### . @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 25\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#       #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 26\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#  *    #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 27\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#      #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 28\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#    * #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 29\n\n########\n#   #  #\n#      #\n## #.  #\n#    ###\n# # . #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 30\n\n########\n#   #  #\n#      #\n## #. .#\n#    ###\n# # * #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 31\n\n#####\n#   ##\n# #  ##\n#. #$ #\n#  @  #\n#.##$##\n#    #\n######\n\n;MINICOSMOS 32\n\n####\n#  ###\n#    ##\n# .#$ #\n## @  #\n #.#$##\n #   #\n #####\n\n;MINICOSMOS 33\n\n #######\n #  #  ##\n## **$. #\n#   #   #\n#   @ ###\n#  ####\n####\n\n;MINICOSMOS 34\n\n #######\n##  #  #\n#  **$.##\n#   #   #\n### @   #\n  ####  #\n     ####\n\n;MINICOSMOS 35\n\n  ####\n###  ###\n#   *$ #\n# #  #@#\n# # *. #\n#   ####\n#####\n\n;MINICOSMOS 36\n\n#####\n#   ##\n# #  ###\n#   *$ #\n###  #@#\n  # *. #\n  #  ###\n  ####\n\n;MINICOSMOS 37\n\n  ####\n ##  #\n##   ##\n#  *$ #\n# # #@#\n#  *. #\n###  ##\n  #  #\n  ####\n\n;MINICOSMOS 38\n\n  ####\n  #  ###\n ## .  #\n##@$$$ #\n# . . ##\n#   ###\n#  ##\n####\n\n;MINICOSMOS 39\n\n  #####\n###   #\n#     #\n#  #.###\n##@$$$ #\n #.#.# #\n #     #\n #  ####\n ####\n\n;MINICOSMOS 40\n\n  ####\n ##  #\n## . ##\n#@$$$ #\n#. .# #\n# #   #\n#   ###\n#####\n";
+
+char *level;
 
 #ifndef EMULATOR
 const char *configFileName = STATEPATH "/sokoban.cfg";
+const char *levelsFolder = GAMEPATH "/SokobanLevels/";
 #else
 const char *configFileName = "sokoban.cfg";
+const char *levelsFolder = "SokobanLevels/"; 
 #endif
 
 int levelNo;
 int levels;
+char* levelSetFileName;
 
 void PrepareBoard();
 void DrawBoard();
@@ -34,7 +37,8 @@ void DrawBoard();
 void setLevelNo(int newLevelNo) {
 	levelNo = newLevelNo;
 	FILE *config = fopen(configFileName, "w");
-	fprintf(config, "%i", levelNo);
+	fprintf(config, "%i\n%s", levelNo, levelSetFileName);
+	fclose(config);
 	PrepareBoard();
 	DrawBoard();
 }
@@ -48,6 +52,22 @@ enum BoardElement {
 	Spot = '.',
 	Wall = '#'
 };
+
+static imenu mainMenu[] = {
+	{ ITEM_HEADER,   0, "Menu", NULL },
+	{ ITEM_ACTIVE, 101, "Undo", NULL },
+	{ ITEM_ACTIVE, 102, "Reset level", NULL },
+	{ ITEM_ACTIVE, 103, "Next Level", NULL },
+	{ ITEM_ACTIVE, 104, "Previous Level", NULL },
+	{ ITEM_ACTIVE, 105, "Open Level Collection", NULL },
+	{ ITEM_ACTIVE, 106, "Help", NULL },
+	{ ITEM_ACTIVE, 107, "About", NULL },
+	{ ITEM_ACTIVE, 108, "Exit", NULL },
+	{ 0, 0, NULL, NULL }
+};
+
+imenu levelMenu[100];
+char* levelNames[100];
 
 int tileSize;
 int playerX, playerY;
@@ -256,8 +276,16 @@ void PrepareBoard() {
 	int currentLevelWidth = 0;
 	int currentLevelHeight = 0;
 	int i;
+	boxCount = 0;
+	boxesOnPlace = 0;
 	while (getNextLine()) {
-		if (strlen(currentLine) != 0 && currentLine[0] != ';') {
+		int hasData;
+		i = 0;
+		while (currentLine[i] == Empty) {
+			i++;
+		}
+		hasData = currentLine[i] == Wall;
+		if (hasData) {
 			if (!previousLineHasData) {
 				currentLevel++;
 			}
@@ -298,11 +326,16 @@ void PrepareBoard() {
 }
 
 void GetLevelCount() {
+	int i;
 	levels = -1;
 	int previousLineHasData = 0;
 	levelIndex = 0;
 	while (getNextLine()) {
-		if (strlen(currentLine) != 0 && currentLine[0] != ';') {
+		i = 0;
+		while(currentLine[i] == Empty) {
+			i++;
+		}
+		if (currentLine[i] == Wall) {
 			if (!previousLineHasData) {
 				levels++;
 			}
@@ -415,7 +448,7 @@ void DrawBoard() {
 	char buf[16];
 	sprintf(buf, "Level %i/%i", levelNo + 1, levels + 1);
 	DrawString(5, ScreenHeight() - 45, buf);
-	DrawString(5, ScreenHeight() - 20, "Move: Up/Down/Left/Right. Undo: OK. Level navigation: +/-");
+	DrawString(5, ScreenHeight() - 20, "Move: Up/Down/Left/Right. Undo: OK. Menu: Hold OK. Level navigation: +/-");
 	FullUpdate();
 }
 
@@ -452,6 +485,70 @@ void Move(int dx, int dy) {
 	}
 }
 
+void loadLevel() {
+	FILE *levelFile;
+	if ((levelFile = fopen(levelSetFileName, "rb"))){
+		fseek(levelFile, 0, SEEK_END);
+  		int fileSize = ftell (levelFile);
+  		rewind(levelFile);
+		free(level);
+  		level = (char*) malloc(sizeof(char) * fileSize);
+  		fread (level, 1, fileSize,levelFile);
+  		fclose (levelFile);
+  	}
+	else {
+		level = strdup(originalLevel);
+	}
+}
+
+void loadLevelsHandler(int index) {
+	char fullName[1024];
+	if (levelNames[index] != NULL) {
+		strcpy(fullName, levelsFolder);
+		strcat(fullName, levelNames[index]);
+		levelSetFileName = fullName;
+  	}
+	else {
+		levelSetFileName = NULL;
+	}
+	loadLevel();
+	GetLevelCount();
+	setLevelNo(0);
+}
+
+void PickLevelSet() {
+	DIR* dir = opendir(levelsFolder);
+	if (dir == NULL) {
+		Message(0, "Open Levels Collection", "Currently you have no additional level collections on your device.\nTo add them you have to create folder named SokobanLevels under games folder on your Pocketbook and put there sets in xsb format. You can download them say at http://www.sourcecode.se/sokoban/", 20000);
+		return;
+	}
+	struct dirent *file;
+	int i = 2;
+	levelMenu[0].type = ITEM_HEADER;
+	levelMenu[0].index = 0;
+	levelMenu[0].text = "Choose level set";
+	levelMenu[1].type = ITEM_ACTIVE;
+	levelMenu[1].index = 1;
+	levelMenu[1].text = "Mini Cosmos";
+
+	while ((file = readdir(dir)) && i < 99) {
+		if (file->d_name[0] != '.') {
+			levelMenu[i].type = ITEM_ACTIVE;
+ 			levelMenu[i].index = i;
+			free(levelMenu[i].text);
+			free(levelNames[i]);
+			levelMenu[i].text = strdup(file->d_name);
+			levelNames[i] = strdup(file->d_name);
+			i++;
+		}
+	}
+	closedir(dir);
+	levelMenu[i].type = 0;
+	levelMenu[i].index = 0;
+	levelMenu[i].text = NULL;
+	OpenMenu(levelMenu, 0, 30, 30, loadLevelsHandler);
+}
+
 void Undo() {
 	int dx, dy, pull;
 	while (popMove(&dx, &dy, &pull)) {
@@ -474,6 +571,55 @@ void Undo() {
 			return;
 		}
 	}
+}
+
+int selectedIndex = 0;
+void mainMenuHandler(int index) {
+	selectedIndex = index;
+	switch (index) {
+	case 101:
+		Undo();
+		break;
+	case 102:
+		setLevelNo(levelNo);
+		break;
+	case 103:
+		if (levelNo < levels) {
+			setLevelNo(levelNo + 1);
+		}
+		break;
+	case 104:
+		if (levelNo > 0) {
+			setLevelNo(levelNo - 1);
+		}
+		break;
+	case 105:
+		PickLevelSet();
+		break;
+	case 106:
+		Message(0, "Help", "Sokoban is a classic puzzle game invented in Japan. The original game of SOKOBAN was written by Hiroyuki Imabayashi.\n"
+"Today Sokoban is one of the most popular thought and logic games.\n"
+"The name comes from Japan and means \"warehouse keeper\".\n"
+"As simple as that name is, so is the idea of this game: A level represents a store room, where boxes appear to be randomly placed. You help the warehouse keeper to push the boxes around the maze of the room so that, at the end, all boxes are on marked fields. The only restrictions are that the warehouse keeper can only push a box, never pull, and that just one box may be pushed at a time.\n"
+"Each level has a different structure, which requires a different solution - often with a different strategy as well. The magic of the game is that boxes, which are out of the way on one move, might be in the way on the next move.\n"
+"The simplicity of the rules, in combination with the many levels ranging from easy to extremely difficult, have made Sokoban become a real classic.\n"
+"(Sokoban Wiki: http://www.sokobano.de/)\n\n"
+"You can control warehause keeper by using direction buttons. If you get stuck - Ok button will help you to undo last action, or menu - to reset the level entirely.\n"
+"You can also use +/- buttons to navigate across the levels, or use menu to open new level sets\n"
+"If you want to extend your game with new levels you can download them in internet and put in the XSB folder under your flash card root.",
+60000);
+		break;
+	case 107:
+		Message(0, "About", "Socoban for Pocketbook\nDeveloped by Andriy Kvasnytsya, 2009\nDefault level set is Minicosmos set by Aymeric du Peloux", 10000);
+		break;
+	case 108:
+		CloseApp();
+		break;
+	}
+}
+
+void ShowMenu() {
+	OpenMenu(mainMenu, selectedIndex, 20, 20, mainMenuHandler);
 }
 
 void KeyPressed(int key) {
@@ -506,6 +652,9 @@ void KeyPressed(int key) {
 	case KEY_OK:
 		Undo();
 		break;
+	case KEY_MENU:
+		ShowMenu();
+		break;
 	}
 	if (boxesOnPlace == boxCount) {
 		if (levelNo < levels) {
@@ -516,6 +665,7 @@ void KeyPressed(int key) {
 		else {
 			Message(ICON_INFORMATION, "Congratulations!",
 					"You completed all the levels", 10000);
+			PickLevelSet();
 		}
 	}
 }
@@ -523,12 +673,17 @@ void KeyPressed(int key) {
 int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		font = OpenFont("LiberationSans", 16, 0);
+		loadLevel();
 		GetLevelCount();
 		PrepareBoard();
 	} else if (type == EVT_SHOW) {
 		DrawBoard();
-	} else if (type == EVT_KEYPRESS) {
+	} else if (type == EVT_KEYPRESS && par1 != KEY_OK) {
 		KeyPressed(par1);
+	} else if (type == EVT_KEYREPEAT && par1 == KEY_OK) {
+		KeyPressed(KEY_MENU);
+	} else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0) {
+		KeyPressed(KEY_OK);
 	}
 	return 0;
 }
@@ -536,9 +691,12 @@ int main_handler(int type, int par1, int par2) {
 int main(int argc, char **argv) {
 	FILE *config = fopen(configFileName, "r");
 	if (config != NULL) {
-		fscanf(config, "%i", &levelNo);
+		levelSetFileName = (char*)malloc(sizeof(char) * 1024);
+		fscanf(config, "%i\n%s", &levelNo, levelSetFileName);
+		fclose(config);
 	} else {
 		levelNo = 0;
+		levelSetFileName = NULL;
 	}
 	InkViewMain(main_handler);
 	return 0;
