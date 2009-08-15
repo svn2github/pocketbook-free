@@ -1,6 +1,6 @@
 SDKDIR = /usr/local/pocketbook
 LIBDIR= -L/usr/lib -L/home/fax/pb/workspace/libical/lib/ -L$(SDKDIR)/lib
-LIBS = -Wl,-Bstatic -lical -Wl,-Bdynamic -linkview -ljpeg -lpthread `freetype-config --libs` `libpng12-config --libs` 
+LIBS = -Wl,-Bstatic -lical -Wl,-Bdynamic -linkview -ljpeg -lpthread `freetype-config --libs` -lpng 
 #LIBS = -linkview -ljpeg  -static -lical -dynamic `freetype-config --libs` `libpng12-config --libs`
 INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags` \
 	  `libpng-config --cflags` -I/usr/include 
