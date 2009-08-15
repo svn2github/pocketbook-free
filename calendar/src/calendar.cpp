@@ -285,9 +285,12 @@ int main_handler(int type, int par1, int par2) {
 			return 0;
 		case ZOOM_OUT:
 			vm -> zoom_out();
-			return 0;
+			if (par1)
+				;
+			CloseApp();
 		case CONFIGURE:
 			open_configuration();
+			return 1;
 
 		case NOT_PROCESSED:
 		default:
@@ -295,20 +298,6 @@ int main_handler(int type, int par1, int par2) {
 		}
 
 		switch (par1) {
-
-		case KEY_OK:
-			break;
-		case KEY_BACK:
-			CloseApp();
-		case KEY_LEFT:
-			break;
-		case KEY_RIGHT:
-			break;
-		case KEY_UP:
-			break;
-		case KEY_DOWN:
-			break;
-
 		case KEY_MINUS:
 			vm -> zoom_out();
 			return 0;
@@ -316,15 +305,10 @@ int main_handler(int type, int par1, int par2) {
 			vm -> zoom_in();
 			return 0;
 
-		case KEY_MUSIC:
-			break;
-
-		case KEY_MENU:
-			open_configuration();
-			break;
-
 		case KEY_DELETE:
 			CloseApp();
+			break;
+		default:
 			break;
 
 		}
@@ -332,6 +316,7 @@ int main_handler(int type, int par1, int par2) {
 	case EVT_EXIT:
 		// occurs only in main handler when exiting or when SIGINT received.
 		// save configuration here, if needed
+		dbg << "Exitting..." << endl;
 		break;
 	}
 
