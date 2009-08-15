@@ -276,7 +276,7 @@ int main_handler(int type, int par1, int par2) {
 
 	case EVT_KEYPRESS:
 	case EVT_KEYREPEAT: {
-		ViewAction va = vm ->cur_view() -> handle_event(type, par1, par2);
+		ViewAction va = vm ->cur_view() -> handle_keypress(type, par1, par2);
 		switch (va) {
 		case PROCESSED:
 			return 0;
@@ -286,8 +286,7 @@ int main_handler(int type, int par1, int par2) {
 		case ZOOM_OUT:
 			vm -> zoom_out();
 			if (par1)
-				;
-			CloseApp();
+				CloseApp();
 		case CONFIGURE:
 			open_configuration();
 			return 1;

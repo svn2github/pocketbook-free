@@ -75,7 +75,7 @@ public:
 	 * @return PROCESSED when current event was handled
 	 * @see ViewAction
 	 */
-	virtual ViewAction handle_event(int type, int par1, int par2);
+	virtual ViewAction handle_keypress(int type, int par1, int par2);
 protected:
 	virtual void draw_vselection(const Rect& r, bool erase = false,
 			bool update = false);

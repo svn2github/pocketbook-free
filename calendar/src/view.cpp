@@ -53,7 +53,7 @@ void View::draw_header(const std::string& sl, const std::string& sr) {
 
 }
 
-ViewAction View::handle_event(int type, int par1, int par2) {
+ViewAction View::handle_keypress(int type, int par1, int par2) {
 	switch (par1) {
 
 	case KEY_OK:
