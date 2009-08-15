@@ -21,7 +21,7 @@ char *level;
 
 #ifndef EMULATOR
 const char *configFileName = STATEPATH "/sokoban.cfg";
-const char *levelsFolder = GAMEPATH "/SokobanLevels/";
+const char *levelsFolder = USERDATA "/share/sokoban/";
 #else
 const char *configFileName = "sokoban.cfg";
 const char *levelsFolder = "SokobanLevels/"; 
@@ -519,7 +519,7 @@ void loadLevelsHandler(int index) {
 void PickLevelSet() {
 	DIR* dir = opendir(levelsFolder);
 	if (dir == NULL) {
-		Message(0, "Open Levels Collection", "Currently you have no additional level collections on your device.\nTo add them you have to create folder named SokobanLevels under games folder on your Pocketbook and put there sets in xsb format. You can download them say at http://www.sourcecode.se/sokoban/", 20000);
+		Message(0, "Open Levels Collection", "Currently you have no additional level collections on your device.\nTo add them you have to create folder named \\system\\share\\sokoban in your Pocketbook memory and put there sets in xsb format. You can download them say at http://www.sourcecode.se/sokoban/", 20000);
 		return;
 	}
 	struct dirent *file;
@@ -606,7 +606,7 @@ void mainMenuHandler(int index) {
 "(Sokoban Wiki: http://www.sokobano.de/)\n\n"
 "You can control warehause keeper by using direction buttons. If you get stuck - Ok button will help you to undo last action, or menu - to reset the level entirely.\n"
 "You can also use +/- buttons to navigate across the levels, or use menu to open new level sets\n"
-"If you want to extend your game with new levels you can download them in internet and put in the XSB folder under your flash card root.",
+"If you want to extend your game with new levels you can download them in internet and put in the \\system\\share\\sokoban folder in your Pocketbook memory.",
 60000);
 		break;
 	case 107:
