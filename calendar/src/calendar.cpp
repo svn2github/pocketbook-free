@@ -279,14 +279,15 @@ int main_handler(int type, int par1, int par2) {
 		ViewAction va = vm ->cur_view() -> handle_keypress(type, par1, par2);
 		switch (va) {
 		case PROCESSED:
-			return 0;
+			return 1;
 		case ZOOM_IN:
 			vm -> zoom_in();
-			return 0;
+			return 1;
 		case ZOOM_OUT:
 			vm -> zoom_out();
-			if (par1)
+			if (par2)
 				CloseApp();
+			return 1;
 		case CONFIGURE:
 			open_configuration();
 			return 1;
@@ -299,10 +300,10 @@ int main_handler(int type, int par1, int par2) {
 		switch (par1) {
 		case KEY_MINUS:
 			vm -> zoom_out();
-			return 0;
+			return 1;
 		case KEY_PLUS:
 			vm -> zoom_in();
-			return 0;
+			return 1;
 
 		case KEY_DELETE:
 			CloseApp();
