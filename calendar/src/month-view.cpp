@@ -38,6 +38,11 @@ MonthView::MonthView(iconfig* cfg, ViewManager* vm) :
 
 }
 
+Config::ViewType MonthView::view_id() {
+	return Config::MonthView;
+}
+
+
 Rect MonthView::week_row(int week) const {
 	int x = MARGIN_SIDE, y = HEADER_WIDTH + MARGIN_TOP + week * VSTEP;
 	return Rect(x, y, s.width() - 2 * MARGIN_SIDE, VSTEP);

@@ -44,6 +44,7 @@ public:
 	bool read_boolean(const std::string& param_name, bool defval);
 	std::string read_string(const std::string& param_name,
 			const std::string& defval);
+	int read_int(const std::string& param_name, int defval);
 
 	enum ViewType {
 		LastView, MonthView, WeekView, TodayView, YearView
@@ -60,6 +61,7 @@ public:
 	struct {
 		std::string language;
 		ViewType starting_view;
+		ViewType last_view;
 		Orientation orientation;
 		struct {
 			bool show_time;

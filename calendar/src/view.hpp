@@ -61,6 +61,8 @@ public:
 
 	virtual void change_orientation(int new_ort = -1);
 
+	virtual Config::ViewType view_id() = 0;
+
 	const Config& config() const;
 
 	boost::date_time::weekdays week_start();

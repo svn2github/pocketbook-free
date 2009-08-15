@@ -25,6 +25,11 @@ YearView::YearView(iconfig* cfg, ViewManager* mgr) :
 	recalc_layout();
 }
 
+Config::ViewType YearView::view_id() {
+	return Config::YearView;
+}
+
+
 void YearView::recalc_layout() {
 	cols = s.width() > s.height() ? 4 : 3;
 	rows = 12 / cols;

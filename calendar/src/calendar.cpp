@@ -99,6 +99,8 @@ mkentry(CFG_CHOICE, NULL, CFG_LANGUAGE, "view.language", langs),
 				weekstart_vnt),
 
 		mkentry(CFG_CHOICE, NULL, CFG_ENTRY_STVIEW, "view.stview", stview_vnt),
+		mkentry(CFG_HIDDEN, NULL, CFG_ENTRY_STVIEW, "view.last_view",
+				stview_vnt),
 
 		mk_yn_entry(NULL, CFG_MONTHVIEW_SHOWWW, "monthview.showww"),
 
@@ -147,11 +149,17 @@ void file_selected(char *path) {
 	cout << "Selected path " << path << endl;
 }
 
-void config_ok() {
+void save_config() {
 	dbg << "Saving configuration" << endl;
+	dbg << "Setting last view param" << endl;
+	WriteInt(config, "view.last_view", vm->config().view.last_view);
 	dbg << "Status=" << SaveConfig(config) << endl;
 	dbg << "Config saved" << endl;
 
+}
+
+void config_ok() {
+	save_config();
 	vm -> update_configuration();
 	vm -> rotate();
 }
@@ -197,6 +205,35 @@ void msg(const char *message) {
 }
 #endif
 
+void restore_view(int param) {
+	dbg << "Restoring last view for value of param " << param << endl;
+	switch (param) {
+	case Config::LastView:
+		restore_view(vm -> config().view.last_view);
+		break;
+	case Config::MonthView:
+		dbg << "Initially, setting Month View" << endl;
+		vm -> set_view(mv, false);
+		break;
+
+	case Config::TodayView:
+		dbg << "Initially, setting Day View" << endl;
+		vm -> set_view(dv, false);
+		break;
+
+	case Config::WeekView:
+		dbg << "Initially, setting Week View" << endl;
+		vm -> set_view(wv, false);
+		break;
+
+	case Config::YearView:
+		dbg << "Initially, setting Year View" << endl;
+		vm -> set_view(yv, false);
+		break;
+	}
+
+}
+
 int main_handler(int type, int par1, int par2) {
 	fprintf(stderr, "[%i %i %i]\n", type, par1, par2);
 
@@ -232,33 +269,7 @@ int main_handler(int type, int par1, int par2) {
 
 		vm->set_date(bg::day_clock::local_day());
 
-		switch (vm -> config().view.starting_view) {
-		case Config::LastView:
-			// TODO Save last view on exit
-			dbg << "LastView Not implemented!" << endl;
-			;
-			break;
-		case Config::MonthView:
-			dbg << "Initially, setting Month View" << endl;
-			vm -> set_view(mv, false);
-			break;
-
-		case Config::TodayView:
-			dbg << "Initially, setting Day View" << endl;
-			vm -> set_view(dv, false);
-			break;
-
-		case Config::WeekView:
-			dbg << "Initially, setting Week View" << endl;
-			vm -> set_view(wv, false);
-			break;
-
-		case Config::YearView:
-			dbg << "Initially, setting Year View" << endl;
-			vm -> set_view(yv, false);
-			break;
-		}
-
+		restore_view(vm -> config().view.starting_view);
 		break;
 
 	case EVT_SHOW:
@@ -275,6 +286,11 @@ int main_handler(int type, int par1, int par2) {
 		break;
 
 	case EVT_KEYPRESS:
+		if (KEY_MENU == par1)
+			open_configuration();
+		return 1;
+
+	case EVT_KEYRELEASE:
 	case EVT_KEYREPEAT: {
 		ViewAction va = vm ->cur_view() -> handle_keypress(type, par1, par2);
 		switch (va) {
@@ -284,12 +300,10 @@ int main_handler(int type, int par1, int par2) {
 			vm -> zoom_in();
 			return 1;
 		case ZOOM_OUT:
-			vm -> zoom_out();
 			if (par2)
 				CloseApp();
-			return 1;
-		case CONFIGURE:
-			open_configuration();
+			else
+				vm -> zoom_out();
 			return 1;
 
 		case NOT_PROCESSED:
@@ -316,7 +330,10 @@ int main_handler(int type, int par1, int par2) {
 	case EVT_EXIT:
 		// occurs only in main handler when exiting or when SIGINT received.
 		// save configuration here, if needed
+		dbg << "Saving settings..." << endl;
+		save_config();
 		dbg << "Exitting..." << endl;
+
 		break;
 	}
 

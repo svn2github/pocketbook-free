@@ -28,6 +28,11 @@ WeekView::WeekView(iconfig* cfg, ViewManager* mgr) :
 	recalc_layout();
 }
 
+Config::ViewType WeekView::view_id() {
+	return Config::WeekView;
+}
+
+
 void WeekView::recalc_layout() {
 	unsigned yt = HEADER_WIDTH + MARGIN_TOP - MONTH_HEADER;
 	HSTEP = (s.width() - 2 * MARGIN_SIDE) / 3;

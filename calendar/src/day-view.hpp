@@ -30,6 +30,9 @@ public:
 	bool advance_minor(short events);
 
 	void set_date(bg::date d);
+
+	virtual Config::ViewType view_id();
+
 private:
 	Font day_f, dow_f, time_f, summary_f, summary_bf;
 

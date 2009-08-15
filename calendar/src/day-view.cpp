@@ -41,6 +41,11 @@ DayView::DayView(iconfig* cfg, ViewManager* vm) :
 			"LiberationSerif-Bold", 14, true)), starting_index(0), selected(0) {
 }
 
+Config::ViewType DayView::view_id() {
+	return Config::TodayView;
+}
+
+
 void DayView::draw_day_header() {
 	s.set_font(day_f, WHITE);
 	ostringstream ss;

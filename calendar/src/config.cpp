@@ -21,7 +21,7 @@ Config::~Config() {
 
 template<int k>
 unsigned index_of(const std::string* lst, const std::string& str) {
-	for (int i = 0; i < k; ++i){
+	for (int i = 0; i < k; ++i) {
 		if (str == lst[i])
 			return i;
 		dbg << str << "!=" << lst[i] << endl;
@@ -59,17 +59,19 @@ void Config::update() {
 
 	view.day.show_location = read_boolean("dayview.show_location", true);
 	view.day.show_description = read_boolean("dayview.show_description", true);
-	view.day.show_participants = read_boolean("dayview.show_participants", true);
+	view.day.show_participants
+			= read_boolean("dayview.show_participants", true);
 
 	fonts.week_event = read_string("weekview.event_font", "LiberationSerif,10");
 
 	view.starting_view = ViewType(index_of<5> (CFG_VIEW_STARTVIEW_VNT,
 			read_string("view.stview", CFG_VIEW_STARTVIEW_VNT[0])));
 
-	int ort  = index_of<5> (ORIENTATIONS,
-			read_string("view.orientation", ORIENTATIONS[4]));
-	view.orientation = Orientation(ort == 4 ? Auto : ort);
+	view.last_view = ViewType(read_int("view.last_view", 1));
 
+	int ort = index_of<5> (ORIENTATIONS, read_string("view.orientation",
+			ORIENTATIONS[4]));
+	view.orientation = Orientation(ort == 4 ? Auto : ort);
 
 }
 
@@ -78,6 +80,10 @@ std::string Config::read_string(const std::string& param_name,
 	return ReadString(config, const_cast<char*> (param_name.c_str()),
 			const_cast<char*> (defval.c_str()));
 
+}
+
+int Config::read_int(const std::string& param_name, int defval) {
+	return ReadInt(config, const_cast<char*> (param_name.c_str()), defval);
 }
 
 bool Config::read_boolean(const std::string& param_name, bool defval) {

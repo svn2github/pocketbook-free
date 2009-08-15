@@ -37,6 +37,8 @@ public:
 	void set_date(boost::gregorian::date d);
 
 	virtual void draw();
+	virtual Config::ViewType view_id();
+
 
 protected:
 

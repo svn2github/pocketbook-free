@@ -43,6 +43,7 @@ void ViewManager::zoom_out(boost::gregorian::date d) {
 
 	(*cview) -> set_date(d);
 	(*cview) -> draw();
+	cconfig.view.last_view = (*cview)->view_id();
 }
 
 void ViewManager::zoom_out() {
@@ -59,6 +60,8 @@ void ViewManager::zoom_in(boost::gregorian::date d) {
 
 	(*cview) -> set_date(d);
 	(*cview) -> draw();
+
+	cconfig.view.last_view = (*cview)->view_id();
 }
 void ViewManager::zoom_in() {
 	bg::date d = (*cview) -> selected();

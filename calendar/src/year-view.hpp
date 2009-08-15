@@ -32,6 +32,8 @@ public:
 	virtual ~YearView();
 
 	virtual void draw();
+	virtual Config::ViewType view_id();
+
 
 protected:
 

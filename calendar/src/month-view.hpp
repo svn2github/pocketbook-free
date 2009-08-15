@@ -35,6 +35,8 @@ public:
 
 
 	MonthView(iconfig* cfg, ViewManager* vm);
+	virtual Config::ViewType view_id();
+
 
 protected:
 	void recalc_layout();
