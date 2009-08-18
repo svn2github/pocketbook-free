@@ -1,0 +1,207 @@
+/* Copyright (C) 2005-2009 Valeriy Argunov (nporep AT mail DOT ru) */
+/*
+* This library is free software; you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation; either version 2.1 of the License, or
+* (at your option) any later version.
+*
+* This library is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU Lesser General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with this library; if not, write to the Free Software
+* Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+*/
+
+#include "locations.h"
+#include "common.h"
+#include "errors.h"
+#include "game.h"
+#include "statements.h"
+#include "text.h"
+#include "variables.h"
+
+QSPLocation *qspLocs = 0;
+long qspLocsCount = 0;
+long qspCurLoc = -1;
+long qspRefreshCount = 0;
+long qspFullRefreshCount = 0;
+
+void qspCreateWorld(long start, long locsCount)
+{
+	long i, j;
+	for (i = start; i < qspLocsCount; ++i)
+	{
+		free(qspLocs[i].Name);
+		free(qspLocs[i].Desc);
+		qspFreeStrs(qspLocs[i].OnVisitLines, qspLocs[i].OnVisitLinesCount, QSP_FALSE);
+		for (j = 0; j < QSP_MAXACTIONS; ++j)
+			if (qspLocs[i].Actions[j].Desc)
+			{
+				if (qspLocs[i].Actions[j].Image) free(qspLocs[i].Actions[j].Image);
+				free(qspLocs[i].Actions[j].Desc);
+				qspFreeStrs(qspLocs[i].Actions[j].OnPressLines, qspLocs[i].Actions[j].OnPressLinesCount, QSP_FALSE);
+			}
+	}
+	if (qspLocsCount != locsCount)
+	{
+		qspLocsCount = locsCount;
+		qspLocs = (QSPLocation *)realloc(qspLocs, qspLocsCount * sizeof(QSPLocation));
+	}
+	for (i = start; i < qspLocsCount; ++i)
+		for (j = 0; j < QSP_MAXACTIONS; ++j)
+			qspLocs[i].Actions[j].Desc = 0;
+}
+
+long qspLocIndex(QSP_CHAR *name)
+{
+	long i, locNameLen, bufSize;
+	QSP_CHAR *uName, *buf;
+	if (!qspLocsCount) return -1;
+	uName = qspDelSpc(name);
+	if (!(*uName))
+	{
+		free(uName);
+		return -1;
+	}
+	qspUpperStr(uName);
+	bufSize = 16;
+	buf = (QSP_CHAR *)malloc(bufSize * sizeof(QSP_CHAR));
+	for (i = 0; i < qspLocsCount; ++i)
+	{
+		locNameLen = (long)QSP_STRLEN(qspLocs[i].Name);
+		if (locNameLen >= bufSize)
+		{
+			bufSize = locNameLen + 8;
+			buf = (QSP_CHAR *)realloc(buf, bufSize * sizeof(QSP_CHAR));
+		}
+		QSP_STRCPY(buf, qspLocs[i].Name);
+		qspUpperStr(buf);
+		if (!QSP_STRCMP(buf, uName))
+		{
+			free(uName);
+			free(buf);
+			return i;
+		}
+	}
+	free(uName);
+	free(buf);
+	return -1;
+}
+
+void qspExecLocByIndex(long locInd, QSP_BOOL isChangeDesc)
+{
+	QSPVariant args[2];
+	QSP_CHAR *str, **code;
+	long oldRefreshCount, i, count, oldLoc, oldWhere, oldLine;
+	QSPLocation *loc = qspLocs + locInd;
+	oldLoc = qspRealCurLoc;
+	oldWhere = qspRealWhere;
+	oldLine = qspRealLine;
+	qspRealCurLoc = locInd;
+	qspRealWhere = QSP_AREA_ONLOCVISIT;
+	qspRealLine = 0;
+	oldRefreshCount = qspRefreshCount;
+	str = qspFormatText(loc->Desc);
+	if (qspRefreshCount != oldRefreshCount || qspErrorNum)
+	{
+		qspRealLine = oldLine;
+		qspRealWhere = oldWhere;
+		qspRealCurLoc = oldLoc;
+		return;
+	}
+	if (isChangeDesc)
+	{
+		if (qspCurDesc) free(qspCurDesc);
+		qspCurDescLen = (long)QSP_STRLEN(qspCurDesc = str);
+		qspIsMainDescChanged = QSP_TRUE;
+	}
+	else
+	{
+		if (*str)
+		{
+			qspCurDescLen = qspAddText(&qspCurDesc, str, qspCurDescLen, -1, QSP_FALSE);
+			qspIsMainDescChanged = QSP_TRUE;
+		}
+		free(str);
+	}
+	qspRealWhere = QSP_AREA_ONLOCACTION;
+	for (i = 0; i < QSP_MAXACTIONS; ++i)
+	{
+		str = loc->Actions[i].Desc;
+		if (!(str && *str)) break;
+		str = qspFormatText(str);
+		if (qspRefreshCount != oldRefreshCount || qspErrorNum)
+		{
+			qspRealLine = oldLine;
+			qspRealWhere = oldWhere;
+			qspRealCurLoc = oldLoc;
+			return;
+		}
+		args[0].IsStr = QSP_TRUE;
+		QSP_STR(args[0]) = str;
+		str = loc->Actions[i].Image;
+		if (str && *str)
+		{
+			args[1].IsStr = QSP_TRUE;
+			QSP_STR(args[1]) = str;
+			count = 2;
+		}
+		else
+			count = 1;
+		qspAddAction(args, count, loc->Actions[i].OnPressLines, 0, loc->Actions[i].OnPressLinesCount, QSP_TRUE);
+		free(QSP_STR(args[0]));
+		if (qspErrorNum)
+		{
+			qspRealLine = oldLine;
+			qspRealWhere = oldWhere;
+			qspRealCurLoc = oldLoc;
+			return;
+		}
+	}
+	qspRealWhere = QSP_AREA_ONLOCVISIT;
+	if (locInd < qspLocsCount - qspCurIncLocsCount)
+		qspExecCode(loc->OnVisitLines, 0, loc->OnVisitLinesCount, 1, 0, QSP_TRUE);
+	else
+	{
+		count = loc->OnVisitLinesCount;
+		qspCopyStrs(&code, loc->OnVisitLines, 0, count);
+		qspExecCode(code, 0, count, 1, 0, QSP_TRUE);
+		qspFreeStrs(code, count, QSP_FALSE);
+	}
+	qspRealLine = oldLine;
+	qspRealWhere = oldWhere;
+	qspRealCurLoc = oldLoc;
+}
+
+void qspExecLocByName(QSP_CHAR *name, QSP_BOOL isChangeDesc)
+{
+	long locInd = qspLocIndex(name);
+	if (locInd < 0)
+	{
+		qspSetError(QSP_ERR_LOCNOTFOUND);
+		return;
+	}
+	qspExecLocByIndex(locInd, isChangeDesc);
+}
+
+void qspExecLocByVarName(QSP_CHAR *name)
+{
+	QSP_CHAR *locName = qspGetVarStrValue(name);
+	if (qspIsAnyString(locName)) qspExecLocByName(locName, QSP_FALSE);
+}
+
+void qspRefreshCurLoc(QSP_BOOL isChangeDesc)
+{
+	long oldRefreshCount;
+	qspClearActions(QSP_FALSE);
+	++qspRefreshCount;
+	if (isChangeDesc) ++qspFullRefreshCount;
+	oldRefreshCount = qspRefreshCount;
+	qspExecLocByIndex(qspCurLoc, isChangeDesc);
+	if (qspErrorNum) return;
+	if (qspRefreshCount == oldRefreshCount)
+		qspExecLocByVarName(QSP_FMT("ONNEWLOC"));
+}
