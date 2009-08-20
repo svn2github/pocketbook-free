@@ -751,7 +751,7 @@ void PBButton::Draw()
 {
 	ClearRegion();
 	
-	DrawTextRect(GetLeft()+2, GetTop(), GetWidth()-2, GetHeight(), (char *)_text.c_str(), ALIGN_LEFT | VALIGN_MIDDLE);
+	DrawTextRect(GetLeft()+4, GetTop(), GetWidth()-4, GetHeight(), (char *)_text.c_str(), ALIGN_LEFT | VALIGN_MIDDLE);
 
 	if (GetFocused())
 		DrawSelection(GetLeft(), GetTop(), GetWidth(), GetHeight(), BLACK);
@@ -788,7 +788,7 @@ int PBButton::GetWidth()
 	{
 		int width;
 		
-		width = StringWidth((char*)GetText().c_str())+4;
+		width = StringWidth((char*)GetText().c_str())+8;
 		
 		if (GetMaxWidth() > 0 && width > GetMaxWidth())
 			return GetMaxWidth();
@@ -828,3 +828,90 @@ void PBButton::SetText(std::string value)
 {
 	_text = value;
 }
+
+// PBLabel
+PBLabel::PBLabel(std::string name, PBControl *parent) : PBControl(name, parent)
+{
+	_image = 0;
+	_canBeFocused = false;
+}
+
+void PBLabel::Draw()
+{
+	ClearRegion();
+	
+	DrawTextRect(GetLeft()+4, GetTop(), GetWidth()-4, GetHeight(), (char *)_text.c_str(), ALIGN_CENTER | VALIGN_MIDDLE);
+
+	if (GetFocused())
+		DrawSelection(GetLeft(), GetTop(), GetWidth(), GetHeight(), BLACK);
+	else if (GetDrawBorder())
+		DrawRect(GetLeft(), GetTop(), GetWidth(), GetHeight(), BLACK);
+}
+
+int PBLabel::HandleMsg(int type, int par1, int par2)
+{
+	if (type == EVT_KEYPRESS)
+	{
+		switch (par1)
+		{
+			case KEY_LEFT:
+			case KEY_UP:
+				OnLeave.emit_sig(this, false);
+				break;
+			case KEY_RIGHT:
+			case KEY_DOWN:
+				OnLeave.emit_sig(this, true);
+				break;
+		}
+	}
+	
+	return 0;
+}
+
+int PBLabel::GetWidth()
+{
+	if (_width <= 0)
+	{
+		int width;
+		
+		width = StringWidth((char*)GetText().c_str())+8;
+		
+		if (GetMaxWidth() > 0 && width > GetMaxWidth())
+			return GetMaxWidth();
+			
+		return width;
+	}
+	
+	return PBControl::GetWidth();
+}
+
+void PBLabel::SetMaxWidth(int value)
+{
+	_maxWidth = value;
+}
+
+int PBLabel::GetMaxWidth()
+{
+	return _maxWidth;
+}
+
+ibitmap *PBLabel::GetImage()
+{
+	return _image;
+}
+
+void PBLabel::SetImage(ibitmap *value)
+{
+	_image = value;
+}
+
+std::string PBLabel::GetText()
+{
+	return _text;
+}
+
+void PBLabel::SetText(std::string value)
+{
+	_text = value;
+}
+

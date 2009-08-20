@@ -68,5 +68,7 @@ void to_utf8(const unsigned char *from, char *to, const unsigned short *encoding
 
 void to_utf8(const unsigned char *from, std::string *to, const unsigned short *encoding);
 
+std::string utf8_to(const unsigned char *from, const unsigned short *encoding);
+
 #endif
 

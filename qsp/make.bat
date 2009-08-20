@@ -17,11 +17,12 @@ pbres -c %IMAGES% images/*.bmp
 if errorlevel 1 goto L_ER
 :NOIMG
 
-gcc -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/qsp/*.c src/qsp/onig/*.c src/qsp/onig/enc/*.c %IMAGES%
+rem gcc -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/qsp/*.c src/qsp/onig/*.c src/qsp/onig/enc/*.c %IMAGES%
 g++ -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/*.cpp %IMAGES%
 if errorlevel 1 goto L_ER
 
 g++ -static -Wall -O2 -fomit-frame-pointer -o %OUTPUT% *.o %LIBS%
+
 if errorlevel 1 goto L_ER
 
 echo Built OK!

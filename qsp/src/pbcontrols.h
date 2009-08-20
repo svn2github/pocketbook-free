@@ -176,5 +176,28 @@ public:
 	CppSignal1<void, PBControl *> OnPressed;
 };
 
+class PBLabel : public PBControl
+{
+protected:
+	ibitmap *_image;
+	std::string _text;
+	
+	int _maxWidth;
+	
+public:
+
+	PBLabel(std::string name, PBControl *parent);
+	
+	virtual void Draw();
+	virtual int HandleMsg(int type, int par1, int par2);
+	virtual int GetWidth();
+	virtual void SetMaxWidth(int value);
+	virtual int GetMaxWidth();
+	virtual ibitmap *GetImage();
+	virtual void SetImage(ibitmap *value);
+	virtual std::string GetText();
+	virtual void SetText(std::string value);	
+};
+
 #endif
 

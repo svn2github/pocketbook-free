@@ -1,8 +1,12 @@
 #ifndef QSPCALLBACKS_H
 #define QSPCALLBACKS_H
 
+#include <vector>
 #include "convert.h"
+#include "inkview.h"
 #include "qsp/qsp.h"
+
+#define DYN_MENU_SIZE 20
 
 class QSPCallbacks
 {
@@ -25,6 +29,7 @@ public:
 	static void ShowImage(const QSP_CHAR *file);
 	static void OpenGameStatus();
 	static void SaveGameStatus();
+	static void DeInit();
 };
 
 #endif

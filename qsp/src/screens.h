@@ -13,7 +13,7 @@ class ObjectsDialog : public PBControl
 {
 protected:
 	PBListBox listBox;
-	
+	std::vector<std::string> _rawValues;
 	virtual void PlaceControls();
 	
 	CppSlot1<ObjectsDialog, void, PBControl *> FocusedItemChangedSlot;
@@ -22,7 +22,7 @@ public:
 	ObjectsDialog(std::string name, PBControl *parent);
 	
 	virtual int HandleMsg(int type, int par1, int par2);
-	void Reload();
+	bool Reload();
 	int GetObjectsCount();
 	std::string GetCurrentObjectDesc();
 };
@@ -36,6 +36,7 @@ protected:
 	PBListBox listBox;
 	
 	links_vector _links;
+	std::string _rawValue;
 	
 	virtual void PlaceControls();
 	
@@ -46,7 +47,7 @@ public:
 	
 	//virtual int HandleMsg(int type, int par1, int par2);
 	
-	void Reload();
+	bool Reload();
 	links_vector GetLinks();
 };
 
@@ -56,6 +57,7 @@ protected:
 	PBListBox listBox;
 	
 	links_vector _links;
+	std::string _rawValue;
 	
 	virtual void PlaceControls();
 	
@@ -63,7 +65,7 @@ public:
 
 	AdditionalDescription(std::string name, PBControl *parent);
 
-	void Reload();
+	bool Reload();
 	links_vector GetLinks();
 };
 
@@ -71,6 +73,7 @@ class ActionsDialog : public PBControl
 {
 protected:
 	PBListBox listBox;
+	std::vector<std::string> _rawValues;
 	
 	virtual void PlaceControls();
 	
@@ -81,7 +84,7 @@ public:
 	ActionsDialog(std::string name, PBControl *parent);
 	
 	virtual int HandleMsg(int type, int par1, int par2);
-	void Reload();
+	bool Reload(bool force = false);
 	void AddLinkItem(std::string text, std::string link);
 	
 	CppSignal1<void, PBControl *> OnActionExecuted;
@@ -98,7 +101,7 @@ protected:
 	
 public:
 	ObjectsScreen(std::string name, PBControl *parent);
-	void Reload();
+	bool Reload();
 	
 	ObjectsDialog *GetObjectsDialog();
 };
@@ -108,11 +111,14 @@ class GameScreen : public PBControl
 protected:
 	PBButton menuButton;
 	PBButton objectsButton;
+	PBLabel versionLabel;
 	LocationDescription locationDescription;
 	ActionsDialog actionsDialog;
 	ObjectsScreen objectsScreen;
 	
 	virtual void PlaceControls();
+	void SwitchObjectsScreen();
+	void ShowInputBox();
 	
 	CppSlot1<GameScreen, void, PBControl *> ActionExecutedSlot;
 	void ActionExecutedHandler(PBControl * sender);
@@ -128,7 +134,7 @@ public:
 	
 	virtual int HandleMsg(int type, int par1, int par2);
 	
-	void Reload();
+	bool Reload();
 };
 
 class MainScreen : public PBControl
@@ -142,7 +148,7 @@ public:
 	MainScreen(std::string name, PBControl *parent);
 	virtual int HandleMsg(int type, int par1, int par2);
 	
-	void UpdateUI();
+	void UpdateUI(bool forceUpdate = true);
 };
 
 

@@ -7,7 +7,9 @@ ifont *defaultFont(0);
 enum
 	{
 	MAINMENU_OPEN = 100,
-	MAINMENU_FONTSIZE,
+	MAINMENU_FONT,
+	MAINMENU_SELECTFONT,
+	MAINMENU_ORIENTATION,
 	MAINMENU_QUICKSAVE,
 	MAINMENU_QUICKLOAD,
 	MAINMENU_RESTART,
@@ -16,10 +18,11 @@ enum
 	
 static imenu fontSizeMenu[] = 
 	{
-		{ ITEM_ACTIVE, 12, "12", NULL },
-		{ ITEM_ACTIVE, 14, "14", NULL },
 		{ ITEM_ACTIVE, 16, "16", NULL },
 		{ ITEM_ACTIVE, 18, "18", NULL },
+		{ ITEM_ACTIVE, 20, "20", NULL },
+		{ ITEM_ACTIVE, 22, "22", NULL },
+		{ ITEM_ACTIVE, MAINMENU_SELECTFONT, "Выбрать шрифт", NULL },
 		{ 0, 0, NULL, NULL }
 	};
 	
@@ -27,7 +30,8 @@ static imenu mainMenu[] =
 	{
 		{ ITEM_HEADER,   0, "QSP", NULL },
 		{ ITEM_ACTIVE, MAINMENU_OPEN, "Открыть книгу", NULL },
-		{ ITEM_SUBMENU, MAINMENU_FONTSIZE, "Размер шрифта", fontSizeMenu },
+		{ ITEM_SUBMENU, MAINMENU_FONT, "Шрифт", fontSizeMenu },
+		{ ITEM_ACTIVE, MAINMENU_ORIENTATION, "Ориентация", NULL },
 		{ ITEM_ACTIVE, MAINMENU_QUICKSAVE, "Быстрое сохранение", NULL },
 		{ ITEM_ACTIVE, MAINMENU_QUICKLOAD, "Быстрая загрузка", NULL },
 		{ ITEM_ACTIVE, MAINMENU_RESTART, "Начать заново", NULL },
@@ -35,6 +39,19 @@ static imenu mainMenu[] =
 		{ ITEM_ACTIVE, MAINMENU_EXIT, "Выход", NULL },
 		{ 0, 0, NULL, NULL }
 	};
+
+bool IsQuestOpened()
+{
+	return QSPGetCurLoc() != 0;
+}
+
+bool CompareStr(std::string str1, char* str2)
+{
+	if (str2 == 0)
+		return str1.size() == 0;
+		
+	return str1 == str2;
+}
 	
 void dir_selected(char *path)
 {
@@ -70,6 +87,49 @@ void dir_selected(char *path)
 		
 }
 
+void SetDefaultFont(std::string name, int size)
+{
+	if (defaultFont != 0)
+		try
+		{
+			CloseFont(defaultFont);
+		}
+		catch(...)
+		{
+			fprintf(stderr, "\nerror closing default font");
+		}
+	defaultFont = OpenFont((char*)name.c_str(), size, 1);
+	mainScreen.SetControlFont(defaultFont);
+	mainScreen.UpdateUI();
+}
+
+void font_selected(char *fontr, char *fontb, char *fonti, char *fontbi)
+{
+	std::string font(fontr);
+	
+	size_t div_pos = font.find_first_of(',');
+	if (div_pos != std::string::npos)
+	{
+		int size = atoi(font.substr(div_pos+1).c_str());
+		SetDefaultFont(font.substr(0, div_pos), size);
+	}
+}
+
+void orientation_selected(int direction)
+{
+	SetOrientation(direction);
+	mainScreen.UpdateUI();
+}
+
+void HandleRestartDialog(int button)
+{
+	if (button == 1 && IsQuestOpened())
+    {
+		if (!QSPRestartGame(QSP_TRUE))
+				ShowError();
+	}
+}
+
 bool GetVarValue(const QSP_CHAR *name, long *num, QSP_CHAR **str)
 {
 	if (QSPGetVarValuesCount(name, num) && *num)
@@ -81,7 +141,7 @@ bool GetVarValue(const QSP_CHAR *name, long *num, QSP_CHAR **str)
 }
 
 static char dirbuf[1024];
-void handleMainMenuItem(int index)
+void HandleMainMenuItem(int index)
 {
 	switch(index)
 	{
@@ -90,9 +150,16 @@ void handleMainMenuItem(int index)
 			
 			// PC hack
 			//QSPLoadGameWorld("filimon\\filimon.qsp");
+			//QSPLoadGameWorld("darkcstl\\dark.gam");
+			//QSPLoadGameWorld("pirates\\pirates.qsp");
 			//QSPRestartGame(QSP_TRUE);
 			break;
 		case MAINMENU_QUICKSAVE:
+			if (!IsQuestOpened())
+			{
+				Message(ICON_INFORMATION, "QSP", "Перед загрузкой состояния необходимо открыть книгу", 3000);
+				break;
+			}
 			long numVal;
 			QSP_CHAR *strVal;
 			if (!(GetVarValue(QSP_FMT("NOSAVE"), &numVal, &strVal) && numVal))
@@ -102,30 +169,45 @@ void handleMainMenuItem(int index)
 			}
 			else
 			{
-				Message(ICON_INFORMATION, "Cохранение невозможно", "Возможность сохранения отключена", 3000);
+				Message(ICON_INFORMATION, "QSP", "Возможность сохранения отключена", 3000);
 			}
 			break;
 		case MAINMENU_QUICKLOAD:
+			if (!IsQuestOpened())
+			{
+				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
+				break;
+			}
 			if (!QSPOpenSavedGame((QSP_CHAR*)(GetQuestPath()+="quicksave.sav").c_str(), QSP_TRUE))
 				ShowError();
 			break;
 		case MAINMENU_RESTART:
-			if (!QSPRestartGame(QSP_TRUE))
-				ShowError();
+			if (!IsQuestOpened())
+			{
+				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
+				break;
+			}
+			Dialog(ICON_QUESTION, "QSP", "Вы действительно хотите начать заново?", "Да", "Нет", HandleRestartDialog);
+			
 			break;
 		case MAINMENU_EXIT:
 			CloseApp();
 			break;
+		case MAINMENU_SELECTFONT:
+			OpenFontSelector("Выберите шрифт", (char*)std::string(defaultFont->name).c_str(), defaultFont->size, font_selected);
+			break;
+		case MAINMENU_ORIENTATION:
+			OpenRotateBox(orientation_selected);
+			break;
 		default:
-			CloseFont(defaultFont);
-			defaultFont = OpenFont("times", index, 1);
-			mainScreen.SetControlFont(defaultFont);
-			mainScreen.UpdateUI();
+			SetDefaultFont(defaultFont->name, index);
 			break;
 	}
 }
 
-MainScreen::MainScreen(std::string name, PBControl *parent) : PBControl(name, parent), gameScreen("gameScreen", this)
+
+MainScreen::MainScreen(std::string name, PBControl *parent) : PBControl(name, parent),
+	gameScreen("gameScreen", this)
 {
 	SetDrawBorder(false);
 	
@@ -134,6 +216,7 @@ MainScreen::MainScreen(std::string name, PBControl *parent) : PBControl(name, pa
 	gameScreen.SetVisible(false);
 	gameScreen.SetLeaveOnKeys(false);
 	gameScreen.SetDrawBorder(false);
+
 }
 
 int MainScreen::HandleMsg(int type, int par1, int par2)
@@ -144,10 +227,6 @@ int MainScreen::HandleMsg(int type, int par1, int par2)
 	}
 	else if (type == EVT_SHOW)
 	{
-		_left = 0;
-		_top = 0;
-		_width = ScreenWidth();
-		_height = ScreenHeight();
 		SetFocused(true);
 		
 		gameScreen.SetVisible(true);
@@ -169,6 +248,11 @@ int MainScreen::HandleMsg(int type, int par1, int par2)
 
 void MainScreen::PlaceControls()
 {
+	_left = 0;
+	_top = 0;
+	_width = ScreenWidth();
+	_height = ScreenHeight();
+
 	gameScreen.SetSize(GetLeft(), GetTop(), GetWidth(), GetHeight());
 }
 
@@ -178,15 +262,16 @@ bool IsFullRefresh()
 	return oldFullRefreshCount != QSPGetFullRefreshCount();
 }
 
-void MainScreen::UpdateUI()
+void MainScreen::UpdateUI(bool forceUpdate)
 {
-	gameScreen.Reload();
-	Update();
+	bool updateNeeded = gameScreen.Reload();
+	if (forceUpdate || updateNeeded)
+		Update();
 	oldFullRefreshCount = QSPGetFullRefreshCount();
 }
 
 GameScreen::GameScreen(std::string name, PBControl *parent) : PBControl(name, parent),
-	menuButton("menuButton", this), objectsButton("objectsButton", this),
+	menuButton("menuButton", this), objectsButton("objectsButton", this), versionLabel("versionLabel", this),
 	locationDescription("locationDescription", this), actionsDialog("actionsDialog", this),
 	objectsScreen("objectsScreen", this),
 	ActionExecutedSlot(this, &GameScreen::ActionExecutedHandler),
@@ -201,7 +286,9 @@ GameScreen::GameScreen(std::string name, PBControl *parent) : PBControl(name, pa
 	AddControl(&locationDescription);
 	//AddControl(&objectsDialog);
 	//AddControl(&additionalDescription);
+	AddControl(&versionLabel);
 	AddControl(&objectsScreen);
+	
 	
 	//objectsDialog.SetVisible(false);
 	//additionalDescription.SetVisible(false);
@@ -212,6 +299,9 @@ GameScreen::GameScreen(std::string name, PBControl *parent) : PBControl(name, pa
 
 	menuButton.SetFocused(true);
 	//actionsDialog.OnActionExecuted.connect(&ActionExecutedSlot);
+		
+	versionLabel.SetText(APP_VERSION);
+	//versionLabel.SetDrawBorder(false);
 }
 
 void GameScreen::ActionExecutedHandler(PBControl *sender)
@@ -224,56 +314,99 @@ void GameScreen::ButtonPressedHandler(PBControl *sender)
 {
 	if (sender == &menuButton)
 	{
-		OpenMenu(mainMenu, 0, menuButton.GetLeft(), menuButton.GetTop(), handleMainMenuItem);
+		OpenMenu(mainMenu, 0, menuButton.GetLeft(), menuButton.GetTop(), HandleMainMenuItem);
 	}
 	else if (sender == &objectsButton)
 	{
-		objectsScreen.SetVisible(true);
-		objectsScreen.SetFocused(true);
-		//menuButton.SetVisible(false);
-		//objectsButton.SetVisible(false);
-		//locationDescription.SetVisible(false);
-		//actionsDialog.SetVisible(false);
-		Update();
+		SwitchObjectsScreen();
 	}
 }
 
 void GameScreen::DialogLeavedHandler(PBControl *sender, bool next)
 {
-	sender->SetVisible(false);
-	actionsDialog.SetFocused(true);
-	Update();
+	SwitchObjectsScreen();
 }
 
 void GameScreen::PlaceControls()
 {
-	int buttonsHeight = 25;
+	int buttonsHeight = 38;
 	int left = GetLeft()+BORDER_SPACE, top = GetTop()+BORDER_SPACE, width = GetWidth()-BORDER_SPACE*2, height = GetHeight()-BORDER_SPACE*2;
 	//int left = GetLeft(), top = GetTop(), width = GetWidth(), height = GetHeight();
 	
 	menuButton.SetMaxWidth(width/2);
 	menuButton.SetSize(left, top, 0, buttonsHeight);
 	objectsButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + BORDER_SPACE, top, width - menuButton.GetWidth() - BORDER_SPACE, buttonsHeight);
-	locationDescription.SetSize(left, top+buttonsHeight+BORDER_SPACE, width, height*2/3-buttonsHeight-BORDER_SPACE);
+	locationDescription.SetSize(left, top+buttonsHeight+BORDER_SPACE, width, height*5/7-buttonsHeight-BORDER_SPACE);
 	actionsDialog.SetSize(left, locationDescription.GetTop() + locationDescription.GetHeight() + BORDER_SPACE, width, height - locationDescription.GetHeight() - BORDER_SPACE);
-	//objectsDialog.SetSize(left, top, width, height/2);
-	//additionalDescription.SetSize(left, objectsDialog.GetTop() + objectsDialog.GetHeight(), width, height/2);
 	objectsScreen.SetSize(left, top, width, height);
+	
+	versionLabel.SetSize(objectsButton.GetLeft()+objectsButton.GetWidth()-140-BORDER_SPACE, objectsButton.GetTop()+BORDER_SPACE, 140, objectsButton.GetHeight()-BORDER_SPACE*2);
+	versionLabel.SetVisible(!IsQuestOpened());
+}
+
+void GameScreen::SwitchObjectsScreen()
+{
+	if (objectsScreen.GetVisible())
+	{
+		objectsScreen.SetVisible(false);
+		actionsDialog.SetFocused(true);
+		Update();
+	}
+	else
+	{
+		objectsScreen.SetVisible(true);
+		objectsScreen.SetFocused(true);
+		Update();
+	}
+}
+
+
+void HandleInputBox(char *s)
+{
+	QSPSetInputStrText(s);
+
+	if (!QSPExecUserInput(QSP_TRUE))
+		ShowError();
+}
+
+void GameScreen::ShowInputBox()
+{
+	char buf[512] = "";
+	OpenKeyboard("Введите текст или команду", buf, 200, 0, HandleInputBox);
 }
 
 int GameScreen::HandleMsg(int type, int par1, int par2)
 {
-	DispatchMsgToControls(type, par1, par2);
+
+	int handled = DispatchMsgToControls(type, par1, par2);
 	
-	return 1;
+	if (!handled && type == EVT_KEYPRESS)
+	{
+		switch(par1)
+		{
+			case KEY_MENU:
+				OpenMenu(mainMenu, 0, menuButton.GetLeft(), menuButton.GetTop(), HandleMainMenuItem);
+				break;
+			case KEY_BACK:
+				//ShowInputBox();
+				break;
+			case KEY_DELETE:
+				// show|hide objectsScreen
+				SwitchObjectsScreen();
+				break;
+		}
+	}
+	
+	return handled;
 }
 
-void GameScreen::Reload()
+bool GameScreen::Reload()
 {
 	//fprintf(stderr, "\n gamescreen reload. QSPIsMainDescChanged = %d", QSPIsMainDescChanged());
 	//fprintf(stderr, "\n gamescreen reload. QSPIsObjectsChanged = %d", QSPIsObjectsChanged());
 	//fprintf(stderr, "\n gamescreen reload. QSPIsActionsChanged = %d", QSPIsActionsChanged());
 	//fprintf(stderr, "\n gamescreen reload. QSPIsVarsDescChanged = %d", QSPIsVarsDescChanged());
+	bool updateNeeded = false;
 	menuButton.SetText("QSP");
 	
 	char objButtonCaptionBuf[40];
@@ -287,23 +420,20 @@ void GameScreen::Reload()
 	}
 	objectsButton.SetText(objButtonCaption);
 	
-	//if (QSPIsObjectsChanged() || QSPIsVarsDescChanged())
+	updateNeeded = locationDescription.Reload();
+	if (updateNeeded)
 	{
-		objectsScreen.Reload();
+		actionsDialog.Reload(true);
+		links_vector links = locationDescription.GetLinks();
+		for(link_it it = links.begin(); it != links.end(); it++)
+			actionsDialog.AddLinkItem(it->first, it->second);
 	}
-	//if (QSPIsMainDescChanged() || QSPIsActionsChanged())
-	{
-		locationDescription.Reload();
+	else
+		updateNeeded = actionsDialog.Reload() || updateNeeded;
 		
-		if (QSPIsActionsChanged() || locationDescription.GetLinks().size() > 0)
-		{
-			actionsDialog.Reload();
-			links_vector links = locationDescription.GetLinks();
-			for(link_it it = links.begin(); it != links.end(); it++)
-				actionsDialog.AddLinkItem(it->first, it->second);
-		}
-	}	
+	updateNeeded = objectsScreen.Reload() || updateNeeded;
 	
+	return updateNeeded;
 }
 
 ObjectsScreen::ObjectsScreen(std::string name, PBControl *parent) : PBControl(name, parent),
@@ -319,16 +449,12 @@ void ObjectsScreen::PlaceControls()
 	additionalDescription.SetSize(GetLeft(), objectsDialog.GetTop() + objectsDialog.GetHeight() + BORDER_SPACE, GetWidth(), GetHeight() - objectsDialog.GetHeight() - BORDER_SPACE);
 }
 
-void ObjectsScreen::Reload()
+bool ObjectsScreen::Reload()
 {
-	if (QSPIsObjectsChanged())	
-	{
-		objectsDialog.Reload();
-	}
-	//if (QSPIsVarsDescChanged())
-	{
-		additionalDescription.Reload();
-	}
+	bool updateNeeded = false;
+	updateNeeded = objectsDialog.Reload() || updateNeeded;
+	updateNeeded = additionalDescription.Reload() || updateNeeded;
+	return updateNeeded;
 }
 
 ObjectsDialog *ObjectsScreen::GetObjectsDialog()
@@ -347,17 +473,31 @@ void LocationDescription::PlaceControls()
 	listBox.SetSize(GetLeft(), GetTop(), GetWidth(), GetHeight());
 }
 
-void LocationDescription::Reload()
+bool LocationDescription::Reload()
 {
 	//fprintf(stderr, "\n LocationDescription reload");
-	listBox.Clear();
+	if (QSPGetMainDesc() == 0)
+	{
+		listBox.Clear();
+		bool updateNeeded = _rawValue.size() > 0;
+		_rawValue.clear();
+		return updateNeeded;
+	}
 	
-	ParseText(QSPGetMainDesc(), listBox, _links);
-	
-	// scroll if text was added
-	if (QSPIsMainDescChanged() && !IsFullRefresh() && listBox.GetItems().size() > 0)
-		listBox.GetPageItems(listBox.GetItems().size()-1, false);
-		
+	if (QSPIsMainDescChanged() || _rawValue != QSPGetMainDesc())
+	{
+		listBox.Clear();
+		_rawValue = QSPGetMainDesc();
+		ParseText(QSPGetMainDesc(), listBox, _links);
+
+		// scroll if text was added
+		if (QSPIsMainDescChanged() && !IsFullRefresh() && listBox.GetItems().size() > 0)
+			listBox.GetPageItems(listBox.GetItems().size()-1, false);
+//fprintf(stderr, "\n LocationDescription reloaded");
+
+		return true;
+	}
+	return false;
 }
 
 links_vector LocationDescription::GetLinks()
@@ -378,12 +518,27 @@ void AdditionalDescription::PlaceControls()
 	listBox.SetSize(GetLeft(), GetTop(), GetWidth(), GetHeight());
 }
 
-void AdditionalDescription::Reload()
+bool AdditionalDescription::Reload()
 {
 	//fprintf(stderr, "\n AdditionalDescription reload");
-	listBox.Clear();
+	if (QSPGetVarsDesc() == 0)
+	{
+		listBox.Clear();
+		bool updateNeeded = _rawValue.size() > 0;
+		_rawValue.clear();
+		return updateNeeded;
+	}
 	
-	ParseText(QSPGetVarsDesc(), listBox, _links);
+	if (QSPIsVarsDescChanged() || _rawValue != QSPGetVarsDesc())
+	{
+		listBox.Clear();
+		_rawValue = QSPGetVarsDesc();
+		ParseText(QSPGetVarsDesc(), listBox, _links);
+		//fprintf(stderr, "\n AdditionalDescription reloaded");
+		return true;
+	}
+	
+	return false;
 }
 
 links_vector AdditionalDescription::GetLinks()
@@ -459,10 +614,10 @@ int ObjectsDialog::HandleMsg(int type, int par1, int par2)
 								}
 								else
 								{
-									(*it)->SetMarker("");
+									//(*it)->SetMarker("");
 								}
 							}
-							*/
+						*/
 					}
 					else
 						OnLeave.emit_sig(this, false);
@@ -475,31 +630,58 @@ int ObjectsDialog::HandleMsg(int type, int par1, int par2)
 	return 0;
 }
 
-void ObjectsDialog::Reload()
+bool ObjectsDialog::Reload()
 {
 	//fprintf(stderr, "\n ObjectsDialog reload");
-	listBox.Clear();
+	bool updateNeeded = false;
 	
 	long n_objects = QSPGetObjectsCount();
 	long sel_index = QSPGetSelObjectIndex();
+	char *obj_image, *obj_desc;
 
-	//listBox.AddItem("");
-	for (long i = 0; i < n_objects; i++)
+	if (QSPIsObjectsChanged())
+		updateNeeded = true;
+	else
 	{
-		char *obj_image, *obj_desc;
-		QSPGetObjectData(i, &obj_image, &obj_desc);
-		std::string str_desc;
-		to_utf8((unsigned char *)obj_desc, &str_desc, koi8_to_unicode);
-		char tag[20];
-		sprintf(tag, "%d", i);
-		PBListBoxItem *newItem = listBox.AddItem(ClearHTMLTags(str_desc), std::string(tag));
-		
-		if (i == sel_index)
-		{
-			newItem->SetFocused(true);
-			//newItem->SetMarker("<");
-		}
+		if (_rawValues.size() != n_objects)
+			updateNeeded = true;
+		else
+			for (long i = 0; i < _rawValues.size(); i++)
+			{
+				QSPGetObjectData(i, &obj_image, &obj_desc);
+				if (!CompareStr(_rawValues[i], obj_desc))
+				{
+					updateNeeded = true;
+					break;
+				}
+			}
 	}
+	
+	if (updateNeeded)
+	{
+		listBox.Clear();
+		_rawValues.clear();
+		for (long i = 0; i < n_objects; i++)
+		{
+			QSPGetObjectData(i, &obj_image, &obj_desc);
+			_rawValues.push_back(std::string(obj_desc));
+			
+			std::string str_desc;
+			to_utf8((unsigned char *)obj_desc, &str_desc, koi8_to_unicode);
+			char tag[20];
+			sprintf(tag, "%d", i);
+			PBListBoxItem *newItem = listBox.AddItem(ClearHTMLTags(str_desc), std::string(tag));
+			
+			if (i == sel_index)
+			{
+				newItem->SetFocused(true);
+				//newItem->SetMarker("<");
+			}
+		}
+		//fprintf(stderr, "\n ObjectsDialog reloaded");
+	}
+	
+	return updateNeeded;
 }
 
 int ObjectsDialog::GetObjectsCount()
@@ -563,9 +745,9 @@ int ActionsDialog::HandleMsg(int type, int par1, int par2)
 
 				if (item->GetTag().size() > 5)
 				{
-					if (item->GetTag().substr(0, 5) == "EXEC:" || item->GetTag().substr(0, 5) == "exec:")
+					if (item->GetTag().substr(5, 5) == "EXEC:" || item->GetTag().substr(5, 5) == "exec:")
 					{
-						if (!QSPExecString((const QSP_CHAR *)item->GetTag().substr(5).c_str(), QSP_TRUE))
+						if (!QSPExecString((const QSP_CHAR *)item->GetTag().substr(5+5).c_str(), QSP_TRUE))
 							ShowError();
 						//else
 							//OnActionExecuted.emit_sig(this);
@@ -583,33 +765,61 @@ int ActionsDialog::HandleMsg(int type, int par1, int par2)
 	return 0;
 }
 
-void ActionsDialog::Reload()
+bool ActionsDialog::Reload(bool force)
 {
 	//fprintf(stderr, "\n ActionsDialog reload");
-	listBox.Clear();
+	bool updateNeeded = false;
 	
 	long n_actions = QSPGetActionsCount();
 	long sel_index = QSPGetSelActionIndex();
-	for (long i = 0; i < n_actions; i++)
+	char *act_image, *act_desc;
+	
+	if (QSPIsActionsChanged())
+		updateNeeded = true;
+	else
 	{
-		char *act_image, *act_desc;
-		QSPGetActionData(i, &act_image, &act_desc);
-		
-		std::string str_desc;
-		to_utf8((unsigned char *)act_desc, &str_desc, koi8_to_unicode);
-		char tag[20];
-		sprintf(tag, "%d", i);
-		PBListBoxItem *newItem = listBox.AddItem(ClearHTMLTags(str_desc), std::string(tag));
-		
-		if (i == sel_index)
-			newItem->SetFocused(true);
+		if (_rawValues.size() != n_actions)
+			updateNeeded = true;
+		else
+			for (long i = 0; i < _rawValues.size(); i++)
+			{
+				QSPGetActionData(i, &act_image, &act_desc);
+				if (!CompareStr(_rawValues[i], act_desc))
+				{
+					updateNeeded = true;
+					break;
+				}
+			}
 	}
+	
+	if (force || updateNeeded)
+	{
+		listBox.Clear();
+		_rawValues.clear();
+		for (long i = 0; i < n_actions; i++)
+		{
+			QSPGetActionData(i, &act_image, &act_desc);
+			_rawValues.push_back(std::string(act_desc));
+			
+			std::string str_desc;
+			to_utf8((unsigned char *)act_desc, &str_desc, koi8_to_unicode);
+			char tag[20];
+			sprintf(tag, "%d", i);
+			PBListBoxItem *newItem = listBox.AddItem(ClearHTMLTags(str_desc), std::string(tag));
+			
+			if (i == sel_index)
+				newItem->SetFocused(true);
+		}
+		//fprintf(stderr, "\n ActionsDialog reloaded");
+	}
+	return updateNeeded;
 }
 
 void ActionsDialog::AddLinkItem(std::string text, std::string link)
 {
 	PBListBoxItem *newItem = listBox.AddItem(text);
-	newItem->SetTag(link);
+	std::string link_tag ("link:"+link);
+	newItem->SetTag(link_tag);
 }
 
 

@@ -1,0 +1,2 @@
+QSP player for PocketBook is developed on the base of "Quest Software player", made by Valeriy Argunov (nporep AT mail DOT ru)
+This application is licensed by GNU General Public License

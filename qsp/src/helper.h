@@ -6,6 +6,8 @@
 
 #include "qsp/qsp.h"
 
+#define APP_VERSION "5.5.9 / 0.94"
+
 void ShowError();
 std::string GetQuestPath();
 std::string GetFileExtension(std::string path);

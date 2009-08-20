@@ -169,7 +169,8 @@ void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<s
 					std::string path = GetQuestPath();
 					path += img_src;
 					ibitmap *image;
-					if (GetFileExtension(img_src) == "jpg")
+					std::string ext = GetFileExtension(img_src);
+					if (ext == "jpg" || ext == "jpeg" || ext == "JPG" || ext == "JPEG")
 						image = LoadJPEG((char*)path.c_str(), ScreenHeight()/2, ScreenHeight()/2, 100, 100, 1);
 					else
 						image = LoadBitmap((char*)path.c_str());
