@@ -81,7 +81,10 @@ void dir_selected(char *path)
 		Message(ICON_ERROR, "Error", "Не найден файл qsp или gam", 2000);
 	else
 	{
-		QSPLoadGameWorld(fileName.c_str());
+		//fileName = utf8_to((const unsigned char *)fileName.c_str(), koi8_to_unicode);
+		if (!QSPLoadGameWorld(fileName.c_str()))
+				ShowError();
+		chdir(GetQuestPath().c_str());
 		QSPRestartGame(QSP_TRUE);
 	}
 		
@@ -143,6 +146,7 @@ bool GetVarValue(const QSP_CHAR *name, long *num, QSP_CHAR **str)
 static char dirbuf[1024];
 void HandleMainMenuItem(int index)
 {
+std::string fileName;
 	switch(index)
 	{
 		case MAINMENU_OPEN:
@@ -151,8 +155,19 @@ void HandleMainMenuItem(int index)
 			// PC hack
 			//QSPLoadGameWorld("filimon\\filimon.qsp");
 			//QSPLoadGameWorld("darkcstl\\dark.gam");
-			//QSPLoadGameWorld("pirates\\pirates.qsp");
-			//QSPRestartGame(QSP_TRUE);
+			//fileName = "pirates\\pirates_bmp.qsp";
+			//fileName = "box\\box.gam";
+			//fileName = "zone\\zone.qsp";
+			//fileName = "komm\\launch.qsp";
+			//fileName = utf8_to((const unsigned char *)fileName.c_str(), koi8_to_unicode);
+			/*
+			if (!QSPLoadGameWorld(fileName.c_str()))
+				ShowError();
+			else
+			{
+				chdir(GetQuestPath().c_str());
+				QSPRestartGame(QSP_TRUE);
+			}*/
 			break;
 		case MAINMENU_QUICKSAVE:
 			if (!IsQuestOpened())
@@ -164,7 +179,7 @@ void HandleMainMenuItem(int index)
 			QSP_CHAR *strVal;
 			if (!(GetVarValue(QSP_FMT("NOSAVE"), &numVal, &strVal) && numVal))
 			{
-				if (!QSPSaveGame((QSP_CHAR*)(GetQuestPath()+="quicksave.sav").c_str(), QSP_FALSE))
+				if (!QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_FALSE))
 					ShowError();
 			}
 			else
@@ -178,7 +193,7 @@ void HandleMainMenuItem(int index)
 				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
 				break;
 			}
-			if (!QSPOpenSavedGame((QSP_CHAR*)(GetQuestPath()+="quicksave.sav").c_str(), QSP_TRUE))
+			if (!QSPOpenSavedGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_TRUE))
 				ShowError();
 			break;
 		case MAINMENU_RESTART:
@@ -264,44 +279,60 @@ bool IsFullRefresh()
 
 void MainScreen::UpdateUI(bool forceUpdate)
 {
+	if (IsFullRefresh())
+		QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"autosave.sav")/*.c_str()*/, QSP_FALSE);
+	
 	bool updateNeeded = gameScreen.Reload();
 	if (forceUpdate || updateNeeded)
 		Update();
 	oldFullRefreshCount = QSPGetFullRefreshCount();
 }
 
+GameScreen *MainScreen::GetGameScreen()
+{
+	return &gameScreen;
+}
+
 GameScreen::GameScreen(std::string name, PBControl *parent) : PBControl(name, parent),
-	menuButton("menuButton", this), objectsButton("objectsButton", this), versionLabel("versionLabel", this),
-	locationDescription("locationDescription", this), actionsDialog("actionsDialog", this),
-	objectsScreen("objectsScreen", this),
+	menuButton("menuButton", this), commandBoxButton("commandBoxButton", this), objectsButton("objectsButton", this),
+	versionLabel("versionLabel", this), locationDescription("locationDescription", this), actionsDialog("actionsDialog", this),
+	objectsScreen("objectsScreen", this), imageScreen("imageScreen", this),
 	ActionExecutedSlot(this, &GameScreen::ActionExecutedHandler),
 	ButtonPressedSlot(this,  &GameScreen::ButtonPressedHandler),
 	DialogLeavedSlot(this,  &GameScreen::DialogLeavedHandler)
 {
 	objectsScreen.OnLeave.connect(&DialogLeavedSlot);
+	imageScreen.OnLeave.connect(&DialogLeavedSlot);
 	
 	AddControl(&actionsDialog);
 	AddControl(&menuButton);
+	AddControl(&commandBoxButton);
 	AddControl(&objectsButton);
 	AddControl(&locationDescription);
 	//AddControl(&objectsDialog);
 	//AddControl(&additionalDescription);
 	AddControl(&versionLabel);
 	AddControl(&objectsScreen);
-	
+	AddControl(&imageScreen);
 	
 	//objectsDialog.SetVisible(false);
 	//additionalDescription.SetVisible(false);
 	objectsScreen.SetVisible(false);
 	objectsScreen.SetDrawBorder(false);
 	objectsButton.OnPressed.connect(&ButtonPressedSlot);
+	
+	imageScreen.SetVisible(false);
+	//imageScreen.SetDrawBorder(false);
+	
 	menuButton.OnPressed.connect(&ButtonPressedSlot);
-
 	menuButton.SetFocused(true);
+	
+	commandBoxButton.OnPressed.connect(&ButtonPressedSlot);
 	//actionsDialog.OnActionExecuted.connect(&ActionExecutedSlot);
 		
 	versionLabel.SetText(APP_VERSION);
 	//versionLabel.SetDrawBorder(false);
+
 }
 
 void GameScreen::ActionExecutedHandler(PBControl *sender)
@@ -316,6 +347,10 @@ void GameScreen::ButtonPressedHandler(PBControl *sender)
 	{
 		OpenMenu(mainMenu, 0, menuButton.GetLeft(), menuButton.GetTop(), HandleMainMenuItem);
 	}
+	else if (sender == &commandBoxButton)
+	{
+		ShowCommandBox();
+	}
 	else if (sender == &objectsButton)
 	{
 		SwitchObjectsScreen();
@@ -324,7 +359,18 @@ void GameScreen::ButtonPressedHandler(PBControl *sender)
 
 void GameScreen::DialogLeavedHandler(PBControl *sender, bool next)
 {
-	SwitchObjectsScreen();
+	if (sender == &objectsScreen)
+		SwitchObjectsScreen();
+	else if (sender == &imageScreen)
+	{
+		sender->SetVisible(false);
+		if (objectsScreen.GetVisible())
+			objectsScreen.SetFocused(true);
+		else
+			actionsDialog.SetFocused(true);
+			
+		Update();
+	}
 }
 
 void GameScreen::PlaceControls()
@@ -333,12 +379,20 @@ void GameScreen::PlaceControls()
 	int left = GetLeft()+BORDER_SPACE, top = GetTop()+BORDER_SPACE, width = GetWidth()-BORDER_SPACE*2, height = GetHeight()-BORDER_SPACE*2;
 	//int left = GetLeft(), top = GetTop(), width = GetWidth(), height = GetHeight();
 	
-	menuButton.SetMaxWidth(width/2);
+	menuButton.SetMaxWidth(width/4);
 	menuButton.SetSize(left, top, 0, buttonsHeight);
-	objectsButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + BORDER_SPACE, top, width - menuButton.GetWidth() - BORDER_SPACE, buttonsHeight);
+	if (!commandBoxButton.GetVisible())
+		objectsButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + BORDER_SPACE, top, width - menuButton.GetWidth() - BORDER_SPACE, buttonsHeight);
+	else
+	{
+		commandBoxButton.SetMaxWidth(width/4);
+		commandBoxButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + BORDER_SPACE, top, 0, buttonsHeight);
+		objectsButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + commandBoxButton.GetWidth() + BORDER_SPACE*2, top, width - menuButton.GetWidth() - commandBoxButton.GetWidth() - BORDER_SPACE*2, buttonsHeight);
+	}
 	locationDescription.SetSize(left, top+buttonsHeight+BORDER_SPACE, width, height*5/7-buttonsHeight-BORDER_SPACE);
 	actionsDialog.SetSize(left, locationDescription.GetTop() + locationDescription.GetHeight() + BORDER_SPACE, width, height - locationDescription.GetHeight() - BORDER_SPACE);
 	objectsScreen.SetSize(left, top, width, height);
+	imageScreen.SetSize(left, top, width, height);
 	
 	versionLabel.SetSize(objectsButton.GetLeft()+objectsButton.GetWidth()-140-BORDER_SPACE, objectsButton.GetTop()+BORDER_SPACE, 140, objectsButton.GetHeight()-BORDER_SPACE*2);
 	versionLabel.SetVisible(!IsQuestOpened());
@@ -361,18 +415,28 @@ void GameScreen::SwitchObjectsScreen()
 }
 
 
-void HandleInputBox(char *s)
+static char commandBuf[COMMAND_BUF_SIZE+1] = "";
+static std::string lastCommand;
+void HandleCommandBox(char *s)
 {
-	QSPSetInputStrText(s);
-
+	std::string text = utf8_to((const unsigned char *)s, koi8_to_unicode);
+	
+	QSPSetInputStrText(text.c_str());
+	
 	if (!QSPExecUserInput(QSP_TRUE))
 		ShowError();
+	
+	if (s != 0)
+		lastCommand.assign(s);
+	else
+		lastCommand.clear();
 }
 
-void GameScreen::ShowInputBox()
+void GameScreen::ShowCommandBox()
 {
-	char buf[512] = "";
-	OpenKeyboard("Введите текст или команду", buf, 200, 0, HandleInputBox);
+	SetStringToCharString(commandBuf, lastCommand, COMMAND_BUF_SIZE);
+
+	OpenKeyboard("Введите команду", commandBuf, COMMAND_BUF_SIZE/2, 0, HandleCommandBox);
 }
 
 int GameScreen::HandleMsg(int type, int par1, int par2)
@@ -388,7 +452,7 @@ int GameScreen::HandleMsg(int type, int par1, int par2)
 				OpenMenu(mainMenu, 0, menuButton.GetLeft(), menuButton.GetTop(), HandleMainMenuItem);
 				break;
 			case KEY_BACK:
-				//ShowInputBox();
+				ShowCommandBox();
 				break;
 			case KEY_DELETE:
 				// show|hide objectsScreen
@@ -400,6 +464,13 @@ int GameScreen::HandleMsg(int type, int par1, int par2)
 	return handled;
 }
 
+void GameScreen::Update()
+{
+	PBControl::Update();
+	if (imageScreen.GetVisible())
+		FineUpdate();
+}
+
 bool GameScreen::Reload()
 {
 	//fprintf(stderr, "\n gamescreen reload. QSPIsMainDescChanged = %d", QSPIsMainDescChanged());
@@ -408,6 +479,8 @@ bool GameScreen::Reload()
 	//fprintf(stderr, "\n gamescreen reload. QSPIsVarsDescChanged = %d", QSPIsVarsDescChanged());
 	bool updateNeeded = false;
 	menuButton.SetText("QSP");
+	
+	commandBoxButton.SetText(" K ");
 	
 	char objButtonCaptionBuf[40];
 	sprintf(objButtonCaptionBuf, "Предметы: %d", objectsScreen.GetObjectsDialog()->GetObjectsCount());
@@ -434,6 +507,34 @@ bool GameScreen::Reload()
 	updateNeeded = objectsScreen.Reload() || updateNeeded;
 	
 	return updateNeeded;
+}
+
+std::string GameScreen::GetLastCommand()
+{
+	return lastCommand;
+}
+
+void GameScreen::SetLastCommand(std::string value)
+{
+	lastCommand = value;
+}
+
+void GameScreen::ShowWindow(int window, bool show)
+{
+	switch (window)
+	{
+		case QSP_WIN_INPUT:
+			//commandBoxButton.SetVisible(show);
+		break;
+	}
+}
+
+void GameScreen::ShowImage(ibitmap *image)
+{
+	imageScreen.SetImage(image);
+	imageScreen.SetVisible(true);
+	imageScreen.SetFocused(true);
+	Update();
 }
 
 ObjectsScreen::ObjectsScreen(std::string name, PBControl *parent) : PBControl(name, parent),
@@ -475,7 +576,6 @@ void LocationDescription::PlaceControls()
 
 bool LocationDescription::Reload()
 {
-	//fprintf(stderr, "\n LocationDescription reload");
 	if (QSPGetMainDesc() == 0)
 	{
 		listBox.Clear();
@@ -493,7 +593,6 @@ bool LocationDescription::Reload()
 		// scroll if text was added
 		if (QSPIsMainDescChanged() && !IsFullRefresh() && listBox.GetItems().size() > 0)
 			listBox.GetPageItems(listBox.GetItems().size()-1, false);
-//fprintf(stderr, "\n LocationDescription reloaded");
 
 		return true;
 	}
@@ -822,4 +921,50 @@ void ActionsDialog::AddLinkItem(std::string text, std::string link)
 	newItem->SetTag(link_tag);
 }
 
+ImageScreen::ImageScreen(std::string name, PBControl *parent): PBControl(name, parent)
+{
+	_image = 0;
+}
+
+void ImageScreen::Draw()
+{
+	ClearRegion();
+	if (GetDrawBorder())
+		DrawRect(GetLeft(), GetTop(), GetWidth(), GetHeight(), BLACK);
+	if (GetImage() != 0)
+		DrawBitmapRect(GetLeft()+3, GetTop()+3, GetWidth()-3, GetHeight()-3, GetImage(), ALIGN_CENTER | VALIGN_MIDDLE);
+	if (GetDrawBorder() && GetFocused())
+		DrawRect(GetLeft() + BORDER_SPACE/2, GetTop() + BORDER_SPACE/2, GetWidth() - BORDER_SPACE, GetHeight() - BORDER_SPACE, BLACK);
+}
+
+int ImageScreen::HandleMsg(int type, int par1, int par2)
+{
+	if (type == EVT_KEYPRESS)
+	{
+		switch (par1)
+		{
+			case KEY_LEFT:
+			case KEY_UP:
+				OnLeave.emit_sig(this, false);
+				break;
+			case KEY_OK:
+			case KEY_RIGHT:
+			case KEY_DOWN:
+				OnLeave.emit_sig(this, true);
+				break;
+		}
+	}
+	
+	return 1;
+}
+
+ibitmap *ImageScreen::GetImage()
+{
+	return _image;
+}
+
+void ImageScreen::SetImage(ibitmap *value)
+{
+	_image = value;
+}
 

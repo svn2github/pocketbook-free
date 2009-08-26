@@ -54,6 +54,9 @@ void QSPCallbacks::RefreshInt(QSP_BOOL isRedraw)
 
 void QSPCallbacks::SetInputStrText(const QSP_CHAR *text)
 {
+	std::string text_str;
+	to_utf8((unsigned char *)text, &text_str, koi8_to_unicode);
+	mainScreen.GetGameScreen()->SetLastCommand(text_str);
 }
 
 QSP_BOOL QSPCallbacks::IsPlay(const QSP_CHAR *file)
@@ -71,17 +74,7 @@ void QSPCallbacks::PlayFile(const QSP_CHAR *file, long volume)
 
 void QSPCallbacks::ShowPane(long type, QSP_BOOL isShow)
 {
-	switch (type)
-	{
-	case QSP_WIN_ACTS:
-		break;
-	case QSP_WIN_OBJS:
-		break;
-	case QSP_WIN_VARS:
-		break;
-	case QSP_WIN_INPUT:
-		break;
-	}
+	mainScreen.GetGameScreen()->ShowWindow(type, isShow);
 }
 
 void QSPCallbacks::Sleep(long msecs)
@@ -159,17 +152,57 @@ void QSPCallbacks::ShowMenu()
 	OpenMenu(dynamicMenu, 0, ScreenWidth()/3, ScreenHeight()/4, HandleDynamicMenuItem);
 }
 
-std::string input_buffer;
 void keyboard_entry(char *s)
 {
 }
 
 void QSPCallbacks::Input(const QSP_CHAR *text, QSP_CHAR *buffer, long maxLen)
 {
+	// HACK instead of input box return last command
+	
+	static std::string lastText = "";
+	static int textCounter = 0;
+	std::string command = mainScreen.GetGameScreen()->GetLastCommand();
+	if (lastText == command)
+	{
+		textCounter++;
+		if (textCounter > 3)
+		{
+			textCounter = 0;
+			if (!QSPOpenSavedGame((QSP_CHAR*)(/*GetQuestPath()+=*/"autosave.sav")/*.c_str()*/, QSP_TRUE))
+			{
+				Message(ICON_INFORMATION, "", "Чтобы прервать бесконечный цикл ввода текста, квест будет перезапущен", 4000);
+				QSPRestartGame(QSP_TRUE);
+			}
+			return;
+		}
+	}
+	else
+		textCounter = 0;
+	
+		
+	std::string title;
+	to_utf8((unsigned char *)text, &title, koi8_to_unicode);
+
+	std::string encoded_command = utf8_to((const unsigned char *)command.c_str(), koi8_to_unicode);
+	SetStringToCharString(buffer, encoded_command, maxLen);
+	
+	Message(ICON_INFORMATION, (char *)title.c_str(), (char *)command.c_str(), 2000);
 }
  
 void QSPCallbacks::ShowImage(const QSP_CHAR *file)
 {
+	if (file == 0 || strlen(file) == 0)
+		return;
+		
+	std::string path; // = GetQuestPath();
+	path += file;
+	to_utf8((unsigned char *)path.c_str(), &path, koi8_to_unicode);
+	ibitmap *image = OpenImage(path);
+	if (image != 0)
+	{
+		mainScreen.GetGameScreen()->ShowImage(image);
+	}
 }
 
 void QSPCallbacks::OpenGameStatus()

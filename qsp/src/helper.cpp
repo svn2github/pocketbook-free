@@ -117,6 +117,15 @@ std::string ClearHTMLTags(std::string &text)
 	return text;
 }
 
+ibitmap *OpenImage(std::string fileName)
+{
+	std::string ext = GetFileExtension(fileName);
+	if (ext == "jpg" || ext == "jpeg" || ext == "JPG" || ext == "JPEG")
+		return LoadJPEG((char*)fileName.c_str(), ScreenHeight()/2, ScreenHeight()/2, 100, 100, 1);
+	else
+		return LoadBitmap((char*)fileName.c_str());
+}
+
 void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<std::string, std::string> > &links)
 {
 	links.clear();
@@ -124,6 +133,9 @@ void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<s
 	if (src_text == 0)
 		return;
 	
+	if (strlen(src_text) == 0)
+		return;
+		
 	std::string text(src_text);
 	size_t pos1 = 0, pos2 = 0, img_pos = 0, par_begin = 0, par_end = 0, aux_symb_pos = 0;
 	
@@ -166,14 +178,10 @@ void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<s
 				if (img_pos != std::string::npos)
 				{
 					std::string img_src = GetHTMLPropValue(tag, "src");
-					std::string path = GetQuestPath();
+					std::string path; // = GetQuestPath();
 					path += img_src;
-					ibitmap *image;
-					std::string ext = GetFileExtension(img_src);
-					if (ext == "jpg" || ext == "jpeg" || ext == "JPG" || ext == "JPEG")
-						image = LoadJPEG((char*)path.c_str(), ScreenHeight()/2, ScreenHeight()/2, 100, 100, 1);
-					else
-						image = LoadBitmap((char*)path.c_str());
+					to_utf8((unsigned char *)path.c_str(), &path, koi8_to_unicode);
+					ibitmap *image = OpenImage(path);
 					PBListBoxItem *newItem = listBox.AddItem(image);
 					newItem->SetCanBeFocused(false);
 				}
@@ -200,3 +208,9 @@ void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<s
 	}
 }
 
+void SetStringToCharString(char *dest, std::string src, int dest_size)
+{
+	int size = src.size() > dest_size-1 ? dest_size-1 : src.size();
+	strncpy(dest, src.c_str(), size);
+	dest[size] = 0;
+}

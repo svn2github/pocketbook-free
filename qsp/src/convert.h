@@ -2,6 +2,7 @@
 #define CONVERT_H
 
 #include <string.h>
+#include <stdlib.h>
 #include <string>
 
 const unsigned short koi8_to_unicode [128] =

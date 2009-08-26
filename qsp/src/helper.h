@@ -6,14 +6,16 @@
 
 #include "qsp/qsp.h"
 
-#define APP_VERSION "5.5.9 / 0.94"
+#define APP_VERSION "5.5.9 / 0.95"
 
 void ShowError();
 std::string GetQuestPath();
 std::string GetFileExtension(std::string path);
 size_t FindSubstr(std::string str, std::string substr);
 std::string GetHTMLPropValue(std::string str, std::string propName);
+ibitmap *OpenImage(std::string fileName);
 void ParseText(const char *src_text, PBListBox &listBox, std::vector<std::pair<std::string, std::string> > &links);
 std::string ClearHTMLTags(std::string &text);
+void SetStringToCharString(char *dest, std::string src, int dest_size);
 
 #endif

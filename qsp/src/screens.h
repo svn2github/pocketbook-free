@@ -6,6 +6,8 @@
 
 #include "qsp/qsp.h"
 
+#define COMMAND_BUF_SIZE 512
+
 void handleMainMenuItem(int index);
 
 
@@ -106,19 +108,36 @@ public:
 	ObjectsDialog *GetObjectsDialog();
 };
 
+class ImageScreen : public PBControl
+{
+protected:
+	ibitmap *_image;
+	
+public:
+	ImageScreen(std::string name, PBControl *parent);
+		
+	virtual void Draw();
+	virtual int HandleMsg(int type, int par1, int par2);
+	
+	ibitmap *GetImage();
+	void SetImage(ibitmap *value);
+};
+
 class GameScreen : public PBControl
 {
 protected:
 	PBButton menuButton;
+	PBButton commandBoxButton;
 	PBButton objectsButton;
 	PBLabel versionLabel;
 	LocationDescription locationDescription;
 	ActionsDialog actionsDialog;
 	ObjectsScreen objectsScreen;
+	ImageScreen imageScreen;
 	
 	virtual void PlaceControls();
 	void SwitchObjectsScreen();
-	void ShowInputBox();
+	void ShowCommandBox();
 	
 	CppSlot1<GameScreen, void, PBControl *> ActionExecutedSlot;
 	void ActionExecutedHandler(PBControl * sender);
@@ -133,8 +152,13 @@ public:
 	GameScreen(std::string name, PBControl *parent);
 	
 	virtual int HandleMsg(int type, int par1, int par2);
+	virtual void Update();
 	
 	bool Reload();
+	std::string GetLastCommand();
+	void SetLastCommand(std::string value);
+	void ShowWindow(int window, bool show);
+	void ShowImage(ibitmap *image);
 };
 
 class MainScreen : public PBControl
@@ -148,6 +172,7 @@ public:
 	MainScreen(std::string name, PBControl *parent);
 	virtual int HandleMsg(int type, int par1, int par2);
 	
+	GameScreen *GetGameScreen();
 	void UpdateUI(bool forceUpdate = true);
 };
 
