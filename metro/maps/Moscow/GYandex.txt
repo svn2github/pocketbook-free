@@ -1,0 +1,232 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Карта Yandex: '
+
+[Сокольническая]
+;Юго-Западная=
+;Проспект Вернадского=
+;Университет=
+;Воробьевы горы=
+;Спортивная=
+;Фрунзенская=
+;Парк культуры=
+;Кропоткинская=
+;Библиотека имени Ленина=
+;Охотный ряд=
+;Лубянка=
+;Чистые пруды=
+;Красные ворота=
+;Комсомольская=
+;Красносельская=
+;Сокольники=
+;Преображенская площадь=
+;Черкизовская=
+;Улица Подбельского=
+
+[Замоскворецкая]
+;Речной вокзал=
+;Водный стадион=
+;Войковская=
+;Сокол=
+;Аэропорт=
+;Динамо=
+;Белорусская=
+;Маяковская=
+;Тверская=
+;Театральная=
+;Новокузнецкая=
+;Павелецкая=
+;Автозаводская=
+;Коломенская=
+;Каширская=
+;Кантемировская=
+;Царицыно=
+;Орехово=
+;Домодедовская=
+;Красногвардейская=
+
+[Арбатско-Покровская]
+Митино=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=-8451&mapY=19829&act=5&slices=1&tool=grab
+Волоколамская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-7291&mapY=18749&act=5&slices=1&tool=grab
+Строгино=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=11&mapX=-6119&mapY=15285&act=5&slices=1&tool=grab
+Славянский бульвар=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-1620&mapY=7050&act=5&slices=1&tool=grab
+Крылатское=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=-5648&mapY=9856&act=5&slices=1&tool=grab
+Молодежная=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-5097&mapY=8227&act=5&slices=1&tool=grab
+Кунцевская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-3274&mapY=7103&act=5&slices=1&tool=grab
+;Славянский бульвар=
+Парк Победы=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=1144&mapY=7707&act=5&slices=1&tool=grab
+;Киевская=
+;Смоленская=
+;Арбатская=
+;Площадь Революции=
+;Курская=
+;Бауманская=
+;Электрозаводская=
+;Семеновская=
+;Партизанская=
+;Измайловская=
+;Первомайская=
+;Щелковская=
+
+[Филевская]
+Международная=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=2179&mapY=9050&act=5&slices=1&tool=grab
+Выставочная=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=2819&mapY=9211&act=5&slices=1&tool=grab
+Александровский сад=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=6941&mapY=9491&act=5&slices=1&tool=grab
+Арбатская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=6543&mapY=9496&act=5&slices=1&tool=grab
+Смоленская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=5327&mapY=9077&act=5&slices=1&tool=grab
+Киевская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=4285&mapY=8556&act=5&slices=1&tool=grab
+Студенческая=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=3156&mapY=7989&act=5&slices=1&tool=grab
+Кутузовская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=2277&mapY=8138&act=5&slices=1&tool=grab
+Фили=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=1045&mapY=8805&act=5&slices=1&tool=grab
+Багратионовская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-16&mapY=8544&act=5&slices=1&tool=grab
+Филевский парк=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-933&mapY=8076&act=5&slices=1&tool=grab
+Пионерская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-1951&mapY=7683&act=5&slices=1&tool=grab
+Кунцевская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-3274&mapY=7103&act=5&slices=1&tool=grab
+
+[Кольцевая]
+;Белорусская=
+;Новослободская=
+;Проспект Мира=
+;Комсомольская=
+;Курская=
+;Таганская=
+;Павелецкая=
+;Добрынинская=
+;Октябрьская=
+;Парк культуры=
+;Киевская=
+;Краснопресненская=
+
+[Калужско-Рижская]
+;Новоясеневская=
+;Ясенево=
+;Теплый Стан=
+;Коньково=
+;Беляево=
+;Калужская=
+;Новые Черемушки=
+;Профсоюзная=
+;Академическая=
+;Ленинский проспект=
+;Шаболовская=
+;Октябрьская=
+;Третьяковская=
+;Китай-город=
+;Тургеневская=
+;Сухаревская=
+;Проспект Мира=
+;Рижская=
+;Алексеевская=
+;ВДНХ=
+;Ботанический сад=
+;Свиблово=
+;Бабушкинская=
+;Медведково=
+
+[Таганско-Краснопресненская]
+;Выхино=
+;Рязанский проспект=
+;Кузьминки=
+;Текстильщики=
+;Волгоградский проспект=
+;Пролетарская=
+;Таганская=
+;Китай-город=
+;Кузнецкий мост=
+;Пушкинская=
+;Баррикадная=
+;Улица 1905 года=
+;Беговая=
+;Полежаевская=
+;Октябрьское поле=
+;Щукинская=
+;Тушинская=
+;Сходненская=
+;Планерная=
+
+[Калининская]
+;Третьяковская=
+;Марксистская=
+;Площадь Ильича=
+;Авиамоторная=
+;Шоссе Энтузиастов=
+;Перово=
+;Новогиреево=
+
+[Серпуховско-Тимирязевская]
+;Бульвар Дмитрия Донского=
+;Аннино=
+;Улица Академика Янгеля=
+;Пражская=
+;Южная=
+;Чертановская=
+;Севастопольская=
+;Нахимовский проспект=
+;Нагорная=
+;Нагатинская=
+;Тульская=
+;Серпуховская=
+;Полянка=
+;Боровицкая=
+;Чеховская=
+;Цветной бульвар =
+;Менделеевская=
+;Савеловская=
+;Дмитровская=
+;Тимирязевская=
+;Петровско-Разумовская=
+;Владыкино=
+;Отрадное=
+;Бибирево=
+;Алтуфьево=
+
+[Люблинско-Дмитровская]
+Достоевская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=7258&mapY=12770&act=5&slices=1&tool=grab
+Трубная=http://maps.yandex.ru/map.xml?mapID=100&size=5&scale=12&mapX=7823&mapY=11257&act=5&slices=1&tool=grab
+;Чкаловская=
+;Римская=
+;Крестьянская застава=
+;Дубровка=
+;Кожуховская=
+;Печатники=
+;Волжская=
+;Люблино=
+;Братиславская=
+;Марьино=
+
+[Каховская]
+;Каширская=
+;Варшавская=
+;Каховская=
+
+[Бутовская]
+;Улица Старокачаловская=
+;Улица Скобелевская=
+;Бульвар Адмирала Ушакова=
+;Улица Горчакова=
+;Бунинская аллея=
+;Улица Старопотаповская=
+;Улица Остафьевская=
+;Новокурьяново=
+
+[Киевская]
+;Москва Киевская
+;Москва Сорт.
+;Матвеевская
+;Очаково
+Востряково=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-4629&mapY=-19&act=5&slices=1&tool=grab
+;Солнечная
+;Переделкино
+
+[Белорусская]
+Москва Смоленская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=5216&mapY=12245&act=5&slices=1&tool=grab
+Беговая=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=3292&mapY=11807&act=5&slices=1&tool=grab
+Тестовская=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=12&mapX=2091&mapY=9689&act=5&slices=1&tool=grab
+Фили=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=1074&mapY=8658&act=5&slices=1&tool=grab
+Кунцево=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-3051&mapY=6678&act=5&slices=1&tool=grab
+Рабочий Поселок=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-5187&mapY=6679&act=5&slices=1&tool=grab
+Сетунь=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-6340&mapY=6310&act=5&slices=1&tool=grab
+Кунцево-2=http://maps.yandex.ru/map.xml?mapID=100&size=1&scale=13&mapX=-6549&mapY=6975&act=5&slices=1&tool=grab
+

@@ -1,0 +1,21 @@
+[Options]
+Name=Peterburg
+CityName=Санкт-Петербург
+Country=Россия
+RusName=Санкт-Петербург
+NeedVersion=1.26.4
+MapAuthors=Схема от 07.07.2009г.
+MapAuthors=
+MapAuthors=Информация о времени проезда:
+MapAuthors=- Программа MMetro Константина Штенникова,
+MapAuthors=а также (по информации с сайта http://mmetro.al.ru):
+MapAuthors=- Михаил Жуков,
+MapAuthors=- Юрий Попов.
+MapAuthors=
+MapAuthors=Информация по cтанциям - с сайта http://www.metrowalks.ru.
+MapAuthors=Информация по наземному транспорту - с сайтов http://www.portal.spb.ru/transport/page_18.phtml?link=824 и http://www.spbtrans.ru/.
+MapAuthors=Карта взята с сайта http://www.metro.spb.ru.
+MapAuthors=Информация о вагонах для пересадок - Федор Никулин, Алексей Кравченко, Олег Тимшин, Kostya.
+MapAuthors=Информация об офисах продаж мобильных операторов: Пётр Михеев, Федор Никулин.
+MapAuthors=Карты движения электричек: Федор Никулин.
+

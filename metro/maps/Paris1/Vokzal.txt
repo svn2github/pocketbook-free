@@ -1,0 +1,43 @@
+[Options]
+AddToInfo=1
+CityName=Paris
+MenuName=Общественный транспорт\Ж/д вокзалы
+Caption=Ж/Д вокзал
+
+[Ligne 1]
+Gare de Lyon=Вокзал Лион.
+
+[Ligne 3]
+Saint Lazare=Вокзал Сен-Лазар.
+
+[Ligne 4]
+Gare du Nord=Вокзал Норд (Северный вокзал).
+Gare de l'Est=Вокзал Эст (Восточный вокзал).
+
+[Ligne 5]
+Gare du Nord=Вокзал Норд (Северный вокзал).
+Gare de l'Est=Вокзал Эст (Восточный вокзал).
+Gare d'Austerlitz=Вокзал Аустерлиц.
+
+[Ligne 6]
+Pasteur=Вокзал Монпарнасс.
+Montparnasse Bienvenue=Вокзал Монпарнасс.
+
+[Ligne 7]
+Gare de l'Est=Вокзал Эст (Восточный вокзал).
+
+[Ligne 10]
+Gare d'Austerlitz=Вокзал Аустерлиц.
+
+[Ligne 12]
+Pasteur=Вокзал Монпарнасс.
+Saint Lazare=Вокзал Сен-Лазар.
+
+[Ligne 13]
+Montparnasse Bienvenue=Вокзал Монпарнасс.
+Saint Lazare=Вокзал Сен-Лазар.
+
+[Ligne 14]
+Gare de Lyon=Вокзал Лион.
+
+[]

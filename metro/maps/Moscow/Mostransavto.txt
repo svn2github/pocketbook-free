@@ -1,0 +1,56 @@
+[Options]
+AddToInfo=1
+CityName=Москва
+MenuName=Транспорт\Автобусы Мострансавто
+MenuImage=Mostransavto_logo.bmp
+Caption=Мострансавто
+StringToAdd='  '
+
+[Сокольническая]
+Юго-Западная=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%DE%E3%EE-%C7%E0%EF%E0%E4%ED%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/yz.gif
+
+[Замоскворецкая]
+Речной вокзал=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D0%E5%F7%ED%EE%E9%20%E2%EE%EA%E7%E0%EB\nСхема остановок: http://www.mostransavto.ru/metro/mrv.gif
+Водный стадион=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C2%EE%E4%ED%FB%E9%20%F1%F2%E0%E4%E8%EE%ED\nhttp://www.mostransavto.ru/metro/vs.gif
+Белорусская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C1%E5%EB%EE%F0%F3%F1%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/belorus.gif
+Кантемировская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%E0%ED%F2%E5%EC%E8%F0%EE%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kantima.gif
+Домодедовская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C4%EE%EC%EE%E4%E5%E4%EE%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/domodedovskaya.gif
+Красногвардейская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%F0%E0%F1%ED%EE%E3%E2%E0%F0%E4%E5%E9%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/krasnogv.gif
+
+[Арбатско-Покровская]
+Молодежная=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CC%EE%EB%EE%E4%E5%E6%ED%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/molod.gif
+Кунцевская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%F3%ED%F6%E5%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kuncev.gif
+Киевская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%E8%E5%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kiev.gif
+Партизанская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CF%E0%F0%F2%E8%E7%E0%ED%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/partizan.gif
+Щелковская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D9%B8%EB%EA%EE%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/shelk.gif
+
+[Филевская]
+Киевская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%E8%E5%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kiev.gif
+Кунцевская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%F3%ED%F6%E5%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kuncev.gif
+
+[Кольцевая]
+Белорусская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C1%E5%EB%EE%F0%F3%F1%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/belorus.gif
+Киевская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%E8%E5%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/kiev.gif
+
+[Калужско-Рижская]
+Теплый Стан=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D2%E5%EF%EB%FB%E9%20%D1%F2%E0%ED\nСхема остановок: http://www.mostransavto.ru/metro/ts.gif
+ВДНХ=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C2%C4%CD%D5\nСхема остановок: http://www.mostransavto.ru/metro/vdnh.gif
+Медведково=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CC%E5%E4%E2%E5%E4%EA%EE%E2%EE\nСхема остановок: http://www.mostransavto.ru/metro/medved.gif
+Ботанический сад=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C1%EE%F2%E0%ED%E8%F7%E5%F1%EA%E8%E9%20%F1%E0%E4
+
+[Таганско-Краснопресненская]
+Выхино=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C2%FB%F5%E8%ED%EE\nСхема остановок: http://www.mostransavto.ru/metro/vyhino.gif
+Кузьминки=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CA%F3%E7%FC%EC%E8%ED%EA%E8\nСхема остановок: http://www.mostransavto.ru/metro/kuzminki.gif
+Тушинская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D2%F3%F8%E8%ED%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/tushino.gif
+Сходненская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D1%F5%EE%E4%ED%E5%ED%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/shod.gif
+Планерная=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%CF%EB%E0%ED%E5%F0%ED%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/planernaya.gif
+Щукинская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D9%F3%EA%E8%ED%F1%EA%E0%FF
+
+[Серпуховско-Тимирязевская]
+Южная=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%DE%E6%ED%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/yugn.gif
+Савеловская=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%D1%E0%E2%E5%EB%EE%E2%F1%EA%E0%FF\nСхема остановок: http://www.mostransavto.ru/metro/sav.gif
+Алтуфьево=Междугородные автобусы: http://mostransavto.ru/?page=mroutes&ostt=%C0%EB%F2%F3%F4%FC%E5%E2%EE\nСхема остановок: http://www.mostransavto.ru/metro/altuf.gif
+
+[Ленинградская]
+Подсолнечная=Солнечногорский автовокзал (автобусы по району, в Зеленоград и Москву). Расписание на http://www.mostransavto.ru/?page=patp&ak=34.  Телефон: (4962)9-48-47
+

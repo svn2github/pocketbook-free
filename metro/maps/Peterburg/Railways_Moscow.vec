@@ -1,0 +1,110 @@
+Size 1090x946
+BrushColor -1
+PenColor CEEBFF
+Spline 434,4, 560,260, 1072,183, 20
+PenColor 0033CC
+TextOut Arial, 20, 730, 0, Схема движения электропоездов, 1
+TextOut Arial, 20, 730, 20, с Московского и Ладожского вокзалов, 1
+SpotRect 720, 127, 170, 24, LoadMap Railways_Finland.map
+TextOut Arial, 12, 720, 127, Схема движения электропоездов, 2
+TextOut Arial, 12, 720, 137, с Финляндского вокзала, 2
+SpotRect 15, 900, 125, 12, LoadMap Railways_Vitebsk.map
+TextOut Arial, 12, 15, 900, Схема с Витебского вкз, 2
+SpotRect 15, 920, 125, 12, LoadMap Railways_Novgorod_Pskov.map
+TextOut Arial, 12, 15, 920, Схема от Новгорода, 2
+TextOut Arial, 14, 804, 249, Нева
+Arrow 160,910, 160,940
+TextOut Arial, 14, 175, 925, Схема до Москвы, 3
+SpotRect 175, 925, 125, 14, LoadMap Railways_Bologoe.map
+PenColor 000033
+Line 153,22, 167,22
+TextOut Arial, 12, 145, 22, 1
+Line 153,72, 167,72
+TextOut Arial, 12, 145, 72, 2
+Line 153,147, 169,147
+TextOut Arial, 12, 145, 147, 3
+Line 153,222, 169,222
+TextOut Arial, 12, 145, 222, 4
+Line 153,272, 169,272
+TextOut Arial, 12, 145, 272, 5
+Line 153,297, 169,297
+TextOut Arial, 12, 145, 297, 6
+Line 153,347, 169,347, 173,329
+TextOut Arial, 12, 145, 347, 7
+Line 303,397, 319,397
+TextOut Arial, 12, 295, 397, 8
+Line 153,372, 169,372
+TextOut Arial, 12, 145, 372, 8
+Line 153,422, 169,422
+TextOut Arial, 12, 145, 422, 9
+Line 153,497, 169,497
+TextOut Arial, 12, 138, 497, 10
+Line 153,547, 169,547
+TextOut Arial, 12, 138, 547, 11
+Line 153,647, 169,647
+TextOut Arial, 12, 138, 647, 12
+Line 153,672, 169,672
+TextOut Arial, 12, 138, 672, 13
+Line 153,722, 169,722
+TextOut Arial, 12, 138, 722, 14
+Line 153,797, 169,797
+TextOut Arial, 12, 138, 797, 15
+Line 153,847, 169,847
+TextOut Arial, 12, 138, 847, 16
+Line 153,897, 169,897
+TextOut Arial, 12, 138, 897, 17
+Line 353,172, 369,172
+TextOut Arial, 12, 345, 172, 3
+Line 353,222, 369,222
+TextOut Arial, 12, 345, 222, 4
+Line 353,297, 369,297
+TextOut Arial, 12, 345, 297, 5
+Line 444,342, 449,324
+TextOut Arial, 12, 444, 342, 6
+Line 453,422, 469,422
+TextOut Arial, 12, 445, 422, 7
+Line 453,472, 469,472
+TextOut Arial, 12, 445, 472, 8
+Line 453,522, 469,522
+TextOut Arial, 12, 445, 522, 9
+Line 453,547, 469,547
+TextOut Arial, 12, 438, 547, 10
+Line 453,572, 469,572
+TextOut Arial, 12, 438, 572, 11
+Line 453,622, 469,622
+TextOut Arial, 12, 438, 622, 12
+Line 453,697, 469,697
+TextOut Arial, 12, 438, 697, 13
+Line 453,747, 469,747
+TextOut Arial, 12, 438, 747, 14
+Line 453,772, 469,772
+TextOut Arial, 12, 438, 772, 15
+Line 603,447, 619,447
+TextOut Arial, 12, 595, 447, 7
+Line 603,497, 619,497
+TextOut Arial, 12, 595, 497, 8
+Line 739,371, 734,353
+TextOut Arial, 12, 739, 344, 7
+Line 753,422, 769,422
+TextOut Arial, 12, 745, 422, 8
+Line 753,497, 769,497
+TextOut Arial, 12, 745, 497, 9
+Line 753,572, 769,572
+TextOut Arial, 12, 738, 572, 10
+Line 753,622, 769,622
+TextOut Arial, 12, 738, 622, 11
+Line 753,647, 769,647
+TextOut Arial, 12, 738, 647, 12
+Line 753,722, 769,722
+TextOut Arial, 12, 738, 722, 13
+Line 903,397, 919,397
+TextOut Arial, 12, 888, 397, 17
+Line 903,422, 919,422
+TextOut Arial, 12, 888, 422, 18
+Line 903,622, 919,622
+TextOut Arial, 12, 888, 622, 21
+Line 903,772, 919,772
+TextOut Arial, 12, 888, 772, 26
+Line 3,872, 19,872
+TextOut Arial, 12, 19, 872, 21
+

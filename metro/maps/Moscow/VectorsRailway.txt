@@ -1,0 +1,65 @@
+[Options]
+AddToInfo=1
+Caption=Схема
+CityName=Москва
+Type=Image
+
+[Междувокзальная]
+Москва Смоленская=BelZ.vec
+Савеловская=Savelovskaya.vec
+Москва Савеловская=Savelovskaya.vec
+Дмитровская=DmitrovskayaZhD.vec
+
+[Рязанская]
+Электрозаводская=ElectrozavodskayaZhD.vec
+Новая=Novaya.vec
+Перово=Chuhlinka.vec
+Выхино=Vyhino.vec
+Отдых=Otdyh.vec
+
+[Савеловская]
+Москва Савеловская=Savelovskaya.vec
+Бескудниково=Beskudnikovo.vec
+Дубна=Dubna.vec
+
+[Рижская]
+Дмитровская=DmitrovskayaZhD.vec
+Ленинградская=Leningradskaya.vec
+Покровское-Стрешнево=Pokrovskoe-Streshnevo.vec
+Тушино=Tushinskaya.vec
+Павшино=Pavshino.vec
+Опалиха=Opalikha.vec
+Аникеевка=Anikeevka.vec
+Нахабино=Nakhabino.vec
+Манихино-1=Manikhino.vec
+Истра=Istra.vec
+
+[Павелецкая]
+Расторгуево=Rastorguevo.vec
+
+[Белорусская]
+Москва Смоленская=BelZ.vec
+Беговая=Begovaya.vec
+Тестовская=Testovskaya.vec
+Фили=FiliZ.vec
+Кунцево=Kunz.vec
+Рабочий Поселок=RabochiyPoselok.vec
+Сетунь=Setun.vec
+Раздоры=Razdory.vec
+
+[Курская]
+Текстильщики=Tekstilshchiki.vec
+Чехов=Chekhov.vec
+Царицыно=TSaritsynoZhD.vec
+
+[Ленинградская]
+Подсолнечная=Pods.vec
+Петровско-Разумовское=PetrRazumRZD.vec
+
+[Горьковская]
+Серп и Молот=Rimskaya.vec
+Чухлинка=Chuhlinka.vec
+Новогиреево=NovogireevoZhD.vec
+Реутово=Reutovo.vec
+Электроугли=ElectroUgli.vec
+

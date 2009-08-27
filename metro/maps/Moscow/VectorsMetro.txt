@@ -1,0 +1,219 @@
+[Options]
+AddToInfo=1
+Caption=Схема
+CityName=Москва
+Type=Image
+
+[Сокольническая]
+Юго-Западная=YugoZapadnaya.vec
+Проспект Вернадского=Vernadskogo.vec
+Университет=Universitet.vec
+Воробьевы горы=VorobevyGory.vec
+Спортивная=Sportivnaya.vec
+Фрунзенская=Frunzenskaya.vec
+Парк культуры=ParkKultury.vec
+Кропоткинская=Kropotkinskaya.vec
+Библиотека имени Ленина=Borovitskaya.vec
+Охотный ряд=Teatralnaya.vec
+Лубянка=Lubyanka.vec
+Чистые пруды=Turgenevskaya.vec
+Красные ворота=KrasnyeVorota.vec
+Комсомольская=Komsomolskaya.vec
+Красносельская=Krasnoselskaya.vec
+Сокольники=Sokolniki.vec
+Преображенская площадь=Preobrazhenskaya.vec
+Черкизовская=Cherkizovskaya.vec
+Улица Подбельского=Podbelskogo.vec
+
+[Замоскворецкая]
+Речной вокзал=RechnoyVokzal.vec
+Водный стадион=VodnyStadion.vec
+Войковская=Voykovskaya.vec
+Сокол=Sokol.vec
+Аэропорт=Aeroport.vec
+Динамо=Dinamo.vec
+Белорусская=Belorusskaya.vec
+Маяковская=Mayakovskaya.vec
+Тверская=Pushkinskaya.vec
+Театральная=Teatralnaya.vec
+Новокузнецкая=Tretyakovskaya.vec
+Павелецкая=Pavelec.vec
+Автозаводская=Avtozavodskaya.vec
+Коломенская=Kolomenskaya.vec
+Каширская=Kashirskaya.vec
+Кантемировская=Kantemirovskaya.vec
+Царицыно=TSaritsyno.vec
+Орехово=Orehovo.vec
+Домодедовская=Domodedovskaya.vec
+Красногвардейская=Krasnogvardeyskaya.vec
+
+[Арбатско-Покровская]
+Митино=Mitino.vec
+Волоколамская=Volokolamskaya.vec
+Строгино=Strogino.vec
+Крылатское=Krylatskoe.vec
+Молодежная=Molodezhnaya.vec
+Кунцевская=Kuntsevskaya.vec
+Славянский бульвар=SlavyanskiyBulvar.vec
+Парк Победы=ParkPobedy.vec
+Киевская=Kievskaya.vec
+Смоленская=SmolenskayaAPL.vec
+Арбатская=Borovitskaya.vec
+Площадь Революции=Teatralnaya.vec
+Курская=Kurskaya.vec
+Бауманская=Baumanskaya.vec
+Электрозаводская=Electrozavodskaya.vec
+Семеновская=Semenovskaya.vec
+Партизанская=Partizanskaya.vec
+Измайловская=Izmaylovskaya.vec
+Первомайская=Pervomayskaya.vec
+Щелковская=Schelkovskaya.vec
+
+[Филевская]
+Международная=Mezhd.vec
+Выставочная=Vystavochnaya.vec
+Александровский сад=Borovitskaya.vec
+Арбатская=ArbatskayaF.vec
+Смоленская=SmolenskayaFL.vec
+Киевская=Kievskaya.vec
+Студенческая=Studencheskaya.vec
+Кутузовская=Kutuzovskaya.vec
+Фили=Fili.vec
+Багратионовская=Bagrationovskaya.vec
+Филевский парк=FilevskyPark.vec
+Пионерская=Pionerskaya.vec
+Кунцевская=Kuntsevskaya.vec
+
+[Кольцевая]
+Белорусская=Belorusskaya.vec
+Новослободская=Novoslobodskaya.vec
+Проспект Мира=ProspektMira.vec
+Комсомольская=Komsomolskaya.vec
+Курская=Kurskaya.vec
+Таганская=Taganskaya.vec
+Павелецкая=Pavelec.vec
+Добрынинская=Serpuhovskaya.vec
+Октябрьская=Octyabrskaya.vec
+Парк культуры=ParkKultury.vec
+Киевская=Kievskaya.vec
+Краснопресненская=Barrikadnaya.vec
+
+[Калужско-Рижская]
+Новоясеневская=Novoyasenevskaya.vec
+Ясенево=Yasenevo.vec
+Теплый Стан=TeplyStan.vec
+Коньково=Konkovo.vec
+Беляево=Belyaevo.vec
+Калужская=Kaluzhskaya.vec
+Новые Черемушки=NovyeCheremushki.vec
+Профсоюзная=Profsoyuznaya.vec
+Академическая=Akademicheskaya.vec
+Ленинский проспект=LeninskyProspekt.vec
+Шаболовская=Shabolovskaya.vec
+Октябрьская=Octyabrskaya.vec
+Третьяковская=Tretyakovskaya.vec
+Китай-город=KitayGorod.vec
+Тургеневская=Turgenevskaya.vec
+Сухаревская=Suharevskaya.vec
+Проспект Мира=ProspektMira.vec
+Рижская=Rizhskaya.vec
+Алексеевская=Alekseevskaya.vec
+ВДНХ=VDNH.vec\nVDNH-VystavochnyCentr.vec
+Ботанический сад=BotanicheskySad.vec
+Свиблово=Sviblovo.vec
+Бабушкинская=Babushkinskaya.vec
+Медведково=Medvedkovo.vec
+
+[Таганско-Краснопресненская]
+Выхино=Vyhino.vec
+Рязанский проспект=RyazanskiyProspekt.vec
+Кузьминки=Kuzminki.vec
+Текстильщики=Tekstilshchiki.vec
+Волгоградский проспект=VolgogradskiyProspekt.vec
+Пролетарская=Proletarskaya.vec
+Таганская=Taganskaya.vec
+Китай-город=KitayGorod.vec
+Кузнецкий мост=Lubyanka.vec
+Пушкинская=Pushkinskaya.vec
+Баррикадная=Barrikadnaya.vec
+Улица 1905 года=Ulitsa1905goda.vec
+Беговая=Begovaya.vec
+Полежаевская=Polezhaevskaya.vec
+Октябрьское поле=OktyabrskoePole.vec
+Щукинская=SHCHukinskaya.vec
+Тушинская=Tushinskaya.vec
+Сходненская=Shodnenskaya.vec
+Планерная=Planernaya.vec
+
+[Калининская]
+Третьяковская=Tretyakovskaya.vec
+Марксистская=Taganskaya.vec
+Площадь Ильича=Rimskaya.vec
+Авиамоторная=Aviamotornaya.vec
+Шоссе Энтузиастов=ShosseEnt.vec
+Перово=Perovo.vec
+Новогиреево=Novogireevo.vec
+
+[Серпуховско-Тимирязевская]
+Бульвар Дмитрия Донского=BoulevardDD.vec
+Аннино=Annino.vec
+Улица Академика Янгеля=UlitsaYangela.vec
+Пражская=Prazhskaya.vec
+Южная=Uzhnaya.vec
+Чертановская=Chertanovskaya.vec
+Севастопольская=Kahovskaya.vec
+Нахимовский проспект=NahimovskyProspekt.vec
+Нагорная=Nagornaya.vec
+Нагатинская=Nagatinskaya.vec
+Тульская=Tulskaya.vec
+Серпуховская=Serpuhovskaya.vec
+Полянка=Polyanka.vec
+Боровицкая=Borovitskaya.vec
+Чеховская=Pushkinskaya.vec
+Цветной бульвар=CvetnoyBulvar.vec
+Менделеевская=Novoslobodskaya.vec
+Савеловская=Savelovskaya.vec
+Дмитровская=Dmitrovskaya.vec
+Тимирязевская=Timiryazevskaya.vec
+Петровско-Разумовская=PetrovskoRazumovskaya.vec
+Владыкино=Vladykino.vec
+Отрадное=Otradnoe.vec
+Бибирево=Bibirevo.vec
+Алтуфьево=Altufyevo.vec
+
+[Люблинско-Дмитровская]
+Марьина роща=MaryinaRoscha.vec
+Достоевская=Dostoevskaya.vec
+Трубная=CvetnoyBulvar.vec
+Сретенский бульвар=Turgenevskaya.vec
+Чкаловская=Kurskaya.vec
+Римская=Rimskaya.vec
+Крестьянская застава=Proletarskaya.vec
+Дубровка=Dubrovka.vec
+Кожуховская=Kozhuhovskaya.vec
+Печатники=Pechatniki.vec
+Волжская=Volzhskaya.vec
+Люблино=Lublino.vec
+Братиславская=Bratislavskaya.vec
+Марьино=Maryino.vec
+
+[Каховская]
+Каширская=Kashirskaya.vec
+Варшавская=Varshavskaya.vec
+Каховская=Kahovskaya.vec
+
+[Бутовская]
+Улица Старокачаловская=BoulevardDD.vec
+Улица Скобелевская=UlSkobelevskaya.vec
+Бульвар Адмирала Ушакова=BuladmUshakova.vec
+Улица Горчакова=UlitcaGorchakova.vec
+Бунинская аллея=BuninskayaAlleya.vec
+
+[Монорельс]
+Тимирязевская=TimiryazevskayaMonorels.vec
+Улица Милашенкова=UlitsaMilashenkova.vec
+Телецентр=TeleCentr.vec
+Улица академика Королева=UlitsaAkademikaKoroleva.vec
+Выставочный центр=VystavochnyCentr.vec\nVDNH-VystavochnyCentr.vec
+Улица Сергея Эйзенштейна=UlitsaSergeyaEizenshteina.vec
+

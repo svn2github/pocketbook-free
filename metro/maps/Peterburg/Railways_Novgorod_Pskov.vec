@@ -1,0 +1,22 @@
+size 1090x946
+BrushColor -1
+PenColor 0033CC
+TextOut Arial,20,30,50,Схема движения пригородных поездов,1
+TextOut Arial,20,30,70,от Санкт-Петербурга до Новгорода и Пскова,1
+TextOut Arial,12,30,110,Примечание: время на пересадку в Луге
+TextOut Arial,12,30,125, и Новгороде принято равным 10 минутам.
+TextOut Arial,12,30,145, Дополнительную иформацию по электричкам
+TextOut Arial,12,30,160, смотрите в Справочнике наземного транспорта
+Arrow 370,597, 345,623,1
+TextOut Arial,12,335,623,Дно
+Arrow 450,418, 475,393,1
+Arrow 660,271, 635,296,1
+SpotRect 480,335, 125,12, LoadMap Railways_Vitebsk.map
+TextOut Arial,12,480,335,Схема Оредеж-Павловск,2
+SpotRect 250,880, 150,12, LoadMap Railways_Baltic.map
+TextOut Arial,12,250,880,Схема с Балтийского вокзала,2
+SpotRect 250,900, 150,12, LoadMap Railways_Vitebsk.map
+TextOut Arial,12,250,900,Схема с Витебского вокзала,2
+SpotRect 250,920, 150,12, LoadMap Railways_Moscow.map
+TextOut Arial,12,250,920,Схема с Московского вокзала,2
+

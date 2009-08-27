@@ -1,0 +1,89 @@
+size 730x730
+image map_zd_m_small.gif
+PenColor F4891E
+TextOut Arial,18,385,7, Буча, 1
+TextOut Arial,18,385,27, Лесная Буча, 2
+TextOut Arial,18,385,47, Ирпень, 1
+TextOut Arial,18,385,67, Беличи, 1
+TextOut Arial,18,385,97, Новобеличи, 2
+TextOut Arial,18,385,127, Святошино, 1
+TextOut Arial,18,385,157, Борщаговка, 2
+TextOut Arial,18,385,187, Борщаговка Техническая, 2
+TextOut Arial,18,385,220, Киев - Волынский, 1
+TextOut Arial,18,390,260, Караваевые Дачи, 1
+
+Line 371,7, 371,350, 10
+
+PenColor F4561E
+TextOut Arial,18,15,154, Боярка , 1
+TextOut Arial,18,70,192, Тарасовка, 2
+TextOut Arial,18,146,157, Крюковщина, 2
+TextOut Arial,18,240,192, Вишнёвое, 1
+TextOut Arial,18,213,220, Киев - Волынский, 1
+TextOut Arial,18,213,260, Караваевые Дачи, 1
+PenColor 555587
+TextOut Arial,20,175,340, Киев - Пассажирский, 5
+PenColor F4561E
+Line 15,182, 279,182, 316,189, 341,203, 356,223, 360,259, 360,350, 10
+
+PenColor F55687
+TextOut Arial,18,385,690, Бровары, 1
+TextOut Arial,18,385,670, Княжичи, 2
+TextOut Arial,18,385,650, ДВРЗ, 2
+TextOut Arial,18,385,620, Ёлка, 2
+TextOut Arial,18,385,590, Дарница - депо, 2
+TextOut Arial,18,385,560, Дарница, 1
+TextOut Arial,18,385,525, Левый Берег, 2
+TextOut Arial,18,385,500, Выдубычи, 2
+TextOut Arial,18,385,470, Киев - Московский, 1
+TextOut Arial,20,385,440, Протасов Яр, 2
+Line 371,350, 371,700, 10
+
+PenColor 157896
+TextOut Arial,18,9,585, Подгорцы, 1
+TextOut Arial,18,66,548, Лесники, 2
+TextOut Arial,18,106,583, Петро Кривонос, 1
+TextOut Arial,18,174,549, пp. Hауки, 2
+TextOut Arial,18,275,500, Выдубычи, 2
+TextOut Arial,18,213,470, Киев - Московский, 1
+TextOut Arial,20,237,440, Протасов Яр, 2
+Line 360,350, 360,508, 355,540, 340,563, 315,574, 8,575, 10
+
+
+PenColor 000000
+TextOut Arial,18,407,340, Северная, 2
+Line 371,250, 380,267, 397,297, 397,400, 380,430, 371,447, 10
+
+PenColor 1456631
+TextOut Arial,18,9,685, Борисполь, 1
+TextOut Arial,18,101,650, Чубинский, 2
+TextOut Arial,18,209,686, М.Александp, 2
+TextOut Arial,18,249,645, Бортничи, 1
+TextOut Arial,18,215,599, Фармацевтическая, 2
+TextOut Arial,20,222,621, Лестничество, 2
+Line 371,560, 365,608, 355,640, 340,663, 315,674, 8,675, 10
+
+PenColor afyh22
+TextOut Arial,18,559,547, Киев - Днепровский, 1
+TextOut Arial,18,454,561, Киев - Русановка, 2
+TextOut Arial,18,597,452, Огородная, 2
+TextOut Arial,18,597,392, Оболонь, 2
+TextOut Arial,18,597,332, Киев - Петровка, 1
+TextOut Arial,18,597,275, Зенит, 2
+TextOut Arial,18,597,219, Вышгородская, 2
+TextOut Arial,18,586,154, Сырец, 2
+TextOut Arial,18,484,126, Рубежовская, 2
+TextOut Arial,20,303,152, Алмаз, 2
+Line 339,201, 355,182, 360,175, 378,150, 537,150, 566,161, 585,187, 585,508, 565,535, 525,551, 384,551, 371,560, 10
+
+
+PenColor 000000
+TextOut Arial,18,559,13, Запад,
+TextOut Arial,18,559,107, Восток,
+TextOut Arial,18,626,63, Север,
+TextOut Arial,18,518,61, Юг,
+Line 585,42, 585,102, 10
+
+PenColor 000000
+Line 555,72, 615,72, 10
+

@@ -1,0 +1,78 @@
+[Options]
+AddToInfo=1
+Caption=Макет
+CityName=Санкт-Петербург
+Type=3dImage
+
+[Линия 1]
+;Девяткино=Devyatkino.pm3d
+;Гражданский пр.=GrazhdanskyPr.pm3d
+;Академическая=Akademicheskaya.pm3d
+;Политехническая=Polytech.pm3d
+;пл.Мужества=PlMuzhestva.pm3d
+;Лесная=Lesnaya.pm3d
+;Выборгская=Vyborgskaya.pm3d
+;пл.Ленина=PlLenina.pm3d
+;Чернышевская=Chernyshevskaya.pm3d
+пл.Восстания=PlVosstania-Mayakovskaya.pm3d
+Владимирская=Vladimirskaya-Dostoevskaya.pm3d
+Пушкинская=Pushkinskaya.pm3d
+Технологический институт-I=TechInstitut.pm3d
+;Балтийская=Baltiyskaya.pm3d
+;Нарвская=Narvskaya.pm3d
+;Кировский завод=KirovskyZavod.pm3d
+;Автово=Avtovo.pm3d
+;Ленинский пр.=LeninskyPr.pm3d
+;пр.Ветеранов=PrVeteranov.pm3d
+
+[Линия 2]
+;Парнас=Parnas.pm3d
+;пр.Просвещения=PrProsvescheniya.pm3d
+;Озерки=Ozerki.pm3d
+;Удельная=Udelnaya.pm3d
+;Пионерская=Pionerskaya.pm3d
+;Чёрная речка=ChernayaRechka.pm3d
+;Петроградская=Petrogradskaya.pm3d
+;Горьковская=Gorkovskaya.pm3d
+Невский пр.=NevskiPr-GostinyDvor.pm3d
+Сенная площадь=Sadovaya-SennayaPl.pm3d
+Технологический институт-II=TechInstitut.pm3d
+;Фрунзенская=Frunzenskaya.pm3d
+;Московские ворота=MoskVorota.pm3d
+;Электросила=Electrosila.pm3d
+;Парк Победы=ParkPobedy.pm3d
+;Московская=Moskovskaya.pm3d
+;Звёздная=Zvezdnaya.pm3d
+;Купчино=Kupchino.pm3d
+
+[Линия 3]
+;Приморская=Primorskaya.pm3d
+;Василеостровская=Vasileostrovskaya.pm3d
+Гостиный двор=NevskiPr-GostinyDvor.pm3d
+Маяковская=PlVosstania-Mayakovskaya.pm3d
+пл.Ал.Невского-I=AleksandraNevskogo.pm3d
+;Елизаровская=Elizarovskaya.pm3d
+;Ломоносовская=Lomonosovskaya.pm3d
+;Пролетарская=Proletarskaya.pm3d
+;Обухово=Obukhovo.pm3d
+;Рыбацкое=Rybatskoe.pm3d
+
+[Линия 4]
+Спасская=Sadovaya-SennayaPl.pm3d
+Достоевская=Vladimirskaya-Dostoevskaya.pm3d
+;Лиговский пр.=LigovskiyPr.pm3d
+пл.Ал.Невского-II=AleksandraNevskogo.pm3d
+;Новочеркасская=Novocherkasskaya.pm3d
+;Ладожская=Ladozhskaya.pm3d
+;пр.Большевиков=PrBolshevikov.pm3d
+;ул.Дыбенко=UlDybenko.pm3d
+
+[Линия 5]
+;Комендантский пр.=KomendantskyPr.pm3d
+;Старая деревня=StarayaDerevnya.pm3d
+;Крестовский остров=KrestovskiyOstrov.pm3d
+;Чкаловская=Chkalovskaya.pm3d
+;Спортивная=Sportivnaya.pm3d
+Садовая=Sadovaya-SennayaPl.pm3d
+Звенигородская=Pushkinskaya.pm3d
+;Волковская=Volkovskaya.pm3d

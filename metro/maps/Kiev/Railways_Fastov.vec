@@ -1,0 +1,6 @@
+size 1000x1650
+PenColor 0033CC
+TextOut Arial,20,35,0,Схема движения,1
+TextOut Arial,20,35,20,электропоездов,1
+TextOut Arial,20,35,40,Фастовского направления,1
+

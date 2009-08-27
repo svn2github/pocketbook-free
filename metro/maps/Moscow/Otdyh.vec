@@ -1,0 +1,83 @@
+Size 1350x1270
+Angle -125
+
+Railway 10, 14, 6, 679,1180, 679,10
+Railway 10, 14, 6, 485,1180, 485,10
+Railway 10, 14, 6, 450,1180, 450,10
+Railway 10, 14, 6, 409,1180, 409,10
+Railway 8, 12, 5, 809,699, 809,10
+
+; платформа
+PenColor 000000
+BrushColor C0C0C0
+Polygon 506,199, 671,199, 671,1025, 506,1025
+
+;касса
+BrushColor 808080
+Polygon 565,525, 616,525, 616,598, 565,598
+Polygon 997,744, 1078,744, 1078,817, 997,817
+Polygon 345,697, 345,628, 392,628, 392,697
+
+;автовокзал
+Polygon 811,947, 1092,947, 1092,1179, 811,1179
+
+;выходы
+BrushColor FFFFFF
+Polygon 565,785, 565,669, 616,669, 616,785
+Polygon 565,955, 565,872, 616,872, 616,955
+PenColor D0D0D0
+Stairs 565,955, 616,955, 565,872
+PenColor 000000
+Line 565,872, 565,955, 616,955, 616,872
+
+
+Line 952,872, 820,872, 820,785, 952,785
+Line 380,919, 380,872, 354,872, 354,919
+Line 381,745, 381,785, 355,785, 355,745
+
+Dashed 820,785, 616,785
+Dashed 820,872, 616,872
+Dashed 565,872, 380,872
+Dashed 565,785, 381,785
+Dashed 355,785, 354,872
+
+Stairs 952,785, 952,872, 831,785
+Stairs 565,697, 616,697, 565,785
+Stairs 354,919, 380,919, 354,872
+Stairs 355,745, 381,745, 355,785
+
+BrushColor -1
+PenColor 000000
+AngleTextOut 90, Arial, 25, 504, 323, Кратово >>
+AngleTextOut 90, Arial, 25, 639, 1019, << Ильинская
+AngleTextOut 90, Arial, 15, 1029, 803, Кассы
+AngleTextOut 90, Arial, 15, 359, 685, Касса
+AngleTextOut 90, Arial, 15, 568, 580, Касса
+AngleTextOut 90, Arial, 15, 579, 572, на
+AngleTextOut 90, Arial, 15, 589, 581, выход
+AngleTextOut 180, Arial, 10, 611, 690, турникеты
+AngleTextOut 90, Arial, 15, 575, 934, Выход
+AngleTextOut 90, Arial, 15, 585, 936, закрыт
+AngleTextOut 90, Arial, 45, 910, 1172, Автовокзал
+AngleTextOut 90, Arial, 25, 328, 1101, "Авт. 26, 29, 43"
+AngleTextOut 90, Arial, 25, 1146, 1008, "Авт. 2, 8, 23, 34"
+AngleTextOut 90, Arial, 25, 1106, 1035, "Маршрутки 6, 12, 17, 18"
+PenColor 00AFAF
+AngleTextOut 90, Arial, 25, 277, 797, "ул. Леволинейная, пос. Ильинский"
+AngleTextOut 90, Arial, 25, 759, 780, "ул. Праволинейная, г.Жуковский"
+AngleTextOut 0, Arial, 25, 838, 80, ул. Дзержинского
+PenColor 808080
+AngleTextOut 90, Arial, 20, 823, 484, Детская железная дорога
+
+;PenColor FF4040
+;Line 565,876, 616,888, 2
+;Line 565,888, 616,876, 2
+;Line 565,939, 616,951, 2
+;Line 616,939, 565,951, 2
+
+Opaque 20
+
+; Улицы
+PenColor 80EFEF
+Line 774,1179, 774,96, 1100,96, 50
+Line 294,1180, 294,10, 50

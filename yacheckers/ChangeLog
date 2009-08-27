@@ -1,0 +1,20 @@
+24.07.2009
+    - yacheckers 1.0.1
+    - only changes for pb (fltk version not changed)
+      - add 2 themes
+      - change board colors
+      - add full update mode after move (select in setup)
+      - fix menu behavior (menu call by 'long' OK click)
+19.07.2009
+    - yacheckers 1.0
+    - speed up redraw
+    - fix colors for pb checkers (first is white for russian and black for englich rules)
+    - fix cursor bitmap
+17.07.2009
+    - change redraw for PB
+    - add skill string to draw
+01.07.2009
+    - move font initialization (to prevent PB sigsegv)
+30.06.2009
+    - add NO_STL macro 
+    - rc2

@@ -1,0 +1,231 @@
+[Line1]
+Name=Ligne 1
+Stations=Chateau de Vincennes,Berault,St-Mande Tourelle,Porte de Vincennes,Nation,Reuilly Diderot,Gare de Lyon,Bastille,St Paul,Hotel de Ville,Chatelet,Louvre Rivoli,Palais Royal - Musee du Louvre,Tuileries,Concorde,Champs Elysees - Clemenceau,Franklin D. Roosevelt,George V,Ch. De Gaulle - Etoile,Argentine,Porte Maillot,Les Sablons,Pont de Neuilly,Esplanade de La Defense,La Defense
+Driving=1,1,2,1,2,1,1,2,2,1,1,1,1,2,1,2,1,1,2,1,2,1,2,2
+DelayDay=3
+DelayNight=6
+
+[Line2]
+Name=Ligne 2
+Stations=Nation,Avron,Alexandre Dumas,Philippe Auguste,Pere Lachaise,Menilmontant,Couronnes,Belleville,Colonel Fabien,Jaures,Stalingrad,La Chapelle,Barbes Rochechouart,Anvers,Pigalle,Blanche,Place de Clichy,Rome,Villiers,Monceau,Courcelles,Ternes,Ch. De Gaulle - Etoile,Victor Hugo,Porte Dauphine
+Driving=1,1,1,2,1,1,1,1,2,1,1,2,2,1,1,2,1,2,1,2,1,1,2,2
+DelayDay=3
+DelayNight=6
+
+[Line3]
+Name=Ligne 3
+Stations=Galieni,Porte de Bagnolet,Gambetta,Pere Lachaise,Saint-Maur,Parmentier,Republique,Temple,Arts et Metiers,Reaumur Sebastopol,Sentier,Bourse,4 Septembre,Opera,Havre Caumartin,Saint Lazare,Europe,Villiers,Malesherbes,Wagram,Pereire,Porte de Champerret,Louise Michel,Anatole France,Pont de Levallois - Becon
+Driving=1,1,2,1,1,2,1,1,1,1,2,1,1,1,1,2,1,2,1,1,1,1,2,2
+DelayDay=3
+DelayNight=6
+
+[Line4]
+Name=Ligne 3bis
+Stations=Gambetta,Pelleport,Saint Fargeau,Porte des Lilas
+Driving=1,1,2
+DelayDay=3
+DelayNight=6
+
+[Line5]
+Name=Ligne 4
+Stations=Porte De Clignancourt,Simplon,Marcadet Poissonniers,Chateau Rouge,Barbes Rochechouart,Gare du Nord,Gare de l'Est,Chateau d'eau,Strasbourg Saint Denis,Reaumur Sebastopol,Etienne Marcel,Les Halles,Chatelet,Cite,Saint Michel,Odeon,Saint Germain des Pres,Saint Sulpice,Saint Placide,Montparnasse Bienvenue,Vavin,Raspail,Denfert Rochereau,Mouton Duvernet,Alesia,Porte d'Orleans
+Driving=1,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,2,1,1,2,1,1,1,2
+DelayDay=2
+DelayNight=5
+
+[Line6]
+Name=Ligne 5
+Stations=Bobigny - Pablo Picasso,Bobigny-Pantin - R. Queneau,Eglise de Pantin,Hoche,Porte de Pantin,Ourcq,Laumiere,Jaures,Stalingrad,Gare du Nord,Gare de l'Est,Jacques Bonsergent,Republique,Oberkampf,Richard Lenoir,Breguet Sabin,Bastille,Quai de la Rapee,Gare d'Austerlitz,Saint Marcel,Campo Formio,Place d'Italie
+Driving=3,2,1,2,1,1,2,1,2,3,2,1,2,1,2,1,2,2,1,1,3
+DelayDay=3
+DelayNight=6
+
+[Line7]
+Name=Ligne 6
+Stations=Nation,Picpus,Bel Air,Daumesnil,Dugommier,Bercy,Quai de la Gare,Chevaleret,Nationale,Place d'Italie,Corvisart,Glaciere,St Jacques,Denfert Rochereau,Raspail,Edgar Quinet,Montparnasse Bienvenue,Pasteur,Sevres Lecourbe,Cambronne,La Motte Picquet - Grenelle,Dupleix,Bir Hakeim,Passy,Trocadero,Boissiere,Kleber,Ch. De Gaulle - Etoile
+Driving=1,1,1,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2
+DelayDay=2
+DelayNight=6
+
+[Line8]
+Name=Ligne 7
+Stations=La Courneuve - 8 Mai 1945,Fort d'Aubervilliers,Aubervilliers - Pantin - 4 Chemins,Porte de la Villette,Corentin Cariou,Crimee,Riquet,Stalingrad,Louis Blanc,Chateau Landon,Gare de l'Est,Poissonniere,Cadet,Le Peletier,Chaussee d'Antin - La Fayette,Opera,Pyramides,Palais Royal - Musee du Louvre,Pont Neuf,Chatelet,Pont Marie,Sully Morland,Jussieu,Place Monge,Censier Daubenton,Les Gobelins,Place d'Italie,Tolbiac,Maison Blanche(Porte d'Italie,Tolbiac,Le Kremlin - Bicetre),Porte d'Italie,Porte de Choisy,Porte d'Ivry,Pierre Curie,Mairie d'Ivry(,Pierre Curie),Le Kremlin - Bicetre(Villejuif - Leo Lagrange,Maison Blanche),Villejuif - Leo Lagrange,Vjuif - P.Vaillant-Couturier,Villejuif - Louis Aragon
+Driving=1,2,2,1,1,1,1,2,1,2,1,2,1,1,2,1,1,2,1,2,1,2,1,1,1,2,1,1,(1,1,2),1,2,1,3,(,3),(2,2),2,2
+DelayDay=2
+DelayNight=5
+
+[Line9]
+Name=Ligne 7bis
+Stations=Louis Blanc,Jaures,Bolivar,Buttes Chaumont,Botzaris,Place des Fetes(Pre St Gervais),Pre St Gervais(Danube),Danube(-Botzaris)
+Driving=1,1,1,1,1,(3),(1),(2)
+DelayDay=4
+DelayNight=7
+
+[Line10]
+Name=Ligne 8
+Stations=Balard,Lourmel,Boucicaut,Felix Faure,Commerce,La Motte Picquet - Grenelle,Ecole Militaire,Latour Maubourg,Invalides,Concorde,Madeleine,Opera,Richelieu Drouot,Rue Montmartre,Bonne Nouvelle,Strasbourg Saint Denis,Republique,Filles du Calvaire,St Sebastien - Froissart,Chemin Vert,Bastille,Ledru Rollin,Faidherbe - Chaligny,Reuilly Diderot,Montgallet,Daumesnil,Michel Bizot,Porte Doree,Porte de Charenton,Liberte,Charenton - Ecoles,Alfort - Ecole Veterinaire,Maisons-Alfort Stade,Maisons-Alfort Les Juilliottes,Creteil - L'Echat,Creteil Universite,Creteil Prefecture
+Driving=1,1,1,1,1,2,1,1,2,2,1,1,2,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,2,1,2,2,2,2,1,3
+DelayDay=2
+DelayNight=6
+
+[Line11]
+Name=Ligne 9
+Stations=Mairie de Montreuil,Croix de Chavaux,Robespierre,Porte de Montreuil,Maraichers,Buzenval,Nation,Boulets Montreuil,Charonne,Voltaire,Saint Ambroise,Oberkampf,Republique,Strasbourg Saint Denis,Bonne Nouvelle,Rue Montmartre,Richelieu Drouot,Chaussee d'Antin - La Fayette,Havre Caumartin,Saint Augustin,Miromesnil,St Philippe du Roule,Franklin D. Roosevelt,Alma Marceau,Iena,Trocadero,Rue de la Pompe,La Muette,Ranelagh,Jasmin,Michel-Ange Auteuil,Michel-Ange Molitor,Exelmans,Porte de St Cloud,Marcel Sembat,Billancourt,Pont de Sevres
+Driving=1,2,2,1,2,1,2,1,1,1,2,2,1,1,1,2,1,1,1,2,1,2,1,2,1,1,3,1,1,2,1,1,2,1,2,2
+DelayDay=2
+DelayNight=6
+
+[Line12]
+Name=Ligne 10
+Stations=Boulogne - Pont de St Cloud,Boulogne - Jean Jaures,Michel-Ange Molitor(Chardon Lagache),Chardon Lagache(Mirabeau),Mirabeau(Javel),Porte d'Auteuil(,Boulogne - Jean Jaures),Michel-Ange Auteuil(,Porte d'Auteuil),Eglise d'Auteuil(,Michel-Ange Auteuil),Javel,Charles Michels,Avenue Emile Zola,La Motte Picquet - Grenelle,Segur,Duroc,Vaneau,Sevres Babylone,Mabillon,Odeon,Cluny - La Sorbonne,Maubert Mutualite,Cardinal Lemoine,Jussieu,Gare d'Austerlitz
+Driving=1,2,(1),(2),(1),(,3),(,1),(,2),(2,1),1,1,2,1,2,1,1,2,1,1,1,1,3
+DelayDay=3
+DelayNight=6
+
+[Line13]
+Name=Ligne 11
+Stations=Mairie des Lilas,Porte des Lilas,Telegraphe,Place des Fetes,Jourdain,Pyrenees,Belleville,Goncourt,Republique,Arts et Metiers,Rambuteau,Hotel de Ville,Chatelet
+Driving=1,1,1,1,1,1,1,1,2,1,1,2
+DelayDay=2
+DelayNight=4
+
+[Line14]
+Name=Ligne 12
+Stations=Mairie d'Issy,Corentin Celton,Porte de Versailles,Convention,Vaugirard,Volontaires,Pasteur,Falguiere,Montparnasse Bienvenue,Notre-Dame des Champs,Rennes,Sevres Babylone,Rue du Bac,Solferino,Assemblee Nationale,Concorde,Madeleine,Saint Lazare,Trinite,Notre Dame de Lorette,Saint Georges,Pigalle,Abbesses,Lamarck Caulaincourt,Jules Joffrin,Marcadet Poissonniers,Marx Dormoy,Porte de la Chapelle
+Driving=1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,2,1,1,2,1,1,1,2,1,2,2
+DelayDay=3
+DelayNight=5
+
+[Line15]
+Name=Ligne 13
+Stations=Chatillon Montrouge,Malakoff - Rue Etienne Dolet,Malakoff - Plateau de Vanves,Porte de Vanves,Plaisance,Pernety,Gaite,Montparnasse Bienvenue,Duroc,St Francois Xavier,Varenne,Invalides,Champs Elysees - Clemenceau,Miromesnil,Saint Lazare,Liege,Place de Clichy,La Fourche(Brochant,Place de Clichy,Guy Moquet),Brochant,Porte de Clichy,Mairie de Clichy,Gabriel Peri,Les Angnettes,Asnieres Gennevilliers Les Courtilles(,Mairie de Clichy),Guy Moquet(Porte de St Ouen,La Fourche),Porte de St Ouen,Garibaldi,Mairie de St Ouen,Carrefour Pleyel,Saint Denis - Porte de Paris,Saint Denis - Basilique,Saint Denis - Universite
+Driving=1,2,2,1,1,2,1,2,1,1,1,2,2,2,1,1,1,(2,1,2),1,2,2,2,2,(,2),(2,2),1,3,2,2,2,3
+;Driving=1,2,2,1,1,2,1,2,1,1,1,2,2,2,1,1,1,(2,1,2),1,2,2,2,2,(,2),(2,2),1,3,2,2,2,3
+DelayDay=3
+DelayNight=4
+
+[Line16]
+Name=Ligne 14
+Stations=Olympiades,Bibliotheque Francois Mitterrand,Cour St-Emilion,Bercy,Gare de Lyon,Chatelet,Pyramides,Madeleine,Saint Lazare
+Driving=1,1,1,1,3,2,2,1
+DelayDay=2
+DelayNight=4
+
+[Transfers]
+01=Ligne 1,Nation,Ligne 2,Nation, 2
+02=Ligne 1,Nation,Ligne 6,Nation, 2
+03=Ligne 1,Nation,Ligne 9,Nation, 2
+04=Ligne 1,Reuilly Diderot,Ligne 8,Reuilly Diderot, 2
+05=Ligne 1,Gare de Lyon,Ligne 14,Gare de Lyon, 2
+06=Ligne 1,Bastille,Ligne 5,Bastille, 2
+07=Ligne 1,Bastille,Ligne 8,Bastille, 2
+08=Ligne 1,Hotel de Ville,Ligne 11,Hotel de Ville, 2
+09=Ligne 1,Chatelet,Ligne 4,Chatelet, 2
+10=Ligne 1,Chatelet,Ligne 7,Chatelet, 2
+11=Ligne 1,Chatelet,Ligne 11,Chatelet, 2
+12=Ligne 1,Chatelet,Ligne 14,Chatelet, 2
+13=Ligne 1,Palais Royal - Musee du Louvre,Ligne 7,Palais Royal - Musee du Louvre, 2
+14=Ligne 1,Concorde,Ligne 8,Concorde, 2
+15=Ligne 1,Concorde,Ligne 12,Concorde, 2
+16=Ligne 1,Champs Elysees - Clemenceau,Ligne 13,Champs Elysees - Clemenceau, 2
+17=Ligne 1,Ch. De Gaulle - Etoile,Ligne 2,Ch. De Gaulle - Etoile, 2
+18=Ligne 1,Ch. De Gaulle - Etoile,Ligne 6,Ch. De Gaulle - Etoile, 2
+19=Ligne 2,Nation,Ligne 6,Nation, 2
+20=Ligne 2,Nation,Ligne 9,Nation, 2
+21=Ligne 2,Pere Lachaise,Ligne 3,Pere Lachaise, 2
+22=Ligne 2,Jaures,Ligne 5,Jaures, 2
+23=Ligne 2,Jaures,Ligne 7bis,Jaures, 2
+24=Ligne 2,Stalingrad,Ligne 5,Stalingrad, 2
+25=Ligne 2,Stalingrad,Ligne 7,Stalingrad, 2
+26=Ligne 2,Barbes Rochechouart,Ligne 4,Barbes Rochechouart, 2
+27=Ligne 2,Pigalle,Ligne 12,Pigalle, 2
+28=Ligne 2,Place de Clichy,Ligne 13,Place de Clichy, 2
+29=Ligne 2,Villiers,Ligne 3,Villiers, 2
+30=Ligne 2,Ch. De Gaulle - Etoile,Ligne 6,Ch. De Gaulle - Etoile, 2
+31=Ligne 3,Gambetta,Ligne 3bis,Gambetta, 2
+32=Ligne 3,Republique,Ligne 5,Republique, 2
+33=Ligne 3,Republique,Ligne 8,Republique, 2
+34=Ligne 3,Republique,Ligne 9,Republique, 2
+35=Ligne 3,Republique,Ligne 11,Republique, 2
+36=Ligne 3,Arts et Metiers,Ligne 11,Arts et Metiers, 2
+37=Ligne 3,Reaumur Sebastopol,Ligne 4,Reaumur Sebastopol, 2
+38=Ligne 3,Opera,Ligne 7,Opera, 2
+39=Ligne 3,Opera,Ligne 8,Opera, 2
+40=Ligne 3,Havre Caumartin,Ligne 9,Havre Caumartin, 2
+42=Ligne 3bis,Porte des Lilas,Ligne 11,Porte des Lilas, 2
+43=Ligne 4,Marcadet Poissonniers,Ligne 12,Marcadet Poissonniers, 2
+44=Ligne 4,Gare du Nord,Ligne 5,Gare du Nord, 2
+45=Ligne 4,Gare de l'Est,Ligne 5,Gare de l'Est, 2
+46=Ligne 4,Gare de l'Est,Ligne 7,Gare de l'Est, 2
+47=Ligne 4,Strasbourg Saint Denis,Ligne 8,Strasbourg Saint Denis, 2
+48=Ligne 4,Strasbourg Saint Denis,Ligne 9,Strasbourg Saint Denis, 2
+49=Ligne 4,Chatelet,Ligne 7,Chatelet, 2
+50=Ligne 4,Chatelet,Ligne 11,Chatelet, 2
+51=Ligne 4,Chatelet,Ligne 14,Chatelet, 2
+52=Ligne 4,Odeon,Ligne 10,Odeon, 2
+53=Ligne 4,Montparnasse Bienvenue,Ligne 6,Montparnasse Bienvenue, 2
+54=Ligne 4,Montparnasse Bienvenue,Ligne 12,Montparnasse Bienvenue, 2
+55=Ligne 4,Montparnasse Bienvenue,Ligne 13,Montparnasse Bienvenue, 2
+56=Ligne 4,Raspail,Ligne 6,Raspail, 2
+57=Ligne 4,Denfert Rochereau,Ligne 6,Denfert Rochereau, 2
+58=Ligne 5,Jaures,Ligne 7bis,Jaures, 2
+59=Ligne 5,Stalingrad,Ligne 7,Stalingrad, 2
+60=Ligne 5,Gare de l'Est,Ligne 7,Gare de l'Est, 2
+61=Ligne 5,Republique,Ligne 8,Republique, 2
+62=Ligne 5,Republique,Ligne 9,Republique, 2
+63=Ligne 5,Republique,Ligne 11,Republique, 2
+64=Ligne 5,Oberkampf,Ligne 9,Oberkampf, 2
+65=Ligne 5,Bastille,Ligne 8,Bastille, 2
+66=Ligne 5,Gare d'Austerlitz,Ligne 10,Gare d'Austerlitz, 2
+67=Ligne 5,Place d'Italie,Ligne 6,Place d'Italie, 2
+68=Ligne 5,Place d'Italie,Ligne 7,Place d'Italie, 2
+69=Ligne 6,Nation,Ligne 9,Nation, 2
+70=Ligne 6,Daumesnil,Ligne 8,Daumesnil, 2
+71=Ligne 6,Bercy,Ligne 14,Bercy, 2
+72=Ligne 6,Place d'Italie,Ligne 7,Place d'Italie, 2
+73=Ligne 6,Montparnasse Bienvenue,Ligne 12,Montparnasse Bienvenue, 2
+74=Ligne 6,Montparnasse Bienvenue,Ligne 13,Montparnasse Bienvenue, 2
+75=Ligne 6,Pasteur,Ligne 12,Pasteur, 2
+76=Ligne 6,La Motte Picquet - Grenelle,Ligne 8,La Motte Picquet - Grenelle, 2
+77=Ligne 6,La Motte Picquet - Grenelle,Ligne 10,La Motte Picquet - Grenelle, 2
+78=Ligne 6,Trocadero,Ligne 9,Trocadero, 2
+79=Ligne 7,Louis Blanc,Ligne 7bis,Louis Blanc, 2
+80=Ligne 7,Chaussee d'Antin - La Fayette,Ligne 9,Chaussee d'Antin - La Fayette, 2
+81=Ligne 7,Opera,Ligne 8,Opera, 2
+82=Ligne 7,Pyramides,Ligne 14,Pyramides, 2
+83=Ligne 7,Chatelet,Ligne 11,Chatelet, 2
+84=Ligne 7,Chatelet,Ligne 14,Chatelet, 2
+85=Ligne 7,Jussieu,Ligne 10,Jussieu, 2
+86=Ligne 8,La Motte Picquet - Grenelle,Ligne 10,La Motte Picquet - Grenelle, 2
+87=Ligne 8,Invalides,Ligne 13,Invalides, 2
+88=Ligne 8,Concorde,Ligne 12,Concorde, 2
+89=Ligne 8,Madeleine,Ligne 12,Madeleine, 2
+90=Ligne 8,Madeleine,Ligne 14,Madeleine, 2
+91=Ligne 8,Richelieu Drouot,Ligne 9,Richelieu Drouot, 2
+92=Ligne 8,Rue Montmartre,Ligne 9,Rue Montmartre, 2
+93=Ligne 8,Bonne Nouvelle,Ligne 9,Bonne Nouvelle, 2
+94=Ligne 8,Strasbourg Saint Denis,Ligne 9,Strasbourg Saint Denis, 2
+95=Ligne 8,Republique,Ligne 9,Republique, 2
+96=Ligne 8,Republique,Ligne 11,Republique, 2
+97=Ligne 9,Republique,Ligne 11,Republique, 2
+98=Ligne 9,Miromesnil,Ligne 13,Miromesnil, 2
+99=Ligne 9,Michel-Ange Auteuil,Ligne 10,Michel-Ange Auteuil, 2
+100=Ligne 9,Michel-Ange Molitor,Ligne 10,Michel-Ange Molitor, 2
+101=Ligne 10,Duroc,Ligne 13,Duroc, 2
+102=Ligne 10,Sevres Babylone,Ligne 12,Sevres Babylone, 2
+103=Ligne 11,Place des Fetes,Ligne 7bis,Place des Fetes, 2
+104=Ligne 11,Chatelet,Ligne 14,Chatelet, 2
+105=Ligne 12,Montparnasse Bienvenue,Ligne 13,Montparnasse Bienvenue, 2
+106=Ligne 12,Madeleine,Ligne 14,Madeleine, 2
+107=Ligne 2,La Chapelle,Ligne 4,Gare du Nord, 2
+108=Ligne 2,La Chapelle,Ligne 5,Gare du Nord, 2
+109=Ligne 2,Belleville,Ligne 11,Belleville, 2
+110=Ligne 1,Franklin D. Roosevelt,Ligne 9,Franklin D. Roosevelt, 2
+120=Ligne 12,Saint Lazare,Ligne 3,Saint Lazare, 2
+121=Ligne 12,Saint Lazare,Ligne 13,Saint Lazare, 2
+123=Ligne 3,Saint Lazare,Ligne 13,Saint Lazare, 2
+124=Ligne 14,Saint Lazare,Ligne 3,Saint Lazare, 2
+125=Ligne 14,Saint Lazare,Ligne 13,Saint Lazare, 2
+126=Ligne 14,Saint Lazare,Ligne 12,Saint Lazare, 2
+
+[]

@@ -1,0 +1,6 @@
+
+How to install:
+1. Copy crosspix.app to folder Games
+2. Make 'crosspix' folder on SD card
+3. Copy all *.cry files from 'pix' to 'crosspix' on SD card
+4. Enjoy! ;-)

@@ -1,0 +1,30 @@
+Size 1050x1220
+PenColor 9090FF
+
+Spline 892,982, 883,974, 871,977, 864,969, 2
+Spline 864,969, 857,981, 835,985, 790,988, 764,978, 748,962, 737,960, 2
+
+Spline 736,893, 726,886, 701,891, 656,893, 631,891, 610,868, 617,856, 2
+Spline 617,856, 614,845, 642,831, 682,828, 712,796, 717,771, 730,761, 2
+Spline 730,761, 719,756, 711,725, 672,674, 656,657, 657,645, 2
+Spline 657,645, 643,648, 616,631, 569,617, 542,620, 536,630, 2
+Spline 536,630, 525,624, 499,632, 463,666, 444,701, 430,703, 2
+Spline 430,703, 435,716, 426,733, 423,745, 426,753, 2
+Spline 426,753, 416,753, 403,771, 389,789, 378,788, 2
+Spline 378,788, 375,800, 352,815, 318,824, 288,810, 276,786, 267,782, 2
+Spline 267,782, 274,774, 277,752, 302,726, 338,697, 357,679, 356,667, 2
+
+Image Rechnoy_logo.vec, 843, 951
+Image Rechnoy_logo.vec, 884, 981
+Image Rechnoy_logo.vec, 737, 936
+Image Rechnoy_logo.vec, 739, 878
+Image Rechnoy_logo.vec, 624, 839
+Image Rechnoy_logo.vec, 724, 740
+Image Rechnoy_logo.vec, 638, 622
+Image Rechnoy_logo.vec, 539, 626
+Image Rechnoy_logo.vec, 409, 701
+Image Rechnoy_logo.vec, 419, 750
+Image Rechnoy_logo.vec, 354, 774
+
+Image Rechnoy_logo.vec, 246, 762
+Image Rechnoy_logo.vec, 350, 647

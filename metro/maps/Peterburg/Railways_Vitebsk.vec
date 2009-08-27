@@ -1,0 +1,76 @@
+size 815x700
+BrushColor -1
+PenColor 0033CC
+TextOut Arial,20,302,6, Схема движения электропоездов,1
+TextOut Arial,20,303,24, с Витебского вокзала,1
+SpotRect 650,664, 150,12, LoadMap Railways_Moscow.map
+TextOut Arial,12,650,664,Схема с Московского вокзала,2
+SpotRect 650,679, 150,12, LoadMap Railways_Novgorod_Pskov.map
+TextOut Arial,12,650,679,Схема от Новгорода,2
+SpotRect 357,670, 150,12, LoadMap Railways_Novgorod_Pskov.map
+TextOut Arial,12,357,670,Схема до Батецкой,2
+Arrow 344,654, 344,684, 1
+Arrow 194,214, 144,214, 1
+TextOut Arial,12,331,685, Дно
+TextOut Arial,12,119,209, Гдов
+PenColor 000066
+TextOut Arial,14,284,180, г. Пушкин
+Line 34,34, 14,54,
+TextOut Arial,12,12,56, 1
+Line 74,74, 54,94,
+TextOut Arial,12,52,96, 2
+Line 134,134, 114,154,
+TextOut Arial,12,112,156, 3
+Line 194,194, 174,214,
+TextOut Arial,12,166,210, 4
+Line 234,234, 214,254,
+TextOut Arial,12,212,256, 5
+Line 294,294, 274,314,
+TextOut Arial,12,272,316, 6
+Line 334,334, 314,354,
+TextOut Arial,12,312,356, 7
+Line 354,354, 334,374,
+TextOut Arial,12,332,376, 8
+Line 374,374, 354,394,
+TextOut Arial,12,352,396, 9
+Line 394,394, 374,414,
+TextOut Arial,12,372,416, 10
+Line 414,414, 394,434,
+TextOut Arial,12,392,436, 11
+Line 454,454, 434,474,
+TextOut Arial,12,432,476, 12
+Line 494,494, 474,514,
+TextOut Arial,12,472,516, 13
+Line 514,514, 494,534,
+TextOut Arial,12,492,536, 14
+Line 534,534, 514,554,
+TextOut Arial,12,512,556, 15
+Line 554,554, 534,574,
+TextOut Arial,12,532,576, 16
+Line 574,574, 554,594,
+TextOut Arial,12,552,596, 17
+Line 594,594, 574,614,
+TextOut Arial,12,572,616, 18
+Line 634,634, 614,654,
+TextOut Arial,12,612,656, 19
+Line 154,234, 174,254,
+TextOut Arial,12,172,256, 5
+Line 134,254, 154,274,
+TextOut Arial,12,152,276, 6
+Line 54,334, 74,354,
+TextOut Arial,12,47,327, 7
+Line 24,529, 44,529,
+TextOut Arial,12,49,527, 8
+Line 74,394, 54,414,
+TextOut Arial,12,52,416, 8
+Line 114,434, 94,454,
+TextOut Arial,12,92,456, 9
+Line 134,454, 114,474,
+TextOut Arial,12,112,476, 10
+Line 154,474, 134,494,
+TextOut Arial,12,132,496, 11
+Line 234,554, 214,574,
+TextOut Arial,12,212,576, 12
+Line 274,594, 254,614,
+TextOut Arial,12,252,616, 13
+

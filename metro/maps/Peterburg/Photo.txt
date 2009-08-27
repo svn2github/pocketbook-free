@@ -1,0 +1,76 @@
+[Options]
+AddToInfo=1
+Caption=Фотографии
+CityName=Санкт-Петербург
+StringToAdd='  Фотографии станции: '
+
+[Линия 1]
+Девяткино=http://metro.spb.ru/map_static/01.html
+Гражданский пр.=http://metro.spb.ru/map_static/02.html
+Академическая=http://metro.spb.ru/map_static/03.html
+Политехническая=http://metro.spb.ru/map_static/04.html
+пл.Мужества=http://metro.spb.ru/map_static/05.html
+Лесная=http://metro.spb.ru/map_static/06.html
+Выборгская=http://metro.spb.ru/map_static/07.html
+пл.Ленина=http://metro.spb.ru/map_static/08.html
+Чернышевская=http://metro.spb.ru/map_static/09.html
+пл.Восстания=http://metro.spb.ru/map_static/10.html
+Владимирская=http://metro.spb.ru/map_static/11.html
+Пушкинская=http://metro.spb.ru/map_static/12.html
+Технологический институт-I=http://metro.spb.ru/map_static/13.html
+Балтийская=http://metro.spb.ru/map_static/14.html
+Нарвская=http://metro.spb.ru/map_static/15.html
+Кировский завод=http://metro.spb.ru/map_static/16.html
+Автово=http://metro.spb.ru/map_static/17.html
+Ленинский пр.=http://metro.spb.ru/map_static/18.html
+пр.Ветеранов=http://metro.spb.ru/map_static/19.html
+
+[Линия 2]
+Парнас=http://metroworld.ruz.net/news/parnas.jpg
+пр.Просвещения=http://metro.spb.ru/map_static/20.html
+Озерки=http://metro.spb.ru/map_static/21.html
+Удельная=http://metro.spb.ru/map_static/22.html
+Пионерская=http://metro.spb.ru/map_static/23.html
+Чёрная речка=http://metro.spb.ru/map_static/24.html
+Петроградская=http://metro.spb.ru/map_static/25.html
+Горьковская=http://metro.spb.ru/map_static/26.html
+Невский пр.=http://metro.spb.ru/map_static/27.html
+Сенная площадь=http://metro.spb.ru/map_static/28.html
+Технологический институт-II=http://metro.spb.ru/map_static/29.html
+Фрунзенская=http://metro.spb.ru/map_static/30.html
+Московские ворота=http://metro.spb.ru/map_static/31.html
+Электросила=http://metro.spb.ru/map_static/32.html
+Парк Победы=http://metro.spb.ru/map_static/33.html
+Московская=http://metro.spb.ru/map_static/34.html
+Звёздная=http://metro.spb.ru/map_static/35.html
+Купчино=http://metro.spb.ru/map_static/36.html
+
+[Линия 3]
+Приморская=http://metro.spb.ru/map_static/37.html
+Василеостровская=http://metro.spb.ru/map_static/38.html
+Гостиный двор=http://metro.spb.ru/map_static/39.html
+Маяковская=http://metro.spb.ru/map_static/40.html
+пл.Ал.Невского-I=http://metro.spb.ru/map_static/41.html
+Елизаровская=http://metro.spb.ru/map_static/42.html
+Ломоносовская=http://metro.spb.ru/map_static/43.html
+Пролетарская=http://metro.spb.ru/map_static/44.html
+Обухово=http://metro.spb.ru/map_static/45.html
+Рыбацкое=http://metro.spb.ru/map_static/46.html
+
+[Линия 4]
+;Спасская=
+Достоевская=http://metro.spb.ru/map_static/52.html
+Лиговский пр.=http://metro.spb.ru/map_static/53.html
+пл.Ал.Невского-II=http://metro.spb.ru/map_static/54.html
+Новочеркасская=http://metro.spb.ru/map_static/55.html
+Ладожская=http://metro.spb.ru/map_static/56.html
+пр.Большевиков=http://metro.spb.ru/map_static/57.html
+ул.Дыбенко=http://metro.spb.ru/map_static/58.htm
+
+[Линия 5]
+Старая деревня=http://metro.spb.ru/map_static/47.html
+Крестовский остров=http://metro.spb.ru/map_static/48.html
+Чкаловская=http://metro.spb.ru/map_static/49.html
+Спортивная=http://metro.spb.ru/map_static/50.html
+Садовая=http://metro.spb.ru/map_static/51.html
+

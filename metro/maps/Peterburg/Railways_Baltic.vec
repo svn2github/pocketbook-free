@@ -1,0 +1,77 @@
+size 815x870
+BrushColor -1
+PenColor 0033CC
+TextOut Arial,20,35,0,Схема движения,1
+TextOut Arial,20,35,20,электропоездов,1
+TextOut Arial,20,35,40,с Балтийского вокзала,1
+Arrow 145,795, 130,815,1
+Arrow 125,825, 105,850,1
+Arrow 130,825, 130,850,1
+TextOut Arial,12,115,815,Котлы
+TextOut Arial,12,70,850,Усть-Луга
+TextOut Arial,12,130,853,Веймарн
+Arrow 465,430, 465,480,1
+Arrow 465,490, 445,510,1
+Arrow 465,490, 485,510,1
+TextOut Arial,12,445,480,Веймарн
+TextOut Arial,12,405,510,Ивангород
+TextOut Arial,12,485,510,Гдов
+Arrow 590,850, 590,870,1
+SpotRect 610,855, 150,12, LoadMap Railways_Novgorod_Pskov.map
+TextOut Arial,12,610,855,Схема до Пскова и Новгорода,2
+PenColor 003300
+TextOut Arial,14,165,343,г. Петродворец
+TextOut Arial,14,165,464,г. Ломоносов
+TextOut Arial,14,165,794,г. Сосновый Бор
+Line 360,25, 390,25
+TextOut Arial,12,393,20,зона 1
+Line 360,85, 390,85
+TextOut Arial,12,393,80,зона 2
+Line 140,205, 160,205, 160,182
+TextOut Arial,12,103,200,зона 3
+Line 140,325, 160,325
+TextOut Arial,12,103,320,зона 4
+Line 140,415, 160,415
+TextOut Arial,12,103,410,зона 5
+Line 140,535, 160,535
+TextOut Arial,12,103,530,зона 6
+Line 140,625, 160,625
+TextOut Arial,12,103,620,зона 7
+Line 135,665, 140,685, 160,685
+TextOut Arial,12,103,660,зона 8
+Line 140,745, 160,745
+TextOut Arial,12,103,740,зона 9
+Line 340,295, 360,295
+TextOut Arial,12,303,290,зона 4
+Line 340,385, 360,385
+TextOut Arial,12,303,380,зона 5
+Line 340,445, 360,445
+TextOut Arial,12,303,440,зона 6
+TextOut Arial,12,460,410,зона 7
+Line 580,175, 600,175
+TextOut Arial,12,543,170,зона 3
+Line 580,235, 600,235
+TextOut Arial,12,543,230,зона 4
+Line 580,265, 600,265
+TextOut Arial,12,543,260,зона 5
+Line 580,355, 600,355
+TextOut Arial,12,543,350,зона 6
+Line 580,415, 600,415
+TextOut Arial,12,543,410,зона 7
+Line 580,505, 600,505
+TextOut Arial,12,543,500,зона 8
+Line 580,535, 600,535
+TextOut Arial,12,543,530,зона 9
+Line 580,595, 600,595
+TextOut Arial,12,543,590,зона 10
+Line 580,625, 600,625
+TextOut Arial,12,543,620,зона 11
+Line 580,685, 600,685
+TextOut Arial,12,543,680,зона 12
+Line 580,745, 600,745
+TextOut Arial,12,543,740,зона 13
+Line 580,775, 600,775
+TextOut Arial,12,543,770,зона 14
+Line 580,835, 600,835
+TextOut Arial,12,543,830,зона 15
+

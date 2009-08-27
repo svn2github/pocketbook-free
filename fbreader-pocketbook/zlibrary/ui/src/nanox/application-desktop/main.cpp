@@ -34,6 +34,8 @@
 
 #include "main.h"
 
+#define USE4BPP 0
+
 extern char *encoding_override;
 extern int break_override;
 extern int hyph_override;
@@ -135,6 +137,7 @@ static int orient;
 int imgposx, imgposy, imgwidth, imgheight, scanline;
 int lock_drawing=0;
 int no_save_state=0;
+void *ballast=NULL;
 
 static ibitmap *m3x3;
 static ibitmap *bmk_flag;
@@ -234,7 +237,7 @@ static void repaint(int update_mode) {
 
 	restore_current_position();
 //	mainApplication->refreshWindow();
-	Stretch(screenbuf, IMAGE_GRAY2, imgwidth, imgheight, scanline,
+	Stretch(screenbuf, USE4BPP ? IMAGE_GRAY4 : IMAGE_GRAY2, imgwidth, imgheight, scanline,
 		imgposx, imgposy, imgwidth, imgheight, 0);
 
 	icon = NULL;
@@ -454,9 +457,8 @@ static void apply_config(int recalc, int canrestart) {
 		OpenBook(OriginalName, NULL, 0);
 	}
 
-	orient = ReadInt(cfg, "orientation", 0);
+	orient = GetOrientation();
 	int border = ReadInt(cfg, "border", 1);
-	SetOrientation(orient);
 	ZLNXViewWidget *widget = (ZLNXViewWidget *) mainApplication->myViewWidget;
 
 	if (orient == 0 || orient == 3) {
@@ -490,10 +492,17 @@ static void apply_config(int recalc, int canrestart) {
 		imgwidth -= 72;
 		imgheight -= 62;
 	}
-	imgwidth = (imgwidth+3) & ~3;
-	imgheight = (imgheight+3) & ~3;
 
-	scanline = imgwidth/4;
+
+	if (USE4BPP) {
+		imgwidth = (imgwidth+3) & ~3;
+		imgheight = (imgheight+3) & ~3;
+		scanline = imgwidth/2;
+	} else {
+		imgwidth = (imgwidth+3) & ~3;
+		imgheight = (imgheight+3) & ~3;
+		scanline = imgwidth/4;
+	}
 	widget->setSize(imgwidth, imgheight);
 
 	bookview->clearCaches();
@@ -509,10 +518,22 @@ static void apply_config(int recalc, int canrestart) {
 static void rotate_handler(int n) {
 
 	restore_current_position();
-	int cn = ReadInt(cfg, "orientation", 0);
-	WriteInt(cfg, "orientation", n);
+	int cn = GetOrientation();
+	SetGlobalOrientation(n);
+	orient = GetOrientation();
+	apply_config((cn+orient == 3) ? 0 : 1, 1);
+	repaint(1);
+
+}
+
+static int ornevt_handler(int n) {
+
+	restore_current_position();
+	int cn = GetOrientation();
+	SetOrientation(n);
 	apply_config((cn+n == 3) ? 0 : 1, 1);
 	repaint(1);
+	return 0;
 
 }
 
@@ -541,8 +562,10 @@ static void save_state() {
 static void calc_timer() {
 
 	int p, w, l;
-        
+
 	if (! calc_in_progress) {
+		free(ballast);
+		ballast = NULL;
 //		mainApplication->refreshWindow();
 		if (GetEventHandler() == main_handler) repaint(0);
 		return;
@@ -612,6 +635,8 @@ static void calc_pages() {
 	current_position_changed = 1;
 	calc_current_page = npages = 1;
 	calc_current_position = pack_position(0, 0, 0);
+
+	ballast = malloc(131072);
 
 	SetHardTimer("CalcPages", calc_timer, 1);
 
@@ -791,7 +816,7 @@ static void open_contents() {
 
 	toc_size = xxx_myTOC.size();
 	if (toc_size == 0) {
-		Message(ICON_INFORMATION, "FBReader", "This book has no contents", 2000);
+		Message(ICON_INFORMATION, "FBReader", "@No_contents", 2000);
 		return;
 	}
 
@@ -1351,9 +1376,11 @@ static int main_handler(int type, int par1, int par2) {
 	}
 
 	if (type == EVT_KEYPRESS || type == EVT_KEYREPEAT || type == EVT_KEYRELEASE) {
-
 		return key_handler(type, par1, par2);
+	}
 
+	if (type == EVT_ORIENTATION) {
+		return ornevt_handler(par1);
 	}
 
 	return 0;
@@ -1417,13 +1444,19 @@ int main(int argc, char **argv) {
 	cleanup_temps();
 	OpenScreen();
 
+	orient = GetOrientation();
+
 	m3x3 = GetResource("fbreader_menu", NULL);
 	if (m3x3 == NULL) m3x3 = NewBitmap(128, 128);
 	bmk_flag = GetResource("bmk_flag", NULL);
 
 	bgnd_p = GetResource("book_background_p", NULL);
 	bgnd_l = GetResource("book_background_l", NULL);
-	GetThemeRect("book.textarea", &textarea, 0, 0, ScreenWidth(), ScreenHeight(), 0);
+	if (orient == 0 || orient == 3) {
+		GetThemeRect("book.textarea", &textarea, 0, 0, ScreenWidth(), ScreenHeight(), 0);
+	} else {
+		GetThemeRect("book.textarea", &textarea, 0, 0, ScreenHeight(), ScreenWidth(), 0);
+	}
 
 	for (i=0; i<9; i++) {
 		sprintf(buf, "qmenu.fbreader.%i.text", i);

@@ -1,0 +1,20 @@
+size 1079x726
+BrushColor -1
+PenColor 0033CC
+SpotRect 35,400, 107,22, LoadMap Railways_Teterev.map
+TextOut Arial,12,35,400, Схема движения,2
+TextOut Arial,12,35,410, Тетеревской электрички,2
+SpotRect 150,500, 103,22, LoadMap Railways_Fastov.map
+TextOut Arial,12,150,500, Схема движения,2
+TextOut Arial,12,150,510, Фастовской электрички,2
+SpotRect 250,530, 108,22, LoadMap Railways_Mironov.map
+TextOut Arial,12,250,530, Схема движения,2
+TextOut Arial,12,250,540, Мироновской электрички,2
+SpotRect 840,560, 114,22, LoadMap Railways_Greben.map
+TextOut Arial,12,840,560, Схема движения,2
+TextOut Arial,12,840,570, Гребёнковской электрички,2
+SpotRect 840,460, 98,22, LoadMap Railways_Nejun.map
+TextOut Arial,12,840,460, Схема движения,2
+TextOut Arial,12,840,470, Нежинской электрички,2
+SpotRect 795,208, 200,11, LoadMap RailWay.map
+TextOut Arial,12,795,208, Схема движения электропоездов по Киеву,2

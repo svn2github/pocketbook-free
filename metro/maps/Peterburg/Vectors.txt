@@ -1,0 +1,78 @@
+[Options]
+AddToInfo=1
+Caption=Схема
+CityName=Санкт-Петербург
+Type=Image
+
+[Линия 1]
+Девяткино=Devyatkino.vec
+Гражданский пр.=GrazhdanskyPr.vec
+Академическая=Akademicheskaya.vec
+Политехническая=Polytech.vec
+пл.Мужества=PlMuzhestva.vec
+Лесная=Lesnaya.vec
+Выборгская=Vyborgskaya.vec
+пл.Ленина=PlLenina.vec
+Чернышевская=Chernyshevskaya.vec
+пл.Восстания=PlVosstania-Mayakovskaya.vec
+Владимирская=Vladimirskaya-Dostoevskaya.vec
+Пушкинская=Pushkinskaya.vec
+Технологический институт-I=TechInstitut.vec
+Балтийская=Baltiyskaya.vec
+Нарвская=Narvskaya.vec
+Кировский завод=KirovskyZavod.vec
+Автово=Avtovo.vec
+Ленинский пр.=LeninskyPr.vec
+пр.Ветеранов=PrVeteranov.vec
+
+[Линия 2]
+Парнас=Parnas.vec
+пр.Просвещения=PrProsvescheniya.vec
+Озерки=Ozerki.vec
+Удельная=Udelnaya.vec
+Пионерская=Pionerskaya.vec
+Чёрная речка=ChernayaRechka.vec
+Петроградская=Petrogradskaya.vec
+Горьковская=Gorkovskaya.vec
+Невский пр.=NevskiPr-GostinyDvor.vec
+Сенная площадь=Sadovaya-SennayaPl.vec
+Технологический институт-II=TechInstitut.vec
+Фрунзенская=Frunzenskaya.vec
+Московские ворота=MoskVorota.vec
+Электросила=Electrosila.vec
+Парк Победы=ParkPobedy.vec
+Московская=Moskovskaya.vec
+Звёздная=Zvezdnaya.vec
+Купчино=Kupchino.vec
+
+[Линия 3]
+Приморская=Primorskaya.vec
+Василеостровская=Vasileostrovskaya.vec
+Гостиный двор=NevskiPr-GostinyDvor.vec
+Маяковская=PlVosstania-Mayakovskaya.vec
+пл.Ал.Невского-I=AleksandraNevskogo.vec
+Елизаровская=Elizarovskaya.vec
+Ломоносовская=Lomonosovskaya.vec
+Пролетарская=Proletarskaya.vec
+Обухово=Obukhovo.vec
+Рыбацкое=Rybatskoe.vec
+
+[Линия 4]
+Спасская=Sadovaya-SennayaPl.vec
+Достоевская=Vladimirskaya-Dostoevskaya.vec
+Лиговский пр.=LigovskiyPr.vec
+пл.Ал.Невского-II=AleksandraNevskogo.vec
+Новочеркасская=Novocherkasskaya.vec
+Ладожская=Ladozhskaya.vec
+пр.Большевиков=PrBolshevikov.vec
+ул.Дыбенко=UlDybenko.vec
+
+[Линия 5]
+Комендантский пр.=KomendantskyPr.vec
+Старая деревня=StarayaDerevnya.vec
+Крестовский остров=KrestovskiyOstrov.vec
+Чкаловская=Chkalovskaya.vec
+Спортивная=Sportivnaya.vec
+Садовая=Sadovaya-SennayaPl.vec
+Звенигородская=Pushkinskaya.vec
+Волковская=Volkovskaya.vec

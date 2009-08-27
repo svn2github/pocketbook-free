@@ -1,0 +1,125 @@
+Size 1200x1280
+Angle -79
+
+BrushColor -1
+PenColor AC24AC
+AngleTextOut 0, Arial, 20, 477, 564, << Планерная
+AngleTextOut 0, Arial, 20, 686, 754, Тушинская >>
+AngleTextOut 0, Arial, 25, 557, 658, Сходненская, 1
+PenColor 00AFAF
+AngleTextOut -3, Arial, 22, 1009, 674, улица
+AngleTextOut -8, Arial, 22, 1073, 678, Сходненская
+AngleTextOut 90, Arial, 22, 462, 1014, бульвар  Яна Райниса
+AngleTextOut 0, Arial, 18, 1021, 851, улица  Фабрициуса >>
+AngleTextOut 0, Arial, 18, -34, 576, << улица  Фомичевой
+AngleTextOut 90, Arial, 18, 403, 1188, "<< Туристская  улица,"
+AngleTextOut 90, Arial, 18, 418, 1188, "      проезд  Донелайтиса,"
+AngleTextOut 90, Arial, 18, 433, 1188, "      Братцево,"
+AngleTextOut 90, Arial, 18, 448, 1188, МКАД
+AngleTextOut 90, Arial, 22, 980, 485, Химкинский  бульвар
+AngleTextOut 90, Arial, 22, 440, 485, Химкинский  бульвар
+AngleTextOut 0, Arial, 25, 551, 141, улица  Свободы
+AngleTextOut 0, Arial, 20, -36, 675, улица  Героев-панфиловцев
+PenColor BB2F0F
+AngleTextOut 0, Arial, 20, 578, 397, 'Кинотеатр "Балтика"'
+AngleTextOut 0, Arial, 20, 603, 824, Универмаг
+PenColor 0000FF
+AngleTextOut 0, Arial, 20, 511, 68, Химкинское водохранилище
+PenColor 000000
+
+BrushColor AC24AC
+Polygon 458,589, 788,589, 786,623, 458,623
+Polygon 458,714, 786,714, 786,748, 458,748
+
+BrushColor 0000FF
+SpotCircle 10, 396, 929, ShowMessage Автобусы\n43\n96\n199\n267\n678\n782
+BrushColor 007F00
+SpotCircle 10, 502, 435, ShowMessage Троллейбус 70\n70к
+SpotCircle 10, 394, 957, ShowMessage Троллейбус 70\n70к
+BrushColor FAAF0F
+SpotCircle 10, 395, 901, ShowMessage Маршрутки\n5с\n23\n67\n70\n96\n176\n227\n243
+SpotCircle 10, 743, 565, ShowMessage Маршрутки\n492\n570\n707м
+SpotCircle 10, 551, 788, ShowMessage Маршрутка 199
+SpotCircle 10, 116, 723, ShowMessage Маршрутки\n6\n167
+BrushColor FF0F00
+SpotCircle 10, 135, 761, ShowMessage Трамвай 6
+BrushColor 0000FF
+SpotCircle 10, 583, 788, ShowMessage Автобусы\n43\n96\n199\nТ\n782
+SpotCircle 10, 713, 565, ShowMessage Автобусы\n472\n678
+
+BrushColor AACCFF
+SpotCircle 8, 858, 608, ShowMessage Банкомат: Банк Москвы
+SpotCircle 8, 340, 608, ShowMessage Банкомат: РОСБАНК
+Polygon 351,599, 329,599, 329,617, 351,617
+Polygon 847,599, 869,599, 869,617, 847,617
+
+BrushColor -1
+PenColor FFFFFF
+AngleTextOut 79, Arial, 20, 572, 792, A, 1
+AngleTextOut 79, Arial, 20, 384, 906, М, 1
+AngleTextOut 79, Arial, 20, 732, 570, М, 1
+AngleTextOut 79, Arial, 20, 540, 793, М, 1
+AngleTextOut 79, Arial, 20, 105, 728, М, 1
+AngleTextOut 79, Arial, 20, 384, 961, Т, 1
+AngleTextOut 79, Arial, 20, 125, 765, Т, 1
+AngleTextOut 79, Arial, 20, 492, 438, Т, 1
+AngleTextOut 79, Arial, 20, 384, 933, A, 1
+AngleTextOut 79, Arial, 20, 701, 569, A, 1
+PenColor 000000
+AngleTextOut 90, Arial, 20, 846, 614, Б, 1
+AngleTextOut 90, Arial, 20, 328, 614, Б, 1
+
+PenColor 0000FF
+Arrow 565,772, 608,773, 2
+Arrow 416,932, 416,978, 2
+Arrow 726,581, 674,581, 2
+PenColor 007F00
+Arrow 482,432, 482,395, 2
+PenColor FF0F00
+Arrow 136,740, 173,740, 2
+Arrow 135,740, 96,740, 2
+PenColor FAAF0F
+Arrow 116,709, 74,710, 2
+
+PenColor 000000
+BrushColor 808080
+Polygon 786,589, 847,589, 847,631, 786,631
+Polygon 786,748, 786,706, 847,706, 847,748
+Polygon 458,748, 458,706, 352,706, 352,748
+Polygon 458,589, 458,631, 351,631, 351,589
+Polygon 361,662, 361,668, 458,668, 458,662
+Polygon 927,620, 948,620, 948,717, 927,717
+Polygon 244,620, 265,620, 265,717, 244,717
+Line 847,589, 929,589, 929,594, 954,594, 954,552, 850,552
+Line 850,531, 923,531, 923,480
+Line 944,481, 944,531, 1042,531
+Line 1042,552, 980,552, 980,802, 1042,802
+Line 1042,823, 877,823
+Line 877,802, 954,802, 954,742, 929,742, 929,748, 847,748
+Line 352,748, 263,748, 263,742, 238,742, 238,860
+Line 217,860, 217,815, 162,815
+Line 162,794, 217,794, 217,563, 165,563
+Line 165,542, 217,542, 217,493
+Line 238,493, 238,594, 264,594, 264,589, 351,589
+Dashed 434,631, 434,662
+Dashed 361,662, 361,631
+Stairs 854,531, 854,552, 919,531
+Stairs 923,487, 944,487, 922,526
+Stairs 1001,531, 1001,552, 1042,531
+Stairs 991,802, 991,823, 1031,802
+Stairs 881,802, 881,823, 947,802
+Stairs 847,631, 847,706, 789,631
+Stairs 377,668, 377,706, 443,668
+Stairs 169,794, 169,815, 209,794
+Stairs 217,819, 238,819, 217,855
+Stairs 169,542, 169,563, 209,542
+Stairs 217,499, 238,499, 217,538
+
+PenColor FF0000
+Arrow 267,605, 241,605
+Arrow 926,605, 955,605
+PenColor 009900
+Arrow 410,685, 457,685
+Arrow 241,728, 268,728
+Arrow 952,728, 924,728
+

@@ -1,0 +1,22 @@
+[Options]
+AddToInfo=1
+Caption=Схема
+CityName=Киев
+Type=Image
+
+[Святошинско-Броварская]
+Святошин=Sviatoshin.vec
+Нивки=Nivki.vec
+Берестейская=Beresteyskaya.vec
+Вокзальная=Vokzalnaya.vec
+Университет=Universitet.vec
+Арсенальная=Arsenalnaya.vec
+
+[Куреневско-Красноармейская]
+Героев Днепра=GeroivDnepra.vec
+Почтовая площадь=PochtovayaPloshad.vec
+
+[Сырецко-Печерская]
+Дружбы народов=DruzhbyNarodov.vec
+
+[]

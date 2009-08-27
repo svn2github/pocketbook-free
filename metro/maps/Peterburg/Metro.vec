@@ -1,0 +1,95 @@
+Size 750x890
+;Image map_shema2_2.gif, 0, 40
+PenColor 151694
+BrushColor 151694
+Polygon 0,0, 800,0, 800,42, 0,42
+PenColor D9F5F7
+BrushColor D9F5F7
+Polygon 640,891, 619,827, 606,772, 598,704, 595,635, 594,582, 600,536, 616,490, 638,447, 655,413, 662,392, 663,369, 660,350, 649,339, 630,327, 597,318, 565,313, 524,314, 477,312, 423,306, 368,299, 317,289, 275,277, 225,260, 187,250, 157,245, 115,244, 86,247, 50,259, 0,274, 0,546, 20,546, 42,542, 69,535, 102,525, 131,513, 151,501, 169,487, 183,469, 195,449, 213,430, 228,410, 247,392, 261,382, 279,379, 304,376, 337,374, 359,374, 376,371, 404,361, 427,348, 453,339, 478,333, 506,333, 534,335, 561,341, 588,349, 608,357, 618,366, 620,387, 619,397, 612,425, 594,461, 580,485, 570,513, 564,544, 560,573, 558,600, 558,640, 558,669, 561,727, 565,776, 573,809, 582,841, 598,891
+PenColor FFFFFF
+BrushColor FFFFFF
+Spline 17,361, 51,342, 85,343, 113,355, 142,366, 164,369, 184,375, 203,382, 217,388, 214,400, 201,406, 192,420, 178,435, 156,455, 128,467, 96,474, 64,467, 42,453, 27,435, 18,422, 10,406, 8,383, 17,361, 10
+Polygon 68,339, 220,388, 163,448, 95,476, 32,446, 4,387, 31,348
+Spline 121,267, 145,264, 172,263, 200,267, 221,272, 229,275, 228,280, 218,284, 194,288, 150,289, 118,289, 100,288, 90,285, 86,281, 96,273, 105,270, 121,267, 10
+Polygon 83,280, 164,260, 232,278, 203,289, 98,291
+Spline 121,327, 116,319, 117,309, 126,304, 144,304, 159,304, 186,304, 210,304, 227,301, 237,295, 244,289, 255,287, 271,291, 288,298, 300,306, 310,318, 309,333, 299,345, 284,352, 266,351, 249,350, 231,350, 213,350, 189,347, 164,344, 147,341, 130,335, 121,327, 10
+Polygon 117,305, 225,301, 253,284, 312,315, 299,349, 205,352, 139,342, 115,324
+BrushColor -1
+
+PenColor FFFFFF
+TextOut Arial, 30, 68, 8, Схема линий Петербургского метрополитена
+PenColor 0033CC
+SpotRect 140, 644, 80, 12, LoadMap Railways_Baltic.map
+TextOut Arial, 9, 140, 644, Балтийский вокзал, 2
+SpotRect 368, 524, 80, 12, LoadMap Railways_Vitebsk.map
+TextOut Arial, 9, 368, 524, Витебский вокзал, 2
+SpotRect 498, 398, 80, 12, LoadMap Railways_Moscow.map
+TextOut Arial, 9, 498, 398, Московский вокзал, 2
+SpotRect 624, 585, 70, 12, LoadMap Railways_Moscow.map
+TextOut Arial, 9, 624, 585, Ладожский вокзал, 2
+SpotRect 486, 288, 80, 12, LoadMap Railways_Finland.map
+TextOut Arial, 9, 486, 288, Финляндский вокзал, 2
+SpotRect 667, 398, 100, 12, LoadMap Railways_Novgorod_Pskov.map
+TextOut Arial, 9, 667, 398, Схема движения до, 2
+TextOut Arial, 9, 667, 406, Новгорода и Пскова, 2
+
+BrushColor DC004B
+SpotRect 439, 49, 22, 22, SelectRoute Линия 1
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 444, 49, 1, 1
+
+
+BrushColor DC004B
+SpotRect 174, 809, 22, 22, SelectRoute Линия 1
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 179, 809, 1, 1
+
+BrushColor 0071B9
+SpotRect 234, 82, 22, 22, SelectRoute Линия 2
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 239, 82, 2, 1
+
+BrushColor 0071B9
+SpotRect 234, 849, 22, 22, SelectRoute Линия 2
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 239, 849, 2, 1
+
+BrushColor 00873A
+SpotRect 45, 417, 22, 22, SelectRoute Линия 3
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 50, 417, 3, 1
+
+BrushColor 00873A
+SpotRect 507, 815, 22, 22, SelectRoute Линия 3
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 512, 815, 3, 1
+
+BrushColor EA7B16
+SpotRect 278, 446, 22, 22, SelectRoute Линия 4
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 283, 446, 4, 1
+
+BrushColor EA7B16
+SpotRect 577, 640, 22, 22, SelectRoute Линия 4
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 582, 640, 4, 1
+
+BrushColor 6C0D75
+SpotRect 174, 187, 22, 22, SelectRoute Линия 5
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 179, 187, 5, 1
+
+BrushColor 6C0D75
+SpotRect 370, 710, 22, 22, SelectRoute Линия 5
+BrushColor -1
+PenColor FFFFFF
+TextOut Arial, 25, 375, 710, 5, 1

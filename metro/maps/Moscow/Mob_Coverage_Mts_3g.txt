@@ -1,0 +1,8 @@
+[Options]
+AddToInfo=0
+CityName=Москва
+MenuName=Моб.связь\Зона покрытия МТС 3G
+MenuImage=Mob_Mts_logo.bmp
+
+[Сокольническая]
+Университет

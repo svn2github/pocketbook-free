@@ -1,0 +1,76 @@
+[Options]
+AddToInfo=1
+Caption=
+CityName=Санкт-Петербург
+StringToAdd='  Описание станции: '
+
+[Линия 1]
+Девяткино=http://kommet.spb.ru/station/st119.html
+Гражданский пр.=http://kommet.spb.ru/station/st118.html
+Академическая=http://kommet.spb.ru/station/st117.html
+Политехническая=http://kommet.spb.ru/station/st116.html
+пл.Мужества=http://kommet.spb.ru/station/st115.html
+Лесная=http://kommet.spb.ru/station/st114.html
+Выборгская=http://kommet.spb.ru/station/st113.html
+пл.Ленина=http://kommet.spb.ru/station/st112.html
+Чернышевская=http://kommet.spb.ru/station/st111.html
+пл.Восстания=http://kommet.spb.ru/station/st110.html
+Владимирская=http://kommet.spb.ru/station/st109.html
+Пушкинская=http://kommet.spb.ru/station/st108.html
+Технологический институт-I=http://kommet.spb.ru/station/st107.html
+Балтийская=http://kommet.spb.ru/station/st106.html
+Нарвская=http://kommet.spb.ru/station/st105.html
+Кировский завод=http://kommet.spb.ru/station/st104.html
+Автово=http://kommet.spb.ru/station/st103.html
+Ленинский пр.=http://kommet.spb.ru/station/st102.html
+пр.Ветеранов=http://kommet.spb.ru/station/st101.html
+
+[Линия 2]
+пр.Просвещения=http://kommet.spb.ru/station/st217.html
+Озерки=http://kommet.spb.ru/station/st216.html
+Удельная=http://kommet.spb.ru/station/st215.html
+Пионерская=http://kommet.spb.ru/station/st214.html
+Чёрная речка=http://kommet.spb.ru/station/st213.html
+Петроградская=http://kommet.spb.ru/station/st212.html
+Горьковская=http://kommet.spb.ru/station/st211.html
+Невский пр.=http://kommet.spb.ru/station/st210.html
+Сенная площадь=http://kommet.spb.ru/station/st209.html
+Технологический институт-II=http://kommet.spb.ru/station/st208.html
+Фрунзенская=http://kommet.spb.ru/station/st207.html
+Московские ворота=http://kommet.spb.ru/station/st206.html
+Электросила=http://kommet.spb.ru/station/st205.html
+Парк Победы=http://kommet.spb.ru/station/st204.html
+Московская=http://kommet.spb.ru/station/st203.html
+Звёздная=http://kommet.spb.ru/station/st202.html
+Купчино=http://kommet.spb.ru/station/st201.html
+
+[Линия 3]
+Приморская=http://kommet.spb.ru/station/st310.html
+Василеостровская=http://kommet.spb.ru/station/st309.html
+Гостиный двор=http://kommet.spb.ru/station/st308.html
+Маяковская=http://kommet.spb.ru/station/st307.html
+пл.Ал.Невского-I=http://kommet.spb.ru/station/st306.html
+Елизаровская=http://kommet.spb.ru/station/st305.html
+Ломоносовская=http://kommet.spb.ru/station/st304.html
+Пролетарская=http://kommet.spb.ru/station/st303.html
+Обухово=http://kommet.spb.ru/station/st302.html
+Рыбацкое=http://kommet.spb.ru/station/st301.html
+
+[Линия 4]
+;Спасская=
+Достоевская=http://kommet.spb.ru/station/st407.html
+Лиговский пр.=http://kommet.spb.ru/station/st406.html
+пл.Ал.Невского-II=http://kommet.spb.ru/station/st405.html
+Новочеркасская=http://kommet.spb.ru/station/st404.html
+Ладожская=http://kommet.spb.ru/station/st403.html
+пр.Большевиков=http://kommet.spb.ru/station/st402.html
+ул.Дыбенко=http://kommet.spb.ru/station/st401.html
+
+[Линия 5]
+Комендантский пр.=http://kommet.spb.ru/station/st414.html
+Старая деревня=http://kommet.spb.ru/station/st413.html
+Крестовский остров=http://kommet.spb.ru/station/st412.html
+Чкаловская=http://kommet.spb.ru/station/st411.html
+Спортивная=http://kommet.spb.ru/station/st410.html
+Садовая=http://kommet.spb.ru/station/st408.html
+

@@ -1,0 +1,211 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Карта окрестностей станции: '
+
+[Сокольническая]
+Юго-Западная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=15
+Проспект Вернадского=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=16
+Университет=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=17
+Воробьевы горы=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=18
+Спортивная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=19
+Фрунзенская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=20
+Парк культуры=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=21
+Кропоткинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=33
+Библиотека имени Ленина=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=22
+Охотный ряд=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=23
+Лубянка=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=24
+Чистые пруды=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=25
+Красные ворота=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=26
+Комсомольская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=12
+Красносельская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=28
+Сокольники=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=29
+Преображенская площадь=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=30
+Черкизовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=31
+Улица Подбельского=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=32
+
+[Замоскворецкая]
+Речной вокзал=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=130
+Водный стадион=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=129
+Войковская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=128
+Сокол=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=127
+Аэропорт=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=126
+Динамо=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=125
+Белорусская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=3
+Маяковская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=123
+Тверская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=122
+Театральная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=121
+Новокузнецкая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=120
+Павелецкая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=119
+Автозаводская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=118
+Коломенская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=117
+Каширская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=116
+Кантемировская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=115
+Царицыно=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=114
+Орехово=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=113
+Домодедовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=112
+Красногвардейская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=111
+
+[Арбатско-Покровская]
+;Митино=
+;Волоколамская=
+;Строгино=
+;Славянский бульвар=
+Крылатское=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=46
+Молодежная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=45
+Кунцевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=44
+Парк Победы=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=187
+Киевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=47
+Смоленская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=48
+Арбатская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=49
+Площадь Революции=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=50
+Курская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=51
+Бауманская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=52
+Электрозаводская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=53
+Семеновская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=54
+Партизанская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=55
+Измайловская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=56
+Первомайская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=57
+Щелковская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=58
+
+[Филевская]
+;Выставочная=
+Александровский сад=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=34
+Арбатская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=187
+Смоленская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=36
+Киевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=47
+Студенческая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=38
+Кутузовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=39
+Фили=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=40
+Багратионовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=41
+Филевский парк=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=42
+Пионерская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=43
+Кунцевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=44
+
+[Кольцевая]
+Белорусская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=3
+Новослободская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=2
+Проспект Мира=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=75
+Комсомольская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=12
+Курская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=51
+Таганская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=10
+Павелецкая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=112
+Добрынинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=8
+Октябрьская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=70
+Парк культуры=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=21
+Киевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=47
+Краснопресненская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=4
+
+[Калужско-Рижская]
+Новоясеневская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=59
+Ясенево=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=60
+Теплый Стан=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=61
+Коньково=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=62
+Беляево=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=63
+Калужская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=64
+Новые Черемушки=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=65
+Профсоюзная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=66
+Академическая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=67
+Ленинский проспект=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=68
+Шаболовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=69
+Октябрьская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=70
+Третьяковская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=71
+Китай-город=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=72
+Тургеневская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=73
+Сухаревская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=74
+Проспект Мира=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=75
+Рижская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=76
+Алексеевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=77
+ВДНХ=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=78
+Ботанический сад=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=79
+Свиблово=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=80
+Бабушкинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=81
+Медведково=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=82
+
+[Таганско-Краснопресненская]
+Выхино=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=131
+Рязанский проспект=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=132
+Кузьминки=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=133
+Текстильщики=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=134
+Волгоградский проспект=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=135
+Пролетарская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=149
+Таганская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=10
+Китай-город=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=72
+Кузнецкий мост=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=138
+Пушкинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=139
+Баррикадная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=140
+Улица 1905 года=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=141
+Беговая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=142
+Полежаевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=143
+Октябрьское поле=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=144
+Щукинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=145
+Тушинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=146
+Сходненская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=147
+Планерная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=148
+
+[Калининская]
+Третьяковская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=71
+Марксистская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=151
+Площадь Ильича=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=152
+Авиамоторная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=153
+Шоссе Энтузиастов=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=154
+Перово=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=155
+Новогиреево=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=156
+
+[Серпуховско-Тимирязевская]
+Бульвар Дмитрия Донского=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=186
+Аннино=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=107
+Улица Академика Янгеля=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=185
+Пражская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=84
+Южная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=85
+Чертановская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=86
+Севастопольская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=87
+Нахимовский проспект=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=88
+Нагорная=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=89
+Нагатинская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=90
+Тульская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=91
+Серпуховская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=92
+Полянка=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=93
+Боровицкая=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=94
+Чеховская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=95
+Цветной бульвар =http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=96
+Менделеевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=97
+Савеловская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=98
+Дмитровская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=99
+Тимирязевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=100
+Петровско-Разумовская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=101
+Владыкино=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=102
+Отрадное=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=103
+Бибирево=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=104
+Алтуфьево=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=105
+
+[Люблинско-Дмитровская]
+;Достоевская=
+;Трубная=
+Чкаловская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=170
+Римская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=169
+Крестьянская застава=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=168
+Дубровка=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=167
+Кожуховская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=166
+Печатники=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=165
+Волжская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=164
+Люблино=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=163
+Братиславская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=157
+Марьино=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=161
+
+[Каховская]
+Каширская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=116
+Варшавская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=110
+Каховская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=109
+
+[Бутовская]
+Улица Старокачаловская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=192
+Улица Скобелевская=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=190
+Бульвар Адмирала Ушакова=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=191
+Улица Горчакова=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=189
+Бунинская аллея=http://moscowmap.ru/cgi-bin/showobj.pl?clas=9&obj=188
+;Улица Старопотаповская=
+;Улица Остафьевская=
+;Новокурьяново=
+

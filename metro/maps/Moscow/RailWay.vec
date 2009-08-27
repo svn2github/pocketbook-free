@@ -1,0 +1,29 @@
+size 770x800
+BrushColor -1
+PenColor 040464
+AngleTextOut 0,Arial,10,37,28, Схема Ленинградского направления, 5
+SpotRect 37,28, 133, 15, LoadMap LeningradskayaZhD.map
+AngleTextOut 0,Arial,10,425,778, Схема Павелецкого направления, 5
+SpotRect 425,778, 129,15, LoadMap PaveleckayaZhd.map
+AngleTextOut 0,Arial,10,616,315, Схема Горьковского направления, 5
+SpotRect 616,315, 133,15, LoadMap GorkovskayaZhD.map
+AngleTextOut 0,Arial,10,621,531, Схема Рязанского направления, 5
+SpotRect 621,531, 129,15, LoadMap RyazanskayaZhD.map
+AngleTextOut 0,Arial,10,186,779, Схема Курского направления, 5
+SpotRect 186,779, 129,15, LoadMap KurskayaZhD.map
+AngleTextOut 0,Arial,10,15,95, Схема Рижского направления, 5
+SpotRect 15,95, 119,15, LoadMap RizhskayaZhD.map
+AngleTextOut 0,Arial,10,580,28, Схема Ярославского направления, 5
+SpotRect 580,28, 119,15, LoadMap YaroslavskayaZhD.map
+AngleTextOut 0,Arial,10,11,707, Схема Киевского направления, 5
+SpotRect 11,707, 119,15, LoadMap KievskayaZhD.map
+AngleTextOut 0,Arial,10,344,5, Схема Савеловского направления, 5
+SpotRect 344,5, 119,15, LoadMap SavelovskayaZhD.map
+AngleTextOut 0,Arial,10,2,300, Схема Белорусского направления, 5
+SpotRect 2,300, 119,15, LoadMap BelorusskayaZhD.map
+
+AngleTextOut 0,Arial,20,12,755, Автор схемы: Ефремов Сергей,1
+AngleTextOut 0,Arial,10,600,757, Примечание:
+AngleTextOut 0,Arial,10,600,772, Время ожидания электричек днем
+AngleTextOut 0,Arial,10,600,782, принимается за 15 минут
+

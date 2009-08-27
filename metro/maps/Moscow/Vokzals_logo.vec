@@ -1,0 +1,42 @@
+Size 18x22
+;Image Vokzals_logo.bmp
+;BrushColor 006000
+;PenColor 006000
+;Polygon 1,19, 1,7, 6,6, 11,6, 16,7, 16,19, 15,23, 2,23
+;PenColor 000000
+;Line 7,5, 5,5, 5,1, 12,1, 12,5, 10,5
+;Line 4,23, 4,25
+;Line 13,23, 13,25
+;PenColor FFFFFF
+;BrushColor FFFFFF
+;Polygon 3,10, 7,10, 7,12, 3,12, 0.5
+;Polygon 10,10, 14,10, 14,12, 10,12, 0.5
+;Line 5,17, 5,17, 2
+;Line 12,17, 12,17, 2
+;;Line 2,15, 2,15
+;;Line 10,15, 10,15
+
+PenColor 006000
+BrushColor 006000
+;Line 2,10, 11,10
+;Line 12,8, 12,6, 9,6, 9,7, 4,7, 4,6, 1,6, 1,9
+Polygon 0,2, 4,0, 14,0, 18,2, 18,12, 16,18, 2,18, 0,12
+
+PenColor A0A0A0
+BrushColor A0A0A0
+Polygon 2,18, 16,18, 13,22, 5,22
+Polygon 2,7, 2,4, 7,4, 7,7
+Polygon 11,7, 11,4, 16,4, 16,7
+
+PenColor FF0000
+Line 2,18, 16,18, 2
+Line 2,14, 16,14, 2
+
+PenColor 000000
+Line 7,18, 11,18, 2
+
+PenColor FFFFFF
+Line 9,2, 9,2, 2
+Line 2,10, 4,10, 2
+Line 14,10, 16,10, 2
+

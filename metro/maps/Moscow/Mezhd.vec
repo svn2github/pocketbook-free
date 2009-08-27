@@ -1,0 +1,94 @@
+Size 773x503
+Angle 5
+
+BrushColor -1
+PenColor 040464
+SpotRect 279, 331, 198, 15, LoadVec Testovskaya.vec
+TextOut Arial, 12, 279, 331, Схема ж/д платформы "Тестовская", 5
+SpotRect 280, 358, 120, 15, LoadVec Test.vec
+TextOut Arial, 12, 280, 358, Схема перехода к ж/д платформе, 5
+PenColor 000000
+
+BrushColor -1
+PenColor 2C7CAC
+AngleTextOut 0, Arial, 20, 306, 282, тупик
+AngleTextOut 0, Arial, 20, 303, 73, тупик
+AngleTextOut 0, Arial, 20, 608, 38, Выставочная >>
+AngleTextOut 0, Arial, 20, 608, 304, Выставочная >>
+AngleTextOut 0, Arial, 25, 464, 174, Международная, 1
+PenColor 00AFAF
+AngleTextOut -90, Arial, 15, 18, 289, 3 транспортное кольцо
+AngleTextOut -90, Arial, 15, 266, 252, '<-- к ж/д ст."Тестовская"'
+PenColor 000000
+
+BrushColor 2C7CAC
+;PenColor 2C7CAC
+Polygon 362,61, 362,96, 750,96, 750,61
+Polygon 360,306, 360,271, 750,271, 750,306
+
+PenColor FFFFFF
+Line 541,69, 476,69
+Spline 476,69, 468,74, 468,82, 476,87
+Arrow 476,87, 541,87
+
+Line 541,279, 476,279
+Spline 476,279, 468,284, 468,292, 476,297
+Arrow 476,297, 541,297
+
+PenColor 000000
+
+Line 739,271, 739,96
+Line 371,121, 371,96
+Line 371,245, 371,271
+Line 371,141, 330,141, 330,226, 371,226
+Line 330,170, 295,170
+Line 330,196, 295,196
+
+Line 215,170, 180,170
+Line 215,196, 180,196
+Line 180,226, 180,141
+Dashed 215,170, 295,170
+Dashed 215,196, 295,196
+Dashed 180,141, 330,141
+Dashed 180,226, 330,226
+
+Line 222,346, 196,346, 196,236, 222,236, 222,117, 30,117, 30,453, 222,453
+Line 40,117, 65,92, 128,92, 153,117
+Line 180,226, 110,226
+Line 50,226, 30,226
+
+Line 50,216, 50,236
+Line 60,216, 60,236
+Line 70,216, 70,236
+Line 80,216, 80,236
+Line 90,216, 90,236
+Line 100,216, 100,236
+Line 110,216, 110,236
+
+BrushColor FFFFFF
+Ellipse 90,261, 170,341
+Spline 96,321, 130,305, 163,321
+BrushColor -1
+AngleTextOut 0, Arial, 15, 111, 311, кассы
+AngleTextOut 0, Arial, 15, 71, 97, Милиция
+
+Spline 330,226, 305,216, 295,196, 295,170, 305,151, 330,141
+Spline 180,226, 205,216, 215,196, 215,170, 205,151, 180,141
+
+BrushColor 808080
+Polygon 739,121, 630,121, 630,141, 710,141, 710,231, 630,231, 630,251, 739,251
+Polygon 371,121, 371,141, 430,141, 430,121
+Polygon 371,245, 371,226, 430,226, 430,245
+Polygon 201,380, 216,380, 216,411, 201,411
+
+PenColor FF0000
+Arrow 191,431, 223,431
+Arrow 360,155, 337,155
+Arrow 190,155, 169,155
+Arrow 65,210, 65,241
+PenColor 009900
+Arrow 223,363, 191,363
+Arrow 337,211, 360,211
+Arrow 169,210, 190,210
+Arrow 95,241, 95,210
+

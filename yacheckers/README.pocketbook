@@ -1,0 +1,9 @@
+this program is ported to pocketbook301 (see pocketbook-free.sf.net for details)
+
+This is tested only in emulation mode due to lack of pocketbook.
+There is no warranty.
+
+for build PB version just type:
+
+make -f Makefile.pb
+

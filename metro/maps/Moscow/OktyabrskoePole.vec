@@ -1,0 +1,97 @@
+Size 940x840
+Angle -40
+
+BrushColor -1
+PenColor 804000
+Line 376,810, 376,535, -24,535, 2
+Line 587,50, 587,305, 959,305, 2
+Line 377,51, 376,305, -24,305, 2
+Line 959,535, 587,535, 587,810, 2
+Line 509,810, 509,629, 457,629, 457,810, 2
+
+BrushColor -1
+PenColor AC24AC
+AngleTextOut 0, Arial, 20, 318, 312, << Щукинская
+AngleTextOut 0, Arial, 20, 516, 502, Полежаевская >>
+AngleTextOut 0, Arial, 25, 392, 405, Октябрьское поле, 1
+PenColor 00AFAF
+AngleTextOut 0, Arial, 15, 853, 407, улица Маршала Бирюзова
+AngleTextOut 0, Arial, 15, -39, 407, улица Маршала Бирюзова
+AngleTextOut 90, Arial, 15, 474, 268, улица Народного Ополчения
+AngleTextOut 90, Arial, 15, 474, 819, улица Народного Ополчения
+AngleTextOut 90, Arial, 15, 295, 219, к/т Юность >>
+; магазину "Спортмастер"
+PenColor 000000
+
+BrushColor AC24AC
+Polygon 313,338, 651,338, 651,372, 313,372
+Polygon 313,463, 651,463, 651,497, 313,497
+
+BrushColor 0000FF
+SpotCircle 10, 16, 291, ShowMessage Автобусы:\n26\n39
+SpotCircle 10, 34, 548, ShowMessage Автобусы:\n26\n100\n253
+SpotCircle 10, 251, 548, ShowMessage Автобусы:\n39\n105\n243\n800
+SpotCircle 10, 363, 683, ShowMessage Автобусы:\n243\n253\n691\n800
+SpotCircle 10, 602, 171, ShowMessage Автобусы:\n243\n691\n800
+BrushColor 007F00
+SpotCircle 10, 602, 148, ShowMessage Троллейбусы:\n19\n59\n61
+SpotCircle 10, 363, 705, ShowMessage Троллейбусы:\n19\n59\n61
+BrushColor FAAF0F
+SpotCircle 10, 363, 661, ShowMessage Маршрутки:\n672м
+SpotCircle 10, 58, 548, ShowMessage Маршрутки:\n253м
+
+BrushColor -1
+PenColor FFFFFF
+AngleTextOut 40, Arial, 16, 6, 288, A, 1
+AngleTextOut 40, Arial, 16, 24, 544, A, 1
+AngleTextOut 40, Arial, 16, 241, 544, A, 1
+AngleTextOut 40, Arial, 16, 353, 679, A, 1
+AngleTextOut 40, Arial, 16, 592, 167, A, 1
+AngleTextOut 40, Arial, 16, 593, 144, Т, 1
+AngleTextOut 40, Arial, 16, 354, 702, Т, 1
+AngleTextOut 40, Arial, 16, 352, 657, М, 1
+AngleTextOut 40, Arial, 16, 47, 545, М, 1
+
+PenColor 0000FF
+Arrow 383,662, 383,703, 2
+Arrow 580,181, 580,138, 2
+Arrow 32,312, -8,312, 2
+Arrow 27,528, 63,528, 2
+Arrow 234,528, 271,528, 2
+
+PenColor 000000
+BrushColor 808080
+Polygon 651,338, 712,338, 712,380, 651,380
+Polygon 651,497, 712,497, 712,455, 651,455
+Polygon 313,497, 313,455, 252,455, 252,497
+Polygon 774,369, 795,369, 795,466, 774,466
+Polygon 169,369, 190,369, 190,466, 169,466
+Polygon 313,338, 313,380, 252,380, 252,338
+Line 712,338, 776,338, 776,343, 800,343, 800,290, 746,290
+Line 746,269, 881,269
+Line 881,290, 827,290, 827,546, 881,546
+Line 881,568, 746,568
+Line 746,546, 801,546, 801,491, 776,491, 776,497, 712,497
+Line 252,338, 188,338, 188,343, 164,343, 164,290, 218,290
+Line 218,269, 83,269
+Line 83,290, 138,290, 138,546, 83,546
+Line 83,568, 218,568
+Line 218,546, 164,546, 164,491, 189,491, 189,497, 252,497
+Stairs 877,269, 877,290, 833,269
+Stairs 750,269, 750,290, 794,269
+Stairs 750,546, 750,568, 794,546
+Stairs 833,546, 833,568, 877,546
+Stairs 654,380, 654,455, 710,380
+Stairs 255,380, 255,455, 311,380
+Stairs 87,269, 87,290, 132,269
+Stairs 170,269, 170,290, 214,269
+Stairs 87,546, 87,568, 131,546
+Stairs 170,546, 170,568, 214,546
+
+PenColor FF0000
+Arrow 773,354, 801,354
+Arrow 192,354, 164,354
+PenColor 009900
+Arrow 799,477, 771,477
+Arrow 166,477, 194,477
+

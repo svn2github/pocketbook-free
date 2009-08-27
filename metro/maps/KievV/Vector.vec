@@ -1,0 +1,20 @@
+size 920x850
+PenColor 040464
+TextOut Arial,25,20,0,Киевский метрополитен,1
+TextOut Arial,18,25,765,Линии
+PenColor E41c0c
+TextOut Arial,15,75,785,Святошинско-Броварская
+PenColor 34349C
+TextOut Arial,15,75,805,Куреневско-Красноармейская
+PenColor 046434
+TextOut Arial,15,75,825,Сырецко-Печерская
+PenColor 7B3900
+TextOut Arial,15,325,785,Подольско-Воскресенская
+PenColor FCCC04
+TextOut Arial,15,325,805,Левобережная
+
+PenColor 040464
+TextOut Arial,12,500,20, Схема движения электропоездов,6
+BrushColor E41c0c
+BrushColor -1
+SpotRect 500,20, 160,15, LoadMap RailWay.map

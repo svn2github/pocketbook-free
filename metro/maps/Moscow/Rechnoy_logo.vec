@@ -1,0 +1,7 @@
+Size 24x24
+PenColor 0000FF
+Ellipse 1,1, 23,23
+Ellipse 10,6, 14,10, 2
+Line 12,10, 12,18, 2
+Line 10,12, 14,12, 2
+Spline 7,16, 12,18, 17,16, 2

@@ -1,0 +1,82 @@
+[Options]
+AddToInfo=1
+CityName=Санкт-Петербург
+Caption=Ссылки
+StringToAdd='  Сайт VPeterburge.ru": '
+
+[Линия 1]
+Девяткино=http://metro.vpeterburge.ru/stations/1/devyatkino/
+Гражданский пр.=http://metro.vpeterburge.ru/stations/1/grazhd/
+Академическая=http://metro.vpeterburge.ru/stations/1/akadem/
+Политехническая=http://metro.vpeterburge.ru/stations/1/politech/
+пл.Мужества=http://metro.vpeterburge.ru/stations/1/muzh/
+Лесная=http://metro.vpeterburge.ru/stations/1/lesnaya/
+Выборгская=http://metro.vpeterburge.ru/stations/1/vyborg/
+пл.Ленина=http://metro.vpeterburge.ru/stations/1/pl_lenina/
+Чернышевская=http://metro.vpeterburge.ru/stations/1/chernysh/
+пл.Восстания=http://metro.vpeterburge.ru/stations/1/vosst/
+Владимирская=http://metro.vpeterburge.ru/stations/1/vlad/
+Пушкинская=http://metro.vpeterburge.ru/stations/1/pushkin/
+Технологический институт-I=http://metro.vpeterburge.ru/stations/1/techno/
+Балтийская=http://metro.vpeterburge.ru/stations/1/balt/
+Нарвская=http://metro.vpeterburge.ru/stations/1/narvskaya/
+Кировский завод=http://metro.vpeterburge.ru/stations/1/kirza/
+Автово=http://metro.vpeterburge.ru/stations/1/avtovo/
+Ленинский пр.=http://metro.vpeterburge.ru/stations/1/lenin_pr/
+пр.Ветеранов=http://metro.vpeterburge.ru/stations/1/veteranov/
+
+[Линия 2]
+Парнас=http://metro.vpeterburge.ru/stations/2/parnas/
+пр.Просвещения=http://metro.vpeterburge.ru/stations/2/prosvet/
+Озерки=http://metro.vpeterburge.ru/stations/2/ozerki/
+Удельная=http://metro.vpeterburge.ru/stations/2/udel/
+Пионерская=http://metro.vpeterburge.ru/stations/2/pioneer/
+Чёрная речка=http://metro.vpeterburge.ru/stations/2/cherrech/
+Петроградская=http://metro.vpeterburge.ru/stations/2/petr/
+Горьковская=http://metro.vpeterburge.ru/stations/2/gork/
+Невский пр.=http://metro.vpeterburge.ru/stations/2/nevs/
+Сенная площадь=http://metro.vpeterburge.ru/stations/2/sennaya/
+Технологический институт-II=http://metro.vpeterburge.ru/stations/2/techno/
+Фрунзенская=http://metro.vpeterburge.ru/stations/2/frunz/
+Московские ворота=http://metro.vpeterburge.ru/stations/2/mosvorota/
+Электросила=http://metro.vpeterburge.ru/stations/2/elsila/
+Парк Победы=http://metro.vpeterburge.ru/stations/2/park/
+Московская=http://metro.vpeterburge.ru/stations/2/moskov/
+Звёздная=http://metro.vpeterburge.ru/stations/2/zvezd/
+Купчино=http://metro.vpeterburge.ru/stations/2/kupchino/
+
+[Линия 3]
+Приморская=http://metro.vpeterburge.ru/stations/3/primor/
+Василеостровская=http://metro.vpeterburge.ru/stations/3/vasileostr/
+Гостиный двор=http://metro.vpeterburge.ru/stations/3/gost/
+Маяковская=http://metro.vpeterburge.ru/stations/3/mayak/
+пл.Ал.Невского-I=http://metro.vpeterburge.ru/stations/3/plan/
+Елизаровская=http://metro.vpeterburge.ru/stations/3/eliz/
+Ломоносовская=http://metro.vpeterburge.ru/stations/3/lomo/
+Пролетарская=http://metro.vpeterburge.ru/stations/3/prolet/
+Обухово=http://metro.vpeterburge.ru/stations/3/obuh/
+Рыбацкое=http://metro.vpeterburge.ru/stations/3/rybatskoe/
+
+[Линия 4]
+Спасская=http://metro.vpeterburge.ru/stations/4/spas/
+Достоевская=http://metro.vpeterburge.ru/stations/4/dostoev/
+Лиговский пр.=http://metro.vpeterburge.ru/stations/4/ligovskiy/
+пл.Ал.Невского-II=http://metro.vpeterburge.ru/stations/4/plan/
+Новочеркасская=http://metro.vpeterburge.ru/stations/4/novoch/
+Ладожская=http://metro.vpeterburge.ru/stations/4/ladozh/
+пр.Большевиков=http://metro.vpeterburge.ru/stations/4/bolsh/
+ул.Дыбенко=http://metro.vpeterburge.ru/stations/4/dybenko/
+
+[Линия 5]
+Комендантский пр.=http://metro.vpeterburge.ru/stations/5/komenda/
+Старая деревня=http://metro.vpeterburge.ru/stations/5/staraya/
+Крестовский остров=http://metro.vpeterburge.ru/stations/5/krest/
+Чкаловская=http://metro.vpeterburge.ru/stations/5/chkal/
+Спортивная=http://metro.vpeterburge.ru/stations/5/sport/
+Адмиралтейская=http://metro.vpeterburge.ru/stations/5/adm/
+Садовая=http://metro.vpeterburge.ru/stations/5/sadovaya/
+Звенигородская=http://metro.vpeterburge.ru/stations/5/zvenig/
+Обводный канал=http://metro.vpeterburge.ru/stations/5/obvodn/
+Волковская=http://metro.vpeterburge.ru/stations/5/volkov/
+Бухарестская=http://metro.vpeterburge.ru/stations/5/buhar/
+Международная=http://metro.vpeterburge.ru/stations/5/mezhdunar/

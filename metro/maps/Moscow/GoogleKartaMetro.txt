@@ -1,0 +1,216 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Ссылка на карту kartametro.info: '
+
+[Сокольническая]
+Юго-Западная=http://kartametro.info/?v=1&ll=55.663653,37.4831&z=17&t=h
+Проспект Вернадского=http://kartametro.info/?v=1&ll=55.677168,37.50561&z=17&t=h
+Университет=http://kartametro.info/?v=1&ll=55.692556,37.53281&z=17&t=h
+Воробьевы горы=http://kartametro.info/?v=1&ll=55.710419,37.55914&z=17&t=h
+Спортивная=http://kartametro.info/?v=1&ll=55.723286,37.56377&z=17&t=h
+Фрунзенская=http://kartametro.info/?v=1&ll=55.726946,37.57868&z=17&t=h
+Парк культуры=http://kartametro.info/?v=1&ll=55.735561,37.59432&z=17&t=h
+Кропоткинская=http://kartametro.info/?v=1&ll=55.745305,37.60385&z=17&t=h
+Библиотека имени Ленина=http://kartametro.info/?v=1&ll=55.751313,37.60995&z=17&t=h
+Охотный ряд=http://kartametro.info/?v=1&ll=55.757736,37.616469&z=17&t=h
+Лубянка=http://kartametro.info/?v=1&ll=55.759779,37.62741&z=17&t=h
+Чистые пруды=http://kartametro.info/?v=1&ll=55.766022,37.639&z=17&t=h
+Красные ворота=http://kartametro.info/?v=1&ll=55.769034,37.64848&z=17&t=h
+Комсомольская=http://kartametro.info/?v=1&ll=55.77526,37.6568&z=17&t=h
+Красносельская=http://kartametro.info/?v=1&ll=55.780137,37.66755&z=17&t=h
+Сокольники=http://kartametro.info/?v=1&ll=55.788776,37.68022&z=17&t=h
+Преображенская площадь=http://kartametro.info/?v=1&ll=55.796344,37.71526&z=17&t=h
+Черкизовская=http://kartametro.info/?v=1&ll=55.80402,37.74481&z=17&t=h
+Улица Подбельского=http://kartametro.info/?v=1&ll=55.814413,37.734153&z=17&t=h
+
+[Замоскворецкая]
+Речной вокзал=http://kartametro.info/?v=1&ll=55.855005,37.47596&z=17&t=h
+Водный стадион=http://kartametro.info/?v=1&ll=55.839834,37.48664&z=17&t=h
+Войковская=http://kartametro.info/?v=1&ll=55.818962,37.4976&z=17&t=h
+Сокол=http://kartametro.info/?v=1&ll=55.805094,37.51493&z=17&t=h
+Аэропорт=http://kartametro.info/?v=1&ll=55.800168,37.53268&z=17&t=h
+Динамо=http://kartametro.info/?v=1&ll=55.789744,37.55801&z=17&t=h
+Белорусская=http://kartametro.info/?v=1&ll=55.776583,37.58367&z=17&t=h
+Маяковская=http://kartametro.info/?v=1&ll=55.770125,37.5954&z=17&t=h
+Тверская=http://kartametro.info/?v=1&ll=55.764768,37.60657&z=17&t=h
+Театральная=http://kartametro.info/?v=1&ll=55.757468,37.61929&z=17&t=h
+Новокузнецкая=http://kartametro.info/?v=1&ll=55.741379,37.62919&z=17&t=h
+Павелецкая=http://kartametro.info/?v=1&ll=55.730751,37.63762&z=17&t=h
+Автозаводская=http://kartametro.info/?v=1&ll=55.707274,37.65759&z=17&t=h
+Коломенская=http://kartametro.info/?v=1&ll=55.678431,37.66376&z=17&t=h
+Каширская=http://kartametro.info/?v=1&ll=55.655039,37.64864&z=17&t=h
+Кантемировская=http://kartametro.info/?v=1&ll=55.63579,37.65641&z=17&t=h
+Царицыно=http://kartametro.info/?v=1&ll=55.621511,37.66914&z=17&t=h
+Орехово=http://kartametro.info/?v=1&ll=55.613174,37.69476&z=17&t=h
+Домодедовская=http://kartametro.info/?v=1&ll=55.610844,37.71866&z=17&t=h
+Красногвардейская=http://kartametro.info/?v=1&ll=55.613822,37.7443&z=17&t=h
+
+[Арбатско-Покровская]
+Крылатское=http://kartametro.info/?v=1&ll=55.756611,37.40791&z=17&t=h
+Молодежная=http://kartametro.info/?v=1&ll=55.740836,37.41662&z=17&t=h
+Кунцевская=http://kartametro.info/?v=1&ll=55.73075,37.44579&z=17&t=h
+Славянский бульвар=<нет данных>
+Парк Победы=http://kartametro.info/?v=1&ll=55.736079,37.51748&z=17&t=h
+Киевская=http://kartametro.info/?v=1&ll=55.743976,37.56504&z=17&t=h
+Смоленская=http://kartametro.info/?v=1&ll=55.747263,37.58155&z=17&t=h
+Арбатская=http://kartametro.info/?v=1&ll=55.752287,37.60691&z=17&t=h
+Площадь Революции=http://kartametro.info/?v=1&ll=55.756652,37.62174&z=17&t=h
+Курская=http://kartametro.info/?v=1&ll=55.757805,37.65786&z=17&t=h
+Бауманская=http://kartametro.info/?v=1&ll=55.772885,37.68047&z=17&t=h
+Электрозаводская=http://kartametro.info/?v=1&ll=55.781654,37.70353&z=17&t=h
+Семеновская=http://kartametro.info/?v=1&ll=55.783253,37.72108&z=17&t=h
+Партизанская=http://kartametro.info/?v=1&ll=55.788438,37.7503&z=17&t=h
+Измайловская=http://kartametro.info/?v=1&ll=55.787745,37.78155&z=17&t=h
+Первомайская=http://kartametro.info/?v=1&ll=55.794722,37.79926&z=17&t=h
+Щелковская=http://kartametro.info/?v=1&ll=55.809366,37.7985&z=17&t=h
+
+[Филевская]
+Международная=http://kartametro.info/?v=1&ll=55.748834,37.53338&z=17&t=h
+Выставочная=http://kartametro.info/?v=1&ll=55.75024,37.5407&z=17&t=h
+Александровский сад=http://kartametro.info/?v=1&ll=55.75256,37.60866&z=17&t=h
+Арбатская=http://kartametro.info/?v=1&ll=55.751795,37.60083&z=17&t=h
+Смоленская=http://kartametro.info/?v=1&ll=55.748724,37.58245&z=17&t=h
+Киевская=http://kartametro.info/?v=1&ll=55.74392,37.56571&z=17&t=h
+Студенческая=http://kartametro.info/?v=1&ll=55.738788,37.54821&z=17&t=h
+Кутузовская=http://kartametro.info/?v=1&ll=55.739995,37.53413&z=17&t=h
+Фили=http://kartametro.info/?v=1&ll=55.7461,37.51466&z=17&t=h
+Багратионовская=http://kartametro.info/?v=1&ll=55.743769,37.49757&z=17&t=h
+Филевский парк=http://kartametro.info/?v=1&ll=55.739551,37.48312&z=17&t=h
+Пионерская=http://kartametro.info/?v=1&ll=55.736016,37.46689&z=17&t=h
+Кунцевская=http://kartametro.info/?v=1&ll=55.73075,37.44579&z=17&t=h
+
+[Кольцевая]
+Белорусская=http://kartametro.info/?v=1&ll=55.776016,37.58381&z=17&t=h
+Новослободская=http://kartametro.info/?v=1&ll=55.779903,37.60312&z=17&t=h
+Проспект Мира=http://kartametro.info/?v=1&ll=55.779755,37.63236&z=17&t=h
+Комсомольская=http://kartametro.info/?v=1&ll=55.774826,37.65514&z=17&t=h
+Курская=http://kartametro.info/?v=1&ll=55.757185,37.65936&z=17&t=h
+Таганская=http://kartametro.info/?v=1&ll=55.741643,37.65172&z=17&t=h
+Павелецкая=http://kartametro.info/?v=1&ll=55.732171,37.63788&z=17&t=h
+Добрынинская=http://kartametro.info/?v=1&ll=55.729068,37.62444&z=17&t=h
+Октябрьская=http://kartametro.info/?v=1&ll=55.729724,37.60899&z=17&t=h
+Парк культуры=http://kartametro.info/?v=1&ll=55.735677,37.59135&z=17&t=h
+Киевская=http://kartametro.info/?v=1&ll=55.744865,37.56577&z=17&t=h
+Краснопресненская=http://kartametro.info/?v=1&ll=55.760921,37.57754&z=17&t=h
+
+[Калужско-Рижская]
+Новоясеневская=http://kartametro.info/?v=1&ll=55.601067,37.5539&z=17&t=h
+Ясенево=http://kartametro.info/?v=1&ll=55.606263,37.53323&z=17&t=h
+Теплый Стан=http://kartametro.info/?v=1&ll=55.618835,37.50783&z=17&t=h
+Коньково=http://kartametro.info/?v=1&ll=55.633182,37.51886&z=17&t=h
+Беляево=http://kartametro.info/?v=1&ll=55.642805,37.5254&z=17&t=h
+Калужская=http://kartametro.info/?v=1&ll=55.657225,37.54037&z=17&t=h
+Новые Черемушки=http://kartametro.info/?v=1&ll=55.670236,37.55449&z=17&t=h
+Профсоюзная=http://kartametro.info/?v=1&ll=55.677911,37.56277&z=17&t=h
+Академическая=http://kartametro.info/?v=1&ll=55.687773,37.5733&z=17&t=h
+Ленинский проспект=http://kartametro.info/?v=1&ll=55.707602,37.58606&z=17&t=h
+Шаболовская=http://kartametro.info/?v=1&ll=55.720052,37.60782&z=17&t=h
+Октябрьская=http://kartametro.info/?v=1&ll=55.730526,37.61108&z=17&t=h
+Третьяковская=http://kartametro.info/?v=1&ll=55.741015,37.6272&z=17&t=h
+Китай-город=http://kartametro.info/?v=1&ll=55.755582,37.63269&z=17&t=h
+Тургеневская=http://kartametro.info/?v=1&ll=55.766425,37.63718&z=17&t=h
+Сухаревская=http://kartametro.info/?v=1&ll=55.773332,37.63175&z=17&t=h
+Проспект Мира=http://kartametro.info/?v=1&ll=55.780864,37.63217&z=17&t=h
+Рижская=http://kartametro.info/?v=1&ll=55.793653,37.63629&z=17&t=h
+Алексеевская=http://kartametro.info/?v=1&ll=55.808962,37.63888&z=17&t=h
+ВДНХ=http://kartametro.info/?v=1&ll=55.820934,37.64106&z=17&t=h
+Ботанический сад=http://kartametro.info/?v=1&ll=55.845155,37.63851&z=17&t=h
+Свиблово=http://kartametro.info/?v=1&ll=55.855175,37.65265&z=17&t=h
+Бабушкинская=http://kartametro.info/?v=1&ll=55.869527,37.66419&z=17&t=h
+Медведково=http://kartametro.info/?v=1&ll=55.887108,37.66144&z=17&t=h
+
+[Таганско-Краснопресненская]
+Выхино=http://kartametro.info/?v=1&ll=55.715665,37.81792&z=17&t=h
+Рязанский проспект=http://kartametro.info/?v=1&ll=55.716981,37.79317&z=17&t=h
+Кузьминки=http://kartametro.info/?v=1&ll=55.705598,37.76571&z=17&t=h
+Текстильщики=http://kartametro.info/?v=1&ll=55.708743,37.73149&z=17&t=h
+Волгоградский проспект=http://kartametro.info/?v=1&ll=55.725273,37.68677&z=17&t=h
+Пролетарская=http://kartametro.info/?v=1&ll=55.731952,37.66564&z=17&t=h
+Таганская=http://kartametro.info/?v=1&ll=55.740161,37.65206&z=17&t=h
+Китай-город=http://kartametro.info/?v=1&ll=55.755571,37.63258&z=17&t=h
+Кузнецкий мост=http://kartametro.info/?v=1&ll=55.760628,37.625932&z=17&t=h
+Пушкинская=http://kartametro.info/?v=1&ll=55.765648,37.60709&z=17&t=h
+Баррикадная=http://kartametro.info/?v=1&ll=55.761134,37.57981&z=17&t=h
+Улица 1905 года=http://kartametro.info/?v=1&ll=55.765015,37.56108&z=17&t=h
+Беговая=http://kartametro.info/?v=1&ll=55.773635,37.54651&z=17&t=h
+Полежаевская=http://kartametro.info/?v=1&ll=55.777552,37.51921&z=17&t=h
+Октябрьское поле=http://kartametro.info/?v=1&ll=55.793517,37.49324&z=17&t=h
+Щукинская=http://kartametro.info/?v=1&ll=55.808483,37.46416&z=17&t=h
+Тушинская=http://kartametro.info/?v=1&ll=55.826563,37.43658&z=17&t=h
+Сходненская=http://kartametro.info/?v=1&ll=55.850439,37.43983&z=17&t=h
+Планерная=http://kartametro.info/?v=1&ll=55.860635,37.43629&z=17&t=h
+
+[Калининская]
+Третьяковская=http://kartametro.info/?v=1&ll=55.74094,37.62719&z=17&t=h
+Марксистская=http://kartametro.info/?v=1&ll=55.741254,37.65399&z=17&t=h
+Площадь Ильича=http://kartametro.info/?v=1&ll=55.747459,37.68234&z=17&t=h
+Авиамоторная=http://kartametro.info/?v=1&ll=55.752444,37.71932&z=17&t=h
+Шоссе Энтузиастов=http://kartametro.info/?v=1&ll=55.75761,37.74976&z=17&t=h
+Перово=http://kartametro.info/?v=1&ll=55.751159,37.78644&z=17&t=h
+Новогиреево=http://kartametro.info/?v=1&ll=55.75179,37.81659&z=17&t=h
+
+[Серпуховско-Тимирязевская]
+Бульвар Дмитрия Донского=http://kartametro.info/?v=1&ll=55.569213,37.5766&z=17&t=h
+Аннино=http://kartametro.info/?v=1&ll=55.58287,37.59646&z=17&t=h
+Улица Академика Янгеля=http://kartametro.info/?v=1&ll=55.595025,37.60006&z=17&t=h
+Пражская=http://kartametro.info/?v=1&ll=55.612401,37.60422&z=17&t=h
+Южная=http://kartametro.info/?v=1&ll=55.62226,37.60893&z=17&t=h
+Чертановская=http://kartametro.info/?v=1&ll=55.640533,37.60634&z=17&t=h
+Севастопольская=http://kartametro.info/?v=1&ll=55.652468,37.59827&z=17&t=h
+Нахимовский проспект=http://kartametro.info/?v=1&ll=55.662554,37.6053&z=17&t=h
+Нагорная=http://kartametro.info/?v=1&ll=55.672142,37.61014&z=17&t=h
+Нагатинская=http://kartametro.info/?v=1&ll=55.683049,37.62247&z=17&t=h
+Тульская=http://kartametro.info/?v=1&ll=55.708696,37.62282&z=17&t=h
+Серпуховская=http://kartametro.info/?v=1&ll=55.727877,37.62463&z=17&t=h
+Полянка=http://kartametro.info/?v=1&ll=55.73797,37.618&z=17&t=h
+Боровицкая=http://kartametro.info/?v=1&ll=55.751324,37.60675&z=17&t=h
+Чеховская=http://kartametro.info/?v=1&ll=55.7648,37.60858&z=17&t=h
+Цветной бульвар=http://kartametro.info/?v=1&ll=55.770835,37.61877&z=17&t=h
+Менделеевская=http://kartametro.info/?v=1&ll=55.780976,37.60085&z=17&t=h
+Савеловская=http://kartametro.info/?v=1&ll=55.792754,37.58816&z=17&t=h
+Дмитровская=http://kartametro.info/?v=1&ll=55.806947,37.58144&z=17&t=h
+Тимирязевская=http://kartametro.info/?v=1&ll=55.81793,37.57574&z=17&t=h
+Петровско-Разумовская=http://kartametro.info/?v=1&ll=55.835587,37.5747&z=17&t=h
+Владыкино=http://kartametro.info/?v=1&ll=55.847204,37.58989&z=17&t=h
+Отрадное=http://kartametro.info/?v=1&ll=55.863244,37.60462&z=17&t=h
+Бибирево=http://kartametro.info/?v=1&ll=55.883802,37.60328&z=17&t=h
+Алтуфьево=http://kartametro.info/?v=1&ll=55.897923,37.58702&z=17&t=h
+
+[Люблинско-Дмитровская]
+Трубная=http://kartametro.info/?v=1&ll=55.768935,37.61977&z=17&t=h
+Чкаловская=http://kartametro.info/?v=1&ll=55.756499,37.65736&z=17&t=h
+Римская=http://kartametro.info/?v=1&ll=55.746718,37.68289&z=17&t=h
+Крестьянская застава=http://kartametro.info/?v=1&ll=55.732914,37.66687&z=17&t=h
+Дубровка=http://kartametro.info/?v=1&ll=55.719028,37.67576&z=17&t=h
+Кожуховская=http://kartametro.info/?v=1&ll=55.707312,37.68481&z=17&t=h
+Печатники=http://kartametro.info/?v=1&ll=55.693311,37.72709&z=17&t=h
+Волжская=http://kartametro.info/?v=1&ll=55.690949,37.75306&z=17&t=h
+Люблино=http://kartametro.info/?v=1&ll=55.675693,37.76183&z=17&t=h
+Братиславская=http://kartametro.info/?v=1&ll=55.659755,37.75049&z=17&t=h
+Марьино=http://kartametro.info/?v=1&ll=55.650001,37.74296&z=17&t=h
+
+[Каховская]
+Каширская=http://kartametro.info/?v=1&ll=55.655043,37.64847&z=17&t=h
+Варшавская=http://kartametro.info/?v=1&ll=55.653357,37.61923&z=17&t=h
+Каховская=http://kartametro.info/?v=1&ll=55.652981,37.59827&z=17&t=h
+
+[Бутовская]
+Улица Старокачаловская=http://kartametro.info/?v=1&ll=55.568833,37.5762&z=17&t=h
+Улица Скобелевская=http://kartametro.info/?v=1&ll=55.548166,37.55443&z=17&t=h
+Бульвар Адмирала Ушакова=http://kartametro.info/?v=1&ll=55.545605,37.543191&z=17&t=h
+Улица Горчакова=http://kartametro.info/?v=1&ll=55.541897,37.530799&z=17&t=h
+Бунинская аллея=http://kartametro.info/?v=1&ll=55.537106,37.5124&z=17&t=h
+;Улица Старопотаповская=
+;Улица Остафьевская=
+;Новокурьяново=
+
+[Монорельс]
+Тимирязевская=http://kartametro.info/?v=1&ll=55.819117,37.57933&z=17&t=h
+Улица Милашенкова=http://kartametro.info/?v=1&ll=55.821893,37.591267&z=17&t=h
+Телецентр=http://kartametro.info/?v=1&ll=55.821817,37.60897&z=17&t=h
+Улица академика Королева=http://kartametro.info/?v=1&ll=55.821811,37.62692&z=17&t=h
+Выставочный центр=http://kartametro.info/?v=1&ll=55.823984,37.638291&z=17&t=h
+Улица Сергея Эйзенштейна=http://kartametro.info/?v=1&ll=55.829149,37.644825&z=17&t=h
+

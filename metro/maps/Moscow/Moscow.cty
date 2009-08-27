@@ -1,0 +1,27 @@
+[Options]
+Name=Moscow
+CityName=Москва
+Country=Россия
+RusName=Москва
+NeedVersion=1.29.2
+MapAuthors=Схема от 11.08.2009г.
+MapAuthors=
+MapAuthors=Информацию о времени проезда прислали: Константин Штенников, Юрий Узорин, Михаил Степанцов, Andre Galutin, Alex Makeev, Sergey Staroverov, Кошевенко Алексей, Ларчев Иван Сергеевич, Александр Аль-Джибури, Владимир Демянченко.
+MapAuthors=
+MapAuthors=Информация о станциях и пересадочных узлах взята с сайтов: http://www.metro.ru, http://moskva.ruz.net/metro, http://www.aistprint.ru, http://moskva.far.ru, http://www.mymetro.ru, http://www.metrostroy.ru и от Александра Аль-Джибури.
+MapAuthors=
+MapAuthors=Схемы станций - разные интернет-источники, а также несколько схем и множество исправлений прислал Сергей Ефремов. Переводил в вектора - Мурадов Борис.
+MapAuthors=
+MapAuthors=3d-макеты станций - Андрей Ионов.
+MapAuthors=
+MapAuthors=Информация о наземном транспорте - с сайтов http://moskva.ruz.net/metro, http://bus.ruz.net/routes, от Александра Аль-Джибури, Ковалевского Артема и Алексея Строкова.
+MapAuthors=Информация о маршрутках - с http://racetaxi.by.ru, http://marshrutki.msk.ru
+MapAuthors=Информация об электричках - с http://www.tutu.ru.
+MapAuthors=
+MapAuthors=Информация о кинотеатрах - http://www.kinoafisha.ru/.
+MapAuthors=
+MapAuthors=Информация о музеях - http://www.moscow-media.ru/metro/ind_m.htm.
+MapAuthors=
+MapAuthors=В каком вагоне надо ехать - Mr.Fiks(прислал Oleg V.Vinsky), Данила Давыдов, Длугач Алексей.
+DelayNames=День,Час-пик,Ночь
+

@@ -1,0 +1,7 @@
+size 1000x1065
+PenColor 0033CC
+TextOut Arial,20,35,0,Схема движения,1
+TextOut Arial,20,35,20,электропоездов,1
+TextOut Arial,20,35,40,Гребёнковского,1
+TextOut Arial,20,35,60,направления,1
+

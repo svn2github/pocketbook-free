@@ -1,0 +1,239 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Описание станции с Mosmetro.ru: '
+
+[Сокольническая]
+Юго-Западная=http://www.mosmetro.ru/pages/page_6.php?id_page=155
+Проспект Вернадского=http://www.mosmetro.ru/pages/page_6.php?id_page=154
+Университет=http://www.mosmetro.ru/pages/page_6.php?id_page=153
+Воробьевы горы=http://www.mosmetro.ru/pages/page_6.php?id_page=152
+Спортивная=http://www.mosmetro.ru/pages/page_6.php?id_page=151
+Фрунзенская=http://www.mosmetro.ru/pages/page_6.php?id_page=150
+Парк культуры=http://www.mosmetro.ru/pages/page_6.php?id_page=149
+Кропоткинская=http://www.mosmetro.ru/pages/page_6.php?id_page=148
+Библиотека имени Ленина=http://www.mosmetro.ru/pages/page_6.php?id_page=147
+Охотный ряд=http://www.mosmetro.ru/pages/page_6.php?id_page=146
+Лубянка=http://www.mosmetro.ru/pages/page_6.php?id_page=145
+Чистые пруды=http://www.mosmetro.ru/pages/page_6.php?id_page=144
+Красные ворота=http://www.mosmetro.ru/pages/page_6.php?id_page=143
+Комсомольская=http://www.mosmetro.ru/pages/page_6.php?id_page=142
+Красносельская=http://www.mosmetro.ru/pages/page_6.php?id_page=141
+Сокольники=http://www.mosmetro.ru/pages/page_6.php?id_page=140
+Преображенская площадь=http://www.mosmetro.ru/pages/page_6.php?id_page=139
+Черкизовская=http://www.mosmetro.ru/pages/page_6.php?id_page=138
+Улица Подбельского=http://www.mosmetro.ru/pages/page_6.php?id_page=137
+
+[Замоскворецкая]
+Речной вокзал=http://www.mosmetro.ru/pages/page_6.php?id_page=176
+Водный стадион=http://www.mosmetro.ru/pages/page_6.php?id_page=175
+Войковская=http://www.mosmetro.ru/pages/page_6.php?id_page=174
+Сокол=http://www.mosmetro.ru/pages/page_6.php?id_page=173
+Аэропорт=http://www.mosmetro.ru/pages/page_6.php?id_page=172
+Динамо=http://www.mosmetro.ru/pages/page_6.php?id_page=171
+Белорусская=http://www.mosmetro.ru/pages/page_6.php?id_page=170
+Маяковская=http://www.mosmetro.ru/pages/page_6.php?id_page=169
+Тверская=http://www.mosmetro.ru/pages/page_6.php?id_page=168
+Театральная=http://www.mosmetro.ru/pages/page_6.php?id_page=167
+Новокузнецкая=http://www.mosmetro.ru/pages/page_6.php?id_page=166
+Павелецкая=http://www.mosmetro.ru/pages/page_6.php?id_page=165
+Автозаводская=http://www.mosmetro.ru/pages/page_6.php?id_page=164
+;Технопарк=http://www.mosmetro.ru/pages/page_6.php?id_page=
+Коломенская=http://www.mosmetro.ru/pages/page_6.php?id_page=163
+Каширская=http://www.mosmetro.ru/pages/page_6.php?id_page=162
+Кантемировская=http://www.mosmetro.ru/pages/page_6.php?id_page=161
+Царицыно=http://www.mosmetro.ru/pages/page_6.php?id_page=160
+Орехово=http://www.mosmetro.ru/pages/page_6.php?id_page=159
+Домодедовская=http://www.mosmetro.ru/pages/page_6.php?id_page=158
+Красногвардейская=http://www.mosmetro.ru/pages/page_6.php?id_page=157
+;Братеево=http://www.mosmetro.ru/pages/page_6.php?id_page=
+
+[Арбатско-Покровская]
+Митино=http://www.mosmetro.ru/pages/page_6.php?id_page=197
+Волоколамская=http://www.mosmetro.ru/pages/page_6.php?id_page=196
+;Мякининская=http://www.mosmetro.ru/pages/page_6.php?id_page=
+Строгино=http://www.mosmetro.ru/pages/page_6.php?id_page=194
+Крылатское=http://www.mosmetro.ru/pages/page_6.php?id_page=198
+Молодежная=http://www.mosmetro.ru/pages/page_6.php?id_page=199
+Кунцевская=http://www.mosmetro.ru/pages/page_6.php?id_page=193
+Славянский бульвар=http://www.mosmetro.ru/pages/page_6.php?id_page=192
+Парк Победы=http://www.mosmetro.ru/pages/page_6.php?id_page=191
+Киевская=http://www.mosmetro.ru/pages/page_6.php?id_page=190
+Смоленская=http://www.mosmetro.ru/pages/page_6.php?id_page=189
+Арбатская=http://www.mosmetro.ru/pages/page_6.php?id_page=188
+Площадь Революции=http://www.mosmetro.ru/pages/page_6.php?id_page=187
+Курская=http://www.mosmetro.ru/pages/page_6.php?id_page=186
+Бауманская=http://www.mosmetro.ru/pages/page_6.php?id_page=185
+Электрозаводская=http://www.mosmetro.ru/pages/page_6.php?id_page=184
+Семеновская=http://www.mosmetro.ru/pages/page_6.php?id_page=183
+Партизанская=http://www.mosmetro.ru/pages/page_6.php?id_page=182
+Измайловская=http://www.mosmetro.ru/pages/page_6.php?id_page=181
+Первомайская=http://www.mosmetro.ru/pages/page_6.php?id_page=180
+Щелковская=http://www.mosmetro.ru/pages/page_6.php?id_page=179
+
+[Филевская]
+Международная=http://www.mosmetro.ru/pages/page_6.php?id_page=526
+Выставочная=http://www.mosmetro.ru/pages/page_6.php?id_page=480
+Александровский сад=http://www.mosmetro.ru/pages/page_6.php?id_page=210
+Арбатская=http://www.mosmetro.ru/pages/page_6.php?id_page=209
+Смоленская=http://www.mosmetro.ru/pages/page_6.php?id_page=208
+Киевская=http://www.mosmetro.ru/pages/page_6.php?id_page=207
+Студенческая=http://www.mosmetro.ru/pages/page_6.php?id_page=206
+Кутузовская=http://www.mosmetro.ru/pages/page_6.php?id_page=205
+Фили=http://www.mosmetro.ru/pages/page_6.php?id_page=204
+Багратионовская=http://www.mosmetro.ru/pages/page_6.php?id_page=203
+Филевский парк=http://www.mosmetro.ru/pages/page_6.php?id_page=202
+Пионерская=http://www.mosmetro.ru/pages/page_6.php?id_page=201
+Кунцевская=http://www.mosmetro.ru/pages/page_6.php?id_page=200
+
+[Кольцевая]
+Белорусская=http://www.mosmetro.ru/pages/page_6.php?id_page=220
+Новослободская=http://www.mosmetro.ru/pages/page_6.php?id_page=219
+Проспект Мира=http://www.mosmetro.ru/pages/page_6.php?id_page=218
+Комсомольская=http://www.mosmetro.ru/pages/page_6.php?id_page=217
+Курская=http://www.mosmetro.ru/pages/page_6.php?id_page=216
+Таганская=http://www.mosmetro.ru/pages/page_6.php?id_page=215
+Павелецкая=http://www.mosmetro.ru/pages/page_6.php?id_page=214
+Добрынинская=http://www.mosmetro.ru/pages/page_6.php?id_page=213
+Октябрьская=http://www.mosmetro.ru/pages/page_6.php?id_page=212
+Парк культуры=http://www.mosmetro.ru/pages/page_6.php?id_page=211
+Киевская=http://www.mosmetro.ru/pages/page_6.php?id_page=222
+Краснопресненская=http://www.mosmetro.ru/pages/page_6.php?id_page=221
+
+[Калужско-Рижская]
+Новоясеневская=http://www.mosmetro.ru/pages/page_6.php?id_page=246
+Ясенево=http://www.mosmetro.ru/pages/page_6.php?id_page=245
+Теплый Стан=http://www.mosmetro.ru/pages/page_6.php?id_page=244
+Коньково=http://www.mosmetro.ru/pages/page_6.php?id_page=243
+Беляево=http://www.mosmetro.ru/pages/page_6.php?id_page=242
+Калужская=http://www.mosmetro.ru/pages/page_6.php?id_page=241
+Новые Черемушки=http://www.mosmetro.ru/pages/page_6.php?id_page=240
+Профсоюзная=http://www.mosmetro.ru/pages/page_6.php?id_page=239
+Академическая=http://www.mosmetro.ru/pages/page_6.php?id_page=238
+Ленинский проспект=http://www.mosmetro.ru/pages/page_6.php?id_page=237
+Шаболовская=http://www.mosmetro.ru/pages/page_6.php?id_page=236
+Октябрьская=http://www.mosmetro.ru/pages/page_6.php?id_page=235
+Третьяковская=http://www.mosmetro.ru/pages/page_6.php?id_page=234
+Китай-город=http://www.mosmetro.ru/pages/page_6.php?id_page=233
+Тургеневская=http://www.mosmetro.ru/pages/page_6.php?id_page=232
+Сухаревская=http://www.mosmetro.ru/pages/page_6.php?id_page=231
+Проспект Мира=http://www.mosmetro.ru/pages/page_6.php?id_page=230
+Рижская=http://www.mosmetro.ru/pages/page_6.php?id_page=229
+Алексеевская=http://www.mosmetro.ru/pages/page_6.php?id_page=228
+ВДНХ=http://www.mosmetro.ru/pages/page_6.php?id_page=227
+Ботанический сад=http://www.mosmetro.ru/pages/page_6.php?id_page=226
+Свиблово=http://www.mosmetro.ru/pages/page_6.php?id_page=225
+Бабушкинская=http://www.mosmetro.ru/pages/page_6.php?id_page=224
+Медведково=http://www.mosmetro.ru/pages/page_6.php?id_page=223
+
+[Таганско-Краснопресненская]
+;Жулебино=http://www.mosmetro.ru/pages/page_6.php?id_page=
+Выхино=http://www.mosmetro.ru/pages/page_6.php?id_page=265
+Рязанский проспект=http://www.mosmetro.ru/pages/page_6.php?id_page=264
+Кузьминки=http://www.mosmetro.ru/pages/page_6.php?id_page=263
+Текстильщики=http://www.mosmetro.ru/pages/page_6.php?id_page=262
+Волгоградский проспект=http://www.mosmetro.ru/pages/page_6.php?id_page=261
+Пролетарская=http://www.mosmetro.ru/pages/page_6.php?id_page=260
+Таганская=http://www.mosmetro.ru/pages/page_6.php?id_page=259
+Китай-город=http://www.mosmetro.ru/pages/page_6.php?id_page=258
+Кузнецкий мост=http://www.mosmetro.ru/pages/page_6.php?id_page=257
+Пушкинская=http://www.mosmetro.ru/pages/page_6.php?id_page=256
+Баррикадная=http://www.mosmetro.ru/pages/page_6.php?id_page=255
+Улица 1905 года=http://www.mosmetro.ru/pages/page_6.php?id_page=254
+Беговая=http://www.mosmetro.ru/pages/page_6.php?id_page=253
+Полежаевская=http://www.mosmetro.ru/pages/page_6.php?id_page=252
+Октябрьское поле=http://www.mosmetro.ru/pages/page_6.php?id_page=251
+Щукинская=http://www.mosmetro.ru/pages/page_6.php?id_page=250
+Тушинская=http://www.mosmetro.ru/pages/page_6.php?id_page=249
+Сходненская=http://www.mosmetro.ru/pages/page_6.php?id_page=248
+Планерная=http://www.mosmetro.ru/pages/page_6.php?id_page=247
+
+[Калининская]
+Третьяковская=http://www.mosmetro.ru/pages/page_6.php?id_page=274
+Марксистская=http://www.mosmetro.ru/pages/page_6.php?id_page=273
+Площадь Ильича=http://www.mosmetro.ru/pages/page_6.php?id_page=272
+Авиамоторная=http://www.mosmetro.ru/pages/page_6.php?id_page=271
+Шоссе Энтузиастов=http://www.mosmetro.ru/pages/page_6.php?id_page=270
+Перово=http://www.mosmetro.ru/pages/page_6.php?id_page=269
+Новогиреево=http://www.mosmetro.ru/pages/page_6.php?id_page=268
+;Новокосино=http://www.mosmetro.ru/pages/page_6.php?id_page=
+
+[Серпуховско-Тимирязевская]
+Бульвар Дмитрия Донского=http://www.mosmetro.ru/pages/page_6.php?id_page=298
+Аннино=http://www.mosmetro.ru/pages/page_6.php?id_page=297
+Улица Академика Янгеля=http://www.mosmetro.ru/pages/page_6.php?id_page=431
+Пражская=http://www.mosmetro.ru/pages/page_6.php?id_page=296
+Южная=http://www.mosmetro.ru/pages/page_6.php?id_page=295
+Чертановская=http://www.mosmetro.ru/pages/page_6.php?id_page=294
+Севастопольская=http://www.mosmetro.ru/pages/page_6.php?id_page=293
+Нахимовский проспект=http://www.mosmetro.ru/pages/page_6.php?id_page=292
+Нагорная=http://www.mosmetro.ru/pages/page_6.php?id_page=291
+Нагатинская=http://www.mosmetro.ru/pages/page_6.php?id_page=290
+Тульская=http://www.mosmetro.ru/pages/page_6.php?id_page=289
+Серпуховская=http://www.mosmetro.ru/pages/page_6.php?id_page=288
+Полянка=http://www.mosmetro.ru/pages/page_6.php?id_page=287
+Боровицкая=http://www.mosmetro.ru/pages/page_6.php?id_page=286
+Чеховская=http://www.mosmetro.ru/pages/page_6.php?id_page=285
+Цветной бульвар=http://www.mosmetro.ru/pages/page_6.php?id_page=284
+Менделеевская=http://www.mosmetro.ru/pages/page_6.php?id_page=283
+Савеловская=http://www.mosmetro.ru/pages/page_6.php?id_page=282
+Дмитровская=http://www.mosmetro.ru/pages/page_6.php?id_page=281
+Тимирязевская=http://www.mosmetro.ru/pages/page_6.php?id_page=280
+Петровско-Разумовская=http://www.mosmetro.ru/pages/page_6.php?id_page=279
+Владыкино=http://www.mosmetro.ru/pages/page_6.php?id_page=278
+Отрадное=http://www.mosmetro.ru/pages/page_6.php?id_page=277
+Бибирево=http://www.mosmetro.ru/pages/page_6.php?id_page=276
+Алтуфьево=http://www.mosmetro.ru/pages/page_6.php?id_page=275
+
+[Люблинско-Дмитровская]
+Марьина роща=http://www.mosmetro.ru/pages/page_6.php?id_page=305
+Достоевская=http://www.mosmetro.ru/pages/page_6.php?id_page=561
+Трубная=http://www.mosmetro.ru/pages/page_6.php?id_page=306
+Сретенский бульвар=http://www.mosmetro.ru/pages/page_6.php?id_page=307
+Чкаловская=http://www.mosmetro.ru/pages/page_6.php?id_page=308
+Римская=http://www.mosmetro.ru/pages/page_6.php?id_page=309
+Крестьянская застава=http://www.mosmetro.ru/pages/page_6.php?id_page=310
+Дубровка=http://www.mosmetro.ru/pages/page_6.php?id_page=311
+Кожуховская=http://www.mosmetro.ru/pages/page_6.php?id_page=312
+Печатники=http://www.mosmetro.ru/pages/page_6.php?id_page=313
+Волжская=http://www.mosmetro.ru/pages/page_6.php?id_page=314
+Люблино=http://www.mosmetro.ru/pages/page_6.php?id_page=315
+Братиславская=http://www.mosmetro.ru/pages/page_6.php?id_page=316
+Марьино=http://www.mosmetro.ru/pages/page_6.php?id_page=317
+;Борисово=http://www.mosmetro.ru/pages/page_6.php?id_page=318
+;Шипиловская=http://www.mosmetro.ru/pages/page_6.php?id_page=319
+;Зябликово=http://www.mosmetro.ru/pages/page_6.php?id_page=320
+
+[Каховская]
+Каширская=http://www.mosmetro.ru/pages/page_6.php?id_page=321
+Варшавская=http://www.mosmetro.ru/pages/page_6.php?id_page=322
+Каховская=http://www.mosmetro.ru/pages/page_6.php?id_page=323
+
+[Бутовская]
+;Битцевский парк=http://www.mosmetro.ru/pages/page_6.php?id_page=
+Улица Старокачаловская=http://www.mosmetro.ru/pages/page_6.php?id_page=324
+Улица Скобелевская=http://www.mosmetro.ru/pages/page_6.php?id_page=325
+Бульвар Адмирала Ушакова=http://www.mosmetro.ru/pages/page_6.php?id_page=326
+Улица Горчакова=http://www.mosmetro.ru/pages/page_6.php?id_page=327
+Бунинская аллея=http://www.mosmetro.ru/pages/page_6.php?id_page=328
+;Улица Старопотаповская=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Улица Остафьевская=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Новокурьяново=http://www.mosmetro.ru/pages/page_6.php?id_page=
+
+[Солнцевская]
+;Юго-Западная=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Олимпийская деревня=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Терешково=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Солнцево=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Боровское шоссе=http://www.mosmetro.ru/pages/page_6.php?id_page=
+;Новопеределкино=http://www.mosmetro.ru/pages/page_6.php?id_page=
+
+[Монорельс]
+Тимирязевская=http://www.mosmetro.ru/pages/page_6.php?id_page=337
+Улица Милашенкова=http://www.mosmetro.ru/pages/page_6.php?id_page=336
+Телецентр=http://www.mosmetro.ru/pages/page_6.php?id_page=335
+Улица академика Королева=http://www.mosmetro.ru/pages/page_6.php?id_page=334
+Выставочный центр=http://www.mosmetro.ru/pages/page_6.php?id_page=333
+Улица Сергея Эйзенштейна=http://www.mosmetro.ru/pages/page_6.php?id_page=332
+

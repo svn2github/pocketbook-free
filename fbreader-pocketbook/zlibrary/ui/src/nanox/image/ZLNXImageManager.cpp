@@ -68,9 +68,10 @@ extern "C" {
 #include <setjmp.h>
 }
 
-
 #include <png.h>
 #include <gif_lib.h>
+
+#include <inkview.h>
 
 extern int lock_drawing;
 

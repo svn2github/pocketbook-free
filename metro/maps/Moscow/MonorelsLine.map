@@ -1,0 +1,18 @@
+[Options]
+StationDiameter=16
+ImageFileName=MonorelsLine.vec
+Transports=Metro.trp,Trains.trp,Trams.trp,TramsRiver.trp
+CheckedTransports=Metro.trp
+
+[Калужско-Рижская]
+Rects=0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 311,256,36,16
+Coordinates=0,0, 0,0, 0,0, 0,0, 296,263
+
+[Серпуховско-Тимирязевская]
+Rects=0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 6,254,107,16
+Coordinates=0,0, 0,0, 0,0, 0,0, 0,0, 75,240
+
+[Монорельс]
+Coordinates=96,240, 147,240, 196,240, 246,240, 296,240, 346,240
+Rects=90,117,16,105, 142,92,15,137, 190,157,15,71, 238,44,16,185, 287,84,17,142, 337,48,18,182
+

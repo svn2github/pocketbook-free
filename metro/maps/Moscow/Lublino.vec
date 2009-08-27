@@ -1,0 +1,84 @@
+Size 960x860
+Angle -110
+
+BrushColor -1
+PenColor 5C9F2E
+AngleTextOut 180, Arial, 30, 621, 631, Люблино, 1
+AngleTextOut 180, Arial, 20, 720, 700, << Братиславская
+AngleTextOut 180, Arial, 20, 525, 551, Волжская >>
+PenColor 00AFAF
+AngleTextOut 180, Arial, 15, 392, 936, ул.Новороссийская.
+AngleTextOut 180, Arial, 20, 985, 613, ул.Совхозная
+AngleTextOut 90, Arial, 15, 202, 395, Продуктовый рынок
+AngleTextOut 180, Arial, 15, 359, 101, ул.Белореченская
+AngleTextOut 90, Arial, 15, 171, 347, 'ТЦ "Москва" >>'
+AngleTextOut 90, Arial, 15, 148, 347, 'строительный рынок "Люблинское поле" >>'
+AngleTextOut 180, Arial, 20, 231, 629, ул.Совхозная
+AngleTextOut 90, Arial, 20, 276, 903, ул.Краснодарская
+AngleTextOut 90, Arial, 20, 275, 426, ул.Краснодарская
+
+BrushColor 0000FF
+SpotCircle 10, 240, 817, ShowMessage Авт. 30
+SpotCircle 10, 408, 720, ShowMessage Маршрутка 212 (Москва-Тула).\nБесплатный автобус к ИКЕА
+SpotCircle 10, 988, 703, ShowMessage Авт.231\nМаршрутка 713д
+SpotCircle 10, 336, 412, ShowMessage маршрутки до Птичьего рынка
+SpotCircle 10, 136, 497, ShowMessage Авт.54\nк Птичьему рынку
+SpotCircle 10, 188, 699, ShowMessage Маршрутка №К
+
+BrushColor -1
+PenColor FFFFFF
+AngleTextOut 110, Arial, 20, 232, 826, A, 1
+AngleTextOut 110, Arial, 20, 400, 730, A, 1
+AngleTextOut 110, Arial, 20, 979, 712, A, 1
+AngleTextOut 110, Arial, 20, 328, 421, A, 1
+AngleTextOut 110, Arial, 20, 128, 506, A, 1
+AngleTextOut 110, Arial, 20, 180, 708, A, 1
+
+PenColor 000000
+Stairs 222,446, 196,446, 222,474
+Stairs 176,499, 176,474, 196,499
+Stairs 178,714, 178,739, 199,715
+Stairs 201,798, 227,798, 201,739
+Stairs 234,739, 234,714, 249,739
+Stairs 339,739, 339,716, 325,739
+Stairs 346,798, 372,798, 346,739
+Stairs 398,633, 398,596, 468,633
+Stairs 717,633, 717,596, 647,633
+Stairs 950,722, 950,748, 930,722
+
+BrushColor 7CBC54
+Polygon 647,560, 647,583, 468,583, 468,560
+Polygon 468,646, 468,670, 647,670, 647,646
+
+BrushColor 808080
+Polygon 647,560, 717,560, 717,596, 647,596
+Polygon 647,670, 647,633, 717,633, 717,670
+Polygon 468,670, 468,633, 398,633, 398,670
+Polygon 468,560, 468,596, 398,596, 398,560
+Polygon 795,587, 818,587, 818,641, 795,641
+Polygon 297,587, 320,587, 320,641, 297,641
+
+Line 222,446, 222,474, 305,474, 305,499, 291,499, 291,560, 398,560
+Line 196,446, 196,474, 176,474
+Line 176,499, 196,499, 196,528, 258,528
+Line 258,508, 258,714, 178,714
+Line 178,739, 201,739, 201,798
+Line 227,798, 227,739, 346,739, 346,798
+Line 372,798, 372,715, 291,715, 291,670, 398,670
+Line 950,748, 869,748, 869,677, 824,677, 824,670, 717,670
+Line 950,722, 930,722, 930,696, 899,696
+Line 899,712, 899,646, 857,646, 857,560, 717,560
+
+Line 46,372, 78,461
+Arrow 78,461, 119,486
+BrushColor -1
+AngleTextOut 110, Arial, 12, 63, 456, нажмите мышью
+
+PenColor FF0000
+Arrow 333,656, 282,656
+Arrow 783,573, 837,573
+
+PenColor 009900
+Arrow 286,573, 339,573
+Arrow 829,655, 777,655
+

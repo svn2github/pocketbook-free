@@ -1,0 +1,193 @@
+[Options]
+AddToInfo=1
+CityName=Санкт-Петербург
+Caption=Карта окрестностей
+StringToAdd='  Карта окрестностей cтанции: '
+
+[Линия 1]
+Девяткино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357520&mapY=6662540&act=5&mapWidth=800
+Гражданский пр.=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6356160&mapY=6660860&act=5&mapWidth=800
+Академическая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6354800&mapY=6658460&act=5&mapWidth=800
+Политехническая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353360&mapY=6658040&act=5&mapWidth=800
+пл.Мужества=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353120&mapY=6657020&act=5&mapWidth=800
+Лесная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351840&mapY=6655460&act=5&mapWidth=800
+Выборгская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352160&mapY=6654080&act=5&mapWidth=800
+пл.Ленина=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352320&mapY=6652580&act=5&mapWidth=800
+Чернышевская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352560&mapY=6650960&act=5&mapWidth=800
+пл.Восстания=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352560&mapY=6649520&act=5&mapWidth=800
+Владимирская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351840&mapY=6649100&act=5&mapWidth=800
+Пушкинская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350720&mapY=6648320&act=5&mapWidth=800
+Технологический институт-I=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350160&mapY=6647900&act=5&mapWidth=800
+Балтийская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348960&mapY=6646940&act=5&mapWidth=800
+Нарвская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347600&mapY=6646340&act=5&mapWidth=800
+Кировский завод=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6346800&mapY=6643940&act=5&mapWidth=800
+Автово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6346640&mapY=6642560&act=5&mapWidth=800
+Ленинский пр.=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347120&mapY=6640760&act=5&mapWidth=800
+пр.Ветеранов=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6345840&mapY=6639800&act=5&mapWidth=800
+
+[Линия 2]
+Парнас=http://maps.yandex.ru/map.xml?mapID=3&size=1&scale=7&mapX=6351840&mapY=6664640&act=5&mapWidth=800&upoint=aa86aeaf9736
+пр.Просвещения=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351440&mapY=6662900&act=5&mapWidth=800
+Озерки=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350720&mapY=6661340&act=5&mapWidth=800
+Удельная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350320&mapY=6659060&act=5&mapWidth=800
+Пионерская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349280&mapY=6657500&act=5&mapWidth=800
+Чёрная речка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349360&mapY=6655580&act=5&mapWidth=800
+Петроградская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349920&mapY=6653480&act=5&mapWidth=800
+Горьковская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350320&mapY=6652340&act=5&mapWidth=800
+Невский пр.=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350880&mapY=6649880&act=5&mapWidth=800
+Сенная площадь=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350240&mapY=6649040&act=5&mapWidth=800
+Технологический институт-II=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350160&mapY=6647900&act=5&mapWidth=800
+Фрунзенская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350000&mapY=6646820&act=5&mapWidth=800
+Московские ворота=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350000&mapY=6645080&act=5&mapWidth=800
+Электросила=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349920&mapY=6643760&act=5&mapWidth=800
+Парк Победы=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350080&mapY=6642320&act=5&mapWidth=800
+Московская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350080&mapY=6640460&act=5&mapWidth=800
+Звёздная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351520&mapY=6638600&act=5&mapWidth=800
+Купчино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353040&mapY=6638120&act=5&mapWidth=800
+
+[Линия 3]
+Приморская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6345520&mapY=6651620&act=5&mapWidth=800
+Василеостровская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347920&mapY=6650900&act=5&mapWidth=800
+Гостиный двор=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350960&mapY=6649880&act=5&mapWidth=800
+Маяковская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352240&mapY=6649520&act=5&mapWidth=800
+пл.Ал.Невского-I=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353920&mapY=6648680&act=5&mapWidth=800
+Елизаровская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355920&mapY=6645500&act=5&mapWidth=800
+Ломоносовская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6356880&mapY=6643280&act=5&mapWidth=800
+Пролетарская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6358480&mapY=6641900&act=5&mapWidth=800
+Обухово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357680&mapY=6640100&act=5&mapWidth=800
+Рыбацкое=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6360160&mapY=6638060&act=5&mapWidth=800
+
+[Линия 4]
+Спасская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350080&mapY=6649100&act=5&mapWidth=800
+Достоевская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351760&mapY=6649160&act=5&mapWidth=800
+Лиговский пр.=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352160&mapY=6648320&act=5&mapWidth=800
+пл.Ал.Невского-II=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353920&mapY=6648680&act=5&mapWidth=800
+Новочеркасская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355440&mapY=6649100&act=5&mapWidth=800
+Ладожская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357120&mapY=6649520&act=5&mapWidth=800
+пр.Большевиков=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6358480&mapY=6648020&act=5&mapWidth=800
+ул.Дыбенко=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6359360&mapY=6646580&act=5&mapWidth=800
+
+[Линия 5]
+Комендантский пр.=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347120&mapY=6658220&act=5&mapWidth=800
+Старая деревня=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6346800&mapY=6656240&act=5&mapWidth=800
+Крестовский остров=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6346960&mapY=6654080&act=5&mapWidth=800
+Чкаловская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348800&mapY=6652940&act=5&mapWidth=800
+Спортивная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348720&mapY=6651920&act=5&mapWidth=800
+Садовая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350080&mapY=6649100&act=5&mapWidth=800
+
+[Электричка: Калище и Гатчина]
+Балтийский вокзал=
+Электродепо=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348640&mapY=6644900&act=5&mapWidth=800
+Броневая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348480&mapY=6643460&act=5&mapWidth=800
+Ленинский Проспект=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348240&mapY=6641000&act=5&mapWidth=800
+Дачное=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347120&mapY=6639260&act=5&mapWidth=800
+Ульянка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6344160&mapY=6637940&act=5&mapWidth=800
+Лигово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6341920&mapY=6637820&act=5&mapWidth=800
+Сосновая Поляна=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6339920&mapY=6638060&act=5&mapWidth=800
+Володарская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6336800&mapY=6639200&act=5&mapWidth=800
+Стрельна=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6333680&mapY=6640940&act=5&mapWidth=800
+Красные Зори=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6331840&mapY=6641660&act=5&mapWidth=800
+Новый Петергоф=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6327760&mapY=6643040&act=5&mapWidth=800
+Старый Петергоф=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6324160&mapY=6645020&act=5&mapWidth=800
+Университет=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6322640&mapY=6645800&act=5&mapWidth=800
+Мартышкино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6321280&mapY=6647720&act=5&mapWidth=800
+Ораниенбаум-I=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6319440&mapY=6649400&act=5&mapWidth=800
+Ораниенбаум-II=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6318400&mapY=6649820&act=5&mapWidth=800
+Кронштадтская Колония=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6315520&mapY=6650480&act=5&mapWidth=800
+Бронка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6313200&mapY=6650840&act=5&mapWidth=800
+
+Горелово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6338560&mapY=6633020&act=5&mapWidth=800
+Скачки=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6338000&mapY=6630020&act=5&mapWidth=800
+Красное Село=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6337120&mapY=6627800&act=5&mapWidth=800
+Можайская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6337760&mapY=6624380&act=5&mapWidth=800
+
+[Электричка: Луга]
+Балтийский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348960&mapY=6646820&act=5&mapWidth=800
+Электродепо=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348640&mapY=6644900&act=5&mapWidth=800
+Броневая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348480&mapY=6643460&act=5&mapWidth=800
+Ленинский Проспект=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348240&mapY=6641000&act=5&mapWidth=800
+Предпортовая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348240&mapY=6638480&act=5&mapWidth=800
+Аэропорт=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349840&mapY=6636560&act=5&mapWidth=800
+Александровская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350560&mapY=6627260&act=5&mapWidth=800
+Кондакопшино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347360&mapY=6623360&act=5&mapWidth=800
+
+[Электричка: Витебский]
+Витебский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6348960&mapY=6646820&act=5&mapWidth=800
+Боровая=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351200&mapY=6646760&act=5&mapWidth=800
+Воздухоплавательный Парк=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6351600&mapY=6645080&act=5&mapWidth=800
+Проспект Славы=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352560&mapY=6640640&act=5&mapWidth=800
+Купчино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353120&mapY=6638000&act=5&mapWidth=800
+Шушары=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353680&mapY=6635420&act=5&mapWidth=800
+Паровозный Музей=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6354080&mapY=6633500&act=5&mapWidth=800
+21 км=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355280&mapY=6628160&act=5&mapWidth=800
+Детское Село=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355680&mapY=6626180&act=5&mapWidth=800
+Павловск=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355760&mapY=6622880&act=5&mapWidth=800
+
+[Электричка: Московский]
+Московский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352640&mapY=6649220&act=5&mapWidth=800
+Навалочная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6353200&mapY=6646700&act=5&mapWidth=800
+5 км=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6354160&mapY=6645200&act=5&mapWidth=800
+Фарфоровская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355040&mapY=6643520&act=5&mapWidth=800
+Сортировочная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6355840&mapY=6642320&act=5&mapWidth=800
+Обухово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357600&mapY=6640100&act=5&mapWidth=800
+Славянка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6360640&mapY=6635480&act=5&mapWidth=800
+Металлострой=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6362160&mapY=6633260&act=5&mapWidth=800
+Ижорский Завод=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6364400&mapY=6630200&act=5&mapWidth=800
+Колпино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6366240&mapY=6628880&act=5&mapWidth=800
+
+Рыбацкое=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6360160&mapY=6638060&act=5&mapWidth=800
+Ижоры=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6364640&mapY=6634520&act=5&mapWidth=800
+Понтонная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6367120&mapY=6632780&act=5&mapWidth=800
+Сапёрная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6369920&mapY=6631340&act=5&mapWidth=800
+29 км=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6372320&mapY=6630800&act=5&mapWidth=800
+
+Ладожский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357120&mapY=6649520&act=5&mapWidth=800
+Пискарёвка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6356320&mapY=6655700&act=5&mapWidth=800
+Кушелевка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352320&mapY=6656060&act=5&mapWidth=800
+Финляндский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352480&mapY=6652340&act=5&mapWidth=800
+
+[Электричка: Финляндский]
+Финляндский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352480&mapY=6652340&act=5&mapWidth=800
+Кушелевка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6352320&mapY=6656060&act=5&mapWidth=800
+Пискарёвка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6356320&mapY=6655700&act=5&mapWidth=800
+Ручьи=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357280&mapY=6657440&act=5&mapWidth=800
+Мурино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357280&mapY=6660620&act=5&mapWidth=800
+Девяткино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357600&mapY=6662480&act=5&mapWidth=800
+Лаврики=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6358640&mapY=6665360&act=5&mapWidth=800
+
+Ланская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350960&mapY=6656660&act=5&mapWidth=800
+Удельная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6350240&mapY=6659180&act=5&mapWidth=800
+Озерки=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349680&mapY=6661640&act=5&mapWidth=800
+Шувалово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349440&mapY=6662420&act=5&mapWidth=800
+Парголово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6347520&mapY=6666380&act=5&mapWidth=800
+Левашово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6345120&mapY=6669140&act=5&mapWidth=800
+Песочная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6341600&mapY=6670700&act=5&mapWidth=800
+Дибуны=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6340400&mapY=6671240&act=5&mapWidth=800
+Белоостров=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6334640&mapY=6673760&act=5&mapWidth=800
+Солнечное=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6330720&mapY=6675560&act=5&mapWidth=800
+Репино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6326320&mapY=6677540&act=5&mapWidth=800
+Комарово=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6322960&mapY=6679040&act=5&mapWidth=800
+Зеленогорск=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6317200&mapY=6681620&act=5&mapWidth=800
+Ушково=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6312960&mapY=6683720&act=5&mapWidth=800
+
+Молодёжная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6306160&mapY=6681200&act=5&mapWidth=800
+
+Новая Деревня=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6349200&mapY=6656360&act=5&mapWidth=800
+Старая Деревня=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6346720&mapY=6656060&act=5&mapWidth=800
+Яхтенная=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6344880&mapY=6656540&act=5&mapWidth=800
+Лахта=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6341120&mapY=6656960&act=5&mapWidth=800
+Ольгино=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6339840&mapY=6657140&act=5&mapWidth=800
+Лисий Нос=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6333360&mapY=6659480&act=5&mapWidth=800
+Горская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6331600&mapY=6662480&act=5&mapWidth=800
+Александровская=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6331600&mapY=6663560&act=5&mapWidth=800
+Тарховка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6331520&mapY=6664760&act=5&mapWidth=800
+Разлив=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6331280&mapY=6666860&act=5&mapWidth=800
+Сестрорецк=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6330800&mapY=6668420&act=5&mapWidth=800
+Курорт=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6330720&mapY=6670400&act=5&mapWidth=800
+
+Ладожский вокзал=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6357120&mapY=6649520&act=5&mapWidth=800
+
+Ржевка=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6361360&mapY=6654740&act=5&mapWidth=800
+Ковалёво Пост=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6363280&mapY=6654620&act=5&mapWidth=800
+Ковалёво=http://maps.yandex.ru/map.xml?mapID=3&size=5&scale=7&mapX=6364000&mapY=6655280&act=5&mapWidth=800
+

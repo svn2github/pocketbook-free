@@ -1,0 +1,6 @@
+size 950x840
+BrushColor -1
+PenColor 040464
+TextOut Arial,10,37,0, Схема до Санкт-Петербурга, 5
+SpotRect 37,0, 133,15, LoadMap Lening-BologoeZhD.map
+

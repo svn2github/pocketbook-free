@@ -1,0 +1,35 @@
+Size 580x500
+
+BrushColor CC3333
+Polygon 163,295, 163,279, 384,279, 384,295
+Polygon 163,344, 163,361, 384,361, 384,344
+Line 384,295, 384,344
+Line 163,295, 163,344
+
+BrushColor -1
+PenColor CC3333
+AngleTextOut 0, Arial, 15, 167, 264, << Святошин
+AngleTextOut 0, Arial, 15, 298, 363, Берестейская >>
+AngleTextOut 0, Arial, 25, 238, 306, Нивки, 1
+
+PenColor 000000
+Line 393,320, 438,320
+Arrow 438,320, 438,147
+Line 438,187, 512,187
+Arrow 512,187, 512,147
+Line 154,321, 110,321
+Arrow 110,321, 110,190
+Arrow 110,321, 110,453
+
+PenColor 00AFAF
+AngleTextOut 0, Arial, 15, 403, 108, "А 30, 32"
+AngleTextOut 0, Arial, 15, 403, 123, "Тр 5, 26, 36"
+AngleTextOut 0, Arial, 15, 500, 108, А 47
+AngleTextOut 0, Arial, 15, 500, 123, "Тр 5, 26, 36"
+AngleTextOut 90, Arial, 15, 470, 105, ул.Щербакова
+AngleTextOut 0, Arial, 15, 16, 139, пр. Победы
+AngleTextOut 0, Arial, 15, 24, 476, пр. Победы
+AngleTextOut 0, Arial, 15, 105, 149, "А 13, 90"
+AngleTextOut 0, Arial, 15, 104, 163, Тр 7к
+AngleTextOut 0, Arial, 15, 114, 465, А 23
+AngleTextOut 0, Arial, 15, 115, 479, Тр 7

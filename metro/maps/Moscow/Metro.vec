@@ -1,0 +1,109 @@
+Size 1050x1220
+Image D:\Boris\PAS\Metro\mmm.png
+PenColor B4E3EB
+Spline 664,656, 687,639, 713,630, 747,629, 785,628, 820,620, 850,605, 864,589, 866,574, 862,559, 850,542, 827,522, 816,494, 814,458, 823,432, 830,419, 827,400, 817,391, 798,380, 788,368, 789,350, 791,331, 783,308, 771,296, 753,281, 746,267, 738,246, 719,227, 690,215, 665,203, 654,185, 659,170, 679,157, 698,146, 713,133, 730,114, 739,95, 5
+Spline 826,982, 781,983, 748,960, 750,934, 770,926, 781,909, 771,888, 741,882, 708,888, 677,892, 653,892, 631,889, 610,872, 614,842, 647,830, 682,825, 704,809, 715,785, 720,746, 701,710, 679,681, 640,646, 611,630, 581,619, 556,618, 533,620, 508,629, 484,647, 460,670, 439,709, 417,749, 398,779, 371,802, 341,819, 303,821, 274,792, 275,759, 289,741, 322,713, 355,685, 369,663, 377,634, 371,610, 353,597, 307,599, 271,601, 249,595, 233,569, 236,535, 233,518, 215,505, 190,499, 172,484, 158,451, 150,410, 136,383, 109,362, 84,358, 46,357, -1,363, 20
+Spline 708,797, 710,763, 693,739, 667,704, 639,679, 604,659, 564,651, 524,654, 488,669, 448,702, 13
+PenColor 040464
+AngleTextOut 0, Arial, 34, 126, -1, СХЕМА ЛИНИЙ СКОРОСТНОГО ТРАНСПОРТА МОСКВЫ, 1
+AngleTextOut 0, Arial, 8, 847, 988, ЛИНИИ МОСКОВСКОГО МЕТРОПОЛИТЕНА
+
+BrushColor -1
+AngleTextOut 0, Arial, 15, 827, 37, Схема движения электропоездов, 5
+SpotRect 803, 34, 241, 22, LoadMap RailWay.map
+
+AngleTextOut 0, Arial, 15, 827, 62, Схема движения речных трамваев, 5
+SpotRect 801, 59, 250, 22, LoadMap RechnoyTramvay.map
+
+Image LinkTramsOnMainMap.vec
+Image LinkTrolleysOnMainMap.vec
+Image LinkHistoryOnMainMap.vec
+Image LinkZelBusesOnMainMap.vec
+
+Image Vokzals_logo.vec, 803, 34
+Image Rechnoy_logo.vec, 801, 59
+
+PenColor F7782E
+AngleTextOut 0, Arial, 8, 322, 1054, [Битцевский парк]
+PenColor 1C54BC
+AngleTextOut 0, Arial, 8, 289, 574, [Деловой
+AngleTextOut 0, Arial, 8, 335, 574, центр]
+
+BrushColor -1
+PenColor 505050
+
+SpotRect 797, 228, 20, 20, SelectRoute Сокольническая
+TextOut Arial, 20, 802, 228, 1, 1
+
+SpotRect 216, 882, 20, 20, SelectRoute Сокольническая
+TextOut Arial, 20, 221, 882, 1, 1
+
+SpotRect 319, 163, 20, 20, SelectRoute Замоскворецкая
+TextOut Arial, 20, 324, 163, 2, 1
+
+SpotRect 789, 1077, 20, 20, SelectRoute Замоскворецкая
+TextOut Arial, 20, 794, 1077, 2, 1
+
+SpotRect 915, 360, 20, 20, SelectRoute Арбатско-Покровская
+TextOut Arial, 20, 920, 360, 3, 1
+
+SpotRect 93, 250, 20, 20, SelectRoute Арбатско-Покровская
+TextOut Arial, 20, 98, 250, 3, 1
+
+SpotRect 499, 553, 20, 20, SelectRoute Филевская
+TextOut Arial, 20, 504, 553, 4, 1
+
+SpotRect 274, 535, 20, 20, SelectRoute Филевская
+TextOut Arial, 20, 279, 535, 4, 1
+
+SpotRect 119, 521, 20, 20, SelectRoute Филевская
+TextOut Arial, 20, 124, 521, 4, 1
+
+SpotRect 767, 479, 20, 20, SelectRoute Кольцевая
+TextOut Arial, 20, 772, 479, 5, 1
+
+SpotRect 328, 429, 20, 20, SelectRoute Кольцевая
+TextOut Arial, 20, 333, 429, 5, 1
+
+SpotRect 431, 754, 20, 20, SelectRoute Кольцевая
+TextOut Arial, 20, 436, 754, 5, 1
+
+SpotRect 705, 90, 20, 20, SelectRoute Калужско-Рижская
+TextOut Arial, 20, 710, 90, 6, 1
+
+SpotRect 396, 1055, 20, 20, SelectRoute Калужско-Рижская
+TextOut Arial, 20, 401, 1055, 6, 1
+
+SpotRect 1015, 803, 20, 20, SelectRoute Таганско-Краснопресненская
+TextOut Arial, 20, 1020, 803, 7, 1
+
+SpotRect 221, 228, 20, 20, SelectRoute Таганско-Краснопресненская
+TextOut Arial, 20, 226, 228, 7, 1
+
+SpotRect 996, 588, 20, 20, SelectRoute Калининская
+TextOut Arial, 20, 1001, 588, 8, 1
+
+SpotRect 461, 72, 20, 20, SelectRoute Серпуховско-Тимирязевская
+TextOut Arial, 20, 466, 72, 9, 1
+
+SpotRect 530, 1131, 20, 20, SelectRoute Серпуховско-Тимирязевская
+TextOut Arial, 20, 535, 1131, 9, 1
+
+SpotRect 837, 950, 20, 20, SelectRoute Люблинско-Дмитровская
+TextOut Arial, 20, 842, 950, 10, 1
+
+SpotRect 567, 245, 20, 20, SelectRoute Люблинско-Дмитровская
+TextOut Arial, 20, 572, 245, 10, 1
+
+SpotRect 668, 959, 20, 20, SelectRoute Каховская
+TextOut Arial, 20, 673, 959, 11, 1
+
+SpotRect 524, 1168, 20, 20, SelectRoute Бутовская
+TextOut Arial, 20, 529, 1168, Л1, 1
+
+SpotRect 718, 228, 20, 20, SelectRoute Монорельс
+TextOut Arial, 20, 723, 228, М1, 1
+
+SpotRect 476, 245, 20, 20, SelectRoute Монорельс
+TextOut Arial, 20, 481, 245, М1, 1
+

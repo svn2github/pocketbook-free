@@ -1,0 +1,14 @@
+This is checkers games. It supports now two games type:
+Russian checkers and english checkers. Checkers engine
+based on kchekers (qcheckers.sf.net) but removed all Qt stuff.
+
+Supported platforms
+1) fltk gui - Linux,Win32,MacOS(not tested but fltk support it)
+2) pocketbook - see README.pocketbook for detales.
+
+Not all things are yet rewriten: undo, saves and 
+notation will be made in future.
+
+If you find any bug - mail me <Yury> yuryfdr@users.sf.net
+
+

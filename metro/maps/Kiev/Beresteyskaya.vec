@@ -1,0 +1,26 @@
+Size 550x250
+
+BrushColor CC3333
+Polygon 18,55, 18,39, 239,39, 239,55
+Polygon 18,104, 18,121, 239,121, 239,104
+
+Line 239,55, 239,104
+Line 18,55, 18,104
+
+Arrow 246,81, 505,81
+Arrow 323,81, 415,29
+Line 301,81, 301,221
+Arrow 301,221, 345,221
+Arrow 301,221, 259,221
+
+BrushColor -1
+PenColor CC3333
+AngleTextOut 0, Arial, 15, 22, 24, << Нивки
+AngleTextOut 0, Arial, 15, 153, 123, Шулявская >>
+AngleTextOut 0, Arial, 25, 56, 66, Берестейская, 1
+
+PenColor 00AFAF
+AngleTextOut 0, Arial, 15, 391, 10, "Т 14, 15"
+AngleTextOut 0, Arial, 15, 426, 61, "пр. Победы Тр 5, 7"
+AngleTextOut 0, Arial, 15, 250, 228, "Тр 5, 7 пр. Победы"
+

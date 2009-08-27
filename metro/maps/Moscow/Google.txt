@@ -1,0 +1,294 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Ссылка на спутниковую карту Google: '
+
+[Сокольническая]
+;Юго-Западная=
+;Проспект Вернадского=
+Университет=Выход к МГУ: http://maps.google.com/maps?q=55%C2%B041'36.04%22N++37%C2%B032'3.53%22E&t=k&iwloc=A&hl=en\nВыход к рынку и трамваям: http://maps.google.com/maps?q=55%C2%B041'30.53%22N+37%C2%B032'4.47%22E&t=k&iwloc=A&hl=en&z=17
+Воробьевы горы=http://maps.google.com/maps?f=q&hl=en&q=moscow&btnG=Search&t=k&ll=55.710359,37.559413&spn=0.00266,0.010815&t=k&z=17
+;Спортивная=
+Фрунзенская=http://maps.google.com/maps?q=55%C2%B043'38.92%22N+37%C2%B034'49.75%22E&t=k&iwloc=A&hl=en&z=17
+Парк культуры=Выход к Зубовскому бульвару, Крымской площади: http://maps.google.com/maps?q=55%C2%B044'6.72%22N+37%C2%B035'34.75%22E&spn=0.008436,0.025603&t=k&iwloc=A&hl=en\nВыход к Остоженке: http://maps.google.com/maps?q=55%C2%B044'9.88%22N+37%C2%B035'42.06%22E&t=k&iwloc=A&hl=en&z=17
+;Кропоткинская=
+Библиотека имени Ленина=http://maps.google.com/maps?q=55%C2%B045'7.69%22N+37%C2%B036'36.69%22E&t=k&iwloc=A&hl=en&z=17
+Охотный ряд=Выход к гостинице "Националь": http://maps.google.com/maps?q=55%C2%B045'24.73%22N+37%C2%B036'52.45%22E&spn=0.008431,0.025603&t=k&iwloc=A&hl=en\nВыход к Большому театру: http://maps.google.com/maps?q=55%C2%B045'31.52%22N+37%C2%B037'3.57%22E&t=k&iwloc=A&hl=en&z=17
+Лубянка=Выход к ФСБ: http://maps.google.com/maps?q=55%C2%B045'35.77%22N+37%C2%B037'41.76%22E&t=k&iwloc=A&hl=en\nВыход к ул.Мясницкая и магазину "Библиоглобус": http://maps.google.com/maps?q=55%C2%B045'34.24%22N+37%C2%B037'42.12%22E&t=k&iwloc=A&hl=en&z=17
+;Чистые пруды=
+Красные ворота=Выход на Садовое кольцо: http://maps.google.com/maps?q=55%C2%B046'5.73%22N+37%C2%B038'52.07%22E&t=k&iwloc=A&hl=en&z=17
+Комсомольская=Выход к Ленинградскому и Ярославскому вокзалам: http://maps.google.com/maps?q=55%C2%B046'35.18%22N+37%C2%B039'22.03%22E&t=k&iwloc=A&hl=en\nКарта: http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.774678,37.655919&spn=0.005057,0.021501&z=16
+Чистые пруды=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.765855,37.636714&spn=0.010116,0.043001&z=15
+;Красносельская=
+;Сокольники=
+;Преображенская площадь=
+;Черкизовская=
+;Улица Подбельского=
+
+[Замоскворецкая]
+;Речной вокзал=
+;Водный стадион=
+;Войковская=
+Сокол=Северный выход http://maps.google.com/maps?q=55%C2%B048'20.02%22N+37%C2%B030'54.20%22E&spn=0.004210,0.012802&t=k&iwloc=A&hl=en&z=17
+;Аэропорт=
+;Динамо=
+;Белорусская=
+Маяковская=Выход к Триумфальной пл.: http://maps.google.com/maps?q=55%C2%B046'8.90%22N+37%C2%B035'47.24%22E&t=k&iwloc=A&hl=en&z=17
+Тверская=Выход к Большому театру: http://maps.google.com/maps?q=55%C2%B045'31.52%22N+37%C2%B037'3.57%22E&t=k&iwloc=A&hl=en&z=17
+;Театральная=
+;Новокузнецкая=
+;Павелецкая=
+;Автозаводская=
+;Коломенская=
+;Каширская=
+;Кантемировская=
+;Царицыно=
+;Орехово=
+;Домодедовская=
+;Красногвардейская=
+
+[Арбатско-Покровская]
+Митино=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&ll=55.844651,37.364706&spn=0.001232,0.003616&z=18&om=1
+Волоколамская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&ll=55.835137,37.382537&spn=0.001232,0.003616&z=18&om=1
+Строгино=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&ll=55.803758,37.402518&spn=0.002466,0.007231&z=17&om=1
+Крылатское=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&ll=55.756601,37.407986&spn=0.004975,0.02135&z=16&om=1
+Молодежная=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.740756,37.417073&spn=0.002488,0.007231&z=17
+Кунцевская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.730783,37.445987&spn=0.002489,0.007231&z=17
+
+Парк Победы=http://maps.google.com/maps?q=55%C2%B044'9.14%22N+37%C2%B031'2.07%22E&spn=0.008436,0.025603&t=k&iwloc=A&hl=en&z=17
+Кунцевская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.730783,37.445987&spn=0.002489,0.007231&z=17
+Славянский бульвар=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.729835,37.471136&spn=0.002489,0.007231&z=17
+;Киевская=
+;Смоленская=
+;Арбатская=
+;Площадь Революции=
+;Курская=
+;Бауманская=
+;Электрозаводская=
+;Семеновская=
+;Партизанская=
+;Измайловская=
+;Первомайская=
+;Щелковская=
+
+[Филевская]
+Международная=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.748172,37.532998&spn=0.002488,0.007231&z=17
+Выставочная=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.749639,37.542536&spn=0.004976,0.014462&z=16
+Александровский сад=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.752242,37.60898&spn=0.002488,0.007231&z=17
+Арбатская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.752145,37.602414&spn=0.002488,0.007231&z=17
+Смоленская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.748516,37.582641&spn=0.002488,0.007231&z=17
+Киевская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.743679,37.566429&spn=0.002488,0.007231&z=17
+Студенческая=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.738793,37.548512&spn=0.002488,0.007231&z=17
+Кутузовская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.740007,37.534608&spn=0.002488,0.007231&z=17
+Фили=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.746083,37.515103&spn=0.002488,0.007231&z=17
+Багратионовская=Западный вестибюль: http://maps.google.com/maps?q=55%C2%B044'37.08%22N+37%C2%B029'49.63%22E&t=k&iwloc=A&hl=en . Восточный вестибюль: http://maps.google.com/maps?q=55%C2%B044'38.05%22N+37%C2%B029'53.07%22E&t=k&iwloc=A&hl=en&z=17\nhttp://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.743721,37.498065&spn=0.002488,0.007231&z=17
+Филевский парк=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.739476,37.483549&spn=0.002488,0.007231&z=17
+Пионерская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.736015,37.467177&spn=0.002489,0.007231&z=17
+Кунцевская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.730783,37.445987&spn=0.002489,0.007231&z=17
+
+[Кольцевая]
+Белорусская=http://maps.google.com/maps?q=55%C2%B046'31.01%22N+37%C2%B034'56.95%22E&t=k&iwloc=A&hl=en&z=17
+Новослободская=http://maps.google.com/maps?q=55%C2%B046'47.55%22N+37%C2%B036'3.09%22E&t=k&iwloc=A&hl=en&z=17
+Проспект Мира=http://maps.google.com/maps?q=55%C2%B046'46.79%22N+37%C2%B038'1.39%22E&t=k&iwloc=A&hl=en&z=17
+Комсомольская=Выход к Ленинградскому и Ярославскому вокзалам: http://maps.google.com/maps?q=55%C2%B046'35.18%22N+37%C2%B039'22.03%22E&t=k&iwloc=A&hl=en&z=17
+Курская=Общий выход Курской кольцевой и Чкаловской: http://maps.google.com/maps?q=55%C2%B045'21.87%22N+37%C2%B039'33.43%22E&t=k&iwloc=A&hl=en&z=17
+;Таганская=
+;Павелецкая=
+;Добрынинская=
+;Октябрьская=
+Парк культуры=Выход к Зубовскому бульвару, Крымской площади: http://maps.google.com/maps?q=55%C2%B044'6.72%22N+37%C2%B035'34.75%22E&spn=0.008436,0.025603&t=k&iwloc=A&hl=en&z=17
+;Киевская=
+Краснопресненская=http://maps.google.com/maps?q=55%C2%B045'36.72%22N+37%C2%B034'37.68%22E&t=k&iwloc=A&hl=en&z=17
+Таганская=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.742852,37.654846&spn=0.005061,0.021501&z=16
+
+[Калужско-Рижская]
+;Новоясеневская=
+;Ясенево=
+;Теплый Стан=
+;Коньково=
+;Беляево=
+;Калужская=
+;Новые Черемушки=
+;Профсоюзная=
+;Академическая=
+;Ленинский проспект=
+;Шаболовская=
+;Октябрьская=
+;Третьяковская=
+;Китай-город=
+;Тургеневская=
+Сухаревская=http://maps.google.com/maps?q=55%C2%B046'20.24%22N+37%C2%B037'55.04%22E&spn=0.008427,0.025603&t=k&iwloc=A&hl=en&z=17
+Проспект Мира=http://maps.google.com/maps?q=55%C2%B046'54.53%22N+37%C2%B037'59.29%22E&t=k&iwloc=A&hl=en&z=17
+Рижская=http://maps.google.com/maps?q=55%C2%B047'32.95%22N+37%C2%B038'9.96%22E&t=k&iwloc=A&hl=en&z=17
+;Алексеевская=
+ВДНХ=Северный вход: http://maps.google.com/maps?q=55%C2%B049'20.21%22N+37%C2%B038'29.05%22E&spn=0.006939,0.029843&t=k&iwloc=A&hl=en&z=17\nЮжный вход: http://maps.google.com/maps?q=55%C2%B049'11.36%22N+37%C2%B038'27.32%22E&ll=55.819826,37.640920&spn=0.006939,0.029843&t=k&iwloc=A&hl=en&z=17
+Ботанический сад=Северный выход (к ж/д путям, ул. Снежная): http://maps.google.com/maps?q=55%C2%B050'45.26%22N+37%C2%B038'18.46%22E&t=k&iwloc=A&hl=en&z=17
+;Свиблово=
+Бабушкинская=http://maps.google.com/maps?q=55%C2%B052'12.20%22N+37%C2%B039'51.20%22E&spn=0.006931,0.029843&t=k&iwloc=A&hl=en&z=17
+Медведково=Северный вход (ул. Широкая): http://maps.google.com/maps?q=55%C2%B053'17.23%22N+37%C2%B039'41.55%22E&spn=0.001732,0.007461&t=k&iwloc=A&hl=en&z=17\nЮжный вход (ул. Грекова): http://maps.google.com/maps?q=55%C2%B053'10.23%22N+37%C2%B039'40.44%22E&spn=0.006928,0.029843&t=k&iwloc=A&hl=en&z=17
+Китай-город=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.753926,37.634182&spn=0.010119,0.043001&z=15
+
+[Таганско-Краснопресненская]
+;Выхино=
+;Рязанский проспект=
+;Кузьминки=
+;Текстильщики=
+;Волгоградский проспект=
+;Пролетарская=
+;Таганская=
+;Китай-город=
+;Кузнецкий мост=
+;Пушкинская=
+Баррикадная=http://maps.google.com/maps?q=55%C2%B045'38.61%22N+37%C2%B034'52.60%22E&spn=0.008430,0.025603&t=k&iwloc=A&hl=en&z=17
+Улица 1905 года=http://maps.google.com/maps?q=55%C2%B045'50.33%22N+37%C2%B033'44.15%22E&spn=0.004215,0.012802&t=k&iwloc=A&hl=en&z=17
+Кузьминки=http://maps.google.com/maps?ll=55.705628,37.763896&z=17&hl=ru&t=h
+Текстильщики=http://maps.google.com/maps?ll=55.708295,37.729755&z=19&hl=ru&t=h
+Выхино=http://maps.google.com/maps?hl=ru&ie=UTF8&ll=55.71581,37.814555&spn=0.005064,0.021501&z=16&om=1
+Волгоградский проспект=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.725201,37.687783&spn=0.005063,0.021501&z=16
+Пролетарская=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.732185,37.669373&spn=0.010125,0.043001&z=15
+Таганская=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.742852,37.654846&spn=0.005061,0.021501&z=16
+Китай-город=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.753926,37.634182&spn=0.010119,0.043001&z=15
+;Беговая=
+;Полежаевская=
+;Октябрьское поле=
+;Щукинская=
+Тушинская=Северный выход: http://maps.google.com/maps?q=55%C2%B049'38.50%22N+37%C2%B026'13.33%22E&t=k&hl=en&ie=UTF8&ll=55.826238,37.4369&spn=0.004279,0.009978&z=17&om=1\nЮжный выход: http://maps.google.com/maps?q=55%C2%B049'32.40%22N+37%C2%B026'09.30%22E&t=k&hl=en&ie=UTF8&ll=55.826238,37.4369&spn=0.004279,0.009978&z=17&om=1
+;Сходненская=
+;Планерная=
+
+[Калининская]
+Марксистская=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.741366,37.655768&spn=0.005061,0.021501&z=16
+;Третьяковская=
+;Марксистская=
+;Площадь Ильича=
+;Авиамоторная=
+;Шоссе Энтузиастов=
+;Перово=
+;Новогиреево=
+
+[Серпуховско-Тимирязевская]
+;Бульвар Дмитрия Донского=
+;Аннино=
+;Улица Академика Янгеля=
+;Пражская=
+;Южная=
+;Чертановская=
+;Севастопольская=
+;Нахимовский проспект=
+;Нагорная=
+;Нагатинская=
+;Тульская=
+;Серпуховская=
+;Полянка=
+;Боровицкая=
+Чеховская=http://maps.google.com/maps?q=55%C2%B045'55.53%22N+37%C2%B036'28.31%22E&t=k&iwloc=A&hl=en&z=17
+;Цветной бульвар=
+;Менделеевская=
+;Савеловская=
+;Дмитровская=
+;Тимирязевская=
+;Петровско-Разумовская=
+;Владыкино=
+Отрадное=http://maps.google.com/maps?q=55%C2%B051'50.90%22N+37%C2%B036'21.69%22E&t=k&iwloc=A&hl=en&z=17
+;Бибирево=
+;Алтуфьево=
+
+[Люблинско-Дмитровская]
+Достоевская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.781904,37.613116&spn=0.001243,0.003616&z=18
+Трубная=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&ll=55.767759,37.622096&spn=0.001234,0.003616&z=18&om=1
+Чкаловская=Общий выход Курской кольцевой и Чкаловской: http://maps.google.com/maps?q=55%C2%B045'21.87%22N+37%C2%B039'33.43%22E&t=k&iwloc=A&hl=en&z=17
+Римская=http://maps.google.com/maps?hl=ru&ie=UTF8&om=1&ll=55.747212,37.682805&spn=0.00506,0.021501&z=16
+;Римская=
+;Крестьянская застава=
+;Дубровка=
+;Кожуховская=
+;Печатники=
+;Волжская=
+;Люблино=
+;Братиславская=
+;Марьино=
+
+[Каховская]
+;Каширская=
+;Варшавская=
+;Каховская=
+
+[Бутовская]
+;Улица Старокачаловская=
+;Улица Скобелевская=
+;Бульвар Адмирала Ушакова=
+;Улица Горчакова=
+;Бунинская аллея=
+;Улица Старопотаповская=
+;Улица Остафьевская=
+;Новокурьяново=
+
+[Ярославская]
+Струнино=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=56.370432,38.585958&spn=0.017208,0.057335&z=14
+
+[Рижская]
+Москва Рижская=http://maps.google.com/maps?ll=55.792778,37.6325&hl=ru
+Дмитровская=http://maps.google.com/maps?ll=55.808056,37.5788899&hl=ru
+Гражданская=http://maps.google.com/maps?ll=55.805278,37.553889&hl=ru
+Красный Балтиец=http://maps.google.com/maps?ll=55.815556,37.525833&hl=ru
+Ленинградская=http://maps.google.com/maps?ll=55.815,37.497778&hl=ru
+Покровское-Стрешнево=http://maps.google.com/maps?ll=55.814167,37.476389&hl=ru
+Тушино=http://maps.google.com/maps?ll=55.826667,37.441667&hl=ru
+Трикотажная=http://maps.google.com/maps?ll=55.833194,37.398333&hl=ru
+Павшино=http://maps.google.com/maps?ll=55.815,37.340833&hl=ru
+Красногорская=http://maps.google.com/maps?ll=55.814028,37.304444&hl=ru
+Опалиха=http://maps.google.com/maps?ll=55.823333,37.246667&hl=ru
+Аникеевка=http://maps.google.com/maps?ll=55.831944,37.220199&hl=ru
+Нахабино=http://maps.google.com/maps?ll=55.841664,37.184311&hl=ru
+Малиновка=http://maps.google.com/maps?ll=55.855,37.155556&hl=ru
+Дедовск=http://maps.google.com/maps?ll=55.866558,37.125946&hl=ru
+Миитовская=http://maps.google.com/maps?ll=55.874402,37.103738&hl=ru
+Снегири=http://maps.google.com/maps?ll=55.880114,37.038281&hl=ru
+Пл. 50 км=http://maps.google.com/maps?ll=55.896111,36.968333&hl=ru
+Манихино-1=http://maps.google.com/maps?ll=55.892286,36.931539&hl=ru
+Троицкая=http://maps.google.com/maps?ll=55.886041,36.900855&hl=ru
+Истра=http://maps.google.com/maps?ll=55.904043,36.855778&hl=ru
+Новоиерусалимская=http://maps.google.com/maps?ll=55.911678,36.822621&hl=ru
+Чеховская=http://maps.google.com/maps?ll=55.911431,36.797140&hl=ru
+Холщевики=http://maps.google.com/maps?ll=55.926479,36.701621&hl=ru
+Пл. 73 км=http://maps.google.com/maps?ll=55.939653,36.644726&hl=ru
+Ядрошино=http://maps.google.com/maps?ll=55.947842,36.613215&hl=ru
+Курсаковская=http://maps.google.com/maps?ll=55.962216,36.570407&hl=ru
+Румянцево=http://maps.google.com/maps?ll=55.973564,36.541300&hl=ru
+Новопетровская=http://maps.google.com/maps?ll=55.996431,36.471831&hl=ru
+Устиновка=http://maps.google.com/maps?ll=55.988390,36.453195&hl=ru
+Пл. 91 км=http://maps.google.com/maps?ll=55.992189,36.409979&hl=ru
+Лесодолгоруково=http://maps.google.com/maps?ll=56.011086,36.338096&hl=ru
+Чисмена=http://maps.google.com/maps?ll=56.017839,36.217246&hl=ru
+Матренино=http://maps.google.com/maps?ll=56.005916,36.092319&hl=ru
+Дубосеково=http://maps.google.com/maps?ll=56.005916,36.038160&hl=ru
+Волоколамск=http://maps.google.com/maps?ll=55.993647,35.935861&hl=ru
+;Пл. 133 км=
+Благовещенское=http://maps.google.com/maps?ll=55.993533,35.784788&hl=ru
+Пл. 141 км=http://maps.google.com/maps?ll=56.010235,35.691233&hl=ru
+Бухолово=http://maps.google.com/maps?ll=56.009755,35.642824&hl=ru
+Пл. 149 км=http://maps.google.com/maps?ll=56.022948,35.580425&hl=ru
+Шаховская=http://maps.google.com/maps?ll=56.030023,35.511224&hl=ru
+
+[Киевская]
+;Москва Киевская
+;Москва Сорт.
+;Матвеевская
+;Очаково
+Востряково=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.666827,37.424819&spn=0.002493,0.007231&z=17
+;Солнечная
+;Переделкино
+
+[Белорусская]
+Москва Смоленская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.776748,37.579969&spn=0.002486,0.007231&z=17
+Беговая=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.773182,37.550336&spn=0.002486,0.007231&z=17
+Тестовская=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.75412,37.531872&spn=0.004975,0.014462&z=16
+Фили=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.744362,37.515199&spn=0.002488,0.007231&z=17
+Кунцево=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.726868,37.449464&spn=0.002489,0.007231&z=17
+Рабочий Поселок=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.72682,37.414423&spn=0.002489,0.007231&z=17
+Сетунь=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.723986,37.39774&spn=0.002489,0.007231&z=17
+Кунцево-2=http://maps.google.com/maps?hl=ru&t=h&ie=UTF8&om=1&ll=55.729448,37.39421&spn=0.002489,0.007231&z=17
+
+[Горьковская]
+Электроугли=http://maps.google.com/maps?ll=55.729722,38.203611&hl=ru

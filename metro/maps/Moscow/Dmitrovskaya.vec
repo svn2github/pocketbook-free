@@ -1,0 +1,69 @@
+Size 695x984
+Angle 110
+
+BrushColor -1
+PenColor 4C4C4C
+AngleTextOut 180, Arial, 20, 307, 714, << Тимирязевская
+AngleTextOut 180, Arial, 20, 79, 525, Савеловская >>
+AngleTextOut 180, Arial, 25, 191, 627, Дмитровская, 1
+PenColor 00AFAF
+AngleTextOut 180, Arial, 15, 808, 608, Дмитровское шоссе
+AngleTextOut 180, Arial, 15, -81, 621, Бутырская улица
+AngleTextOut -90, Arial, 15, 687, 267, 'платформа "Дмитровская"'
+PenColor 000000
+
+BrushColor 9CA4A4
+Polygon -67,530, 316,530, 316,556, -67,556
+Polygon -67,663, 316,663, 316,689, -67,689
+
+BrushColor 808080
+Polygon 316,584, 260,584, 260,588, 249,588, 249,575, 316,575
+Polygon 316,635, 260,635, 260,631, 249,631, 249,644, 316,644
+Polygon 420,530, 420,572, 437,572, 437,564, 466,564, 466,556, 488,556, 488,530
+Polygon 420,689, 420,647, 437,647, 437,655, 466,655, 466,663, 488,663, 488,689
+Polygon 558,561, 579,561, 579,658, 558,658
+Line 488,530, 552,530, 552,535, 578,535, 578,530, 600,530, 600,457, 538,457
+Line 538,436, 600,436, 600,382
+Line 622,382, 622,530, 640,530, 640,689, 625,689, 625,730, 630,730, 630,702
+Line 653,702, 653,796
+Line 629,796, 629,768, 601,768, 601,689, 577,689, 577,683, 552,683, 552,689, 488,689
+Line 420,647, 420,635, 460,635
+Line 460,584, 420,584, 420,572
+Line 316,556, 316,575
+Line 316,644, 316,663
+Line -67,556, -67,578, -60,578, -60,641, -67,641, -67,663
+Dashed 316,584, 420,584
+Dashed 316,635, 420,635
+Dashed 307,584, 307,634
+Dashed 460,584, 460,635
+Spline 420,584, 412,610, 420,635
+Spline 316,584, 325,610, 316,635
+Stairs 542,436, 542,457, 582,436
+Stairs 600,386, 622,386, 600,431
+Stairs 630,705, 653,705, 630,726
+Stairs 629,793, 653,793, 629,772
+Stairs 601,692, 625,692, 601,702
+Stairs 597,689, 597,530, 587,689
+
+PenColor FF0000
+Arrow 271,616, 299,616
+Arrow 556,670, 583,670
+PenColor 009900
+Arrow 299,598, 271,598
+Arrow 581,548, 553,548
+
+PenColor 040464
+BrushColor -1
+;BrushColor 000000
+SpotCircle 20, 752, 327, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 741, 356, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 730, 385, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 720, 414, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 752, 327, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 708, 444, LoadVec DmitrovskayaZhD.vec
+SpotCircle 20, 698, 473
+BrushColor -1
+AngleTextOut -110, Arial, 12, 765, 313, 'Схема перехода к пл."Дмитровская"', 5
+PenColor 000000
+
+

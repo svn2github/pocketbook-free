@@ -1,0 +1,45 @@
+Size 730x290
+
+BrushColor CC3333
+Polygon 383,135, 383,119, 604,119, 604,135
+Polygon 383,184, 383,201, 604,201, 604,184
+Line 604,135, 604,184
+Line 383,135, 383,184
+
+BrushColor -1
+PenColor CC3333
+AngleTextOut 0, Arial, 15, 387, 104, << Житомирская
+AngleTextOut 0, Arial, 15, 547, 203, Нивки >>
+AngleTextOut 0, Arial, 25, 439, 145, Святошин, 1
+
+PenColor 000000
+Line 614,161, 643,161
+Arrow 643,161, 643,82
+Arrow 643,161, 643,239
+
+Line 373,161, 173,161, 60,81
+Arrow 355,161, 355,92
+Arrow 355,161, 355,230
+Arrow 270,161, 270,92
+Arrow 270,161, 270,230
+Arrow 173,161, 173,92
+Arrow 173,161, 173,230
+Arrow 60,81, 101,22
+Arrow 60,81, 18,141
+
+PenColor 00AFAF
+AngleTextOut 0, Arial, 15, 562, 43, пр. Победы
+AngleTextOut 0, Arial, 15, 649, 47, "А 13, 23, 90"
+AngleTextOut 0, Arial, 15, 649, 59, "Тр 7, 7к"
+
+AngleTextOut 0, Arial, 15, 564, 262, пр. Победы
+AngleTextOut 0, Arial, 15, 649, 248, "А 13, 23, 90"
+AngleTextOut 0, Arial, 15, 648, 260, "Тр 7, 7к"
+
+AngleTextOut 0, Arial, 15, 148, 58, "А 40, 97"
+AngleTextOut 0, Arial, 15, 126, 252, "А 13, 40, 90, 97"
+
+AngleTextOut 0, Arial, 15, 244, 57, ж/д станция
+AngleTextOut 0, Arial, 15, 244, 71, Святошин
+AngleTextOut 0, Arial, 15, 244, 237, ж/д станция
+AngleTextOut 0, Arial, 15, 244, 251, Святошин

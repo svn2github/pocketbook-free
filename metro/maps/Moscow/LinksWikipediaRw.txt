@@ -1,0 +1,728 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Ссылка на статью в Википедии: '
+
+[Междувокзальная]
+Москва Курская=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Каланчевская=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BB%D0%B0%D0%BD%D1%87%D1%91%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ржевская=http://ru.wikipedia.org/wiki/%D0%A0%D0%B6%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Станколит=http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%B0%D0%BD%D0%BA%D0%BE%D0%BB%D0%B8%D1%82_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Савеловская=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Москва Смоленская=http://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Москва Савеловская=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Дмитровская=http://ru.wikipedia.org/wiki/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+
+[Рязанская]
+Москва Казанская=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Электрозаводская=http://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Сортировочная=http://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5%29
+Новая=http://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B2%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Фрезер=http://ru.wikipedia.org/wiki/%D0%A4%D1%80%D0%B5%D0%B7%D0%B5%D1%80_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Перово=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%BE%D0%B2%D0%BE_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Плющево=http://ru.wikipedia.org/wiki/%D0%9F%D0%BB%D1%8E%D1%89%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Вешняки=http://ru.wikipedia.org/wiki/%D0%92%D0%B5%D1%88%D0%BD%D1%8F%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Выхино=http://ru.wikipedia.org/wiki/%D0%92%D1%8B%D1%85%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Косино=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%81%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ухтомская=http://ru.wikipedia.org/wiki/%D0%A3%D1%85%D1%82%D0%BE%D0%BC%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Люберцы-1=http://ru.wikipedia.org/wiki/%D0%9B%D1%8E%D0%B1%D0%B5%D1%80%D1%86%D1%8B-1
+Панки=http://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BD%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Томилино=http://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BC%D0%B8%D0%BB%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Красково=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Малаховка=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BB%D0%B0%D1%85%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Удельная=http://ru.wikipedia.org/wiki/%D0%A3%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Быково=http://ru.wikipedia.org/wiki/%D0%91%D1%8B%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ильинская=http://ru.wikipedia.org/wiki/%D0%98%D0%BB%D1%8C%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8%29
+Отдых=http://ru.wikipedia.org/wiki/%D0%9E%D1%82%D0%B4%D1%8B%D1%85_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B9_%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D0%B8%29
+Кратово=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%82%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пл. 42 км=http://ru.wikipedia.org/wiki/42_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Фабричная=http://ru.wikipedia.org/wiki/%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D1%87%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Раменское=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B5_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 47 км=http://ru.wikipedia.org/wiki/47_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Совхоз=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%BE%D0%B2%D1%85%D0%BE%D0%B7_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Загорново=http://ru.wikipedia.org/w/index.php?title=%D0%97%D0%B0%D0%B3%D0%BE%D1%80%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Бронницы=http://ru.wikipedia.org/w/index.php?title=%D0%91%D1%80%D0%BE%D0%BD%D0%BD%D0%B8%D1%86%D1%8B_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Радуга=http://ru.wikipedia.org/w/index.php?title=%D0%A0%D0%B0%D0%B4%D1%83%D0%B3%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 63 км=http://ru.wikipedia.org/w/index.php?title=63_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Белоозерская=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B5%D0%BB%D0%BE%D0%BE%D0%B7%D1%91%D1%80%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Фаустово=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D0%B0%D1%83%D1%81%D1%82%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Золотово=http://ru.wikipedia.org/w/index.php?title=%D0%97%D0%BE%D0%BB%D0%BE%D1%82%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Виноградово=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%B8%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Конобеево=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%BD%D0%BE%D0%B1%D0%B5%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Трофимово=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D1%80%D0%BE%D1%84%D0%B8%D0%BC%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 88 км=http://ru.wikipedia.org/w/index.php?title=88_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Воскресенск=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%BE%D1%81%D0%BA%D1%80%D0%B5%D1%81%D0%B5%D0%BD%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Шиферная=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B8%D1%84%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Москворецкая=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%BE%D1%80%D0%B5%D1%86%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Цемгигант=http://ru.wikipedia.org/w/index.php?title=%D0%A6%D0%B5%D0%BC%D0%B3%D0%B8%D0%B3%D0%B0%D0%BD%D1%82_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пески=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%B5%D1%81%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Конев Бор=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%BD%D0%B5%D0%B2_%D0%91%D0%BE%D1%80_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Хорошево=http://ru.wikipedia.org/w/index.php?title=%D0%A5%D0%BE%D1%80%D0%BE%D1%88%D1%91%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 113 км=http://ru.wikipedia.org/w/index.php?title=113_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Коломна=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%BB%D0%BE%D0%BC%D0%BD%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Голутвин=http://ru.wikipedia.org/wiki/%D0%93%D0%BE%D0%BB%D1%83%D1%82%D0%B2%D0%B8%D0%BD_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Щурово=http://ru.wikipedia.org/w/index.php?title=%D0%A9%D1%83%D1%80%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+;Печори=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%B5%D1%80%D0%BE%D1%87%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Черная=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D1%91%D1%80%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+132 км=http://ru.wikipedia.org/w/index.php?title=132_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Луховицы=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D1%83%D1%85%D0%BE%D0%B2%D0%B8%D1%86%D1%8B_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+142 км=http://ru.wikipedia.org/w/index.php?title=142_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Подлипки=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%BE%D0%B4%D0%BB%D0%B8%D0%BF%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Фруктовая=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D1%80%D1%83%D0%BA%D1%82%D0%BE%D0%B2%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Алпатьево=http://ru.wikipedia.org/w/index.php?title=%D0%90%D0%BB%D0%BF%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Слемы=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%BB%D0%B5%D0%BC%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+;Дивово=
+;Истодники=
+;Пл. 180 км=
+;Рыбное Пасс=
+;Ходынино=
+;184 км=
+;Рязань Сорт=
+;187 км=
+;188 км=
+;Недостоево=
+;Гусевская=
+;Дягилево=
+;Лагерный=
+;Рязань 2=
+;Рязань 1=
+Бачманово=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%BE%D1%87%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 6 км=http://ru.wikipedia.org/w/index.php?title=6_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Сычево=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D1%8B%D1%87%D1%91%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Лысцовская=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D1%8B%D1%81%D1%86%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Семеновский=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%B5%D0%BC%D1%91%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 18 км=http://ru.wikipedia.org/w/index.php?title=18_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Карасевы=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%B0%D1%80%D0%B0%D1%81%D1%91%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Кудрявцево=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%83%D0%B4%D1%80%D1%8F%D0%B2%D1%86%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Даниловская=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%B0%D0%BD%D0%B8%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 30 км=http://ru.wikipedia.org/w/index.php?title=30_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 38 км=http://ru.wikipedia.org/w/index.php?title=38_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Озеры=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D0%B7%D1%91%D1%80%D1%8B_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Люберцы-2=http://ru.wikipedia.org/wiki/%D0%9B%D1%8E%D0%B1%D0%B5%D1%80%D1%86%D1%8B_2
+Коренево=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%B5%D0%BD%D1%91%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Овражки=http://ru.wikipedia.org/wiki/%D0%9E%D0%B2%D1%80%D0%B0%D0%B6%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Родники=http://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Вялки=http://ru.wikipedia.org/wiki/%D0%92%D1%8F%D0%BB%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Хрипань=http://ru.wikipedia.org/wiki/%D0%A5%D1%80%D0%B8%D0%BF%D0%B0%D0%BD%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пл. 41 км=http://ru.wikipedia.org/w/index.php?title=41_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Донино=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%BE%D0%BD%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 49 км=http://ru.wikipedia.org/w/index.php?title=49_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 52 км=http://ru.wikipedia.org/wiki/52_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Григорово=http://ru.wikipedia.org/w/index.php?title=%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 55 км=http://ru.wikipedia.org/w/index.php?title=55_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Гжель=http://ru.wikipedia.org/wiki/%D0%93%D0%B6%D0%B5%D0%BB%D1%8C_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Игнатьево=http://ru.wikipedia.org/wiki/%D0%98%D0%B3%D0%BD%D0%B0%D1%82%D1%8C%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Кузяево=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%B7%D1%8F%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Шевлягино=http://ru.wikipedia.org/wiki/%D0%A8%D0%B5%D0%B2%D0%BB%D1%8F%D0%B3%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пл. 73 км=http://ru.wikipedia.org/wiki/73_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Анциферово=http://ru.wikipedia.org/wiki/%D0%90%D0%BD%D1%86%D0%B8%D1%84%D0%B5%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Подосинки=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%BE%D0%B4%D0%BE%D1%81%D0%B8%D0%BD%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Куровская=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 90 км=http://ru.wikipedia.org/w/index.php?title=90_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 95 км=http://ru.wikipedia.org/wiki/95_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Авсюнино=http://ru.wikipedia.org/wiki/%D0%90%D0%B2%D1%81%D1%8E%D0%BD%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Заполицы=http://ru.wikipedia.org/w/index.php?title=%D0%97%D0%B0%D0%BF%D0%BE%D0%BB%D0%B8%D1%86%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Запутная=http://ru.wikipedia.org/w/index.php?title=%D0%97%D0%B0%D0%BF%D1%83%D1%82%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Шатурторф=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B0%D1%82%D1%83%D1%80%D1%82%D0%BE%D1%80%D1%84_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Шатура=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B0%D1%82%D1%83%D1%80%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Ботино=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%BE%D1%82%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Кривандино=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%80%D0%B8%D0%B2%D0%B0%D0%BD%D0%B4%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Туголесье=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D1%83%D0%B3%D0%BE%D0%BB%D0%B5%D1%81%D1%8C%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Воймежный=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%BE%D0%B9%D0%BC%D0%B5%D0%B6%D0%BD%D1%8B%D0%B9_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Черусти=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D0%B5%D1%80%D1%83%D1%81%D1%82%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Нерская=http://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ильинский Погост=http://ru.wikipedia.org/w/index.php?title=%D0%98%D0%BB%D1%8C%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%9F%D0%BE%D0%B3%D0%BE%D1%81%D1%82_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 32 км=http://ru.wikipedia.org/w/index.php?title=32_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+Егорьевск=http://ru.wikipedia.org/w/index.php?title=%D0%95%D0%B3%D0%BE%D1%80%D1%8C%D0%B5%D0%B2%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Осаново=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D1%81%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пожога=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%BE%D0%B6%D0%BE%D0%B3%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 29 км=http://ru.wikipedia.org/w/index.php?title=29_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Бармино=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B0%D1%80%D0%BC%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Сазоново=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%B0%D0%B7%D0%BE%D0%BD%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 47 км=http://ru.wikipedia.org/w/index.php?title=47_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Рязановка=http://ru.wikipedia.org/w/index.php?title=%D0%A0%D1%8F%D0%B7%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+
+[Ярославская]
+Москва Ярославская=http://ru.wikipedia.org/wiki/%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Москва-3=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-3
+Маленковская=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Яуза=http://ru.wikipedia.org/wiki/%D0%AF%D1%83%D0%B7%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Северянин=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%8F%D0%BD%D0%B8%D0%BD_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Лосиноостровская=http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%81%D0%B8%D0%BD%D0%BE%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Лось=http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D1%81%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Перловская=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Тайнинская=http://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D0%B9%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Мытищи=http://ru.wikipedia.org/wiki/%D0%9C%D1%8B%D1%82%D0%B8%D1%89%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Строитель=http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Челюскинская=http://ru.wikipedia.org/wiki/%D0%A7%D0%B5%D0%BB%D1%8E%D1%81%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Тарасовская=http://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Клязьма=http://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D1%8F%D0%B7%D1%8C%D0%BC%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Мамонтовская=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BC%D0%BE%D0%BD%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пушкино=http://ru.wikipedia.org/wiki/%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Заветы Ильича=http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B2%D0%B5%D1%82%D1%8B_%D0%98%D0%BB%D1%8C%D0%B8%D1%87%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Правда=http://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%B0%D0%B2%D0%B4%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Зеленоградская=http://ru.wikipedia.org/wiki/%D0%97%D0%B5%D0%BB%D0%B5%D0%BD%D0%BE%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пл. 43 км=http://ru.wikipedia.org/wiki/43_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Софрино=http://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%84%D1%80%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ашукинская=http://ru.wikipedia.org/wiki/%D0%90%D1%88%D1%83%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Калистово=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Радонеж=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B4%D0%BE%D0%BD%D0%B5%D0%B6_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Абрамцево=http://ru.wikipedia.org/wiki/%D0%90%D0%B1%D1%80%D0%B0%D0%BC%D1%86%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Хотьково=http://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D1%82%D1%8C%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Семхоз=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%BC%D1%85%D0%BE%D0%B7_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Сергиев Посад=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D0%B5%D0%B2_%D0%9F%D0%BE%D1%81%D0%B0%D0%B4_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 76 км=http://ru.wikipedia.org/w/index.php?title=76_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 81 км=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%81%D1%82_81_%D0%BA%D0%BC
+Пл. 83 км=http://ru.wikipedia.org/w/index.php?title=83_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Бужаниново=http://ru.wikipedia.org/w/index.php?title=%D0%91%D1%83%D0%B6%D0%B0%D0%BD%D0%B8%D0%BD%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 90 км=http://ru.wikipedia.org/w/index.php?title=90_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+;Арсаки=
+;Струнино=
+;Александров=
+;Пл. 117 км=
+;Мошнино=
+;Балакирево=
+;Багримово=
+;Пл. 142 км=
+;Берендеево=
+;Пл. 147 км=
+;Шушково=
+;Пл. 155 км=
+;Рокша=
+;Рязанцево=
+;Беклемишево=
+;Итларь=
+;Пл. 187 км=
+;Сильницы=
+;Петровск=
+;Деболовская=
+;Ростов=
+;Ярославль=
+Подлипки-Дачные=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B4%D0%BB%D0%B8%D0%BF%D0%BA%D0%B8-%D0%94%D0%B0%D1%87%D0%BD%D1%8B%D0%B5
+;Пл. Болшево=
+Фабрика 1 Мая=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0_1_%D0%9C%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Зеленый Бор=http://ru.wikipedia.org/wiki/%D0%97%D0%B5%D0%BB%D1%91%D0%BD%D1%8B%D0%B9_%D0%91%D0%BE%D1%80_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ивантеевка-2=http://ru.wikipedia.org/w/index.php?title=%D0%98%D0%B2%D0%B0%D0%BD%D1%82%D0%B5%D0%B5%D0%B2%D0%BA%D0%B0-2&action=edit&redlink=1
+Ивантеевка=http://ru.wikipedia.org/w/index.php?title=%D0%98%D0%B2%D0%B0%D0%BD%D1%82%D0%B5%D0%B5%D0%B2%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Детская=http://ru.wikipedia.org/wiki/%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Фрязино Тов.=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D1%80%D1%8F%D0%B7%D0%B8%D0%BD%D0%BE-%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D0%BE%D0%B5&action=edit&redlink=1
+Фрязино Пасс.=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D1%80%D1%8F%D0%B7%D0%B8%D0%BD%D0%BE-%D0%9F%D0%B0%D1%81%D1%81%D0%B0%D0%B6%D0%B8%D1%80%D1%81%D0%BA%D0%BE%D0%B5&action=edit&redlink=1
+Болшево=http://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%BB%D1%88%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Валентиновка=http://ru.wikipedia.org/wiki/%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Загорянская=http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%BE%D1%80%D1%8F%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Соколовская=http://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%BA%D0%BE%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Воронок=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%BE%D0%BA_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Щелково=http://ru.wikipedia.org/wiki/%D0%A9%D1%91%D0%BB%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Гагаринская=http://ru.wikipedia.org/wiki/%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Чкаловская=http://ru.wikipedia.org/wiki/%D0%A7%D0%BA%D0%B0%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Бахчиванджи=http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D1%85%D1%87%D0%B8%D0%B2%D0%B0%D0%BD%D0%B4%D0%B6%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Циолковская=http://ru.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Осеевская=http://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Монино=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%BD%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Кашино=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%88%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Колонтаево=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BB%D0%BE%D0%BD%D1%82%D0%B0%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Лесная=http://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D1%81%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%AF%D1%80%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Фрязево=http://ru.wikipedia.org/wiki/%D0%A4%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+пос. Дальний=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Рахманово=http://ru.wikipedia.org/w/index.php?title=%D0%A0%D0%B0%D1%85%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Федоровское=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Путилово=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D1%83%D1%82%D0%B8%D0%BB%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Красноармейск=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B0%D1%80%D0%BC%D0%B5%D0%B9%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+
+[Ленинградская]
+Москва Ленинградская=http://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Рижская=http://ru.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Останкино=http://ru.wikipedia.org/wiki/%D0%9E%D1%81%D1%82%D0%B0%D0%BD%D0%BA%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Петровско-Разумовское=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE-%D0%A0%D0%B0%D0%B7%D1%83%D0%BC%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+НАТИ=http://ru.wikipedia.org/wiki/%D0%9D%D0%90%D0%A2%D0%98_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Моссельмаш=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D1%81%D0%B5%D0%BB%D1%8C%D0%BC%D0%B0%D1%88_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ховрино=http://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D0%B2%D1%80%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Левобережная=http://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%B2%D0%BE%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Химки=http://ru.wikipedia.org/wiki/%D0%A5%D0%B8%D0%BC%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Планерная=http://ru.wikipedia.org/wiki/%D0%9F%D0%BB%D0%B0%D0%BD%D0%B5%D1%80%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ново-Подрезково=http://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B2%D0%BE%D0%BF%D0%BE%D0%B4%D1%80%D0%B5%D0%B7%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Подрезково=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B4%D1%80%D0%B5%D0%B7%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Сходня=http://ru.wikipedia.org/wiki/%D0%A1%D1%85%D0%BE%D0%B4%D0%BD%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Фирсановка=http://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D1%80%D1%81%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Малино=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Крюково=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D1%8E%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Алабушево=http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B0%D0%B1%D1%83%D1%88%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Радищево=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B4%D0%B8%D1%89%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Поваровка=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Поварово-1=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B2%D0%B0%D1%80%D0%BE%D0%B2%D0%BE-1
+Берёзки Дачные=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B5%D1%80%D1%91%D0%B7%D0%BA%D0%B8_%D0%94%D0%B0%D1%87%D0%BD%D1%8B%D0%B5&action=edit&redlink=1
+Подсолнечная=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B4%D1%81%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Сенеж=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D0%BD%D0%B5%D0%B6_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Головково=http://ru.wikipedia.org/w/index.php?title=%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Покровка=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Фроловское=http://ru.wikipedia.org/w/index.php?title=%D0%A4%D1%80%D0%BE%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Стреглово=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D1%82%D1%80%D0%B5%D0%B3%D0%BB%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Клин=http://ru.wikipedia.org/wiki/%D0%9A%D0%BB%D0%B8%D0%BD_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ямуга=http://ru.wikipedia.org/w/index.php?title=%D0%AF%D0%BC%D1%83%D0%B3%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Решетниково=http://ru.wikipedia.org/w/index.php?title=%D0%A0%D0%B5%D1%88%D0%B5%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+;Черничная=
+;Завидово=
+;Московское Море=
+;Редкино=
+;Межево=
+;Кузьминка=
+;Чуприяновка=
+;Лазурная=
+;Тверь=
+;Пролетарская=
+;Дорошиха=
+;Брянцево=
+;Санаторий=
+;Тверца=
+;Кулицкая=
+;Кулицкий Мох=
+;Трубино=
+;Крючково=
+;Поршинец=
+;Лихославль=
+;Лихосл.Парк Шлюз=
+;Локотцы=
+;Барановка=
+;Муташелиха=
+;Калашниково=
+;Бухаловский переезд=
+;Левошинка=
+;Спирово=
+;Любинка=
+;Индустрия=
+;Осеченка=
+;Терелесовская=
+;Елизаровка=
+;Вышний Волочек=
+;Цна=
+;Леонтьево=
+;Почвино=
+;Академическая=
+;Соболево=
+;Костромцовск=
+;Бочановка=
+;Пеперсоновка 331 км=
+;Бушевец=
+;Виноградовская 322 км=
+;Веерное Депо=
+;Бологое=
+;Путепроводная=
+;Конаковский Мох=
+;Донховка=
+;Конаково ГРЭС=
+
+[Савеловская]
+Москва Савеловская=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Тимирязевская=http://ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BC%D0%B8%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Окружная=http://ru.wikipedia.org/wiki/%D0%9E%D0%BA%D1%80%D1%83%D0%B6%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Дегунино=http://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%B3%D1%83%D0%BD%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Бескудниково=http://ru.wikipedia.org/wiki/%D0%91%D0%B5%D1%81%D0%BA%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Лианозово=http://ru.wikipedia.org/wiki/%D0%9B%D0%B8%D0%B0%D0%BD%D0%BE%D0%B7%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Марк=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%80%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Новодачная=http://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B4%D0%B0%D1%87%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Долгопрудная=http://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BB%D0%B3%D0%BE%D0%BF%D1%80%D1%83%D0%B4%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Водники=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B4%D0%BD%D0%B8%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Хлебниково=http://ru.wikipedia.org/w/index.php?title=%D0%A5%D0%BB%D0%B5%D0%B1%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Шереметьевская=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%82%D1%8C%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Лобня=http://ru.wikipedia.org/wiki/%D0%9B%D0%BE%D0%B1%D0%BD%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Депо=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%B5%D0%BF%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Луговая=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D1%83%D0%B3%D0%BE%D0%B2%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Некрасовская=http://ru.wikipedia.org/w/index.php?title=%D0%9D%D0%B5%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Катуар=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%82%D1%83%D0%B0%D1%80_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Трудовая=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Икша=http://ru.wikipedia.org/wiki/%D0%98%D0%BA%D1%88%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Морозки=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%BE%D1%80%D0%BE%D0%B7%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Турист=http://ru.wikipedia.org/wiki/%D0%A2%D1%83%D1%80%D0%B8%D1%81%D1%82_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Яхрома=http://ru.wikipedia.org/wiki/%D0%AF%D1%85%D1%80%D0%BE%D0%BC%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Дмитров=http://ru.wikipedia.org/wiki/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Каналстрой=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%B0%D0%BD%D0%B0%D0%BB%D1%81%D1%82%D1%80%D0%BE%D0%B9_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+75 км=http://ru.wikipedia.org/wiki/75_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Орудьево=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D1%80%D1%83%D0%B4%D1%8C%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Вербилки=http://ru.wikipedia.org/wiki/%D0%92%D0%B5%D1%80%D0%B1%D0%B8%D0%BB%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+94 км=http://ru.wikipedia.org/w/index.php?title=94_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Власово=http://ru.wikipedia.org/wiki/%D0%92%D0%BB%D0%B0%D1%81%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Талдом=http://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D0%BB%D0%B4%D0%BE%D0%BC_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Лебзино=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D0%B5%D0%B1%D0%B7%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+;124 км=
+;Савелово=
+Соревнование=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%BE%D1%80%D0%B5%D0%B2%D0%BD%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Запрудня=http://ru.wikipedia.org/w/index.php?title=%D0%97%D0%B0%D0%BF%D1%80%D1%83%D0%B4%D0%BD%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Темпы=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D0%B5%D0%BC%D0%BF%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Мельдино=http://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D0%BB%D1%8C%D0%B4%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+119 км=http://ru.wikipedia.org/w/index.php?title=119_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%B0%D0%B2%D1%91%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Карманово=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%B0%D1%80%D0%BC%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Большая Волга=http://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%B0%D1%8F_%D0%92%D0%BE%D0%BB%D0%B3%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Дубна=http://ru.wikipedia.org/w/index.php?title=%D0%94%D1%83%D0%B1%D0%BD%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Иванцево=http://ru.wikipedia.org/w/index.php?title=%D0%98%D0%B2%D0%B0%D0%BD%D1%86%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+80 км=http://ru.wikipedia.org/w/index.php?title=80_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+Драчево=http://ru.wikipedia.org/w/index.php?title=%D0%94%D1%80%D0%B0%D1%87%D1%91%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+74 км=http://ru.wikipedia.org/w/index.php?title=74_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+71 км=http://ru.wikipedia.org/w/index.php?title=71_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+69 км=http://ru.wikipedia.org/w/index.php?title=69_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+Костино=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+62 км=http://ru.wikipedia.org/w/index.php?title=62_%D0%BA%D0%BC_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Желтиково=http://ru.wikipedia.org/wiki/%D0%96%D1%91%D0%BB%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+47 км=http://ru.wikipedia.org/w/index.php?title=47_%D0%BA%D0%BC_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Бубяково=http://ru.wikipedia.org/w/index.php?title=%D0%91%D1%83%D0%B1%D1%8F%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+40 км=http://ru.wikipedia.org/w/index.php?title=40_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%91%D0%9C%D0%9E%29&action=edit&redlink=1
+Наугольный=http://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29http://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%83%D0%B3%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Аэропорт Шереметьево=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%82%D1%8C%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+
+[Рижская]
+Москва Рижская=http://ru.wikipedia.org/wiki/%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Дмитровская=http://ru.wikipedia.org/wiki/%D0%94%D0%BC%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Гражданская=http://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B6%D0%B4%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Красный Балтиец=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9_%D0%91%D0%B0%D0%BB%D1%82%D0%B8%D0%B5%D1%86_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ленинградская=http://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Покровское-Стрешнево=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5-%D0%A1%D1%82%D1%80%D0%B5%D1%88%D0%BD%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Тушино=http://ru.wikipedia.org/wiki/%D0%A2%D1%83%D1%88%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Трикотажная=http://ru.wikipedia.org/wiki/%D0%A2%D1%80%D0%B8%D0%BA%D0%BE%D1%82%D0%B0%D0%B6%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Павшино=http://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%B2%D1%88%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Красногорская=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Опалиха=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D0%BF%D0%B0%D0%BB%D0%B8%D1%85%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29%29
+Аникеевка=http://ru.wikipedia.org/w/index.php?title=%D0%90%D0%BD%D0%B8%D0%BA%D0%B5%D0%B5%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0
+Нахабино=http://ru.wikipedia.org/w/index.php?title=%D0%9D%D0%B0%D1%85%D0%B0%D0%B1%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Малиновка=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%B0%D0%BB%D0%B8%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Дедовск=http://ru.wikipedia.org/wiki/%D0%94%D0%B5%D0%B4%D0%BE%D0%B2%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Миитовская=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%B8%D0%B8%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F
+Снегири=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%BD%D0%B5%D0%B3%D0%B8%D1%80%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 50 км=http://ru.wikipedia.org/w/index.php?title=50_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Манихино-1=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BD%D0%B8%D1%85%D0%B8%D0%BD%D0%BE-1
+Троицкая=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Истра=http://ru.wikipedia.org/wiki/%D0%98%D1%81%D1%82%D1%80%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Новоиерусалимская=http://ru.wikipedia.org/w/index.php?title=%D0%9D%D0%BE%D0%B2%D0%BE%D0%B8%D0%B5%D1%80%D1%83%D1%81%D0%B0%D0%BB%D0%B8%D0%BC%D1%81%D0%BA%D0%B0%D1%8F&action=edit&redlink=1
+Чеховская=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D0%B5%D1%85%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Холщевики=http://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D0%BB%D1%89%D0%B5%D0%B2%D0%B8%D0%BA%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 73 км=http://ru.wikipedia.org/w/index.php?title=73_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Ядрошино=http://ru.wikipedia.org/w/index.php?title=%D0%AF%D0%B4%D1%80%D0%BE%D1%88%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Курсаковская=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%83%D1%80%D1%81%D0%B0%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Румянцево=http://ru.wikipedia.org/w/index.php?title=%D0%A0%D1%83%D0%BC%D1%8F%D0%BD%D1%86%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Новопетровская=http://ru.wikipedia.org/w/index.php?title=%D0%9D%D0%BE%D0%B2%D0%BE%D0%BF%D0%B5%D1%82%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Устиновка=http://ru.wikipedia.org/w/index.php?title=%D0%A3%D1%81%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 91 км=http://ru.wikipedia.org/w/index.php?title=91_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Лесодолгоруково=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D0%B5%D1%81%D0%BE%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Чисмена=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D0%B8%D1%81%D0%BC%D0%B5%D0%BD%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Матренино=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%B0%D1%82%D1%80%D1%91%D0%BD%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Дубосеково=http://ru.wikipedia.org/w/index.php?title=%D0%94%D1%83%D0%B1%D0%BE%D1%81%D0%B5%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Волоколамск=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+;Пл. 133 км=http://ru.wikipedia.org/w/index.php?title=133_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Благовещенское=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%BB%D0%B0%D0%B3%D0%BE%D0%B2%D0%B5%D1%89%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B5_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 141 км=http://ru.wikipedia.org/w/index.php?title=141_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Бухолово=http://ru.wikipedia.org/w/index.php?title=%D0%91%D1%83%D1%85%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 149 км=http://ru.wikipedia.org/w/index.php?title=149_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A0%D0%B8%D0%B6%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Шаховская=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B0%D1%85%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+
+[Киевская]
+Москва Киевская=http://ru.wikipedia.org/wiki/%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Москва Сорт.=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D1%87%D0%BD%D0%B0%D1%8F-%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F
+Матвеевская=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D0%B2%D0%B5%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Очаково=http://ru.wikipedia.org/wiki/%D0%9E%D1%87%D0%B0%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Востряково=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%81%D1%82%D1%80%D1%8F%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Солнечная=http://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%BB%D0%BD%D0%B5%D1%87%D0%BD%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Переделкино=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%BA%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Мичуринец=http://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D1%87%D1%83%D1%80%D0%B8%D0%BD%D0%B5%D1%86_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Внуково=http://ru.wikipedia.org/wiki/%D0%92%D0%BD%D1%83%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Лесной Городок=http://ru.wikipedia.org/wiki/%D0%9B%D0%B5%D1%81%D0%BD%D0%BE%D0%B9_%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%BE%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Толстопальцево=http://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%BF%D0%B0%D0%BB%D1%8C%D1%86%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Кокошкино=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BA%D0%BE%D1%88%D0%BA%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Крекшино=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%80%D0%B5%D0%BA%D1%88%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Победа=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Апрелевка=http://ru.wikipedia.org/wiki/%D0%90%D0%BF%D1%80%D0%B5%D0%BB%D0%B5%D0%B2%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Дачная=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%B0%D1%87%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D0%B8%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Алабино=http://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B0%D0%B1%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Селятино=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%B5%D0%BB%D1%8F%D1%82%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Рассудово=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%81%D1%83%D0%B4%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ожигово=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D0%B6%D0%B8%D0%B3%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Бекасово=http://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BA%D0%B0%D1%81%D0%BE%D0%B2%D0%BE-1
+Зосимова Пустынь=http://ru.wikipedia.org/wiki/%D0%97%D0%BE%D1%81%D0%B8%D0%BC%D0%BE%D0%B2%D0%B0_%D0%9F%D1%83%D1%81%D1%82%D1%8B%D0%BD%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Нара=http://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%80%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Латышская=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D0%B0%D1%82%D1%8B%D1%88%D1%81%D0%BA%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Башкино=http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D1%88%D0%BA%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+;Ворсино=
+;Балабаново=
+;Обнинское=
+;Шемякино=
+;Малоярославец=
+;Ерденево=
+;Пл. 140 км=
+;Суходрев=
+;Родинка=
+;Сляднево=
+;Пл. 167 км=
+;Тихонова Пустынь=
+;Горенская=
+;Калуга 2=
+Аэропорт=http://ru.wikipedia.org/wiki/%D0%90%D1%8D%D1%80%D0%BE%D0%BF%D0%BE%D1%80%D1%82_%D0%92%D0%BD%D1%83%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+;пос. Киевский=
+;Бекасово Сорт.=
+;Бекасово Центр.=
+;Пл. 240 км=
+;Пл. 241 км=
+;Мачихино=
+;Пл. 250 км=
+;Пл. 252 км=
+;Кресты=
+;Муратовка=
+;Садовая=
+;Азарово=
+;Калуга 1=
+
+[Павелецкая]
+Москва Павелецкая=http://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Москва Тов.=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D0%B0%D1%8F-%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%B0%D1%8F
+ЗИЛ=http://ru.wikipedia.org/wiki/%D0%97%D0%98%D0%9B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Нижние Котлы=http://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B5_%D0%9A%D0%BE%D1%82%D0%BB%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Коломенское=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%BB%D0%BE%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Чертаново=http://ru.wikipedia.org/wiki/%D0%A7%D0%B5%D1%80%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Бирюлево Тов.=http://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%80%D1%8E%D0%BB%D1%91%D0%B2%D0%BE-%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D0%B0%D1%8F
+Бирюлево Пасс.=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B8%D1%80%D1%8E%D0%BB%D1%91%D0%B2%D0%BE-%D0%9F%D0%B0%D1%81%D1%81%D0%B0%D0%B6%D0%B8%D1%80%D1%81%D0%BA%D0%B0%D1%8F&action=edit&redlink=1
+Булатниково=http://ru.wikipedia.org/w/index.php?title=%D0%91%D1%83%D0%BB%D0%B0%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Расторгуево=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D1%82%D0%BE%D1%80%D0%B3%D1%83%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Калинина=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B8%D0%BD%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Ленинская=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Домодедово=http://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC%D0%BE%D0%B4%D0%B5%D0%B4%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Взлетная=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%B7%D0%BB%D1%91%D1%82%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Востряково=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%81%D1%82%D1%80%D1%8F%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Белые Столбы=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B5%D0%BB%D1%8B%D0%B5_%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D1%8B_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+52 км=http://ru.wikipedia.org/w/index.php?title=52_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Барыбино=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B0%D1%80%D1%8B%D0%B1%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Вельяминово=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%B5%D0%BB%D1%8C%D1%8F%D0%BC%D0%B8%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Привалово=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D1%80%D0%B8%D0%B2%D0%B0%D0%BB%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Михнево=http://ru.wikipedia.org/w/index.php?title=%D0%9C%D0%B8%D1%85%D0%BD%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Шугарово=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D1%83%D0%B3%D0%B0%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+85 км=http://ru.wikipedia.org/w/index.php?title=85_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Жилево=http://ru.wikipedia.org/w/index.php?title=%D0%96%D0%B8%D0%BB%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Ситенка=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%B8%D1%82%D0%B5%D0%BD%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Ступино=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D1%82%D1%83%D0%BF%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Акри=http://ru.wikipedia.org/wiki/%D0%90%D0%BA%D1%80%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Белопесоцкий=http://ru.wikipedia.org/w/index.php?title=%D0%91%D0%B5%D0%BB%D0%BE%D0%BF%D0%B5%D1%81%D0%BE%D1%86%D0%BA%D0%B8%D0%B9_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Кашира=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%B0%D1%88%D0%B8%D1%80%D0%B0-%D0%9F%D0%B0%D1%81%D1%81%D0%B0%D0%B6%D0%B8%D1%80%D1%81%D0%BA%D0%B0%D1%8F&action=edit&redlink=1
+Тесна=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D0%B5%D1%81%D0%BD%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Ожерелье=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D0%B6%D0%B5%D1%80%D0%B5%D0%BB%D1%8C%D0%B5_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+121 км=http://ru.wikipedia.org/w/index.php?title=121_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пурлово=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D1%83%D1%80%D0%BB%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Топканово=http://ru.wikipedia.org/w/index.php?title=%D0%A2%D0%BE%D0%BF%D0%BA%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+;137 км=
+Богатищево=http://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%B3%D0%B0%D1%82%D0%B8%D1%89%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+146 км=http://ru.wikipedia.org/w/index.php?title=146_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Коровино=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D1%80%D0%BE%D0%B2%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+;152 км=
+Узуново=http://ru.wikipedia.org/w/index.php?title=%D0%A3%D0%B7%D1%83%D0%BD%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+162 км=http://ru.wikipedia.org/w/index.php?title=162_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Дудино=http://ru.wikipedia.org/w/index.php?title=%D0%94%D1%83%D0%B4%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Серебряные Пруды=http://ru.wikipedia.org/w/index.php?title=%D0%A1%D0%B5%D1%80%D0%B5%D0%B1%D1%80%D1%8F%D0%BD%D1%8B%D0%B5_%D0%9F%D1%80%D1%83%D0%B4%D1%8B_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Кораблевка=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D1%80%D0%B0%D0%B1%D0%BB%D1%91%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+;Треполье=
+;Виленки=
+;Донцы=
+;Михайлов=
+;Бояринцево=
+;Голдино=
+;Лужковская=
+;Валшутка=
+;Катино=
+;Мшанка=
+;Кремлево=
+;Павелец-1=
+Авиационная=http://ru.wikipedia.org/wiki/%D0%90%D0%B2%D0%B8%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Космос=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D1%81_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Аэропорт=http://ru.wikipedia.org/wiki/%D0%90%D1%8D%D1%80%D0%BE%D0%BF%D0%BE%D1%80%D1%82_%D0%94%D0%BE%D0%BC%D0%BE%D0%B4%D0%B5%D0%B4%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+123 км=http://ru.wikipedia.org/w/index.php?title=123_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+126 км=http://ru.wikipedia.org/w/index.php?title=126_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9F%D0%B0%D0%B2%D0%B5%D0%BB%D0%B5%D1%86%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Пчеловодная=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B4%D0%BD%D0%BE%D0%B5_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+;137 км=
+;142 км=
+;Мордвес=
+;156 км=
+;Настасьино=
+;163 км=
+;166 км=
+;168 км=
+;Венев=
+;180 км=
+;Ольховка=
+;193 км=
+;Грицово=
+;Маклец=
+;Узловая-2=
+;О.П. Депо=
+;Узловая-1=
+
+[Белорусская]
+Москва Смоленская=http://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%BB%D0%BE%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Беговая=http://ru.wikipedia.org/wiki/%D0%91%D0%B5%D0%B3%D0%BE%D0%B2%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Тестовская=http://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F
+Фили=http://ru.wikipedia.org/wiki/%D0%A4%D0%B8%D0%BB%D0%B8_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Кунцево=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BD%D1%86%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Рабочий Поселок=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9_%D0%9F%D0%BE%D1%81%D1%91%D0%BB%D0%BE%D0%BA_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Сетунь=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%82%D1%83%D0%BD%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Немчиновка=http://ru.wikipedia.org/wiki/%D0%9D%D0%B5%D0%BC%D1%87%D0%B8%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Трехгорка=http://ru.wikipedia.org/wiki/%D0%A2%D1%80%D1%91%D1%85%D0%B3%D0%BE%D1%80%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Баковка=http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Одинцово=http://ru.wikipedia.org/wiki/%D0%9E%D0%B4%D0%B8%D0%BD%D1%86%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Отрадное=http://ru.wikipedia.org/wiki/%D0%9E%D1%82%D1%80%D0%B0%D0%B4%D0%BD%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Пионерская=http://ru.wikipedia.org/wiki/%D0%9F%D0%B8%D0%BE%D0%BD%D0%B5%D1%80%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Перхушково=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%85%D1%83%D1%88%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Здравница=http://ru.wikipedia.org/wiki/%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D1%86%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Жаворонки=http://ru.wikipedia.org/wiki/%D0%96%D0%B0%D0%B2%D0%BE%D1%80%D0%BE%D0%BD%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Дачное=http://ru.wikipedia.org/wiki/%D0%94%D0%B0%D1%87%D0%BD%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Малые Вяземы=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BB%D1%8B%D0%B5_%D0%92%D1%8F%D0%B7%D1%91%D0%BC%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Голицыно=http://ru.wikipedia.org/wiki/%D0%93%D0%BE%D0%BB%D0%B8%D1%86%D1%8B%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Сушкинская=http://ru.wikipedia.org/wiki/%D0%A1%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Петелино=http://ru.wikipedia.org/wiki/%D0%9F%D0%B5%D1%82%D0%B5%D0%BB%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Часцовская=http://ru.wikipedia.org/wiki/%D0%A7%D0%B0%D1%81%D1%86%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Портновская=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%80%D1%82%D0%BD%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Кубинка=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%B1%D0%B8%D0%BD%D0%BA%D0%B0-1
+Чапаевка=http://ru.wikipedia.org/wiki/%D0%A7%D0%B0%D0%BF%D0%B0%D0%B5%D0%B2%D0%BA%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Полушкино=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%BB%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Санаторная=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BD%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Тучково=http://ru.wikipedia.org/wiki/%D0%A2%D1%83%D1%87%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Театральная=http://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%B0%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Садовая=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%B4%D0%BE%D0%B2%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Дорохово=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%BE%D1%80%D0%BE%D1%85%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Партизанская=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%B0%D1%80%D1%82%D0%B8%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Шаликово=http://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D0%BB%D0%B8%D0%BA%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Кукаринская=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D1%83%D0%BA%D0%B0%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 109 км=http://ru.wikipedia.org/w/index.php?title=109_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Можайск=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D0%B6%D0%B0%D0%B9%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Бородино=http://ru.wikipedia.org/wiki/%D0%91%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Колочь=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%BB%D0%BE%D1%87%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Уваровка=http://ru.wikipedia.org/w/index.php?title=%D0%A3%D0%B2%D0%B0%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 144 км=http://ru.wikipedia.org/wiki/144_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Пл. 147 км=http://ru.wikipedia.org/w/index.php?title=147_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Дровнино=http://ru.wikipedia.org/w/index.php?title=%D0%94%D1%80%D0%BE%D0%B2%D0%BD%D0%B8%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+;Батюшково=
+;Колесники=
+;Гагарин=
+;Василисино=
+;Серго-Ивановская=
+;Пл. 205 км=
+;Туманово=
+;Пл. 215 км=
+;Пл. 218 км=
+;Мещерская=
+;Подъелки=
+;Комягино=
+;Зубаревка=
+;Вязьма=
+Кунцево-2=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BD%D1%86%D0%B5%D0%B2%D0%BE-2
+Ромашково=http://ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%BC%D0%B0%D1%88%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Раздоры=http://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D0%B7%D0%B4%D0%BE%D1%80%D1%8B_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Барвиха=http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D1%80%D0%B2%D0%B8%D1%85%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ильинское=http://ru.wikipedia.org/wiki/%D0%98%D0%BB%D1%8C%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Усово=http://ru.wikipedia.org/w/index.php?title=%D0%A3%D1%81%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Захарово=http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D1%85%D0%B0%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%A1%D0%BC%D0%BE%D0%BB%D0%B5%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Хлюпино=http://ru.wikipedia.org/wiki/%D0%A5%D0%BB%D1%8E%D0%BF%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Скоротово=http://ru.wikipedia.org/wiki/%D0%A1%D0%BA%D0%BE%D1%80%D0%BE%D1%82%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Звенигород=http://ru.wikipedia.org/wiki/%D0%97%D0%B2%D0%B5%D0%BD%D0%B8%D0%B3%D0%BE%D1%80%D0%BE%D0%B4_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+
+[Курская]
+Москва Курская=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Москва Тов.=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0-%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%D0%BD%D0%B0%D1%8F-%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%B0%D1%8F
+Калитники=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BB%D0%B8%D1%82%D0%BD%D0%B8%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Текстильщики=http://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%D1%89%D0%B8%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Люблино=http://ru.wikipedia.org/wiki/%D0%9B%D1%8E%D0%B1%D0%BB%D0%B8%D0%BD%D0%BE_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Депо=http://ru.wikipedia.org/w/index.php?title=%D0%94%D0%B5%D0%BF%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5%29&action=edit&redlink=1
+Перерва=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%B5%D1%80%D0%B5%D1%80%D0%B2%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Москворечье=http://ru.wikipedia.org/wiki/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%BE%D1%80%D0%B5%D1%87%D1%8C%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Царицыно=http://ru.wikipedia.org/wiki/%D0%A6%D0%B0%D1%80%D0%B8%D1%86%D1%8B%D0%BD%D0%BE_(%D0%B6%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Покровская=http://ru.wikipedia.org/w/index.php?title=%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Красный Строитель=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D1%8B%D0%B9_%D0%A1%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Битца=http://ru.wikipedia.org/wiki/%D0%91%D0%B8%D1%82%D1%86%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Бутово=http://ru.wikipedia.org/wiki/%D0%91%D1%83%D1%82%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Щербинка=http://ru.wikipedia.org/wiki/%D0%A9%D0%B5%D1%80%D0%B1%D0%B8%D0%BD%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Силикатная=http://ru.wikipedia.org/wiki/%D0%A1%D0%B8%D0%BB%D0%B8%D0%BA%D0%B0%D1%82%D0%BD%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Подольск=http://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D0%B4%D0%BE%D0%BB%D1%8C%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Кутузовская=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%82%D1%83%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Весенняя=http://ru.wikipedia.org/w/index.php?title=%D0%92%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D1%8F%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Гривно=http://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B8%D0%B2%D0%BD%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Львовская=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Колхозная=http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BB%D1%85%D0%BE%D0%B7%D0%BD%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Столбовая=http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D0%BE%D0%BB%D0%B1%D0%BE%D0%B2%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 66 км=http://ru.wikipedia.org/w/index.php?title=66_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Чепелево=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D0%B5%D0%BF%D0%B5%D0%BB%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Чехов=http://ru.wikipedia.org/w/index.php?title=%D0%A7%D0%B5%D1%85%D0%BE%D0%B2_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Луч=http://ru.wikipedia.org/wiki/%D0%9B%D1%83%D1%87_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Шарапова Охота=http://ru.wikipedia.org/w/index.php?title=%D0%A8%D0%B0%D1%80%D0%B0%D0%BF%D0%BE%D0%B2%D0%B0_%D0%9E%D1%85%D0%BE%D1%82%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 92 км=http://ru.wikipedia.org/w/index.php?title=92_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Авангард=http://ru.wikipedia.org/w/index.php?title=%D0%90%D0%B2%D0%B0%D0%BD%D0%B3%D0%B0%D1%80%D0%B4_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Серпухов=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%BF%D1%83%D1%85%D0%BE%D0%B2_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Ока=http://ru.wikipedia.org/w/index.php?title=%D0%9E%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+Пл. 107 км=http://ru.wikipedia.org/w/index.php?title=107_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+;Приокская=
+;Пл. 118 км=
+;Тарусская=
+;Пл. 132 км=
+;Пахомово=
+;Шульгино=
+;Пл. 153 км=
+;Ясногорск=
+;Шеметово=
+;Бараново=
+;Ревякино=
+;Байдики=
+;Хомяково=
+;Пл. 191 км=
+;Тула=
+
+[Горьковская]
+Москва Курская=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%80%D1%81%D0%BA%D0%B8%D0%B9_%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB
+Серп и Молот=http://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%BF_%D0%B8_%D0%9C%D0%BE%D0%BB%D0%BE%D1%82_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Карачарово=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%B0%D1%87%D0%B0%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Чухлинка=http://ru.wikipedia.org/wiki/%D0%A7%D1%83%D1%85%D0%BB%D0%B8%D0%BD%D0%BA%D0%B0
+Кусково=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%81%D0%BA%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Новогиреево=http://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B2%D0%BE%D0%B3%D0%B8%D1%80%D0%B5%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Реутово=http://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%83%D1%82%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Никольское=http://ru.wikipedia.org/wiki/%D0%9D%D0%B8%D0%BA%D0%BE%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Салтыковская=http://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BB%D1%82%D1%8B%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Кучино=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D1%87%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Железнодорожная=http://ru.wikipedia.org/wiki/%D0%96%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B0%D1%8F_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Черное=http://ru.wikipedia.org/wiki/%D0%A7%D1%91%D1%80%D0%BD%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Заря=http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D1%80%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Купавна=http://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%BF%D0%B0%D0%B2%D0%BD%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 33 км=http://ru.wikipedia.org/wiki/33_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%93%D0%BE%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Электроугли=http://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%83%D0%B3%D0%BB%D0%B8_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Пл. 43 км=http://ru.wikipedia.org/wiki/43_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%93%D0%BE%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Храпуново=http://ru.wikipedia.org/wiki/%D0%A5%D1%80%D0%B0%D0%BF%D1%83%D0%BD%D0%BE%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Есино=http://ru.wikipedia.org/wiki/%D0%95%D1%81%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Фрязево=http://ru.wikipedia.org/wiki/%D0%A4%D1%80%D1%8F%D0%B7%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Казанское=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%81%D0%BA%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Вохна=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D1%85%D0%BD%D0%B0_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Павловский Посад=http://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9_%D0%9F%D0%BE%D1%81%D0%B0%D0%B4_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Назарьево=http://ru.wikipedia.org/wiki/%D0%9D%D0%B0%D0%B7%D0%B0%D1%80%D1%8C%D0%B5%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Дрезна=http://ru.wikipedia.org/wiki/%D0%94%D1%80%D0%B5%D0%B7%D0%BD%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Кабаново=http://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%B1%D0%B0%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Пл. 87 км=http://ru.wikipedia.org/wiki/87_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%93%D0%BE%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Орехово-Зуево=http://ru.wikipedia.org/wiki/%D0%9E%D1%80%D0%B5%D1%85%D0%BE%D0%B2%D0%BE-%D0%97%D1%83%D0%B5%D0%B2%D0%BE_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Крутое=http://ru.wikipedia.org/wiki/%D0%9A%D1%80%D1%83%D1%82%D0%BE%D0%B5_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Воиново=http://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B8%D0%BD%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+;Усад=
+;Глубоково=
+;Покров=
+;Пл. 113 км=
+;Омутище=
+;Леоново=
+;Петушки=
+;Костерево=
+;Болдино=
+;Сушнево=
+;Красная Охота=
+;Ундол=
+;Пл. 170 км=
+;Колокша=
+;Юрьевец=
+;Владимир=
+Стройка=http://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Горенки=http://ru.wikipedia.org/w/index.php?title=%D0%93%D0%BE%D1%80%D0%B5%D0%BD%D0%BA%D0%B8_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%B2_%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B5_%D1%81%D1%82._%D0%91%D0%B0%D0%BB%D0%B0%D1%88%D0%B8%D1%85%D0%B0%29&action=edit&redlink=1
+Балашиха=http://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BB%D0%B0%D1%88%D0%B8%D1%85%D0%B0_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Металлург=http://ru.wikipedia.org/wiki/%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D1%83%D1%80%D0%B3_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Электросталь=http://ru.wikipedia.org/wiki/%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Машиностроитель=http://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%88%D0%B8%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D1%8C_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29
+Ногинск=http://ru.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B3%D0%B8%D0%BD%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29
+Захарово=http://ru.wikipedia.org/wiki/%D0%97%D0%B0%D1%85%D0%B0%D1%80%D0%BE%D0%B2%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%93%D0%BE%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29
+Ленская=http://ru.wikipedia.org/w/index.php?title=%D0%9B%D0%B5%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Ковригино=http://ru.wikipedia.org/w/index.php?title=%D0%9A%D0%BE%D0%B2%D1%80%D0%B8%D0%B3%D0%B8%D0%BD%D0%BE_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%29&action=edit&redlink=1
+Пл. 14 км=http://ru.wikipedia.org/w/index.php?title=14_%D0%BA%D0%BC_(%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0_%D0%93%D0%BE%D1%80%D1%8C%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%29&action=edit&redlink=1
+Электрогорск=http://ru.wikipedia.org/w/index.php?title=%D0%AD%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D0%B3%D0%BE%D1%80%D1%81%D0%BA_(%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F%29&action=edit&redlink=1
+

@@ -1,0 +1,82 @@
+[Options]
+AddToInfo=1
+CityName=Санкт-Петербург
+Caption=Ссылки
+StringToAdd='  карта Google: '
+
+[Линия 1]
+Девяткино=http://maps.google.com/maps?ll=60.050236,30.442169&spn=0.01,0.01&t=h&q=60.050236,30.442169&hl=ru
+Гражданский пр.=http://maps.google.com/maps?ll=60.034675,30.418397&spn=0.01,0.01&t=h&q=60.034675,30.418397&hl=ru
+Академическая=http://maps.google.com/maps?ll=60.01277,30.396016&spn=0.01,0.01&t=h&q=60.01277,30.396016&hl=ru
+Политехническая=http://maps.google.com/maps?ll=60.008942,30.370892&spn=0.01,0.01&t=h&q=60.008942,30.370892&hl=ru
+пл.Мужества=http://maps.google.com/maps?ll=59.999744,30.366158&spn=0.01,0.01&t=h&q=59.999744,30.366158&hl=ru
+Лесная=http://maps.google.com/maps?ll=59.984811,30.344325&spn=0.01,0.01&t=h&q=59.984811,30.344325&hl=ru
+Выборгская=http://maps.google.com/maps?ll=59.971047,30.347389&spn=0.01,0.01&t=h&q=59.971047,30.347389&hl=ru
+пл.Ленина=http://maps.google.com/maps?ll=59.957094,30.355547&spn=0.01,0.01&t=h&q=59.957094,30.355547&hl=ru
+Чернышевская=http://maps.google.com/maps?ll=59.944556,30.359967&spn=0.01,0.01&t=h&q=59.944556,30.359967&hl=ru
+пл.Восстания=http://maps.google.com/maps?ll=59.9315611,30.3605667&spn=0.01,0.01&t=h&q=59.9315611,30.3605667&hl=ru
+Владимирская=http://maps.google.com/maps?ll=59.927539,30.347961&spn=0.01,0.01&t=h&q=59.927539,30.347961&hl=ru
+Пушкинская=http://maps.google.com/maps?ll=59.920689,30.329669&spn=0.01,0.01&t=h&q=59.920689,30.329669&hl=ru
+Технологический институт-I=http://maps.google.com/maps?ll=59.91654,30.318328&spn=0.01,0.01&t=h&q=59.91654,30.318328&hl=ru
+Балтийская=http://maps.google.com/maps?ll=59.907214,30.299517&spn=0.01,0.01&t=h&q=59.907214,30.299517&hl=ru
+Нарвская=http://maps.google.com/maps?ll=59.901208,30.274903&spn=0.01,0.01&t=h&q=59.901208,30.274903&hl=ru
+Кировский завод=http://maps.google.com/maps?ll=59.8797,30.261911&spn=0.01,0.01&t=h&q=59.8797,30.261911&hl=ru
+Автово=http://maps.google.com/maps?ll=59.867325,30.261353&spn=0.01,0.01&t=h&q=59.867325,30.261353&hl=ru
+Ленинский пр.=http://maps.google.com/maps?ll=59.8514,30.268306&spn=0.01,0.01&t=h&q=59.8514,30.268306&hl=ru
+пр.Ветеранов=http://maps.google.com/maps?ll=59.841589,30.253728&spn=0.01,0.01&t=h&q=59.841589,30.253728&hl=ru
+
+[Линия 2]
+Парнас=http://maps.google.com/maps?ll=60.067139,30.334233&spn=0.01,0.01&t=h&q=60.067139,30.334233&hl=ru
+пр.Просвещения=http://maps.google.com/maps?ll=60.051442,30.332489&spn=0.01,0.01&t=h&q=60.051442,30.332489&hl=ru
+Озерки=http://maps.google.com/maps?ll=60.03715,30.321517&spn=0.01,0.01&t=h&q=60.03715,30.321517&hl=ru
+Удельная=http://maps.google.com/maps?ll=60.016661,30.315647&spn=0.01,0.01&t=h&q=60.016661,30.315647&hl=ru
+Пионерская=http://maps.google.com/maps?ll=60.002483,30.296808&spn=0.01,0.01&t=h&q=60.002483,30.296808&hl=ru
+Чёрная речка=http://maps.google.com/maps?ll=59.985478,30.300819&spn=0.01,0.01&t=h&q=59.985478,30.300819&hl=ru
+Петроградская=http://maps.google.com/maps?ll=59.966378,30.311556&spn=0.01,0.01&t=h&q=59.966378,30.311556&hl=ru
+Горьковская=http://maps.google.com/maps?ll=59.956147,30.318753&spn=0.01,0.01&t=h&q=59.956147,30.318753&hl=ru
+Невский пр.=http://maps.google.com/maps?ll=59.934444,30.330833&spn=0.01,0.01&t=h&q=59.934444,30.330833&hl=ru
+Сенная площадь=http://maps.google.com/maps?ll=59.927092,30.320425&spn=0.01,0.01&t=h&q=59.927092,30.320425&hl=ru
+Технологический институт-II=http://maps.google.com/maps?ll=59.91654,30.318328&spn=0.01,0.01&t=h&q=59.91654,30.318328&hl=ru
+Фрунзенская=http://maps.google.com/maps?ll=59.906281,30.31745&spn=0.01,0.01&t=h&q=59.906281,30.31745&hl=ru
+Московские ворота=http://maps.google.com/maps?ll=59.891808,30.317881&spn=0.01,0.01&t=h&q=59.891808,30.317881&hl=ru
+Электросила=http://maps.google.com/maps?ll=59.879203,30.318644&spn=0.01,0.01&t=h&q=59.879203,30.318644&hl=ru
+Парк Победы=http://maps.google.com/maps?ll=59.866361,30.321803&spn=0.01,0.01&t=h&q=59.866361,30.321803&hl=ru
+Московская=http://maps.google.com/maps?ll=59.852192,30.322206&spn=0.01,0.01&t=h&q=59.852192,30.322206&hl=ru
+Звёздная=http://maps.google.com/maps?ll=59.833233,30.349492&spn=0.01,0.01&t=h&q=59.833233,30.349492&hl=ru
+Купчино=http://maps.google.com/maps?ll=59.829444,30.375556&spn=0.01,0.01&t=h&q=59.829444,30.375556&hl=ru
+
+[Линия 3]
+Приморская=http://maps.google.com/maps?ll=59.948496,30.2343&spn=0.01,0.01&t=h&q=59.948496,30.2343&hl=ru
+Василеостровская=http://maps.google.com/maps?ll=59.942639,30.278278&spn=0.01,0.01&t=h&q=59.942639,30.278278&hl=ru
+Гостиный двор=http://maps.google.com/maps?ll=59.933889,30.334167&spn=0.01,0.01&t=h&q=59.933889,30.334167&hl=ru
+Маяковская=http://maps.google.com/maps?ll=59.931611,30.355028&spn=0.01,0.01&t=h&q=59.931611,30.355028&hl=ru
+пл.Ал.Невского-I=http://maps.google.com/maps?ll=59.924369,30.384989&spn=0.01,0.01&t=h&q=59.924369,30.384989&hl=ru
+Елизаровская=http://maps.google.com/maps?ll=59.8967,30.4235&spn=0.01,0.01&t=h&q=59.8967,30.4235&hl=ru
+Ломоносовская=http://maps.google.com/maps?ll=59.877317,30.441686&spn=0.01,0.01&t=h&q=59.877317,30.441686&hl=ru
+Пролетарская=http://maps.google.com/maps?ll=59.865194,30.470272&spn=0.01,0.01&t=h&q=59.865194,30.470272&hl=ru
+Обухово=http://maps.google.com/maps?ll=59.848711,30.457742&spn=0.01,0.01&t=h&q=59.848711,30.457742&hl=ru
+Рыбацкое=http://maps.google.com/maps?ll=59.830878,30.500117&spn=0.01,0.01&t=h&q=59.830878,30.500117&hl=ru
+
+[Линия 4]
+Спасская=http://maps.google.com/maps?ll=59.926744,30.319547&spn=0.01,0.01&t=h&q=59.926744,30.319547&hl=ru
+Достоевская=http://maps.google.com/maps?ll=59.928306,30.345917&spn=0.01,0.01&t=h&q=59.928306,30.345917&hl=ru
+Лиговский пр.=http://maps.google.com/maps?ll=59.920778,30.355222&spn=0.01,0.01&t=h&q=59.920778,30.355222&hl=ru
+пл.Ал.Невского-II=http://maps.google.com/maps?ll=59.923639,30.383333&spn=0.01,0.01&t=h&q=59.923639,30.383333&hl=ru
+Новочеркасская=http://maps.google.com/maps?ll=59.929056,30.411778&spn=0.01,0.01&t=h&q=59.929056,30.411778&hl=ru
+Ладожская=http://maps.google.com/maps?ll=59.932444,30.439306&spn=0.01,0.01&t=h&q=59.932444,30.439306&hl=ru
+пр.Большевиков=http://maps.google.com/maps?ll=59.919917,30.46675&spn=0.01,0.01&t=h&q=59.919917,30.46675&hl=ru
+ул.Дыбенко=http://maps.google.com/maps?ll=59.907444,30.483356&spn=0.01,0.01&t=h&q=59.907444,30.483356&hl=ru
+
+[Линия 5]
+Комендантский пр.=http://maps.google.com/maps?ll=60.008489,30.258711&spn=0.01,0.01&t=h&q=60.008489,30.258711&hl=ru
+Старая деревня=http://maps.google.com/maps?ll=59.989611,30.255111&spn=0.01,0.01&t=h&q=59.989611,30.255111&hl=ru
+Крестовский остров=http://maps.google.com/maps?ll=59.971781,30.259442&spn=0.01,0.01&t=h&q=59.971781,30.259442&hl=ru
+Чкаловская=http://maps.google.com/maps?ll=59.961056,30.292028&spn=0.01,0.01&t=h&q=59.961056,30.292028&hl=ru
+Спортивная=http://maps.google.com/maps?ll=59.952083,30.290611&spn=0.01,0.01&t=h&q=59.952083,30.290611&hl=ru
+Адмиралтейская=http://maps.google.com/maps?ll=59.936121,30.314793&spn=0.01,0.01&t=h&q=59.936121,30.314793&hl=ru
+Садовая=http://maps.google.com/maps?ll=59.926791,30.31776&spn=0.01,0.01&t=h&q=59.926791,30.31776&hl=ru
+Звенигородская=http://maps.google.com/maps?ll=59.922381,30.335642&spn=0.01,0.01&t=h&q=59.922381,30.335642&hl=ru
+Обводный канал=http://maps.google.com/maps?ll=59.914776,%2030.348970&spn=0.01,0.01&t=h&q=59.914776,%2030.348970&hl=ru
+Волковская=http://maps.google.com/maps?ll=59.896053,30.358475&spn=0.01,0.01&t=h&q=59.896053,30.358475&hl=ru
+Бухарестская=http://maps.google.com/maps?ll=59.88399,30.365943&spn=0.01,0.01&t=h&q=59.88399,30.365943&hl=ru
+Международная=http://maps.google.com/maps?ll=59.871991,30.380314&spn=0.01,0.01&t=h&q=59.871991,30.380314&hl=ru

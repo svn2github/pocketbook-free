@@ -1,0 +1,78 @@
+Size 1050x1220
+
+PenColor 004000
+Polygon 734,342, 824,342, 824,370, 734,370, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 757, 343, Казанский, 1
+AngleTextOut 0, Arial, 15, 757, 353, вокзал, 1
+Image Vokzals_logo.vec, 737, 345
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 689,367, 689,420, 565,420, 565,367, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 568, 370, Ленинградский, 1
+AngleTextOut 0, Arial, 15, 568, 385, и Ярославский, 1
+AngleTextOut 0, Arial, 15, 568, 400, вокзалы, 1
+Image Vokzals_logo.vec, 668, 370
+Image Vokzals_logo.vec, 668, 395
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 678,264, 678,292, 757,292, 757,264, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 700, 265, Рижский, 1
+AngleTextOut 0, Arial, 15, 700, 275, вокзал, 1
+Image Vokzals_logo.vec, 681, 267
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 483,289, 483,317, 592,317, 592,289, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 505, 290, Савеловский, 1
+AngleTextOut 0, Arial, 15, 505, 300, вокзал, 1
+Image Vokzals_logo.vec, 486, 292
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 363,339, 363,367, 254,367, 254,339, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 257, 340, Белорусский, 1
+AngleTextOut 0, Arial, 15, 257, 351, вокзал, 1
+Image Vokzals_logo.vec, 342, 342
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 316,638, 316,666, 230,666, 230,638, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 233, 639, Киевский, 1
+AngleTextOut 0, Arial, 15, 233, 648, вокзал, 1
+Image Vokzals_logo.vec, 295, 641
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 659,788, 659,816, 760,816, 760,788, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 681, 789, Павелецкий, 1
+AngleTextOut 0, Arial, 15, 681, 799, вокзал, 1
+Image Vokzals_logo.vec, 662, 791
+
+PenColor 004000
+BrushColor FFFFFF
+Polygon 762,572, 762,600, 685,600, 685,572, 2
+BrushColor -1
+AngleTextOut 0, Arial, 15, 688, 573, Курский, 1
+AngleTextOut 0, Arial, 15, 688, 583, вокзал, 1
+Image Vokzals_logo.vec, 741, 575
+
+BrushColor -1
+PenColor A0A0A0
+Railway 5, 9, 9, 739,378, 793,409, 834,460, 856,529, 864,594, 872,671, 899,733, 933,790, 963,808, 1006,805, 1052,828
+Railway 5, 9, 9, 586,1220, 595,1140, 615,1046, 668,1019, 731,997, 771,967, 806,916, 827,885, 847,853, 865,820, 875,790, 874,744, 850,689, 831,647, 818,612, 807,580, 794,536, 778,492, 753,446, 726,411, 698,369, 686,338, 660,302, 621,282, 559,277, 497,281, 442,305, 415,332, 392,358, 353,396, 334,411, 294,447, 277,487, 272,524, 263,561, 249,594, 232,621, 207,639, 170,632, 145,594, 120,557, 88,550, 51,558, 21,568, 0,576
+Railway 5, 9, 9, 314,670, 254,717, 187,724, 111,771, 1,848
+Railway 5, 9, 9, 632,788, 606,804, 591,830, 587,867, 604,906, 634,942, 666,986, 700,1040, 723,1098, 741,1154, 754,1219
+Railway 5, 9, 9, 663,297, 625,275, 577,268, 522,265, 468,262, 399,262, 335,276, 299,305, 266,325, 220,321, 172,325, 119,330, 54,334, 2,349
+Railway 5, 9, 9, 801,607, 811,644, 826,683, 861,716, 908,688, 930,643, 948,598, 978,567, 1032,538
+Railway 5, 9, 9, 707,368, 675,299, 616,260, 546,234, 467,211, 400,174, 341,128, 295,87, 252,43, 215,0
+Railway 5, 9, 9, 721,356, 745,296, 770,238, 776,181, 822,126, 872,71, 936,-1
+Railway 5, 9, 9, 468,284, 475,250, 473,211, 447,170, 430,125, 385,78, 366,1

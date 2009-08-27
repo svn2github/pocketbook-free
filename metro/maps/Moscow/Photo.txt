@@ -1,0 +1,225 @@
+[Options]
+AddToInfo=1
+Caption=Ссылки
+CityName=Москва
+StringToAdd='  Фотографии станции: '
+
+[Сокольническая]
+Улица Подбельского=http://metro.ru/stations/sokolnicheskaya/ulitsa_podbelskogo/
+Черкизовская=http://metro.ru/stations/sokolnicheskaya/cherkizovskaya/
+Преображенская площадь=http://metro.ru/stations/sokolnicheskaya/preobrazhenskaya_ploshad/
+Сокольники=http://metro.ru/stations/sokolnicheskaya/sokolniki/
+Красносельская=http://metro.ru/stations/sokolnicheskaya/krasnoselskaya/
+Комсомольская=http://metro.ru/stations/sokolnicheskaya/komsomolskaya/
+Красные ворота=http://metro.ru/stations/sokolnicheskaya/krasnye_vorota/
+Чистые пруды=http://metro.ru/stations/sokolnicheskaya/chistye_prudy/
+Лубянка=http://metro.ru/stations/sokolnicheskaya/lyubyanka/
+Охотный ряд=http://metro.ru/stations/sokolnicheskaya/okhotny_ryad/
+Библиотека имени Ленина=http://metro.ru/stations/sokolnicheskaya/biblioteka_im_lenina/
+Кропоткинская=http://metro.ru/stations/sokolnicheskaya/kropotkinskaya/
+Парк культуры=http://metro.ru/stations/sokolnicheskaya/park_kultury/
+Фрунзенская=http://metro.ru/stations/sokolnicheskaya/frunzenskaya/
+Спортивная=http://metro.ru/stations/sokolnicheskaya/sportivnaya/
+Воробьевы горы=http://metro.ru/stations/sokolnicheskaya/vorobyovy_gory/
+Университет=http://metro.ru/stations/sokolnicheskaya/universitet/
+Проспект Вернадского=http://metro.ru/stations/sokolnicheskaya/prospekt_vernadskogo/
+Юго-Западная=http://metro.ru/stations/sokolnicheskaya/jugo_zapadnaya/
+
+[Замоскворецкая]
+Речной вокзал=http://metro.ru/stations/zamoskvoretskaya/rechnoy_vokzal/
+Водный стадион=http://metro.ru/stations/zamoskvoretskaya/vodnyi_stadion/
+Войковская=http://metro.ru/stations/zamoskvoretskaya/voykovskaya/
+Сокол=http://metro.ru/stations/zamoskvoretskaya/sokol/
+Аэропорт=http://metro.ru/stations/zamoskvoretskaya/aeroport/
+Динамо=http://metro.ru/stations/zamoskvoretskaya/dinamo/
+Белорусская=http://metro.ru/stations/zamoskvoretskaya/belorusskaya/
+Маяковская=http://metro.ru/stations/zamoskvoretskaya/mayakovskaya/
+Тверская=http://metro.ru/stations/zamoskvoretskaya/tverskaya/
+Театральная=http://metro.ru/stations/zamoskvoretskaya/teatralnaya/
+Новокузнецкая=http://metro.ru/stations/zamoskvoretskaya/novokuznetskaya/
+Павелецкая=http://metro.ru/stations/zamoskvoretskaya/paveletskaya/
+Автозаводская=http://metro.ru/stations/zamoskvoretskaya/avtozavodskaya/
+Коломенская=http://metro.ru/stations/zamoskvoretskaya/kolomenskaya/
+Каширская=http://metro.ru/stations/zamoskvoretskaya/kashirskaya/
+Кантемировская=http://metro.ru/stations/zamoskvoretskaya/kantemirovskaya/
+Царицыно=http://metro.ru/stations/zamoskvoretskaya/tsaritsino/
+Орехово=http://metro.ru/stations/zamoskvoretskaya/orekhovo/
+Домодедовская=http://metro.ru/stations/zamoskvoretskaya/domodedovskaya/
+Красногвардейская=http://metro.ru/stations/zamoskvoretskaya/krasnogvardeyskaya/
+;Братеево=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=2&c=01
+
+[Арбатско-Покровская]
+Митино=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=3&c=22
+Волоколамская=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=3&c=21
+;Минская=
+Строгино=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=3&c=20
+Строгино=http://metro.ru/stations/filevskaya/strogino/
+Крылатское=http://metro.ru/stations/filevskaya/krylatskoye/
+Молодежная=http://metro.ru/stations/filevskaya/molodezhnaya/
+Кунцевская=http://metro.ru/stations/filevskaya/kuntsevskaya/
+Славянский бульвар=http://metro.ru/stations/arbatsko-pokrovskaya/slavyanskiy_bulvar/
+Парк Победы=http://metro.ru/stations/arbatsko-pokrovskaya/park_pobedy/
+Киевская=http://metro.ru/stations/arbatsko-pokrovskaya/kievskaya/
+Смоленская=http://metro.ru/stations/arbatsko-pokrovskaya/smolenskaya/
+Арбатская=http://metro.ru/stations/arbatsko-pokrovskaya/arbatskaya/
+Площадь Революции=http://metro.ru/stations/arbatsko-pokrovskaya/ploshad_revolutsii/
+Курская=http://metro.ru/stations/arbatsko-pokrovskaya/kurskaya/
+Бауманская=http://metro.ru/stations/arbatsko-pokrovskaya/baumanskaya/
+Электрозаводская=http://metro.ru/stations/arbatsko-pokrovskaya/elektrozavodskaya/
+Семеновская=http://metro.ru/stations/arbatsko-pokrovskaya/semenovskaya/
+Партизанская=http://metro.ru/stations/arbatsko-pokrovskaya/partizanskaya/
+Измайловская=http://metro.ru/stations/arbatsko-pokrovskaya/izmailovskaya/
+Первомайская=http://metro.ru/stations/arbatsko-pokrovskaya/pervomayskaya/
+Щелковская=http://metro.ru/stations/arbatsko-pokrovskaya/schelkovskaya/
+
+[Филевская]
+Кунцевская=http://metro.ru/stations/filevskaya/kuntsevskaya/
+Пионерская=http://metro.ru/stations/filevskaya/pionerskaya/
+Филевский парк=http://metro.ru/stations/filevskaya/filevsky_park/
+Багратионовская=http://metro.ru/stations/filevskaya/bagrationovskaya/
+Фили=http://metro.ru/stations/filevskaya/fili/
+Кутузовская=http://metro.ru/stations/filevskaya/kutuzovskaya/
+Студенческая=http://metro.ru/stations/filevskaya/studencheskaya/
+Выставочная=http://metro.ru/stations/filevskaya/delovoy_tsentr/
+Международная=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=4&c=20\nhttp://news.metro.ru/f415.html
+Киевская=http://metro.ru/stations/filevskaya/kievskaya/
+Смоленская=http://metro.ru/stations/filevskaya/smolenskaya/
+Арбатская=http://metro.ru/stations/filevskaya/arbatskaya/
+Александровский сад=http://metro.ru/stations/filevskaya/aleksandrovsky_sad/
+
+[Кольцевая]
+Парк культуры=http://metro.ru/stations/koltsevaya/park_kultury/
+Октябрьская=http://metro.ru/stations/koltsevaya/oktyabrskaya/
+Добрынинская=http://metro.ru/stations/koltsevaya/dobryninskaya/
+Павелецкая=http://metro.ru/stations/koltsevaya/paveletskaya/
+Таганская=http://metro.ru/stations/koltsevaya/taganskaya/
+Курская=http://metro.ru/stations/koltsevaya/kurskaya/
+Комсомольская=http://metro.ru/stations/koltsevaya/komsomolskaya/
+Проспект Мира=http://metro.ru/stations/koltsevaya/prospekt_mira/
+Новослободская=http://metro.ru/stations/koltsevaya/novoslobodskaya/
+Белорусская=http://metro.ru/stations/koltsevaya/belorusskaya/
+Краснопресненская=http://metro.ru/stations/koltsevaya/krasnopresnenskaya/
+Киевская=http://metro.ru/stations/koltsevaya/kievskaya/
+
+[Калужско-Рижская]
+Медведково=http://metro.ru/stations/kaluzhsko-rizhskaya/medvedkovo/
+Бабушкинская=http://metro.ru/stations/kaluzhsko-rizhskaya/babushkinskaya/
+Свиблово=http://metro.ru/stations/kaluzhsko-rizhskaya/sviblovo/
+Ботанический сад=http://metro.ru/stations/kaluzhsko-rizhskaya/botanichesky_sad/
+ВДНХ=http://metro.ru/stations/kaluzhsko-rizhskaya/vdnh/
+Алексеевская=http://metro.ru/stations/kaluzhsko-rizhskaya/alexeyevskaya/
+Рижская=http://metro.ru/stations/kaluzhsko-rizhskaya/rizhskaya/
+Проспект Мира=http://metro.ru/stations/kaluzhsko-rizhskaya/prospekt_mira/
+Сухаревская=http://metro.ru/stations/kaluzhsko-rizhskaya/sukharevskaya/
+Тургеневская=http://metro.ru/stations/kaluzhsko-rizhskaya/turgenevskaya/
+Китай-город=http://metro.ru/stations/kaluzhsko-rizhskaya/kitay-gorod/
+Третьяковская=http://metro.ru/stations/kaluzhsko-rizhskaya/tretiakovskaya/
+Октябрьская=http://metro.ru/stations/kaluzhsko-rizhskaya/oktyabrskaya/
+Шаболовская=http://metro.ru/stations/kaluzhsko-rizhskaya/shabolovskaya/
+Ленинский проспект=http://metro.ru/stations/kaluzhsko-rizhskaya/leninskiy_prospekt/
+Академическая=http://metro.ru/stations/kaluzhsko-rizhskaya/akademicheskaya/
+Профсоюзная=http://metro.ru/stations/kaluzhsko-rizhskaya/profsoyuznaya/
+Новые Черемушки=http://metro.ru/stations/kaluzhsko-rizhskaya/novye_cheremushki/
+Калужская=http://metro.ru/stations/kaluzhsko-rizhskaya/kaluzhskaya/
+Беляево=http://metro.ru/stations/kaluzhsko-rizhskaya/belyaevo/
+Коньково=http://metro.ru/stations/kaluzhsko-rizhskaya/konkovo/
+Теплый Стан=http://metro.ru/stations/kaluzhsko-rizhskaya/teplyi_stan/
+Ясенево=http://metro.ru/stations/kaluzhsko-rizhskaya/yasenevo/
+Новоясеневская=http://metro.ru/stations/kaluzhsko-rizhskaya/bitsevskiy_park/
+
+[Таганско-Краснопресненская]
+Планерная=http://metro.ru/stations/tagansko-krasnopresnenskaya/planernaya/
+Сходненская=http://metro.ru/stations/tagansko-krasnopresnenskaya/shodnenskaya/
+Тушинская=http://metro.ru/stations/tagansko-krasnopresnenskaya/tushinskaya/
+;Волоколамская=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=7&c=04
+Щукинская=http://metro.ru/stations/tagansko-krasnopresnenskaya/shukinskaya/
+Октябрьское поле=http://metro.ru/stations/tagansko-krasnopresnenskaya/oktyabrskoye_pole/
+Полежаевская=http://metro.ru/stations/tagansko-krasnopresnenskaya/polezhaevskaya/
+Беговая=http://metro.ru/stations/tagansko-krasnopresnenskaya/begovaya/
+Улица 1905 года=http://metro.ru/stations/tagansko-krasnopresnenskaya/ulitsa_1905_goda/
+Баррикадная=http://metro.ru/stations/tagansko-krasnopresnenskaya/barrikadnaya/
+Пушкинская=http://metro.ru/stations/tagansko-krasnopresnenskaya/pushkinskaya/
+Кузнецкий мост=http://metro.ru/stations/tagansko-krasnopresnenskaya/kuznetskiy_most/
+Китай-город=http://metro.ru/stations/tagansko-krasnopresnenskaya/kitay-gorod/
+Таганская=http://metro.ru/stations/tagansko-krasnopresnenskaya/taganskaya/
+Пролетарская=http://metro.ru/stations/tagansko-krasnopresnenskaya/proletarskaya/
+Волгоградский проспект=http://metro.ru/stations/tagansko-krasnopresnenskaya/volgogradskiy_prospekt/
+Текстильщики=http://metro.ru/stations/tagansko-krasnopresnenskaya/tekstilshiki/
+Кузьминки=http://metro.ru/stations/tagansko-krasnopresnenskaya/kuzminki/
+Рязанский проспект=http://metro.ru/stations/tagansko-krasnopresnenskaya/ryazanskiy_prospekt/
+Выхино=http://metro.ru/stations/tagansko-krasnopresnenskaya/vyhino/
+
+[Калининская]
+Новогиреево=http://metro.ru/stations/kalininskaya/novogireevo/
+Перово=http://metro.ru/stations/kalininskaya/perovo/
+Шоссе Энтузиастов=http://metro.ru/stations/kalininskaya/shosse_entuziastov/
+Авиамоторная=http://metro.ru/stations/kalininskaya/aviamotornaya/
+Площадь Ильича=http://metro.ru/stations/kalininskaya/ploshad_ilyicha/
+Марксистская=http://metro.ru/stations/kalininskaya/marksistskaya/
+Третьяковская=http://metro.ru/stations/kalininskaya/tretiakovskaya/
+
+[Серпуховско-Тимирязевская]
+Алтуфьево=http://metro.ru/stations/serpukhovsko-timiryazevskaya/altufievo/
+Бибирево=http://metro.ru/stations/serpukhovsko-timiryazevskaya/bibirevo/
+Отрадное=http://metro.ru/stations/serpukhovsko-timiryazevskaya/otradnoe/
+Владыкино=http://metro.ru/stations/serpukhovsko-timiryazevskaya/vladykino/
+Петровско-Разумовская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/petrovsko-razumovskaya/
+Тимирязевская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/timiryazevskaya/
+Дмитровская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/dmitrovskaya/
+Савеловская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/savelovskaya/
+Менделеевская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/mendeleevskaya/
+Цветной бульвар=http://metro.ru/stations/serpukhovsko-timiryazevskaya/tsvetnoy_bulvar/
+Чеховская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/chekhovskaya/
+Боровицкая=http://metro.ru/stations/serpukhovsko-timiryazevskaya/borovitskaya/
+Полянка=http://metro.ru/stations/serpukhovsko-timiryazevskaya/polyanka/
+Серпуховская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/serpukhovskaya/
+Тульская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/tulskaya/
+Нагатинская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/nagatinskaya/
+Нагорная=http://metro.ru/stations/serpukhovsko-timiryazevskaya/nagornaya/
+Нахимовский проспект=http://metro.ru/stations/serpukhovsko-timiryazevskaya/nahimovskiy_prospekt/
+Севастопольская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/sevastopolskaya/
+Чертановская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/chertanovskaya/
+Южная=http://metro.ru/stations/serpukhovsko-timiryazevskaya/iuzhnaya/
+Пражская=http://metro.ru/stations/serpukhovsko-timiryazevskaya/prazhskaya/
+Улица Академика Янгеля=http://metro.ru/stations/serpukhovsko-timiryazevskaya/ulitsa_akademika_yangelya/
+Аннино=http://metro.ru/stations/serpukhovsko-timiryazevskaya/annino/
+Бульвар Дмитрия Донского=http://metro.ru/stations/serpukhovsko-timiryazevskaya/bulvar_dmitriya_donskogo/
+
+[Люблинско-Дмитровская]
+Марьина роща=http://metro.ru/stations/lyublinskaya/maryina_roshcha/
+Достоевская=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=10&c=02
+Трубная=http://www.mosmetro.ru/pages/page_6.php?id_page=306\nhttp://metroworld.ruz.net/moscow/reportings_trubnaya_170807.htm\nhttp://news.metro.ru/f1012.html
+Сретенский бульвар=http://metro.ru/stations/lyublinskaya/sretensky_bulvar/
+Чкаловская=http://metro.ru/stations/lyublinskaya/chkalovskaya/
+Римская=http://metro.ru/stations/lyublinskaya/rimskaya/
+Крестьянская застава=http://metro.ru/stations/lyublinskaya/krestyanskaya_zastava/
+Дубровка=http://metro.ru/stations/lyublinskaya/dubrovka/
+Кожуховская=http://metro.ru/stations/lyublinskaya/kozhuhovskaya/
+Печатники=http://metro.ru/stations/lyublinskaya/pechatniki/
+Волжская=http://metro.ru/stations/lyublinskaya/volzhskaya/
+Люблино=http://metro.ru/stations/lyublinskaya/lyublino/
+Братиславская=http://metro.ru/stations/lyublinskaya/bratislavskaya/
+Марьино=http://metro.ru/stations/lyublinskaya/maryino/
+;Борисово=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=10&c=15
+;Шипиловская=http://metro.ru/stations/lyublinskaya/shipilovskaya/
+;Шипиловская=http://www.mymetro.ru/cgi-bin/list.pl?lng=ru&a=1&b=10&c=16
+
+[Каховская]
+Каширская=http://metro.ru/stations/kakhovskaya/kashirskaya/
+Варшавская=http://metro.ru/stations/kakhovskaya/varshavskaya/
+Каховская=http://metro.ru/stations/kakhovskaya/kakhovskaya/
+
+[Бутовская]
+Улица Старокачаловская=http://www.mosmetro.ru/pages/page_6.php?id_page=324
+Улица Скобелевская=http://www.mosmetro.ru/pages/page_6.php?id_page=325
+Бульвар Адмирала Ушакова=http://www.mosmetro.ru/pages/page_6.php?id_page=326
+Улица Горчакова=http://www.mosmetro.ru/pages/page_6.php?id_page=327
+Бунинская аллея=http://www.mosmetro.ru/pages/page_6.php?id_page=32
+
+[Монорельс]
+Выставочный центр=http://www.mosmetro.ru/pages/page_6.php?id_page=333
+Улица академика Королева=http://www.mosmetro.ru/pages/page_6.php?id_page=334
+Телецентр=http://www.mosmetro.ru/pages/page_6.php?id_page=335
+Улица Милашенкова=http://www.mosmetro.ru/pages/page_6.php?id_page=336
+Тимирязевская=http://www.mosmetro.ru/pages/page_6.php?id_page=337
+
