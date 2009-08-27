@@ -8,7 +8,6 @@
 #include <dlfcn.h>
 #include "inkview.h"
 
-#define SCREENWIDE 600
 #define CELLWIDE 29
 #define ROWHEIGHT 20
 #define MAXFIELDWIDE 19
@@ -97,11 +96,11 @@ void PrepareGameField( void)
 	char buffer [2];
 	cursor_x = FIELDWIDE/2;
 	cursor_y = FIELDWIDE/2;
-	screen_offs = (SCREENWIDE-CELLWIDE*FIELDWIDE)/2; //screen offset from top left
-	FillArea(0, 0, SCREENWIDE,SCREENWIDE, WHITE);	
+	screen_offs = (ScreenWidth()-CELLWIDE*FIELDWIDE)/2; //screen offset from top left
+	FillArea(0, 0, ScreenWidth(),ScreenWidth(), WHITE);	
 	SetFont( cour24, BLACK);
   	sprintf(buffer,"%i",BOMBSCOUNT);
-	DrawString( SCREENWIDE-30, 25, buffer);
+	DrawString( ScreenWidth()-30, 25, buffer);
 	flags_count=0;
 	opened_fields=0;
 }
@@ -215,9 +214,9 @@ void AddMove( )
 		visible[cursor_x][cursor_y]=1;
 		if (bombs[cursor_x][cursor_y]==-1)
 		{
-			FillArea( screen_offs, 25-CELLWIDE, SCREENWIDE-screen_offs*2-CELLWIDE*2, 2*CELLWIDE, WHITE);
+			FillArea( screen_offs, 25-CELLWIDE, ScreenWidth()-screen_offs*2-CELLWIDE*2, 2*CELLWIDE, WHITE);
 			DrawString( screen_offs+CELLWIDE/2+CELLWIDE, 25, "YOU LOSE!!!");
-			PartialUpdate( screen_offs,  25-CELLWIDE, SCREENWIDE-screen_offs*2-CELLWIDE*2, 2*CELLWIDE);
+			PartialUpdateBW( screen_offs,  25-CELLWIDE, ScreenWidth()-screen_offs*2-CELLWIDE*2, 2*CELLWIDE);
 			DrawFieldCell( cursor_x, cursor_y, 0);
 			ScreenUpdate();
 			sleep(1);
@@ -253,9 +252,9 @@ void AddMove( )
 	ScreenUpdate();
 	if (opened_fields==FIELDWIDE*FIELDWIDE-BOMBSCOUNT)
 	{
-		FillArea( screen_offs, 25-CELLWIDE, SCREENWIDE-screen_offs*2-CELLWIDE*2, 2*CELLWIDE, WHITE);
+		FillArea( screen_offs, 25-CELLWIDE, ScreenWidth()-screen_offs*2-CELLWIDE*2, 2*CELLWIDE, WHITE);
 		DrawString( screen_offs+CELLWIDE/2+CELLWIDE, 25, "YOU WON!!!");
-		PartialUpdate( screen_offs,  25-CELLWIDE, SCREENWIDE-screen_offs*2-CELLWIDE*2, 2*CELLWIDE);
+		PartialUpdateBW( screen_offs,  25-CELLWIDE, ScreenWidth()-screen_offs*2-CELLWIDE*2, 2*CELLWIDE);
 		StartNewGame();
 	}
 }
@@ -276,25 +275,24 @@ void PutFlag( void)
 	{
 		visible[cursor_x][cursor_y]=-1;
 		flags_count++;
-		char buffer [2];
-		sprintf(buffer,"%i",BOMBSCOUNT-flags_count);
-		FillArea( SCREENWIDE-30, 25, 30, 25, WHITE);
-		DrawString( SCREENWIDE-30, 25, buffer);
-		PartialUpdate( SCREENWIDE-30, 25, 30, 25);	
+		//screen_x0, screen_y0
 	}
 	else if (visible[cursor_x][cursor_y]==-1) 
 	{
 		visible[cursor_x][cursor_y]=0;
 		flags_count--;
-		char buffer [2];
-		sprintf(buffer,"%i",BOMBSCOUNT-flags_count);
-		FillArea( SCREENWIDE-30, 25, 30, 25, WHITE);
-		DrawString( SCREENWIDE-30, 25, buffer);
-		PartialUpdate( SCREENWIDE-30, 25, 30, 25);
 	}
 	DrawFieldCell( cursor_x, cursor_y, 0);
 	DrawFieldCell( cursor_x, cursor_y, 1);
-	ScreenUpdate();
+	if(!((visible[cursor_x][cursor_y]==0)||(visible[cursor_x][cursor_y]==-1))) ScreenUpdate();
+	else 
+	{
+		char buffer [2];
+		sprintf(buffer,"%i",BOMBSCOUNT-flags_count);
+		FillArea( ScreenWidth()-30, 25, 30, 25, WHITE);
+		DrawString( ScreenWidth()-30, 25, buffer);	
+		PartialUpdateBW(screen_offs+CELLWIDE*cursor_x, 25, ScreenWidth()-screen_offs+CELLWIDE*cursor_x, screen_offs+CELLWIDE*cursor_y);	
+	}
 }
 
 int main_handler(int type, int par1, int par2)
