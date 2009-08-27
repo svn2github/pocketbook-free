@@ -16,8 +16,8 @@
 static int BOMBSCOUNT ;
 static int FIELDWIDE;
 
-
-extern const ibitmap mine00,mine01,mine02,mine03,mine04,mine05,mine06,mine07,mine08,minecl,minefl,mbomb,mcursor;
+static int oldOrientation;
+extern const ibitmap mine00,mine01,mine02,mine03,mine04,mine05,mine06,mine07,mine08,minecl,minefl,mbomb,mcursor,mcursor1;
 static int cursor_x; 
 static int cursor_y; 
 
@@ -28,7 +28,7 @@ static int screen_offs;
 static int visible[MAXFIELDWIDE][MAXFIELDWIDE];
 static int bombs[MAXFIELDWIDE][MAXFIELDWIDE];
 
-static const ibitmap *cellbmp[] = {&mbomb,&minecl,&mine01,&mine02,&mine03,&mine04,&mine05,&mine06,&mine07,&mine08,&mcursor,&mine00,&minefl};
+static const ibitmap *cellbmp[] = {&mbomb,&minecl,&mine01,&mine02,&mine03,&mine04,&mine05,&mine06,&mine07,&mine08,&mcursor,&mine00,&minefl,&mcursor1};
 
 static int screen_x0;
 static int screen_y0;
@@ -42,26 +42,6 @@ void ChooseLevel( int button);
 
 //==============
 
-static iconfig *testcfg = NULL;
-static char *choice_variants[] = { "qqq", "www", "@Contents", "rrr", NULL };
-static char *choice_variants2[] = { "q1", "q2", "q3", "q4", "w1", "w2", "w3", "w4", "e1", "e2", "e3", "e4", "r1", "r2", "r3", "r4", "t1", "t2", "t3", "t4", NULL };
-static char *choice_variants3[] = { "q1", "q2", "q3", "q4", "w's", ":w1", ":w2", ":w3", ":w4", "e1", "e2", "e3", "e4", "r1", "r2", "r3", "r4", "t1", "t2", "t3", "t4", NULL };
-static char *index_variants[] = { "value1", "value2", "value3", NULL };
-static iconfigedit testce[] = {
-
-	{ "About device", NULL, CFG_INFO, "Name: PocketBook 310\nSerial: 123456789", NULL },
-	{ "Text edit", "param.textedit", CFG_TEXT, "qwerty", NULL },
-	{ "Choice", "param.choice", CFG_CHOICE, "eee", choice_variants },
-	{ "Many variants", "param.choice2", CFG_CHOICE, "qqq", choice_variants2 },
-	{ "Multi-level", "param.choice3", CFG_CHOICE, "cvb", choice_variants3 },
-	{ "Font", "param.font", CFG_FONT, "Arial,24", NULL },
-	{ "Font face", "param.fontface", CFG_FONTFACE, "Arial", NULL },
-	{ "Index", "param.index", CFG_INDEX, "2", index_variants },
-	{ "Time", "param.time", CFG_TIME, "1212396151", NULL },
-	{ NULL, NULL, 0, NULL, NULL}
-
-};
-
 ifont *arial8n, *arial12, *arialb12, *cour16, *cour24, *times20;
 int main_handler(int type, int par1, int par2);
 
@@ -70,16 +50,13 @@ void mainscreen_repaint() {
 	StartNewGameDialog( 1);
 }
 
-void config_ok() {
-	SaveConfig(testcfg);
-}
 
 void ScreenUpdate( void)
 {
 	int dx = screen_x1-screen_x0;
 	int dy = screen_y1-screen_y0;
 	if( dx && dy)
-		PartialUpdate( screen_x0, screen_y0, dx, dy);
+		PartialUpdateBW( screen_x0, screen_y0, dx, dy);
 		
 	screen_x0 = -1;
 	screen_y0 = -1;
@@ -109,8 +86,10 @@ void DrawFieldCell( int x, int y, int cursor)
 		else DrawTile( screen_offs+CELLWIDE*x, screen_offs+CELLWIDE*y, cellbmp[11]);
 	}
 	if(cursor) 
-		DrawTile( screen_offs+CELLWIDE*x, screen_offs+CELLWIDE*y, &mcursor);
-
+	{
+		if (visible[x][y]==-1) DrawTile( screen_offs+CELLWIDE*x, screen_offs+CELLWIDE*y, &mcursor);
+		else DrawTile( screen_offs+CELLWIDE*x, screen_offs+CELLWIDE*y, &mcursor1);
+	}
 }
 
 void PrepareGameField( void)
@@ -324,13 +303,14 @@ int main_handler(int type, int par1, int par2)
 
 	if (type == EVT_INIT) {
 		// occurs once at startup, only in main handler
-		testcfg = OpenConfig("/mnt/ext1/goe_the_game.cfg", testce);
 		arial8n = OpenFont("DroidSans", 8, 0);
 		arial12 = OpenFont("DroidSans", 12, 1);
 		arialb12 = OpenFont("DroidSans", 12, 1);
 		cour16 = OpenFont("cour", 16, 1);
 		cour24 = OpenFont("cour", 24, 1);
 		times20 = OpenFont("times", 20, 1);
+		oldOrientation = GetOrientation();
+		SetOrientation(ROTATE0);
 
 	}
 
@@ -384,8 +364,7 @@ int main_handler(int type, int par1, int par2)
 	}
 
 	if (type == EVT_EXIT) {
-		// occurs only in main handler when exiting or when SIGINT received.
-		// save configuration here, if needed
+		SetOrientation(oldOrientation);
 	}
 
 	return 0;
