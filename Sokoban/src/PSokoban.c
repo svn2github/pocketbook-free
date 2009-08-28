@@ -519,7 +519,7 @@ void loadLevelsHandler(int index) {
 void PickLevelSet() {
 	DIR* dir = opendir(levelsFolder);
 	if (dir == NULL) {
-		Message(0, "Open Levels Collection", "Currently you have no additional level collections on your device.\nTo add them you have to create folder named \\system\\share\\sokoban in your Pocketbook memory and put there sets in xsb format. You can download them say at http://www.sourcecode.se/sokoban/", 20000);
+		Message(0, "Open Levels Collection", "Currently you have no additional level collections on your device.\nTo add them you have to create folder named \\system\\share\\sokoban in your Pocketbook memory and put there sets in xsb format. You can download them say at http://www.sokobano.de/", 20000);
 		return;
 	}
 	struct dirent *file;
