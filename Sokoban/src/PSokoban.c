@@ -134,6 +134,9 @@ void boardCompress(int newWidth, int newHeight) {
 		int swap = newWidth;
 		newWidth = newHeight;
 		newHeight = swap;
+		swap = playerX;
+		playerX = playerY;
+		playerY = swap;
 	}
 	else {
 		transpose = 0;
