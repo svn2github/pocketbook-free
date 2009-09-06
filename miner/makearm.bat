@@ -5,7 +5,7 @@ pause
 set PATH=%POCKETBOOKSDK%\arm-linux\bin;%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=-I/arm-linux/include
-set LIBS=-linkview -lfreetype -lz
+set LIBS=-linkview -lfreetype -lz -lstdc++
 set OUTPUT=miner.app
 
 rm -f %OUTPUT%
@@ -17,7 +17,7 @@ pbres -c %IMAGES% images/*.bmp
 if errorlevel 1 goto L_ER
 :NOIMG
 
-gcc -Wall -O2 -fomit-frame-pointer %INCLUDE% -I./src -o %OUTPUT% src/*.c %IMAGES% %LIBS%
+gcc -Wall -O2 -fomit-frame-pointer %INCLUDE% -I./src -o %OUTPUT% src/*.cpp %IMAGES% %LIBS%
 if errorlevel 1 goto L_ER
 
 exit 0

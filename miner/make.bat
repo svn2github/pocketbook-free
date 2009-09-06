@@ -5,7 +5,7 @@ pause
 set PATH=%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=
-set LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
+set LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 -lstdc++
 set OUTPUT=miner.exe
 
 rm -f %OUTPUT%
@@ -17,7 +17,7 @@ pbres -c %IMAGES% images/*.bmp
 if errorlevel 1 goto L_ER
 :NOIMG
 
-gcc -static -Wall -O2 -fomit-frame-pointer %INCLUDE% -o %OUTPUT% src/*.c %IMAGES% %LIBS%
+gcc -static -Wall -O2 -fomit-frame-pointer %INCLUDE% -o %OUTPUT% src/*.cpp %IMAGES% %LIBS%
 if errorlevel 1 goto L_ER
 
 pause
