@@ -101,7 +101,7 @@ testce2 = [
 
 cindex = 0
 orient = 0
-#timer_on = 0
+timer_on = 0
 
 current_page = 5
 
@@ -154,7 +154,7 @@ menu1 = [
     [ ITEM_ACTIVE, 103, "TextRect", None ],
     [ ITEM_ACTIVE, 104, "Message", None ],
     [ ITEM_ACTIVE, 105, "Dialog", None ],
-#    [ ITEM_ACTIVE, 106, "Timer", None ],
+    [ ITEM_ACTIVE, 106, "Timer", None ],
     [ ITEM_ACTIVE, 107, "Menu3x3", None ],
     [ ITEM_ACTIVE, 108, "Hourglass", None ],
     [ ITEM_ACTIVE, 111, "Keyboard", None ],
@@ -326,12 +326,12 @@ def page_selected(page):
     current_page = page
     msg("Page: %d" % (page))
 
-#timer_value = 0
-#def timer_proc():
-#    global timer_value
-#    timer_value += 1
-#    msg("Timer: %d" % (value))
-#    SetHardTimer("MYTIMER", timer_proc, 1000)
+timer_value = 0
+def timer_proc():
+    global timer_value
+    timer_value += 1
+    msg("Timer: %d" % (timer_value))
+    SetHardTimer("MYTIMER", timer_proc, 1000)
 
 def keyboard_entry(s):
     msg("Entered text: %s" % (s))
@@ -398,14 +398,14 @@ def menu1_handler(index):
     elif index == 105:
         Dialog(ICON_QUESTION, "Dialog", "This is a dialog.\n"
             "Do you like it?", "Yes", "No", dialog_handler)
-#    elif index == 106:
-#        global time_on
-#        if timer_on:
-#            ClearTimer(timer_proc)
-#            timer_on = 0
-#        else:
-#            SetHardTimer("MYTIMER", timer_proc, 0)
-#            timer_on = 1
+    elif index == 106:
+        global timer_on
+        if timer_on:
+            ClearTimer(timer_proc)
+            timer_on = 0
+        else:
+            SetHardTimer("MYTIMER", timer_proc, 0)
+            timer_on = 1
     elif index == 107:
         OpenMenu3x3(m3x3, strings3x3, menu3x3_handler)
     elif index == 108:

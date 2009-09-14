@@ -92,6 +92,10 @@
 //ilist
 %ignore OpenList;
 %ignore OpenDummyList;
+//itimer
+%ignore SetHardTimer;
+%ignore SetWeakTimer;
+%ignore ClearTimer;
 
 %include "inkview.h"
 
@@ -113,9 +117,9 @@ extern ibitmap item1, item2;
 %include "itimeedit.i"
 %include "ifontselect.i"
 %include "ilist.i"
+%include "itimer.i"
 
 //Handlers in progress:
-%include "itimer.i"
 %include "iconfigedit.i"
 
 //???
