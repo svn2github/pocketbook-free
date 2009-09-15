@@ -72,7 +72,7 @@ void PyOpenMenu3x3(const ibitmap* mbitmap, PyObject* strings, PyObject *pyfunc)
 	if (PyOpenMenu3x3_menu != NULL) {
 		PyOpenMenu3x3_pyfunc_ptr = pyfunc;
 		Py_INCREF(pyfunc);
-		OpenMenu3x3(mbitmap, PyOpenMenu3x3_menu, PyOpenMenu3x3_callback);
+		OpenMenu3x3(mbitmap, (const char**)PyOpenMenu3x3_menu, PyOpenMenu3x3_callback);
 	}
 }
 

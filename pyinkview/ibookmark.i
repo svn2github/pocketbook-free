@@ -33,20 +33,38 @@ static void PyOpenBookmark_callback(int action, int page, long long position)
 	return;
 }
 
-//void PyOpenBookmark(int page, long long position, int* bmklist, long long *poslist,
-// 		int* bmkcount, int maxbmks, PyObject *pyfunc)
-//{
-//   if (PyOpenBookmark_pyfunc_ptr) {
-//       PyErr_SetString(PyExc_RuntimeError, "PyOpenBookmark_pyfunc_ptr already called");
-//       return;
-//   }
-//   PyOpenBookmark_pyfunc_ptr = pyfunc;
-//   Py_INCREF(pyfunc);
-//   OpenBookmark(page, position, bmklist, poslist, bmkcount, maxbmks, PyOpenBookmark_callback);
-//}
+%}
+
+%{
+
+void PyOpenBookmarks(int page, long long position, int* bmklist, long long *poslist,
+ 		int* bmkcount, int maxbmks, PyObject *pyfunc)
+{
+	PyErr_SetString(PyExc_NotImplementedError, "OpenBookmark has not wrapped yet");
+	return ;
+	
+	if (PyOpenBookmark_pyfunc_ptr) {
+		Py_DECREF(PyOpenBookmark_pyfunc_ptr);
+		PyOpenBookmark_pyfunc_ptr = NULL;
+	}
+	PyOpenBookmark_pyfunc_ptr = pyfunc;
+	Py_INCREF(pyfunc);
+	OpenBookmark(page, position, bmklist, poslist, bmkcount, maxbmks, PyOpenBookmark_callback);
+}
+
+void PySwitchBookmark(int page, long long position, int *bmklist, long long *poslist,
+ 		int *bmkcount, int maxbmks, PyObject *pyfunc)
+{
+	PyErr_SetString(PyExc_NotImplementedError, "SwitchBookmark has not wrapped yet");
+	return ;
+}
 
 %}
 
-//%rename(OpenBookmark) PyOpenBookmark;
-//extern void PyOpenBookmark(PyObject *pyfunc);
+%rename(OpenBookmarks) PyOpenBookmarks;
+extern void PyOpenBookmarks(int page, long long position, int* bmklist, long long *poslist,
+ 		int* bmkcount, int maxbmks, PyObject *pyfunc);
+%rename(SwitchBookmark) PySwitchBookmark;
+extern void PySwitchBookmark(int page, long long position, int *bmklist, long long *poslist,
+ 		int *bmkcount, int maxbmks, PyObject *pyfunc);
 

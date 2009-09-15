@@ -82,7 +82,7 @@
 %ignore OpenPageSelector;
 //ibookmark
 %ignore OpenBookmarks;
-%ignore SwitchBookmarks;
+%ignore SwitchBookmark;
 //irotatebox
 %ignore OpenRotateBox;
 //itimeedit
