@@ -2,7 +2,9 @@
 // typedef void (*iv_keyboardhandler)(char *text);
 // void OpenKeyboard(char *title, char *buffer, int maxlen, int flags, iv_keyboardhandler hproc);
 // void OpenCustomKeyboard(char *filename, char *title, char *buffer, int maxlen, int flags, iv_keyboardhandler hproc);
-
+//
+//!: 'buffer' can be updated
+//
 %{
 
 static PyObject* PyOpenKeyboard_pyfunc_ptr = NULL;

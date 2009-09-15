@@ -4,6 +4,9 @@
 // 		int *bmkcount, int maxbmks, iv_bmkhandler hproc);
 // void SwitchBookmark(int page, long long position, int *bmklist, long long *poslist,
 // 		int *bmkcount, int maxbmks, iv_bmkhandler hproc);
+//
+//!: 'bmklist', 'poslist' and 'bmkcount' can be updated 
+//
 
 %{
 

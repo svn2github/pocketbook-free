@@ -3,3 +3,6 @@
 // typedef void (*iv_confighandler)();
 // typedef void (*iv_itemchangehandler)(char *name);
 // void OpenConfigEditor(char *header, iconfig *cfg, iconfigedit *ce, iv_confighandler hproc, iv_itemchangehandler cproc);
+//
+//!: 'cfg' and 'ce' can be changed
+//
