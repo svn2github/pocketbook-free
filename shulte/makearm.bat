@@ -6,7 +6,7 @@ set PATH=%POCKETBOOKSDK%\arm-linux\bin;%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=-I/arm-linux/include
 set LIBS=-linkview -lfreetype -lz
-set OUTPUT=hulte.app
+set OUTPUT=shulte.app
 
 rm -f %OUTPUT%
 
