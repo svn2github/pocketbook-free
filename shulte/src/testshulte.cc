@@ -59,7 +59,7 @@ static int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		std::srand(std::time(NULL));
 		table.regenerate();
-		timesNN = OpenFont("times", 50, 1);
+		timesNN = OpenFont("times", 60, 1);
 	}
 
 	if (type == EVT_SHOW) {
