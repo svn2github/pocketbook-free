@@ -318,27 +318,28 @@ void emit()
 void move(int dx, int dy)
 {
 	int minX, minY;
-	if (dx != 0 && cursorX + dx >= 0 && cursorX + dx < SIZE)
+	int oldX, oldY;
+	if ((cursorX + dx < 0 || cursorX + dx >= SIZE || cursorY + dy < 0 || cursorY + dy >= SIZE))
 	{
+		oldX = cursorX;
+		oldY = cursorY;
+		cursorX = (SIZE + cursorX + dx) % SIZE;
+		cursorY = (SIZE + cursorY + dy) % SIZE;
+		drawCell(oldX, oldY, 1);
+		drawCell(cursorX, cursorY, 1);
+	}
+	else
+	{
+		oldX = cursorX;
+		oldY = cursorY;
 		cursorX += dx;
-		drawCell(cursorX - dx, cursorY, 0);
-		drawCell(cursorX, cursorY, 0);
-
-		minX = dx < 0 ? cursorX : cursorX - dx;
-		PartialUpdateBW(baseX + CELL_SIZE * minX, baseY + CELL_SIZE * cursorY, CELL_SIZE * 2, CELL_SIZE);
-	}
-	else if (dy != 0 && cursorY + dy >= 0 && cursorY + dy < SIZE)
-	{
 		cursorY += dy;
-		drawCell(cursorX, cursorY - dy, 0);
+		drawCell(oldX, oldY, 0);
 		drawCell(cursorX, cursorY, 0);
 
-		minY = dy < 0 ? cursorY : cursorY - dy;
-		PartialUpdateBW(baseX + CELL_SIZE * cursorX, baseY + CELL_SIZE * minY, CELL_SIZE, CELL_SIZE * 2);
-	}
-	else if (dx != 0 && cursorX + dx < 0 && cursorX + dx >= SIZE)
-	{
-
+		minX = oldX < cursorX ? oldX : cursorX;
+		minY = oldY < cursorY ? oldY : cursorY;
+		PartialUpdateBW(baseX + CELL_SIZE * minX, baseY + CELL_SIZE * minY, CELL_SIZE * (1 + abs(dx)), CELL_SIZE * (1 + abs(dy)));
 	}
 }
 
