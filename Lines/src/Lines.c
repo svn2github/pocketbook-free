@@ -22,7 +22,6 @@ extern const ibitmap item0, item1, item2, item3, item4, item5, item6;
 int board[SIZE][SIZE];
 int lines[SIZE][SIZE];
 int wave[SIZE][SIZE];
-ifont *f;
 int baseX, baseY;
 int cursorX, cursorY;
 int selectedX, selectedY;
@@ -44,13 +43,12 @@ void prepareBoard()
 }
 
 void emit();
-void drawCell(int x, int y);
+void drawCell(int x, int y, int refresh);
 
 void drawBoard()
 {
 	int i;
 	ClearScreen();
-	SetFont(f, BLACK);
 	// NOTE: <= is for draw also last line
 	for (i = 0; i <= SIZE; i++)
 	{
@@ -58,10 +56,10 @@ void drawBoard()
 		DrawLine(baseX + i * CELL_SIZE, baseY, baseX + i * CELL_SIZE, baseY + SIZE * CELL_SIZE, BLACK);
 	}
 	FullUpdate();
-	drawCell(cursorX, cursorY);
+	drawCell(cursorX, cursorY, 1);
 }
 
-void drawCell(int x, int y)
+void drawCell(int x, int y, int refresh)
 {
 	int xShift, yShift;
 	FillArea(baseX + x * CELL_SIZE + 1, baseY + y * CELL_SIZE + 1, CELL_SIZE - 1, CELL_SIZE - 1, WHITE);
@@ -102,7 +100,10 @@ void drawCell(int x, int y)
 	{
 		DrawRect(baseX + x * CELL_SIZE + SELECT_DELTA, baseY + y * CELL_SIZE + SELECT_DELTA, CELL_SIZE - 2 * SELECT_DELTA + 1, CELL_SIZE - 2 * SELECT_DELTA + 1, BLACK);
 	}
-	PartialUpdateBW(baseX + x * CELL_SIZE, baseY + y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+	if (refresh)
+	{
+		PartialUpdateBW(baseX + x * CELL_SIZE, baseY + y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+	}
 }
 
 void gameOver()
@@ -262,7 +263,7 @@ int matchLines()
 				{
 					emptyCount++;
 					board[i][j] = EMPTY;
-					drawCell(i, j);
+					drawCell(i, j, 1);
 				}
 			}
 		}
@@ -290,7 +291,7 @@ void emit()
 					{
 						board[i][j] = rand() % ITEMS;
 						emptyCount--;
-						drawCell(i, j);
+						drawCell(i, j, 1);
 
 						if (emptyCount == 0)
 						{
@@ -316,17 +317,28 @@ void emit()
 
 void move(int dx, int dy)
 {
+	int minX, minY;
 	if (dx != 0 && cursorX + dx >= 0 && cursorX + dx < SIZE)
 	{
 		cursorX += dx;
-		drawCell(cursorX - dx, cursorY);
-		drawCell(cursorX, cursorY);
+		drawCell(cursorX - dx, cursorY, 0);
+		drawCell(cursorX, cursorY, 0);
+
+		minX = dx < 0 ? cursorX : cursorX - dx;
+		PartialUpdateBW(baseX + CELL_SIZE * minX, baseY + CELL_SIZE * cursorY, CELL_SIZE * 2, CELL_SIZE);
 	}
-	if (dy != 0 && cursorY + dy >= 0 && cursorY + dy < SIZE)
+	else if (dy != 0 && cursorY + dy >= 0 && cursorY + dy < SIZE)
 	{
 		cursorY += dy;
-		drawCell(cursorX, cursorY - dy);
-		drawCell(cursorX, cursorY);
+		drawCell(cursorX, cursorY - dy, 0);
+		drawCell(cursorX, cursorY, 0);
+
+		minY = dy < 0 ? cursorY : cursorY - dy;
+		PartialUpdateBW(baseX + CELL_SIZE * cursorX, baseY + CELL_SIZE * minY, CELL_SIZE, CELL_SIZE * 2);
+	}
+	else if (dx != 0 && cursorX + dx < 0 && cursorX + dx >= SIZE)
+	{
+
 	}
 }
 
@@ -334,6 +346,7 @@ int findPath()
 {
 	int i, j, generation, wasMovement;
 	int pointX, pointY, oldPointX, oldPointY, stepsPassed;
+	int minX, minY, dX, dY;
 	//initialization: 0 - empty, -1 - obstacle, start point is 1
 	for (i = 0; i < SIZE; i++)
 	{
@@ -406,8 +419,13 @@ int findPath()
 				{
 					board[oldPointX][oldPointY] = board[pointX][pointY];
 					board[pointX][pointY] = EMPTY;
-					drawCell(pointX, pointY);
-					drawCell(oldPointX, oldPointY);
+					minX = oldPointX < pointX ? oldPointX : pointX;
+					minY = oldPointY < pointY ? oldPointY : pointY;
+					dX = abs(oldPointX - pointX);
+					dY = abs(oldPointY - pointY);
+					drawCell(pointX, pointY, 0);
+					drawCell(oldPointX, oldPointY, 0);
+					PartialUpdateBW(baseX + CELL_SIZE * minX, baseY + CELL_SIZE * minY, (dX + 1) * CELL_SIZE, (dY + 1) * CELL_SIZE);
 				}
 			}
 		}
@@ -424,14 +442,14 @@ void trySelect()
 			//selecting cell
 			selectedX = cursorX;
 			selectedY = cursorY;
-			drawCell(selectedX, selectedY);
+			drawCell(selectedX, selectedY, 1);
 		}
 	}
 	else if (selectedX == cursorX && selectedY == cursorY)
 	{
 		//unselecting cell
 		selectedX = selectedY = EMPTY;
-		drawCell(cursorX, cursorY);
+		drawCell(cursorX, cursorY, 1);
 	}
 	else
 	{
@@ -454,7 +472,6 @@ int main_handler(int type, int par1, int par2)
 	if (type == EVT_INIT)
 	{
 		srand(time(NULL));
-		f = OpenFont("LiberationSans", CELL_SIZE * 2 / 3, 0);
 		prepareBoard();
 	}
 
