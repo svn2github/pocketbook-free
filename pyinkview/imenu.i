@@ -1,4 +1,5 @@
 //iv_menuhandler:
+// typedef void (*iv_menuhandler)(int index);
 // void OpenMenu(imenu *menu, int pos, int x, int y, iv_menuhandler hproc);
 
 %{

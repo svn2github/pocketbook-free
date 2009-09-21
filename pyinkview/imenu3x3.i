@@ -1,4 +1,5 @@
 //iv_menuhandler:
+// typedef void (*iv_menuhandler)(int index);
 // void OpenMenu3x3(const ibitmap *mbitmap, const char *strings[9], iv_menuhandler hproc);
 
 %{
