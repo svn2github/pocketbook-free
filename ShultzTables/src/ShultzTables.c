@@ -8,7 +8,7 @@
 #include "inkview.h"
 
 #define SIZE 5
-#define CELL_SIZE 72
+#define CELL_SIZE 119
 #define MAX SIZE * SIZE
 int board[MAX];
 ifont *f;
