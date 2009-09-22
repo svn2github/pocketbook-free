@@ -296,6 +296,7 @@ void emit()
 						if (emptyCount == 0)
 						{
 							gameOver();
+							return;
 						}
 						breakFlag = 1;
 						break;
@@ -346,8 +347,6 @@ void move(int dx, int dy)
 int findPath()
 {
 	int i, j, generation, wasMovement;
-	int pointX, pointY, oldPointX, oldPointY, stepsPassed;
-	int minX, minY, dX, dY;
 	//initialization: 0 - empty, -1 - obstacle, start point is 1
 	for (i = 0; i < SIZE; i++)
 	{
@@ -387,55 +386,12 @@ int findPath()
 	}
 	while (wasMovement && wave[cursorX][cursorY] == 0);
 
-	//here we are walking path back to begin - everytime from end for each step. Not very rational, but no reason to optimize in such task.
-	if (wave[cursorX][cursorY] != 0)
-	{
-		selectedX = selectedY = EMPTY;
-		for (stepsPassed = 1; stepsPassed < wave[cursorX][cursorY]; stepsPassed++)
-		{
-			pointX = cursorX;
-			pointY = cursorY;
-			while(wave[pointX][pointY] > stepsPassed)
-			{
-				oldPointX = pointX;
-				oldPointY = pointY;
-				if ((pointX > 0) && wave[pointX - 1][pointY] == wave[pointX][pointY] - 1)
-				{
-					pointX--;
-				}
-				else if ((pointX < SIZE - 1) && wave[pointX + 1][pointY] == wave[pointX][pointY] - 1)
-				{
-					pointX++;
-				}
-				else if ((pointY > 0) && wave[pointX][pointY - 1] == wave[pointX][pointY] - 1)
-				{
-					pointY--;
-				}
-				else if ((pointY < SIZE - 1) && wave[pointX][pointY + 1] == wave[pointX][pointY] - 1)
-				{
-					pointY++;
-				}
-
-				if (wave[pointX][pointY] == stepsPassed)
-				{
-					board[oldPointX][oldPointY] = board[pointX][pointY];
-					board[pointX][pointY] = EMPTY;
-					minX = oldPointX < pointX ? oldPointX : pointX;
-					minY = oldPointY < pointY ? oldPointY : pointY;
-					dX = abs(oldPointX - pointX);
-					dY = abs(oldPointY - pointY);
-					drawCell(pointX, pointY, 0);
-					drawCell(oldPointX, oldPointY, 0);
-					PartialUpdateBW(baseX + CELL_SIZE * minX, baseY + CELL_SIZE * minY, (dX + 1) * CELL_SIZE, (dY + 1) * CELL_SIZE);
-				}
-			}
-		}
-	}
-	return wasMovement;
+	return wave[cursorX][cursorY] != 0;
 }
 
 void trySelect()
 {
+	int oldX, oldY;
 	if (selectedX == EMPTY && selectedY == EMPTY)
 	{
 		if (board[cursorX][cursorY] != EMPTY)
@@ -459,6 +415,13 @@ void trySelect()
 			//moving item
 			if (findPath())
 			{
+				board[cursorX][cursorY] = board[selectedX][selectedY];
+				oldX = selectedX;
+				oldY = selectedY;
+				selectedX = selectedY = EMPTY;
+				board[oldX][oldY] = EMPTY;
+				drawCell(oldX, oldY, 1);
+				drawCell(cursorX, cursorY, 1);
 				if (!matchLines())
 				{
 					emit();
@@ -468,6 +431,19 @@ void trySelect()
 	}
 }
 
+void exitDialog(int key)
+{
+	if (key == 1)
+	{
+		CloseApp();
+	}
+}
+
+void tryExit()
+{
+	Dialog(ICON_QUESTION, "Exit", "Do you really want to leave application? Your progress won't be saved.", "Yes", "No", exitDialog);
+}
+
 int main_handler(int type, int par1, int par2)
 {
 	if (type == EVT_INIT)
@@ -475,20 +451,15 @@ int main_handler(int type, int par1, int par2)
 		srand(time(NULL));
 		prepareBoard();
 	}
-
-	if (type == EVT_SHOW)
+	else if (type == EVT_SHOW)
 	{
 		drawBoard();
 		emit();
 	}
-
-	if (type == EVT_KEYPRESS)
+	else if (type == EVT_KEYPRESS && par1 != KEY_OK)
 	{
 		switch (par1)
 		{
-			case KEY_OK:
-				trySelect();
-				break;
 			case KEY_UP:
 				move(0, -1);
 				break;
@@ -502,10 +473,19 @@ int main_handler(int type, int par1, int par2)
 				move(1, 0);
 				break;
 			case KEY_BACK:
-				CloseApp();
+				tryExit();
 				break;
 		}
 	}
+	else if (type == EVT_KEYREPEAT && par1 == KEY_OK)
+	{
+		tryExit();
+	}
+	else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0)
+	{
+		trySelect();
+	}
+
 	return 0;
 }
 
