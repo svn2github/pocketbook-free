@@ -46,8 +46,16 @@ void prepareBoard()
 	}
 }
 
+void timeOut()
+{
+	char buf[64];
+	sprintf(buf, "%i seconds went out!", MAX);
+	Message(ICON_INFORMATION, "Time Out", buf, 5000);
+}
+
 void drawBoard()
 {
+	SetFont(f, BLACK);
 	int i, j;
 	char buf[3];
 	int baseX = (ScreenWidth() - SIZE * CELL_SIZE) / 2;
@@ -71,6 +79,8 @@ void drawBoard()
 		}
 	}
 	FullUpdate();
+	ClearTimer(timeOut);
+	SetWeakTimer("timeOut", timeOut, MAX * 1000);
 }
 
 int main_handler(int type, int par1, int par2)
@@ -79,7 +89,6 @@ int main_handler(int type, int par1, int par2)
 	{
 		srand(time(NULL));
 		f = OpenFont("LiberationSans", CELL_SIZE * 2 / 3, 0);
-		SetFont(f, BLACK);
 		prepareBoard();
 	}
 
@@ -87,20 +96,16 @@ int main_handler(int type, int par1, int par2)
 	{
 		drawBoard();
 	}
-
-	if (type == EVT_KEYPRESS)
+	else if ((type == EVT_KEYPRESS && par1 == KEY_BACK) || (type == EVT_KEYREPEAT && par1 == KEY_OK))
 	{
-		switch (par1)
-		{
-			case KEY_OK:
-				prepareBoard();
-				drawBoard();
-				break;
-			case KEY_BACK:
-				CloseApp();
-				break;
-		}
+		CloseApp();
 	}
+	else if (type == EVT_KEYRELEASE && par1 == KEY_OK)
+	{
+		prepareBoard();
+		drawBoard();
+	}
+
 	return 0;
 }
 
