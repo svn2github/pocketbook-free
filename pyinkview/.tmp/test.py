@@ -1,6 +1,6 @@
 import a
 
-a.initialize_module()
+#a.initialize_module()
 
 def proc1(a):
     print ("Hello from proc1! ", a)

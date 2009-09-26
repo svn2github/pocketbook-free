@@ -121,3 +121,8 @@ void callCallback()
 
 extern void setCallback(Callback* callback);
 extern void callCallback();
+
+
+%pythoncode %{
+initialize_module()
+%}

@@ -104,6 +104,8 @@ extern ibitmap background, books, m3x3;
 extern ibitmap item1, item2;
 %}
 
+%include "icallbacks.i"
+
 %include "imain.i"
 %include "imenu.i"
 %include "imenu3x3.i"
@@ -126,3 +128,4 @@ extern ibitmap item1, item2;
 %include "ihash.i"
 //TODO: icanvas - can be edited manually!
 //TODO: Remove all callback functions and internal data when the module is unloaded
+
