@@ -5,50 +5,14 @@
 #include <ffi.h>
 #include <sys/mman.h>
 //#include <unistd.h>
+#include "callback.h"
+
 %}
 
 
 
 %{
 
-// General callback
-
-static void
-internal_callback(ffi_cif* cif, void* resp, void** args, void* userdata)
-{
-	PyObject* pyfunc = userdata;
-	PyObject *arglist;
-	PyObject *result;
-	int i;
-	int ires = 0;
-
-	if (cif->nargs < 0) {
-		printf("nargs error\n");
-	}
-
-	arglist = PyTuple_New(cif->nargs);
-	for (i = 0; i < cif->nargs; ++i) {
-		PyObject* arg = NULL;
-		if (cif->arg_types[i] == &ffi_type_sint) {
-			arg = PyLong_FromLong(*((int*)args[i]));
-		}
-		else {
-			printf("unsupported argument type\n");
-		}
-		PyTuple_SetItem(arglist, i, arg );
-	}
-
-	result = PyEval_CallObject(pyfunc, arglist);     
-	Py_DECREF(arglist);                           
-	if (result) {                                 
-		Py_XDECREF(result);
-	}
-	if (PyErr_Occurred()) {
-		PyErr_Print();
-		PyErr_Clear();
-	}
-	return;
-}
 
 %}
 
@@ -70,7 +34,7 @@ typedef struct tag##ClassName {
 	 	                PROT_READ|PROT_WRITE|PROT_EXEC, 
 	 	                MAP_PRIVATE | MAP_ANON, -1, 0); 
 
-		if (ffi_prep_closure(cb->pcl, &cif, internal_callback,
+		if (ffi_prep_closure(cb->pcl, &cif, generic_callback,
 			 (void *)pyfunc ) != FFI_OK) {
 			// TODO: PyError_Set()
 			printf("creating closure error");
