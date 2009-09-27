@@ -3,7 +3,6 @@
 // void OpenMenu3x3(const ibitmap *mbitmap, const char *strings[9], iv_menuhandler hproc);
 
 %{
-
 static char** 
 strings_to_stringarray(PyObject* list)
 {
@@ -28,58 +27,27 @@ strings_to_stringarray(PyObject* list)
 	}
 	return array;
 }
+%}
 
-
-
-static PyObject* PyOpenMenu3x3_pyfunc_ptr = NULL;
+%{
 static char** PyOpenMenu3x3_menu = NULL;
+%}
 
-static void PyOpenMenu3x3_callback(int index)
-{
-	PyObject *arglist;
-	PyObject *result;
-
-	if (!PyOpenMenu3x3_pyfunc_ptr)
-		return;
-
-	arglist = Py_BuildValue("(i)", index );             
-	result = PyEval_CallObject(PyOpenMenu3x3_pyfunc_ptr, arglist);     
-	Py_DECREF(arglist);                           
-	if (result) {                                 
-		Py_XDECREF(result);
-	}
-	if (PyErr_Occurred()) {
-		PyErr_Print();
-		PyErr_Clear();
-	}
-
-	Py_DECREF(PyOpenMenu3x3_pyfunc_ptr);
-	PyOpenMenu3x3_pyfunc_ptr = NULL;   
-	free(PyOpenMenu3x3_menu);
-	PyOpenMenu3x3_menu = NULL;
-
-	return;
-}
-
-void PyOpenMenu3x3(const ibitmap* mbitmap, PyObject* strings, PyObject *pyfunc)
-{
-	if (PyOpenMenu3x3_pyfunc_ptr) {
-		Py_DECREF(PyOpenMenu3x3_pyfunc_ptr);
-		PyOpenMenu3x3_pyfunc_ptr = NULL;
+%typemap(in) const char *strings[9] {
+	if (PyOpenMenu3x3_menu != NULL) {
 		free(PyOpenMenu3x3_menu);
 		PyOpenMenu3x3_menu = NULL;
 	}
-	PyOpenMenu3x3_menu = strings_to_stringarray(strings);	//TODO: Check list size
-	if (PyOpenMenu3x3_menu != NULL) {
-		PyOpenMenu3x3_pyfunc_ptr = pyfunc;
-		Py_INCREF(pyfunc);
-		OpenMenu3x3(mbitmap, (const char**)PyOpenMenu3x3_menu, PyOpenMenu3x3_callback);
-	}
+	PyOpenMenu3x3_menu = strings_to_stringarray($input);
+	//TODO: Check == NULL
+	$1 = PyOpenMenu3x3_menu;
 }
 
-%}
+callbackTypemapIn(MenuHandler, iv_menuhandler);
 
-%rename(OpenMenu3x3) PyOpenMenu3x3;
-extern void PyOpenMenu3x3(const ibitmap* mbitmap, PyObject* strings, PyObject *pyfunc);
+void OpenMenu3x3(const ibitmap *mbitmap, const char *strings[9], iv_menuhandler hproc);
 
+%clear const char *strings[9];
+%clear iv_menuhandler;
 
+//TODO: free(PyOpenMenu3x3_menu) when the module is unloaded

@@ -23,7 +23,7 @@ convert_ffitype_to_py(const ffi_type* ffitype, const void* value)
 		return PyLong_FromLong(*((int*)value));
 	}
 	else if (ffitype == &ffi_type_pointer) {
-		return Python_str_FromChar((char*)value);
+		return Python_str_FromChar(*(char**)value);
 	}
 	else {
 		PyErr_SetString(PyExc_TypeError, "invalid argument type");

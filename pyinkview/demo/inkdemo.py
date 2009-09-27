@@ -319,6 +319,7 @@ def dialog_handler(button):
     else:
         msg("Choosed: no")
 
+@MenuHandler
 def menu3x3_handler(pos):
     msg("Menu: %d" % (pos))
 
@@ -337,6 +338,7 @@ def timer_proc():
     msg("Timer: %d" % (timer_value))
     SetHardTimer("MYTIMER", timer_proc, 1000)
 
+@KeyboardHandler
 def keyboard_entry(s):
     msg("Entered text: %s" % (s))
     global kbuffer
@@ -376,7 +378,8 @@ def dir_selected(path):
     print(":%s" %(path), file=sys.stderr)
     global dirbuf
     dirbuf = path
-    
+
+@MenuHandler    
 def menu1_handler(index):
     global cindex
     cindex = index
@@ -418,7 +421,7 @@ def menu1_handler(index):
         HideHourglass()
     elif index == 111:
         global kbuffer
-        OpenKeyboard("Keyboard test", kbuffer, 35, 0, keyboard_entry)
+        OpenKeyboard("Keyboard test", kbuffer, 0, keyboard_entry)
     elif index == 112:
         OpenConfigEditor("Configuration", testcfg, testce2, config_ok, None)
     elif index == 113:

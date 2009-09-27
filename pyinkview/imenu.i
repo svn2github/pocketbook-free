@@ -70,7 +70,7 @@ sequence_to_imenu(PyObject *item, imenu *menu)
 		}
 	}
 	else {
-		PyErr_SetString(PyExc_TypeError,"menuitem should be a list of 4 elements");
+		PyErr_SetString(PyExc_TypeError, "menuitem should be a list of 4 elements");
 		return 1;
 	}
 	return 0;
@@ -90,56 +90,26 @@ delete_imenu_array(imenu* array)
 	}
 	free(array);
 }
-
-
-static PyObject *PyOpenMenu_pyfunc_ptr = NULL;
-static imenu *PyOpenMenu_menu = NULL;
-
-static void PyOpenMenu_callback(int index)
-{
-	PyObject *arglist;
-	PyObject *result;
-
-	if (!PyOpenMenu_pyfunc_ptr)
-		return;
-
-	arglist = Py_BuildValue("(i)", index );             
-	result = PyEval_CallObject(PyOpenMenu_pyfunc_ptr, arglist);     
-	Py_DECREF(arglist);                           
-	if (result) {                                 
-		Py_XDECREF(result);
-	}
-	if (PyErr_Occurred()) {
-		PyErr_Print();
-		PyErr_Clear();
-	}
-
-	Py_DECREF(PyOpenMenu_pyfunc_ptr);
-	PyOpenMenu_pyfunc_ptr = NULL;   
-	delete_imenu_array( PyOpenMenu_menu );
-	PyOpenMenu_menu = NULL;
-
-	return;
-}
-
-void PyOpenMenu(PyObject *menu, int pos, int x, int y, PyObject *pyfunc)
-{
-	if (PyOpenMenu_pyfunc_ptr) {
-		Py_DECREF(PyOpenMenu_pyfunc_ptr);
-		PyOpenMenu_pyfunc_ptr = NULL;
-		delete_imenu_array( PyOpenMenu_menu );
-		PyOpenMenu_menu = NULL;
-	}
-	PyOpenMenu_menu = imenu_sequence_to_array(menu);
-	if (PyOpenMenu_menu != NULL) {
-		PyOpenMenu_pyfunc_ptr = pyfunc;
-		Py_INCREF(pyfunc);
-		OpenMenu(PyOpenMenu_menu, pos, x, y, PyOpenMenu_callback);
-	}
-}
-
 %}
 
-%rename(OpenMenu) PyOpenMenu;
-extern void PyOpenMenu(PyObject *menu, int pos, int x, int y, PyObject *pyfunc);
+%{
+static imenu *PyOpenMenu_menu = NULL;
+%}
 
+%typemap(in) imenu* {
+	if (PyOpenMenu_menu != NULL) {
+		delete_imenu_array(PyOpenMenu_menu);
+		PyOpenMenu_menu = NULL;
+	}
+	PyOpenMenu_menu = imenu_sequence_to_array($input);
+	//TODO: Check == NULL
+	$1 = PyOpenMenu_menu;
+}
+
+callbackTypemapIn(MenuHandler, iv_menuhandler);
+void OpenMenu(imenu *menu, int pos, int x, int y, iv_menuhandler hproc);
+
+%clear imenu;
+%clear iv_menuhandler;
+
+//TODO: delete_imenu_array(PyOpenMenu_menu); when module is unloaded

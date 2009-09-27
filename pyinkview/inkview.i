@@ -67,15 +67,10 @@
 %include "imain.i"
 %include "idialog.i"
 %include "itimer.i"
+%include "imenu.i"
+%include "imenu3x3.i"
+%include "ikeyboard.i"
 
-//imenu.i
-%ignore OpenMenu;
-//imenu3x3
-%ignore OpenMenu3x3;
-
-
-//ikeyboard
-%ignore OpenKeyboard;
 //idirselect
 %ignore OpenDirectorySelector;
 //icontent
@@ -104,9 +99,6 @@ extern ibitmap item1, item2;
 %}
 
 
-%include "imenu.i"
-%include "imenu3x3.i"
-%include "ikeyboard.i"
 %include "idirselect.i"
 %include "icontent.i"
 %include "ipageselect.i"
