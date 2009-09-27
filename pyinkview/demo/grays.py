@@ -1,5 +1,6 @@
 from inkview import *
 
+@MainHandler
 def main_handler(type, par1, par2):
     if type == EVT_SHOW:
         ClearScreen()
@@ -16,5 +17,5 @@ def main_handler(type, par1, par2):
     return 0
 
 if __name__ == "__main__":
-    PyInkViewMain(main_handler)
+    InkViewMain(main_handler)
 

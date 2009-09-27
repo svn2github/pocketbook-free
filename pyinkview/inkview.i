@@ -5,6 +5,7 @@
 #include "inkview.h"
 %}
 
+//TODO: Not needed
 // Callback function
 %typemap(in) PyObject* pyfunc {
 	if (!PyCallable_Check($input)) {
@@ -15,6 +16,7 @@
 }
 
 
+//TODO: Use macro
 // void Stretch(const unsigned char *src, int format, int sw, int sh, int scanline, int dx, int dy, int dw, int dh, int rotate);
 %typemap(in) (const unsigned char* src) {
 	/* Check if is a list */
@@ -61,17 +63,17 @@
 	}
 }
 
-//imain.i
-%ignore InkViewMain;
-%ignore SetEventHandler;
-%ignore GetEventHandler;
-%ignore SendEvent;
+%include "icallbacks.i"
+%include "imain.i"
+%include "idialog.i"
+%include "itimer.i"
+
 //imenu.i
 %ignore OpenMenu;
 //imenu3x3
 %ignore OpenMenu3x3;
-//idialog
-%ignore Dialog;
+
+
 //ikeyboard
 %ignore OpenKeyboard;
 //idirselect
@@ -92,24 +94,18 @@
 //ilist
 %ignore OpenList;
 %ignore OpenDummyList;
-//itimer
-%ignore SetHardTimer;
-%ignore SetWeakTimer;
-%ignore ClearTimer;
 
-%include "inkview.h"
+
+%include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
 
 %inline %{
 extern ibitmap background, books, m3x3;	
 extern ibitmap item1, item2;
 %}
 
-%include "icallbacks.i"
 
-%include "imain.i"
 %include "imenu.i"
 %include "imenu3x3.i"
-%include "idialog.i"
 %include "ikeyboard.i"
 %include "idirselect.i"
 %include "icontent.i"
@@ -119,7 +115,7 @@ extern ibitmap item1, item2;
 %include "itimeedit.i"
 %include "ifontselect.i"
 %include "ilist.i"
-%include "itimer.i"
+
 
 //Handlers in progress:
 %include "iconfigedit.i"
@@ -127,5 +123,4 @@ extern ibitmap item1, item2;
 //???
 %include "ihash.i"
 //TODO: icanvas - can be edited manually!
-//TODO: Remove all callback functions and internal data when the module is unloaded
 

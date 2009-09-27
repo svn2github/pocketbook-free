@@ -23,11 +23,11 @@ convert_ffitype_to_py(const ffi_type* ffitype, const void* value)
 		return PyLong_FromLong(*((int*)value));
 	}
 	else if (ffitype == &ffi_type_pointer) {
-		Python_str_FromChar((char*)value);
-		return NULL;
+		return Python_str_FromChar((char*)value);
 	}
 	else {
-		PyErr_SetString(PyExc_TypeError,"unsupported argument type");
+		PyErr_SetString(PyExc_TypeError, "invalid argument type");
+		printf("[%d]\n", (int)ffitype->type);
 		return NULL;
 	}
 }
@@ -38,7 +38,7 @@ convert_py_to_fftype(/*const*/PyObject* obj, const ffi_type* ffitype, ffi_arg* r
 	if (ffitype == &ffi_type_sint) {
 		// PyLong to int
 		if (!PyLong_Check(obj)) {
-			PyErr_SetString(PyExc_TypeError,"expected integer value");
+			PyErr_SetString(PyExc_TypeError, "expected integer value");
 			return -1;
 		}
 		long v = PyLong_AsLong(obj);
@@ -50,41 +50,44 @@ convert_py_to_fftype(/*const*/PyObject* obj, const ffi_type* ffitype, ffi_arg* r
 		return 0;
 	}
 	else {
-		PyErr_SetString(PyExc_TypeError,"unsupported return type");
+		PyErr_SetString(PyExc_TypeError,"invalid return value type");
 		return -1;
 	}
 }
 
-// Generic callback. Works only for symple types.
+// Generic callback. Supports only simple types.
 void
 generic_callback(ffi_cif* cif, void* resp, void** args, void* userdata)
 {
 	PyObject* pyfunc = (PyObject*)userdata;
-	PyObject *arglist;
-	PyObject *result;
+	PyObject *arglist = NULL;
+	PyObject *result = NULL;
 	int i;
 
 	// Convert arguments from C to Python.
 	if (cif->nargs < 0) {
-		printf("nargs error\n");
+		PyErr_SetString(PyExc_OverflowError, "wrong nargs");
+		goto fail;
 	}
+
 	arglist = PyTuple_New(cif->nargs);
 	for (i = 0; i < cif->nargs; ++i) {
 		PyObject* arg = convert_ffitype_to_py(cif->arg_types[i], args[i]);
 		if (arg == NULL) {
 			goto fail;
 		}
-		PyTuple_SetItem(arglist, i, arg );
+		PyTuple_SetItem(arglist, i, arg);
 	}
-
 	// Call Python function.
-	result = PyEval_CallObject(pyfunc, arglist);     
-	Py_DECREF(arglist);                           
-	if (result) {
+	result = PyEval_CallObject(pyfunc, arglist);
+
+	Py_XDECREF(arglist);
+
+	if (result != NULL) {
 		if (cif->rtype != &ffi_type_void) {
 			/*int res =*/convert_py_to_fftype(result, cif->rtype, (ffi_arg*)resp);
 		}
-		Py_XDECREF(result);
+		Py_DECREF(result);
 	}
 
 fail:

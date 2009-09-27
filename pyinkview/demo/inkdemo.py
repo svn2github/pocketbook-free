@@ -312,6 +312,7 @@ def example_dither():
     DitherArea(300, 320, 256, 256, 4, DITHER_DIFFUSION)
     FullUpdate()
 
+@DialogHandler
 def dialog_handler(button):
     if button == 1:
         msg("Choosed: yes")
@@ -327,7 +328,10 @@ def page_selected(page):
     msg("Page: %d" % (page))
 
 timer_value = 0
+@TimerProc
 def timer_proc():
+    if (timer_on == 0): 
+        return 
     global timer_value
     timer_value += 1
     msg("Timer: %d" % (timer_value))
@@ -401,7 +405,7 @@ def menu1_handler(index):
     elif index == 106:
         global timer_on
         if timer_on:
-            ClearTimer(timer_proc)
+            #ClearTimer(timer_proc) #Not implemented
             timer_on = 0
         else:
             SetHardTimer("MYTIMER", timer_proc, 0)
@@ -442,6 +446,7 @@ def menu1_handler(index):
     elif index == 121:
         CloseApp()
 
+@MainHandler
 def main_handler(type, par1, par2):
     print("[%d %d %d]" % (type, par1, par2), file=sys.stderr)
 
@@ -507,6 +512,7 @@ def main_handler(type, par1, par2):
 
 ctab = 1
 #int 
+@MainHandler
 def screen2_handler(type, par1, par2):
     global ctab
     if type == EVT_SHOW:
