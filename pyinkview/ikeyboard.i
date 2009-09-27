@@ -8,7 +8,7 @@
 
 %{
 #define PYOPENKEYBOARD_BUFFER_SIZE 1024
-static char PyOpenKeyboard_buffer[PYOPENKEYBOARD_BUFFER_SIZE];
+static char PyOpenKeyboard_buffer[PYOPENKEYBOARD_BUFFER_SIZE+1];
 %}
 
 %typemap(in) (char* buffer, int maxlen) {
@@ -21,10 +21,9 @@ static char PyOpenKeyboard_buffer[PYOPENKEYBOARD_BUFFER_SIZE];
 	if (s == NULL) {
 		return NULL;
 	}
-	PyOpenKeyboard_buffer[0] = '\0';
    	strncpy(PyOpenKeyboard_buffer, s, PYOPENKEYBOARD_BUFFER_SIZE);
    	free(s);	//TODO: Check that this is really needed
-   	PyOpenKeyboard_buffer[PYOPENKEYBOARD_BUFFER_SIZE-1] = '\0';
+   	PyOpenKeyboard_buffer[PYOPENKEYBOARD_BUFFER_SIZE] = '\0';
    	$1 = PyOpenKeyboard_buffer;
    	$2 = PYOPENKEYBOARD_BUFFER_SIZE-1;
 }

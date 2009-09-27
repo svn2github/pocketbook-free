@@ -106,15 +106,15 @@ static ffi_cif iv_fontselecthandler_cif;
 %}
 Callback(FontSelectHandler, iv_fontselecthandler_cif, generic_callback)
 
+%{
+// typedef void (*iv_dirselecthandler)(char *path);
+static ffi_type *iv_dirselecthandler_cl_arg_types[] = {&ffi_type_pointer, NULL};
+static ffi_cif iv_dirselecthandler_cif;
+%}
+Callback(DirSelectHandler, iv_dirselecthandler_cif, generic_callback)
+
 //TODO: 
 
-//%{
-//// typedef void (*iv_dirselecthandler)(char *path);
-//static ffi_type *iv_dirselecthandler_cl_arg_types[] = {&ffi_type_void, NULL};
-//static ffi_cif iv_dirselecthandler_cif;
-//%}
-////Callback(, iv_dirselecthandler_cif, generic_callback)
-//
 //%{
 //// typedef void (*iv_confighandler)();
 //static ffi_type *iv_confighandler_cl_arg_types[] = {&ffi_type_void, NULL};
@@ -211,8 +211,8 @@ void _initialize_ffi_types()
 	PREP_CIF(iv_dialoghandler, 1, &ffi_type_void);
 	PREP_CIF(iv_timeedithandler, 1, &ffi_type_void);	
 	PREP_CIF(iv_fontselecthandler, 4, &ffi_type_void);
+	PREP_CIF(iv_dirselecthandler, 1, &ffi_type_void);
 
-//	PREP_CIF(iv_dirselecthandler, 1, &ffi_type_void);
 //	PREP_CIF(iv_confighandler, 0, &ffi_type_void);
 //	PREP_CIF(iv_itemchangehandler, 1, &ffi_type_void);
 //	PREP_CIF(iv_pageselecthandler, 1, &ffi_type_void);

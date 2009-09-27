@@ -70,9 +70,8 @@
 %include "imenu.i"
 %include "imenu3x3.i"
 %include "ikeyboard.i"
+%include "idirselect.i"
 
-//idirselect
-%ignore OpenDirectorySelector;
 //icontent
 %ignore OpenContents;
 //ipageselect
@@ -99,7 +98,6 @@ extern ibitmap item1, item2;
 %}
 
 
-%include "idirselect.i"
 %include "icontent.i"
 %include "ipageselect.i"
 %include "ibookmark.i"	//TODO: in progress. modify bmklist and other

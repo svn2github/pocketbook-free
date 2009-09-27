@@ -373,6 +373,7 @@ def bmk_handler(action, page, pos):
     elif action == BMK_SELECTED: 
         bmk_selected(page, pos) 
 
+@DirSelectHandler
 def dir_selected(path):
     print(file=sys.stderr)
     print(":%s" %(path), file=sys.stderr)
@@ -445,7 +446,7 @@ def menu1_handler(index):
     elif index == 120:
         OpenNotesMenu("/test", "test", 0)
     elif index == 125:
-        OpenDirectorySelector("Open directory", dirbuf, 1024, dir_selected)
+        OpenDirectorySelector("Open directory", dirbuf, dir_selected)
     elif index == 121:
         CloseApp()
 
