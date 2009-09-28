@@ -4,7 +4,6 @@
 
 %{
 
-static PyObject* PyOpenContents_pyfunc_ptr = NULL;
 static tocentry* PyOpenContents_toc = NULL;
 
 static int sequence_to_tocentry(PyObject* item, tocentry* tocitem)
@@ -68,56 +67,7 @@ static tocentry* convert_list_to_tocentry(PyObject* toc, int* pcount)
 	return array;
 }
 
-//static void PyOpenContents_callback(long long position)
-//{
-//	PyObject* arglist;
-//	PyObject* result;
-//
-//	if (!PyOpenContents_pyfunc_ptr)
-//		return;
-//
-//	arglist = Py_BuildValue("(L)", position);             
-//	result = PyEval_CallObject(PyOpenContents_pyfunc_ptr, arglist);     
-//	Py_DECREF(arglist);                           
-//	if (result) {                                 
-//		Py_XDECREF(result);
-//	}
-//	if (PyErr_Occurred()) {
-//		PyErr_Print();
-//		PyErr_Clear();
-//	}
-//
-//	Py_DECREF(PyOpenContents_pyfunc_ptr);
-//	PyOpenContents_pyfunc_ptr = NULL;   
-//
-//	free(PyOpenContents_toc);
-//	return;
-//}
-//
-//void PyOpenContents(PyObject* toc, long long position, PyObject* pyfunc)
-//{
-//	int count = 0;
-//	if (PyOpenContents_pyfunc_ptr) {
-//		Py_DECREF(PyOpenContents_pyfunc_ptr);
-//		PyOpenContents_pyfunc_ptr = NULL;
-//		free(PyOpenContents_toc);
-//		PyOpenContents_toc = NULL;
-//	}
-//
-//	PyOpenContents_toc = convert_list_to_tocentry(toc, &count);
-//	if (!PyOpenContents_toc) {
-//		return ;
-//	}
-//	
-//	PyOpenContents_pyfunc_ptr = pyfunc;
-//	Py_INCREF(PyOpenContents_pyfunc_ptr);
-//	OpenContents(PyOpenContents_toc, count, position, PyOpenContents_callback);
-//}
-
 %}
-
-//%rename(OpenContents) PyOpenContents;
-//extern void PyOpenContents(PyObject* toc, long long position, PyObject* pyfunc);
 
 %typemap(in) (tocentry *toc, int count) {
 	int count = 0;
