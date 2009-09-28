@@ -71,6 +71,7 @@
 %include "imenu3x3.i"
 %include "ikeyboard.i"
 %include "idirselect.i"
+%include "ilist.i"
 
 //icontent
 %ignore OpenContents;
@@ -85,9 +86,6 @@
 %ignore OpenTimeEdit;
 //ifontselect
 %ignore OpenFontSelector;
-//ilist
-%ignore OpenList;
-%ignore OpenDummyList;
 
 
 %include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
@@ -104,7 +102,6 @@ extern ibitmap item1, item2;
 %include "irotatebox.i"
 %include "itimeedit.i"
 %include "ifontselect.i"
-%include "ilist.i"
 
 
 //Handlers in progress:

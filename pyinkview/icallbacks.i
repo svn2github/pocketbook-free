@@ -149,14 +149,14 @@ Callback(DirSelectHandler, iv_dirselecthandler_cif, generic_callback)
 //static ffi_cif iv_tochandler_cif;
 //%}
 ////Callback(, iv_tochandler_cif, generic_callback)
-//
-//%{
-//// typedef void (*iv_listhandler)(int action, int x, int y, int idx, int state);
-//static ffi_type *iv_listhandler_cl_arg_types[] = {&ffi_type_void, NULL};
-//static ffi_cif iv_listhandler_cif;
-//%}
-////Callback(, iv_listhandler_cif, generic_callback)
-//
+
+%{
+// typedef void (*iv_listhandler)(int action, int x, int y, int idx, int state);
+static ffi_type *iv_listhandler_cl_arg_types[] = {&ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, NULL};
+static ffi_cif iv_listhandler_cif;
+%}
+Callback(ListHandler, iv_listhandler_cif, generic_callback)
+
 //%{
 //// typedef void (*iv_rotatehandler)(int direction);
 //static ffi_type *iv_rotatehandler_cl_arg_types[] = {&ffi_type_void, NULL};
@@ -218,7 +218,7 @@ void _initialize_ffi_types()
 //	PREP_CIF(iv_pageselecthandler, 1, &ffi_type_void);
 //	PREP_CIF(iv_bmkhandler, 3, &ffi_type_void);
 //	PREP_CIF(iv_tochandler, 1, &ffi_type_void);
-//	PREP_CIF(iv_listhandler, 5, &ffi_type_void);
+	PREP_CIF(iv_listhandler, 5, &ffi_type_void);
 //	PREP_CIF(iv_rotatehandler, 1, &ffi_type_void);
 	// Contain void*
 //	PREP_CIF(iv_hashenumproc,3,&ffi_type_sint);
