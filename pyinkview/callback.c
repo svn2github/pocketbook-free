@@ -3,9 +3,6 @@
 #include <ffi.h>
 #include "callback.h"
 
-#define ffi_type_slonglong ffi_type_sint64
-#define ffi_type_ulonglong ffi_type_uint64
-
 static PyObject*
 Python_str_FromChar(const char *c)
 {
@@ -21,6 +18,9 @@ convert_ffitype_to_py(const ffi_type* ffitype, const void* value)
 {
 	if (ffitype == &ffi_type_sint) {
 		return PyLong_FromLong(*((int*)value));
+	}
+	if (ffitype == &ffi_type_slonglong) {
+		return PyLong_FromLong(*((long long*)value));
 	}
 	else if (ffitype == &ffi_type_pointer) {
 		return Python_str_FromChar(*(char**)value);

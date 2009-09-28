@@ -76,9 +76,8 @@
 %include "irotatebox.i"
 %include "ifontselect.i"
 %include "itimeedit.i"
+%include "icontent.i"
 
-//icontent
-%ignore OpenContents;
 //ibookmark
 %ignore OpenBookmarks;
 %ignore SwitchBookmark;
@@ -93,7 +92,6 @@ extern ibitmap item1, item2;
 
 
 //Handlers in progress:
-%include "icontent.i"
 %include "ibookmark.i"	
 %include "iconfigedit.i"
 

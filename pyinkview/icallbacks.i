@@ -143,12 +143,12 @@ Callback(PageSelectHandler, iv_pageselecthandler_cif, generic_callback)
 //%}
 ////Callback(, iv_bmkhandler_cif, generic_callback)
 //
-//%{
-//// typedef void (*iv_tochandler)(long long position);
-//static ffi_type *iv_tochandler_cl_arg_types[] = {&ffi_type_void, NULL};
-//static ffi_cif iv_tochandler_cif;
-//%}
-////Callback(, iv_tochandler_cif, generic_callback)
+%{
+// typedef void (*iv_tochandler)(long long position);
+static ffi_type *iv_tochandler_cl_arg_types[] = {&ffi_type_slonglong, NULL};
+static ffi_cif iv_tochandler_cif;
+%}
+Callback(TocHandler, iv_tochandler_cif, generic_callback)
 
 %{
 // typedef void (*iv_listhandler)(int action, int x, int y, int idx, int state);
@@ -217,7 +217,7 @@ void _initialize_ffi_types()
 //	PREP_CIF(iv_itemchangehandler, 1, &ffi_type_void);
 	PREP_CIF(iv_pageselecthandler, 1, &ffi_type_void);
 //	PREP_CIF(iv_bmkhandler, 3, &ffi_type_void);
-//	PREP_CIF(iv_tochandler, 1, &ffi_type_void);
+	PREP_CIF(iv_tochandler, 1, &ffi_type_void);
 	PREP_CIF(iv_listhandler, 5, &ffi_type_void);
 	PREP_CIF(iv_rotatehandler, 1, &ffi_type_void);
 	// Contain void*

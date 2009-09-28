@@ -323,11 +323,13 @@ def dialog_handler(button):
 def menu3x3_handler(pos):
     msg("Menu: %d" % (pos))
 
-@PageSelectHandler
 def page_selected(page):
     global current_page
     current_page = page
     msg("Page: %d" % (page))
+
+page_selected1 = PageSelectHandler(page_selected)
+page_selected2 = TocHandler(page_selected)
 
 timer_value = 0
 @TimerProc
@@ -427,7 +429,7 @@ def menu1_handler(index):
     elif index == 112:
         OpenConfigEditor("Configuration", testcfg, testce2, config_ok, None)
     elif index == 113:
-        OpenPageSelector(page_selected)
+        OpenPageSelector(page_selected1)
     elif index == 114:
         example_dither()
     elif index == 115:
@@ -441,7 +443,7 @@ def menu1_handler(index):
             poslist[i] = bmklist[i] + 1000000
         OpenBookmarks(current_page, current_page+1000000, bmklist, poslist, bmkcount, 15, bmk_handler)
     elif index == 117:
-        OpenContents(contents, current_page, page_selected) #42
+        OpenContents(contents, current_page, page_selected2) #42
     elif index == 119:
         CreateNote("/test", "test", 0)
     elif index == 120:
