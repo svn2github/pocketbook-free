@@ -128,14 +128,14 @@ Callback(DirSelectHandler, iv_dirselecthandler_cif, generic_callback)
 //static ffi_cif iv_itemchangehandler_cif;
 //%}
 ////Callback(, iv_itemchangehandler_cif, generic_callback)
-//
-//%{
-//// typedef void (*iv_pageselecthandler)(int page);
-//static ffi_type *iv_pageselecthandler_cl_arg_types[] = {&ffi_type_void, NULL};
-//static ffi_cif iv_pageselecthandler_cif;
-//%}
-////Callback(, iv_pageselecthandler_cif, generic_callback)
-//
+
+%{
+// typedef void (*iv_pageselecthandler)(int page);
+static ffi_type *iv_pageselecthandler_cl_arg_types[] = {&ffi_type_sint, NULL};
+static ffi_cif iv_pageselecthandler_cif;
+%}
+Callback(PageSelectHandler, iv_pageselecthandler_cif, generic_callback)
+
 //%{
 //// typedef void (*iv_bmkhandler)(int action, int page, long long position);
 //static ffi_type *iv_bmkhandler_cl_arg_types[] = {&ffi_type_void, NULL};
@@ -157,13 +157,13 @@ static ffi_cif iv_listhandler_cif;
 %}
 Callback(ListHandler, iv_listhandler_cif, generic_callback)
 
-//%{
-//// typedef void (*iv_rotatehandler)(int direction);
-//static ffi_type *iv_rotatehandler_cl_arg_types[] = {&ffi_type_void, NULL};
-//static ffi_cif iv_rotatehandler_cif;
-//%}
-////Callback(, iv_rotatehandler_cif, generic_callback)
-//
+%{
+// typedef void (*iv_rotatehandler)(int direction);
+static ffi_type *iv_rotatehandler_cl_arg_types[] = {&ffi_type_sint, NULL};
+static ffi_cif iv_rotatehandler_cif;
+%}
+Callback(RotateHandler, iv_rotatehandler_cif, generic_callback)
+
 
 // Contain void* - generic callback canntot be used
 //%{
@@ -215,11 +215,11 @@ void _initialize_ffi_types()
 
 //	PREP_CIF(iv_confighandler, 0, &ffi_type_void);
 //	PREP_CIF(iv_itemchangehandler, 1, &ffi_type_void);
-//	PREP_CIF(iv_pageselecthandler, 1, &ffi_type_void);
+	PREP_CIF(iv_pageselecthandler, 1, &ffi_type_void);
 //	PREP_CIF(iv_bmkhandler, 3, &ffi_type_void);
 //	PREP_CIF(iv_tochandler, 1, &ffi_type_void);
 	PREP_CIF(iv_listhandler, 5, &ffi_type_void);
-//	PREP_CIF(iv_rotatehandler, 1, &ffi_type_void);
+	PREP_CIF(iv_rotatehandler, 1, &ffi_type_void);
 	// Contain void*
 //	PREP_CIF(iv_hashenumproc,3,&ffi_type_sint);
 //	PREP_CIF(iv_hashcmpproc,4,&ffi_type_sint);

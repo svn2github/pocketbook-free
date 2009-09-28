@@ -323,6 +323,7 @@ def dialog_handler(button):
 def menu3x3_handler(pos):
     msg("Menu: %d" % (pos))
 
+@PageSelectHandler
 def page_selected(page):
     global current_page
     current_page = page

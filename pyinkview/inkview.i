@@ -71,21 +71,17 @@
 %include "imenu3x3.i"
 %include "ikeyboard.i"
 %include "idirselect.i"
+%include "ipageselect.i"
 %include "ilist.i"
+%include "irotatebox.i"
+%include "ifontselect.i"
+%include "itimeedit.i"
 
 //icontent
 %ignore OpenContents;
-//ipageselect
-%ignore OpenPageSelector;
 //ibookmark
 %ignore OpenBookmarks;
 %ignore SwitchBookmark;
-//irotatebox
-%ignore OpenRotateBox;
-//itimeedit
-%ignore OpenTimeEdit;
-//ifontselect
-%ignore OpenFontSelector;
 
 
 %include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
@@ -96,15 +92,9 @@ extern ibitmap item1, item2;
 %}
 
 
-%include "icontent.i"
-%include "ipageselect.i"
-%include "ibookmark.i"	//TODO: in progress. modify bmklist and other
-%include "irotatebox.i"
-%include "itimeedit.i"
-%include "ifontselect.i"
-
-
 //Handlers in progress:
+%include "icontent.i"
+%include "ibookmark.i"	
 %include "iconfigedit.i"
 
 //???
