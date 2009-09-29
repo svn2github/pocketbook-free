@@ -3,15 +3,16 @@ import time
 import inkview
 from inkview import *
 from traceback import print_exc
+import images
 
 #TODO: Generate python arrays
 #~ extern const ibitmap background, books, m3x3
-background = cvar.background
-books = cvar.books
-m3x3 = cvar.m3x3
+background = images.background
+books = cvar.books  #TODO
+m3x3 = images.m3x3
 #~ extern const ibitmap item1, item2
-item1 = cvar.item1
-item2 = cvar.item2
+item1 = images.item1
+item2 = images.item2
 
 
 sometext = ("Portability Concerns\n\n" 

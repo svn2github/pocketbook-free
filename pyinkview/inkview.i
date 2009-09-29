@@ -40,10 +40,39 @@
 		return NULL;
 	}
 }
-
 %typemap(freearg) (const unsigned char* src) {
 	free((unsigned char *) $1);
 }
+
+//For ibitmap
+%typemap(in) unsigned char* {
+	/* Check if is a list */
+	if (PyList_Check($input)) {
+		long i;
+		long size = PyList_Size($input);
+		$1 = (unsigned char *) malloc(size * sizeof(unsigned char));
+		for (i = 0; i < size; ++i) {
+			PyObject *o = PyList_GetItem($input,i);
+			if (PyLong_Check(o)) {
+				/* Chack? */
+				$1[i] = (unsigned char) PyLong_AsLong(PyList_GetItem($input,i));
+			} else {
+				PyErr_SetString(PyExc_TypeError,"list must contain unsigned chars");
+				free($1);
+				$1 = NULL;
+				return NULL;
+			}
+		}
+	} else {
+		PyErr_SetString(PyExc_TypeError,"not a list");
+		return NULL;
+	}
+}
+
+%typemap(memberin) unsigned char* {
+	$1 = $input;
+}
+
 
 
 // char **EnumFonts();
@@ -86,7 +115,7 @@
 %include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
 
 %inline %{
-extern ibitmap background, books, m3x3;	
+extern ibitmap background, books; //, m3x3;	
 extern ibitmap item1, item2;
 %}
 
@@ -99,3 +128,19 @@ extern ibitmap item1, item2;
 %include "ihash.i"
 //TODO: icanvas - can be edited manually!
 
+%extend ibitmap {
+	ibitmap(int width, int height, int depth, int scanline, unsigned char* data) {
+		ibitmap* bmp = (ibitmap*)malloc(sizeof(ibitmap) + height*scanline);
+		bmp->width = width;
+		bmp->height = height;
+		bmp->depth = depth;
+		bmp->scanline = scanline;
+		memcpy(&(bmp->data), data, height*scanline);
+		return bmp;
+	}
+
+	~ibitmap() {
+		free($self);
+	}
+
+}
