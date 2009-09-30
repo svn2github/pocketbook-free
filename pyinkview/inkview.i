@@ -45,7 +45,7 @@
 }
 
 //For ibitmap
-%typemap(in) unsigned char* {
+%typemap(in) (unsigned char* data, size_t datalen) {
 	/* Check if is a list */
 	if (PyList_Check($input)) {
 		long i;
@@ -63,6 +63,7 @@
 				return NULL;
 			}
 		}
+		$2 = size;
 	} else {
 		PyErr_SetString(PyExc_TypeError,"not a list");
 		return NULL;
@@ -114,10 +115,10 @@
 
 %include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
 
-%inline %{
-extern ibitmap background, books; //, m3x3;	
-extern ibitmap item1, item2;
-%}
+//%inline %{
+//extern ibitmap background, books, m3x3;	
+//extern ibitmap item1, item2;
+//%}
 
 
 //Handlers in progress:
@@ -129,13 +130,13 @@ extern ibitmap item1, item2;
 //TODO: icanvas - can be edited manually!
 
 %extend ibitmap {
-	ibitmap(int width, int height, int depth, int scanline, unsigned char* data) {
-		ibitmap* bmp = (ibitmap*)malloc(sizeof(ibitmap) + height*scanline);
+	ibitmap(int width, int height, int depth, int scanline, unsigned char* data, size_t datalen) {
+		ibitmap* bmp = (ibitmap*)malloc(sizeof(ibitmap) + datalen);
 		bmp->width = width;
 		bmp->height = height;
 		bmp->depth = depth;
 		bmp->scanline = scanline;
-		memcpy(&(bmp->data), data, height*scanline);
+		memcpy(&(bmp->data), data, datalen);
 		return bmp;
 	}
 

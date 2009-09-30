@@ -8,7 +8,7 @@ import images
 #TODO: Generate python arrays
 #~ extern const ibitmap background, books, m3x3
 background = images.background
-books = cvar.books  #TODO
+books = images.books  #TODO
 m3x3 = images.m3x3
 #~ extern const ibitmap item1, item2
 item1 = images.item1

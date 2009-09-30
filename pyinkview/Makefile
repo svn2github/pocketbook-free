@@ -12,7 +12,7 @@ LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 $(PYTHONDIR)/libpython3.1.dll.a -L.
 IMAGES=$(foreach dir, demo/images/, $(wildcard demo/images/*.bmp))
 INTERFACES=$(foreach dir, ./, $(wildcard ./*.i))
 
-SOURCES=inkview_wrap.c images.temp.c callback.c
+SOURCES=inkview_wrap.c callback.c #images.temp.c 
 OBJECTS=$(SOURCES:.c=.o)
 
 CC=gcc
