@@ -45,7 +45,7 @@
 }
 
 //For ibitmap
-%typemap(in) (unsigned char* data, size_t datalen) {
+%typemap(in) (const unsigned char* data, size_t datalen) {
 	/* Check if is a list */
 	if (PyList_Check($input)) {
 		long i;
@@ -70,9 +70,9 @@
 	}
 }
 
-%typemap(memberin) unsigned char* {
-	$1 = $input;
-}
+//%typemap(memberin) unsigned char* {
+//	$1 = $input;
+//}
 
 
 
@@ -115,12 +115,6 @@
 
 %include "inkview.h"	//TODO: This file should contain only constants! Rename it with indview_const.h or something else..
 
-//%inline %{
-//extern ibitmap background, books, m3x3;	
-//extern ibitmap item1, item2;
-//%}
-
-
 //Handlers in progress:
 %include "ibookmark.i"	
 %include "iconfigedit.i"
@@ -129,8 +123,10 @@
 %include "ihash.i"
 //TODO: icanvas - can be edited manually!
 
+
+//Note: ibitmap have to be in one block of memory
 %extend ibitmap {
-	ibitmap(int width, int height, int depth, int scanline, unsigned char* data, size_t datalen) {
+	ibitmap(int width, int height, int depth, int scanline, const unsigned char* data, size_t datalen) {
 		ibitmap* bmp = (ibitmap*)malloc(sizeof(ibitmap) + datalen);
 		bmp->width = width;
 		bmp->height = height;
@@ -143,5 +139,5 @@
 	~ibitmap() {
 		free($self);
 	}
-
 }
+
