@@ -20,10 +20,11 @@
 }
 %enddef 
 
-
-%define Callback(CallbackClass, callback_func, handler, rtype, argnum)
+%define Callback(CallbackClass, callback_func, handler, rtype, argnum, ...)
 %{
+static ffi_type *handler##_cl_arg_types[] = __VA_ARGS__;
 static ffi_cif handler##_cif;
+
 %}
 
 %inline %{
@@ -73,97 +74,51 @@ typedef struct tag##CallbackClass {
 %enddef
 
 // Closures information
-// Note: I cannot pass {... } to the macro :-(
 
 // typedef int (*iv_handler)(int type, int par1, int par2);
-%{
-static ffi_type *iv_handler_cl_arg_types[] = {&ffi_type_sint, &ffi_type_sint, &ffi_type_sint, NULL};
-%}
-Callback(MainHandler, generic_callback, iv_handler, &ffi_type_sint, 3);
+Callback(MainHandler, generic_callback, iv_handler, &ffi_type_sint, 3, {&ffi_type_sint, &ffi_type_sint, &ffi_type_sint, NULL});
 
 // typedef void (*iv_timerproc)();
-%{
-static ffi_type *iv_timerproc_cl_arg_types[] = {&ffi_type_void, NULL};
-%}
-Callback(TimerProc, generic_callback, iv_timerproc, &ffi_type_void, 0);
+Callback(TimerProc, generic_callback, iv_timerproc, &ffi_type_void, 0, {&ffi_type_void, NULL});
 
 // typedef void (*iv_menuhandler)(int index);
-%{
-static ffi_type *iv_menuhandler_cl_arg_types[] = {&ffi_type_sint, NULL};
-%}
-Callback(MenuHandler, generic_callback, iv_menuhandler, &ffi_type_void, 1);
+Callback(MenuHandler, generic_callback, iv_menuhandler, &ffi_type_void, 1, {&ffi_type_sint, NULL});
 
 // typedef void (*iv_keyboardhandler)(char *text);
-%{
-static ffi_type *iv_keyboardhandler_cl_arg_types[] = {&ffi_type_pointer, NULL};
-%}
-Callback(KeyboardHandler, generic_callback, iv_keyboardhandler, &ffi_type_void, 1);
+Callback(KeyboardHandler, generic_callback, iv_keyboardhandler, &ffi_type_void, 1, {&ffi_type_pointer, NULL});
 
 // typedef void (*iv_dialoghandler)(int button);
-%{
-static ffi_type *iv_dialoghandler_cl_arg_types[] = {&ffi_type_sint, NULL};
-%}
-Callback(DialogHandler, generic_callback, iv_dialoghandler, &ffi_type_void, 1);
+Callback(DialogHandler, generic_callback, iv_dialoghandler, &ffi_type_void, 1, {&ffi_type_sint, NULL});
 
 // typedef void (*iv_timeedithandler)(long newtime);
-%{
-static ffi_type *iv_timeedithandler_cl_arg_types[] = {&ffi_type_slong, NULL};
-%}
-Callback(TimeEditHandler, generic_callback, iv_timeedithandler, &ffi_type_void, 1);
+Callback(TimeEditHandler, generic_callback, iv_timeedithandler, &ffi_type_void, 1, {&ffi_type_slong, NULL});
 
 // typedef void (*iv_fontselecthandler)(char *fontr, char *fontb, char *fonti, char *fontbi);
-%{
-static ffi_type *iv_fontselecthandler_cl_arg_types[] = {&ffi_type_pointer, &ffi_type_pointer, &ffi_type_pointer, &ffi_type_pointer, NULL};
-%}
-Callback(FontSelectHandler, generic_callback, iv_fontselecthandler, &ffi_type_void, 4);
+Callback(FontSelectHandler, generic_callback, iv_fontselecthandler, &ffi_type_void, 4, {&ffi_type_pointer, &ffi_type_pointer, &ffi_type_pointer, &ffi_type_pointer, NULL});
 
 // typedef void (*iv_dirselecthandler)(char *path);
-%{
-static ffi_type *iv_dirselecthandler_cl_arg_types[] = {&ffi_type_pointer, NULL};
-%}
-Callback(DirSelectHandler, generic_callback, iv_dirselecthandler, &ffi_type_void, 1);
+Callback(DirSelectHandler, generic_callback, iv_dirselecthandler, &ffi_type_void, 1, {&ffi_type_pointer, NULL});
 
 // typedef void (*iv_confighandler)();
-%{
-static ffi_type *iv_confighandler_cl_arg_types[] = {&ffi_type_void, NULL};
-%}
-Callback(ConfigHandler, generic_callback, iv_confighandler, &ffi_type_void, 0);
+Callback(ConfigHandler, generic_callback, iv_confighandler, &ffi_type_void, 0, {&ffi_type_void, NULL});
 
 // typedef void (*iv_itemchangehandler)(char *name);
-%{
-static ffi_type *iv_itemchangehandler_cl_arg_types[] = {&ffi_type_pointer, NULL};
-%}
-Callback(ItemChangeHandler, generic_callback, iv_itemchangehandler, &ffi_type_void, 1);
+Callback(ItemChangeHandler, generic_callback, iv_itemchangehandler, &ffi_type_void, 1, {&ffi_type_pointer, NULL});
 
 // typedef void (*iv_pageselecthandler)(int page);
-%{
-static ffi_type *iv_pageselecthandler_cl_arg_types[] = {&ffi_type_sint, NULL};
-%}
-Callback(PageSelectHandler, generic_callback, iv_pageselecthandler, &ffi_type_void, 1);
+Callback(PageSelectHandler, generic_callback, iv_pageselecthandler, &ffi_type_void, 1, {&ffi_type_sint, NULL});
 
 // typedef void (*iv_bmkhandler)(int action, int page, long long position);
-%{
-static ffi_type *iv_bmkhandler_cl_arg_types[] = {&ffi_type_sint, &ffi_type_sint, &ffi_type_slonglong, NULL};
-%}
-Callback(BmkHandler, generic_callback, iv_bmkhandler, &ffi_type_void, 3);
+Callback(BmkHandler, generic_callback, iv_bmkhandler, &ffi_type_void, 3, {&ffi_type_sint, &ffi_type_sint, &ffi_type_slonglong, NULL});
 
 // typedef void (*iv_tochandler)(long long position);
-%{
-static ffi_type *iv_tochandler_cl_arg_types[] = {&ffi_type_slonglong, NULL};
-%}
-Callback(TocHandler, generic_callback, iv_tochandler, &ffi_type_void, 1)
+Callback(TocHandler, generic_callback, iv_tochandler, &ffi_type_void, 1, {&ffi_type_slonglong, NULL})
 
 // typedef void (*iv_listhandler)(int action, int x, int y, int idx, int state);
-%{
-static ffi_type *iv_listhandler_cl_arg_types[] = {&ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, NULL};
-%}
-Callback(ListHandler, generic_callback, iv_listhandler, &ffi_type_void, 5);
+Callback(ListHandler, generic_callback, iv_listhandler, &ffi_type_void, 5, {&ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, &ffi_type_sint, NULL});
 
 // typedef void (*iv_rotatehandler)(int direction);
-%{
-static ffi_type *iv_rotatehandler_cl_arg_types[] = {&ffi_type_sint, NULL};
-%}
-Callback(RotateHandler, generic_callback, iv_rotatehandler, &ffi_type_void, 1);
+Callback(RotateHandler, generic_callback, iv_rotatehandler, &ffi_type_void, 1, {&ffi_type_sint, NULL});
 
 //TODO:
 // Contain void* - generic callback canntot be used
