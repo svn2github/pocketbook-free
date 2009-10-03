@@ -32,8 +32,7 @@
 	long qspAddText(QSP_CHAR **, QSP_CHAR *, long, long, QSP_BOOL);
 	QSP_CHAR *qspGetNewText(QSP_CHAR *, long);
 	QSP_CHAR *qspGetAddText(QSP_CHAR *, QSP_CHAR *, long, long);
-	//QSP_BOOL qspClearText(void **, long *);
-	QSP_BOOL qspClearText(QSP_CHAR **, long *);
+	QSP_BOOL qspClearText(void **, long *);
 	QSP_BOOL qspIsInList(QSP_CHAR *, QSP_CHAR);
 	QSP_BOOL qspIsInListEOL(QSP_CHAR *, QSP_CHAR);
 	QSP_BOOL qspIsDigit(QSP_CHAR);
@@ -43,16 +42,16 @@
 	QSP_BOOL qspIsAnyString(QSP_CHAR *);
 	void qspLowerStr(QSP_CHAR *);
 	void qspUpperStr(QSP_CHAR *);
-	QSP_BOOL qspIsEqual(QSP_CHAR *, QSP_CHAR *, long);
+	int qspStrsComp(QSP_CHAR *, QSP_CHAR *, long);
 	QSP_CHAR *qspInStrRChars(QSP_CHAR *, QSP_CHAR *, QSP_CHAR *);
 	QSP_CHAR *qspJoinStrs(QSP_CHAR **, long, QSP_CHAR *);
 	long qspSplitStr(QSP_CHAR *, QSP_CHAR *, QSP_CHAR ***);
 	void qspCopyStrs(QSP_CHAR ***, QSP_CHAR **, long, long);
-	//void qspFreeStrs(void **, long, QSP_BOOL);
-	void qspFreeStrs(QSP_CHAR **, long, QSP_BOOL);
+	void qspFreeStrs(void **, long, QSP_BOOL);
 	long qspStrToNum(QSP_CHAR *, QSP_CHAR **);
 	QSP_CHAR *qspNumToStr(QSP_CHAR *, long);
 	QSP_CHAR *qspStrPos(QSP_CHAR *, QSP_CHAR *, QSP_BOOL);
+	QSP_CHAR *qspReplaceText(QSP_CHAR *, QSP_CHAR *, QSP_CHAR *);
 	QSP_CHAR *qspFormatText(QSP_CHAR *);
 
 #endif

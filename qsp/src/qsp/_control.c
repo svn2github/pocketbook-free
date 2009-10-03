@@ -352,12 +352,9 @@ QSP_BOOL QSPGetVarNameByIndex(long index, QSP_CHAR **name)
 /* Выполнение строки кода */
 QSP_BOOL QSPExecString(const QSP_CHAR *s, QSP_BOOL isRefresh)
 {
-	QSP_CHAR *jumpToFake;
 	qspWait(QSP_TRUE);
 	qspPrepareExecution();
-	jumpToFake = qspGetNewText(QSP_FMT(""), 0);
-	qspExecStringAsCode((QSP_CHAR *)s, &jumpToFake);
-	free(jumpToFake);
+	qspExecStringAsCode((QSP_CHAR *)s);
 	if (qspErrorNum)
 	{
 		qspIsMustWait = QSP_FALSE;
@@ -530,7 +527,13 @@ QSP_BOOL QSPRestartGame(QSP_BOOL isRefresh)
 /* Ф-я предназначена только для вызова из CallBack'а QSP_CALL_SHOWMENU */
 void QSPSelectMenuItem(long index)
 {
-	if (index >= 0 && index < qspCurMenuItems) qspExecLocByName(qspCurMenuLocs[index], QSP_FALSE);
+	QSPVariant arg;
+	if (index >= 0 && index < qspCurMenuItems)
+	{
+		arg.IsStr = QSP_FALSE;
+		QSP_NUM(arg) = index + 1;
+		qspExecLocByNameWithArgs(qspCurMenuLocs[index], &arg, 1);
+	}
 }
 /* ------------------------------------------------------------ */
 /* Установка CALLBACK'ов */
@@ -554,10 +557,13 @@ void QSPInit()
 	qspQstCRC = 0;
 	qspMSCount = 0;
 	qspLocs = 0;
+	qspLocsNames = 0;
 	qspLocsCount = 0;
 	qspCurLoc = -1;
+	qspTimerInterval = 0;
 	qspCurIsShowObjs = qspCurIsShowActs = qspCurIsShowVars = qspCurIsShowInput = QSP_TRUE;
 	setlocale(LC_ALL, QSP_LOCALE);
+	qspSetSeed(0);
 	qspPrepareExecution();
 	qspMemClear(QSP_TRUE);
 	qspInitCallBacks();
@@ -572,7 +578,6 @@ void QSPDeInit()
 	qspCreateWorld(0, 0);
 	if (qspQstPath) free(qspQstPath);
 	if (qspQstFullPath) free(qspQstFullPath);
-	qspCallCloseFile(0);
 	qspIsMustWait = QSP_FALSE;
 	#ifdef _DEBUG
 		mwTerm();

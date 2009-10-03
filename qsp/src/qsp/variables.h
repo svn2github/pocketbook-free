@@ -23,6 +23,8 @@
 
 	#define QSP_VARSSEEK 50
 	#define QSP_VARSCOUNT 256 * QSP_VARSSEEK
+	#define QSP_VARARGS QSP_FMT("ARGS")
+	#define QSP_VARRES QSP_FMT("RESULT")
 
 	typedef struct
 	{
@@ -32,30 +34,13 @@
 		long ValsCount;
 		QSP_CHAR **TextIndex;
 		long IndsCount;
-		long Type;
 	} QSPVar;
-
-	enum
-	{
-		qspVarNormal,
-		qspVarQSPVer,
-		qspVarRnd,
-		qspVarCountObj,
-		qspVarMsecsCount,
-		qspVarUserText,
-		qspVarCurLoc,
-		qspVarSelObj,
-		qspVarSelAct,
-		qspVarMainText,
-		qspVarStatText
-	};
 
 	extern QSPVar qspVars[QSP_VARSCOUNT];
 
 	/* External functions */
 	void qspClearVars(QSP_BOOL);
 	void qspEmptyVar(QSPVar *);
-	void qspInitSpecialVars();
 	QSPVar *qspVarReference(QSP_CHAR *, QSP_BOOL);
 	QSPVar *qspVarReferenceWithType(QSP_CHAR *, QSP_BOOL, QSP_BOOL *);
 	void qspSetVarValueByName(QSP_CHAR *, QSPVariant *);
@@ -64,6 +49,7 @@
 	QSPVariant qspGetVar(QSP_CHAR *);
 	long qspArraySize(QSP_CHAR *);
 	long qspArrayPos(QSPVariant *, long, QSP_BOOL);
+	QSPVariant qspArrayMinMaxItem(QSP_CHAR *, QSP_BOOL);
 	long qspGetVarsCount();
 	void qspSetArgs(QSPVar *, QSPVariant *, long);
 	void qspMoveVar(QSPVar *, QSPVar *);

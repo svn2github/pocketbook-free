@@ -23,7 +23,7 @@
 
 	#define QSP_GAMEID QSP_FMT("QSPGAME")
 	#define QSP_SAVEDGAMEID QSP_FMT("QSPSAVEDGAME")
-	#define QSP_GAMEMINVER QSP_FMT("5.5.7")
+	#define QSP_GAMEMINVER QSP_FMT("5.6.2")
 	#define QSP_MAXINCFILES 100
 	#define QSP_DEFTIMERINTERVAL 500
 
@@ -34,6 +34,7 @@
 	extern long qspCurIncLocsCount;
 
 	/* External functions */
+	QSP_CHAR *qspGetAbsFromRelPath(QSP_CHAR *);
 	void qspClearIncludes(QSP_BOOL);
 	void qspNewGame(QSP_BOOL);
 	void qspOpenQuest(QSP_CHAR *, QSP_BOOL);

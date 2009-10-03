@@ -21,14 +21,22 @@
 #ifndef QSP_STATSDEFINES
 	#define QSP_STATSDEFINES
 
+	#define QSP_STATSLEVELS 3
+	#define QSP_MAXSTATSNAMES 100
 	#define QSP_STATMAXARGS 10
+	#define QSP_STATELSE QSP_FMT("ELSE")
 
 	typedef QSP_BOOL (*QSP_STATEMENT)(QSPVariant *, long, QSP_CHAR **, char);
 
 	typedef struct
 	{
-		QSP_CHAR *Names[2];
-		long NamesLens[2];
+		long Code;
+		QSP_CHAR *Name;
+		long NameLen;
+	} QSPStatName;
+
+	typedef struct
+	{
 		long MinArgsCount;
 		long MaxArgsCount;
 		char ArgsTypes[QSP_STATMAXARGS];
@@ -41,15 +49,11 @@
 		qspStatUnknown,
 		qspStatLabel,
 		qspStatComment,
-
-		qspStatFirst_Statement,
-		qspStatAct = qspStatFirst_Statement,
+		qspStatAct,
 		qspStatIf,
 		qspStatElse,
 		qspStatEnd,
-
-		qspStatFirst_NotMultilineStatement,
-		qspStatAddObj = qspStatFirst_NotMultilineStatement,
+		qspStatAddObj,
 		qspStatAddQst,
 		qspStatClA,
 		qspStatClear,
@@ -101,7 +105,7 @@
 	/* External functions */
 	void qspInitStats();
 	long qspGetStatArgs(QSP_CHAR *, long, QSPVariant *);
-	QSP_BOOL qspExecCode(QSP_CHAR **, long, long, long, QSP_CHAR **, QSP_BOOL);
-	QSP_BOOL qspExecStringAsCode(QSP_CHAR *, QSP_CHAR **);
+	QSP_BOOL qspExecCode(QSP_CHAR **, long, long, long, QSP_CHAR **);
+	void qspExecStringAsCode(QSP_CHAR *);
 
 #endif

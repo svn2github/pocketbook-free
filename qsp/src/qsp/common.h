@@ -20,12 +20,15 @@
 #ifndef QSP_COMMONDEFINES
 	#define QSP_COMMONDEFINES
 
+	#define QSP_RANDMASK 0x7FFFFFFF
+
 	extern QSP_CHAR *qspCurDesc;
 	extern long qspCurDescLen;
 	extern QSP_CHAR *qspCurVars;
 	extern long qspCurVarsLen;
 	extern QSP_CHAR *qspCurInput;
 	extern long qspCurInputLen;
+	extern long qspTimerInterval;
 	extern QSP_BOOL qspIsMainDescChanged;
 	extern QSP_BOOL qspIsVarsDescChanged;
 	extern QSP_BOOL qspCurIsShowVars;
@@ -34,5 +37,7 @@
 	/* External functions */
 	void qspPrepareExecution();
 	void qspMemClear(QSP_BOOL);
+	void qspSetSeed(unsigned int);
+	int qspRand();
 
 #endif

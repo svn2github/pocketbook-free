@@ -60,7 +60,7 @@ QSP_CHAR *qspGetAddText(QSP_CHAR *dest, QSP_CHAR *val, long destLen, long valLen
 	return dest;
 }
 
-QSP_BOOL qspClearText(QSP_CHAR **text, long *textLen)
+QSP_BOOL qspClearText(void **text, long *textLen)
 {
 	if (*text)
 	{
@@ -132,12 +132,12 @@ void qspUpperStr(QSP_CHAR *str)
 	while (*str) *str++ = QSP_CHRUPR(*str);
 }
 
-QSP_BOOL qspIsEqual(QSP_CHAR *str1, QSP_CHAR *str2, long maxLen)
+int qspStrsComp(QSP_CHAR *str1, QSP_CHAR *str2, long maxLen)
 {
-	long delta = 0;
-	while (maxLen-- && !(delta = (long)(*str1 - *str2)) && *str2)
+	int delta = 0;
+	while (maxLen-- && !(delta = (int)(*str1 - *str2)) && *str2)
 		++str1, ++str2;
-	return (delta == 0);
+	return delta;
 }
 
 QSP_CHAR *qspInStrRChars(QSP_CHAR *str, QSP_CHAR *chars, QSP_CHAR *end)
@@ -154,29 +154,28 @@ QSP_CHAR *qspInStrRChars(QSP_CHAR *str, QSP_CHAR *chars, QSP_CHAR *end)
 
 QSP_CHAR *qspJoinStrs(QSP_CHAR **s, long count, QSP_CHAR *delim)
 {
-	long i, newTxtLen = 0, newTxtRealLen = 0, newTxtBufSize = 256, lastIndex = count - 1, delimLen = (long)QSP_STRLEN(delim);
-	QSP_CHAR *newTxt = (QSP_CHAR *)malloc(newTxtBufSize * sizeof(QSP_CHAR));
+	long i, txtLen = 0, txtRealLen = 0, bufSize = 256, lastIndex = count - 1, delimLen = (long)QSP_STRLEN(delim);
+	QSP_CHAR *txt = (QSP_CHAR *)malloc(bufSize * sizeof(QSP_CHAR));
+	*txt = 0;
 	for (i = 0; i < count; ++i)
 	{
-		newTxtLen += (long)QSP_STRLEN(s[i]);
-		if (newTxtLen >= newTxtBufSize)
+		if ((txtLen += (long)QSP_STRLEN(s[i])) >= bufSize)
 		{
-			newTxtBufSize = newTxtLen + 128;
-			newTxt = (QSP_CHAR *)realloc(newTxt, newTxtBufSize * sizeof(QSP_CHAR));
+			bufSize = txtLen + 128;
+			txt = (QSP_CHAR *)realloc(txt, bufSize * sizeof(QSP_CHAR));
 		}
-		QSP_STRCPY(newTxt + newTxtRealLen, s[i]);
+		QSP_STRCPY(txt + txtRealLen, s[i]);
 		if (i == lastIndex) break;
-		newTxtRealLen = newTxtLen;
-		newTxtLen += delimLen;
-		if (newTxtLen >= newTxtBufSize)
+		txtRealLen = txtLen;
+		if ((txtLen += delimLen) >= bufSize)
 		{
-			newTxtBufSize = newTxtLen + 128;
-			newTxt = (QSP_CHAR *)realloc(newTxt, newTxtBufSize * sizeof(QSP_CHAR));
+			bufSize = txtLen + 128;
+			txt = (QSP_CHAR *)realloc(txt, bufSize * sizeof(QSP_CHAR));
 		}
-		QSP_STRCPY(newTxt + newTxtRealLen, delim);
-		newTxtRealLen = newTxtLen;
+		QSP_STRCPY(txt + txtRealLen, delim);
+		txtRealLen = txtLen;
 	}
-	return newTxt;
+	return txt;
 }
 
 long qspSplitStr(QSP_CHAR *str, QSP_CHAR *delim, QSP_CHAR ***res)
@@ -222,7 +221,7 @@ void qspCopyStrs(QSP_CHAR ***dest, QSP_CHAR **src, long start, long end)
 		*dest = 0;
 }
 
-void qspFreeStrs(QSP_CHAR **strs, long count, QSP_BOOL isVerify)
+void qspFreeStrs(void **strs, long count, QSP_BOOL isVerify)
 {
 	if (strs)
 	{
@@ -313,16 +312,41 @@ QSP_CHAR *qspStrPos(QSP_CHAR *txt, QSP_CHAR *str, QSP_BOOL isIsolated)
 					isLastDelim = QSP_TRUE;
 				else if (isLastDelim)
 				{
-					if (qspIsInListEOL(QSP_DELIMS, txt[strLen]) && qspIsEqual(txt, str, strLen)) return txt;
+					if (qspIsInListEOL(QSP_DELIMS, txt[strLen]) && !qspStrsComp(txt, str, strLen)) return txt;
 					isLastDelim = QSP_FALSE;
 				}
 			}
-			else if (qspIsEqual(txt, str, strLen))
+			else if (!qspStrsComp(txt, str, strLen))
 				return txt;
 		}
 		++txt;
 	}
 	return 0;
+}
+
+QSP_CHAR *qspReplaceText(QSP_CHAR *txt, QSP_CHAR *searchTxt, QSP_CHAR *repTxt)
+{
+	long txtLen = 0, oldTxtLen = 0, bufSize = 256, searchLen, repLen, len;
+	QSP_CHAR *newTxt, *pos;
+	searchLen = (long)QSP_STRLEN(searchTxt);
+	repLen = (long)QSP_STRLEN(repTxt);
+	newTxt = (QSP_CHAR *)malloc(bufSize * sizeof(QSP_CHAR));
+	pos = QSP_STRSTR(txt, searchTxt);
+	while (pos)
+	{
+		len = (long)(pos - txt);
+		if ((txtLen += len + repLen) >= bufSize)
+		{
+			bufSize = txtLen + 128;
+			newTxt = (QSP_CHAR *)realloc(newTxt, bufSize * sizeof(QSP_CHAR));
+		}
+		QSP_STRNCPY(newTxt + oldTxtLen, txt, len);
+		QSP_STRCPY(newTxt + oldTxtLen + len, repTxt);
+		oldTxtLen = txtLen;
+		txt = pos + searchLen;
+		pos = QSP_STRSTR(txt, searchTxt);
+	}
+	return qspGetAddText(newTxt, txt, txtLen, -1);
 }
 
 QSP_CHAR *qspFormatText(QSP_CHAR *txt)

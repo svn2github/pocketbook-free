@@ -62,9 +62,7 @@ void qspClearObjectsWithNotify()
 		for (i = 0; i < oldCount; ++i)
 		{
 			QSP_STR(v) = objs[i];
-			qspSetVarValueByName(QSP_FMT("LASTOBJ"), &v);
-			if (qspErrorNum) break;
-			qspExecLocByVarName(QSP_FMT("ONOBJDEL"));
+			qspExecLocByVarNameWithArgs(QSP_FMT("ONOBJDEL"), &v, 1);
 			if (qspRefreshCount != oldRefreshCount || qspErrorNum) break;
 		}
 		qspFreeStrs(objs, oldCount, QSP_FALSE);
@@ -74,11 +72,8 @@ void qspClearObjectsWithNotify()
 static void qspRemoveObject(long index)
 {
 	QSPVariant name;
-	if (!qspCurObjectsCount) return;
-	if (index < 0)
-		index = 0;
-	else if (index >= qspCurObjectsCount)
-		index = qspCurObjectsCount - 1;
+	if (!(qspCurObjectsCount && index < qspCurObjectsCount)) return;
+	if (index < 0) index = 0;
 	if (qspCurSelObject >= index) qspCurSelObject = -1;
 	name.IsStr = QSP_TRUE;
 	QSP_STR(name) = qspCurObjects[index].Desc;
@@ -90,10 +85,8 @@ static void qspRemoveObject(long index)
 		++index;
 	}
 	qspIsObjectsChanged = QSP_TRUE;
-	qspSetVarValueByName(QSP_FMT("LASTOBJ"), &name);
+	qspExecLocByVarNameWithArgs(QSP_FMT("ONOBJDEL"), &name, 1);
 	free(QSP_STR(name));
-	if (qspErrorNum) return;
-	qspExecLocByVarName(QSP_FMT("ONOBJDEL"));
 }
 
 long qspObjIndex(QSP_CHAR *name)
@@ -102,7 +95,7 @@ long qspObjIndex(QSP_CHAR *name)
 	QSP_CHAR *uName, *buf;
 	if (!qspCurObjectsCount) return -1;
 	qspUpperStr(uName = qspGetNewText(name, -1));
-	bufSize = 16;
+	bufSize = 32;
 	buf = (QSP_CHAR *)malloc(bufSize * sizeof(QSP_CHAR));
 	for (i = 0; i < qspCurObjectsCount; ++i)
 	{
@@ -136,19 +129,14 @@ QSP_BOOL qspStatementAddObject(QSPVariant *args, long count, QSP_CHAR **jumpTo, 
 		return QSP_FALSE;
 	}
 	if (count == 2 && qspIsAnyString(QSP_STR(args[1])))
-	{
-		imgPath = qspGetNewText(qspQstPath, qspQstPathLen);
-		imgPath = qspGetAddText(imgPath, QSP_STR(args[1]), qspQstPathLen, -1);
-	}
+		imgPath = qspGetAbsFromRelPath(QSP_STR(args[1]));
 	else
 		imgPath = 0;
 	obj = qspCurObjects + qspCurObjectsCount++;
 	obj->Image = imgPath;
 	obj->Desc = qspGetNewText(QSP_STR(args[0]), -1);
 	qspIsObjectsChanged = QSP_TRUE;
-	qspSetVarValueByName(QSP_FMT("LASTOBJ"), args);
-	if (qspErrorNum) return QSP_FALSE;
-	qspExecLocByVarName(QSP_FMT("ONOBJADD"));
+	qspExecLocByVarNameWithArgs(QSP_FMT("ONOBJADD"), args, 1);
 	return QSP_FALSE;
 }
 

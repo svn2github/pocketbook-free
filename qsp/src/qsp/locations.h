@@ -17,6 +17,7 @@
 
 #include "declarations.h"
 #include "actions.h"
+#include "variant.h"
 
 #ifndef QSP_LOCSDEFINES
 	#define QSP_LOCSDEFINES
@@ -36,8 +37,14 @@
 		long OnVisitLinesCount;
 		QSPLocAct Actions[QSP_MAXACTIONS];
 	} QSPLocation;
+	typedef struct
+	{
+		long Index;
+		QSP_CHAR *Name;
+	} QSPLocName;
 
 	extern QSPLocation *qspLocs;
+	extern QSPLocName *qspLocsNames;
 	extern long qspLocsCount;
 	extern long qspCurLoc;
 	extern long qspRefreshCount;
@@ -45,10 +52,13 @@
 
 	/* External functions */
 	void qspCreateWorld(long, long);
+	void qspPrepareLocs();
 	long qspLocIndex(QSP_CHAR *);
 	void qspExecLocByIndex(long, QSP_BOOL);
 	void qspExecLocByName(QSP_CHAR *, QSP_BOOL);
 	void qspExecLocByVarName(QSP_CHAR *);
+	void qspExecLocByNameWithArgs(QSP_CHAR *, QSPVariant *, long);
+	void qspExecLocByVarNameWithArgs(QSP_CHAR *, QSPVariant *, long);
 	void qspRefreshCurLoc(QSP_BOOL);
 
 #endif

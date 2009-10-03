@@ -6,7 +6,7 @@ set PATH=%POCKETBOOKSDK%\arm-linux\bin;%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=-I/arm-linux/include
 set LIBS=-linkview -lfreetype -lz
-set OUTPUT=qsp.app
+set OUTPUT=QSP.app
 
 rm -f %OUTPUT%
 
@@ -18,7 +18,7 @@ if errorlevel 1 goto L_ER
 :NOIMG
 
 gcc -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/qsp/*.c src/qsp/onig/*.c src/qsp/onig/enc/*.c %IMAGES%
-g++ -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/*.cpp %IMAGES%
+g++ -Wall -O2 -fomit-frame-pointer %INCLUDE% -c src/*.cpp
 if errorlevel 1 goto L_ER
 
 g++ -Wall -O2 -fomit-frame-pointer -o %OUTPUT% *.o %LIBS%

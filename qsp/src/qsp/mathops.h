@@ -21,6 +21,8 @@
 #ifndef QSP_MATHDEFINES
 	#define QSP_MATHDEFINES
 
+	#define QSP_OPSLEVELS 2
+	#define QSP_MAXOPSNAMES 100
 	#define QSP_OPMAXARGS 10
 	#define QSP_STACKSIZE 30
 	#define QSP_MAXITEMS 100
@@ -29,8 +31,13 @@
 
 	typedef struct
 	{
-		QSP_CHAR *Names[2];
-		long NamesLens[2];
+		long Code;
+		QSP_CHAR *Name;
+		long NameLen;
+	} QSPMathOpName;
+
+	typedef struct
+	{
 		char Priority;
 		char ResType;
 		long MinArgsCount;
@@ -47,20 +54,13 @@
 		qspOpValue,
 		qspOpOpenBracket,
 		qspOpMinus,
-
-		qspOpFirst_UnaryKeyword,
-		qspOpNot = qspOpFirst_UnaryKeyword,
-		qspOpObj,
-
-		qspOpFirst_NotUnaryOperator,
-		qspOpComma = qspOpFirst_NotUnaryOperator,
+		qspOpComma,
 		qspOpCloseBracket,
-
-		qspOpFirst_BinaryOperator,
-		qspOpMul = qspOpFirst_BinaryOperator,
+		qspOpMul,
 		qspOpDiv,
 		qspOpAdd,
 		qspOpSub,
+		qspOpMod,
 		qspOpNe,
 		qspOpLeq,
 		qspOpGeq,
@@ -72,7 +72,9 @@
 		qspOpAppend,
 
 		qspOpFirst_Function,
-		qspOpMin = qspOpFirst_Function,
+		qspOpNot = qspOpFirst_Function,
+		qspOpObj,
+		qspOpMin,
 		qspOpMax,
 		qspOpRand,
 		qspOpIIf,
@@ -99,6 +101,17 @@
 		qspOpReplace,
 		qspOpFunc,
 		qspOpDynEval,
+		qspOpRnd,
+		qspOpCountObj,
+		qspOpMsecsCount,
+		qspOpQSPVer,
+		qspOpUserText,
+		qspOpCurLoc,
+		qspOpSelObj,
+		qspOpSelAct,
+		qspOpMainText,
+		qspOpStatText,
+		qspOpCurActs,
 
 		qspOpLast_Operation
 	};

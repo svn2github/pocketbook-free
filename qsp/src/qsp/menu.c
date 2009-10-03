@@ -38,17 +38,34 @@ void qspClearMenu(QSP_BOOL isFirst)
 
 QSP_BOOL qspStatementShowMenu(QSPVariant *args, long count, QSP_CHAR **jumpTo, char extArg)
 {
-	long i;
+	long ind, maxItems, len;
 	QSPVar *var;
-	QSP_CHAR *imgPath, *str, *pos, *pos2, *endPos;
+	QSP_CHAR *imgPath, *str, *pos, *pos2;
 	if (!(var = qspVarReferenceWithType(QSP_STR(args[0]), QSP_FALSE, 0))) return QSP_FALSE;
 	qspClearMenu(QSP_FALSE);
 	qspCallDeleteMenu();
-	for (i = 0; i < var->ValsCount; ++i)
+	if (count == 1)
 	{
-		if (!((str = var->TextValue[i]) && qspIsAnyString(str))) break;
-		pos2 = qspInStrRChars(str, QSP_MENUDELIM, 0);
-		if (!pos2)
+		ind = 0;
+		maxItems = QSP_MAXMENUITEMS;
+	}
+	else
+	{
+		ind = QSP_NUM(args[1]);
+		if (ind < 0) ind = 0;
+		if (count == 2)
+			maxItems = QSP_MAXMENUITEMS;
+		else
+		{
+			maxItems = QSP_NUM(args[2]);
+			if (maxItems < 0) maxItems = 0;
+		}
+	}
+	while (ind < var->ValsCount)
+	{
+		if (qspCurMenuItems == maxItems) break;
+		if (!((str = var->TextValue[ind]) && qspIsAnyString(str))) break;
+		if (!(pos2 = qspInStrRChars(str, QSP_MENUDELIM, 0)))
 		{
 			qspSetError(QSP_ERR_COLONNOTFOUND);
 			return QSP_FALSE;
@@ -58,26 +75,24 @@ QSP_BOOL qspStatementShowMenu(QSPVariant *args, long count, QSP_CHAR **jumpTo, c
 			qspSetError(QSP_ERR_CANTADDMENUITEM);
 			return QSP_FALSE;
 		}
-		endPos = qspStrEnd(str);
-		pos = qspInStrRChars(str, QSP_MENUDELIM, pos2);
-		if (!pos)
+		if (pos = qspInStrRChars(str, QSP_MENUDELIM, pos2))
 		{
-			pos = pos2;
-			pos2 = endPos;
-		}
-		qspCurMenuLocs[qspCurMenuItems++] = qspGetNewText(pos + 1, (long)(pos2 - pos) - 1);
-		if (pos2 < endPos && qspIsAnyString(++pos2))
-		{
-			imgPath = qspGetNewText(qspQstPath, qspQstPathLen);
-			imgPath = qspGetAddText(imgPath, pos2, qspQstPathLen, (long)(endPos - pos2));
+			len = (long)(pos2 - pos) - 1;
+			imgPath = (qspIsAnyString(++pos2) ? qspGetAbsFromRelPath(pos2) : 0);
 		}
 		else
+		{
+			pos = pos2;
+			len = -1;
 			imgPath = 0;
+		}
+		qspCurMenuLocs[qspCurMenuItems++] = qspGetNewText(pos + 1, len);
 		*pos = 0;
 		qspCallAddMenuItem(str, imgPath);
 		*pos = QSP_MENUDELIM[0];
 		if (imgPath) free(imgPath);
+		++ind;
 	}
-	qspCallShowMenu();
+	if (qspCurMenuItems) qspCallShowMenu();
 	return QSP_FALSE;
 }
