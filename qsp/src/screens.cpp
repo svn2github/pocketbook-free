@@ -3,6 +3,7 @@
 
 MainScreen mainScreen("mainScreen", 0);
 ifont *defaultFont(0);
+extern const ibitmap menu3x3;
 
 enum
 	{
@@ -18,10 +19,10 @@ enum
 	
 static imenu fontSizeMenu[] = 
 	{
-		{ ITEM_ACTIVE, 16, "16", NULL },
-		{ ITEM_ACTIVE, 18, "18", NULL },
-		{ ITEM_ACTIVE, 20, "20", NULL },
-		{ ITEM_ACTIVE, 22, "22", NULL },
+		{ ITEM_ACTIVE, 520, "20", NULL },
+		{ ITEM_ACTIVE, 522, "22", NULL },
+		{ ITEM_ACTIVE, 524, "24", NULL },
+		{ ITEM_ACTIVE, 526, "26", NULL },
 		{ ITEM_ACTIVE, MAINMENU_SELECTFONT, "Выбрать шрифт", NULL },
 		{ 0, 0, NULL, NULL }
 	};
@@ -40,6 +41,19 @@ static imenu mainMenu[] =
 		{ 0, 0, NULL, NULL }
 	};
 
+static const char *strings3x3[9] = 
+	{
+		"Открыть книгу",
+		"Выход",
+		"Начать заново",
+		"Шрифт",
+		"Меню",
+		"Ориентация",
+		"Быстр. загрузка",
+		"Быстр. сохранение",
+		"Ввод команд"
+	};
+
 bool IsQuestOpened()
 {
 	return QSPGetCurLoc() != 0;
@@ -55,6 +69,9 @@ bool CompareStr(std::string str1, char* str2)
 	
 void dir_selected(char *path)
 {
+	if (path == 0 || strlen(path) == 0)
+		return;
+		
 	std::string fileName;
 	
 	DIR *dir = iv_opendir(path);
@@ -82,10 +99,14 @@ void dir_selected(char *path)
 	else
 	{
 		//fileName = utf8_to((const unsigned char *)fileName.c_str(), koi8_to_unicode);
-		if (!QSPLoadGameWorld(fileName.c_str()))
+		SendQSPEvent(QSP_EVT_OPENGAME, fileName);
+		/*if (!QSPLoadGameWorld(fileName.c_str()))
 				ShowError();
-		chdir(GetQuestPath().c_str());
-		QSPRestartGame(QSP_TRUE);
+		else
+		{
+			chdir(GetQuestPath().c_str());
+			QSPRestartGame(QSP_TRUE);
+		}*/
 	}
 		
 }
@@ -128,8 +149,9 @@ void HandleRestartDialog(int button)
 {
 	if (button == 1 && IsQuestOpened())
     {
-		if (!QSPRestartGame(QSP_TRUE))
-				ShowError();
+		SendQSPEvent(QSP_EVT_RESTART);
+		//if (!QSPRestartGame(QSP_TRUE))
+		//		ShowError();
 	}
 }
 
@@ -144,82 +166,159 @@ bool GetVarValue(const QSP_CHAR *name, long *num, QSP_CHAR **str)
 }
 
 static char dirbuf[1024];
-void HandleMainMenuItem(int index)
+void OpenNewGame()
 {
-std::string fileName;
+	//OpenDirectorySelector("Выберите каталог", dirbuf, 1024, dir_selected);
+			
+	//SendQSPEvent(QSP_EVT_OPENGAME, "input.qsp");
+	//SendQSPEvent(QSP_EVT_OPENGAME, "filimon\\filimon.qsp");
+	SendQSPEvent(QSP_EVT_OPENGAME, "box\\box.gam");
+	//SendQSPEvent(QSP_EVT_OPENGAME, "darkcstl\\dark.gam");
+	
+	/*
+	// PC hack
+	std::string fileName;
+
+	fileName = "input.qsp";
+	//fileName = "filimon\\filimon.qsp";
+	//fileName = "darkcstl\\dark.gam";
+	//fileName = "pirates\\pirates_bmp.qsp";
+	//fileName = "box\\box.gam";
+	//fileName = "zone\\zone.qsp";
+	//fileName = "komm\\launch.qsp";
+	//fileName = utf8_to((const unsigned char *)fileName.c_str(), koi8_to_unicode);
+	
+	if (!QSPLoadGameWorld(fileName.c_str()))
+		ShowError();
+	else
+	{
+		chdir(GetQuestPath().c_str());
+		QSPRestartGame(QSP_TRUE);
+	}*/
+}
+
+void QuickSave()
+{
+	if (!IsQuestOpened())
+	{
+		Message(ICON_INFORMATION, "QSP", "Перед загрузкой состояния необходимо открыть книгу", 3000);
+		return;
+	}
+	long numVal;
+	QSP_CHAR *strVal;
+	if (!(GetVarValue(QSP_FMT("NOSAVE"), &numVal, &strVal) && numVal))
+	{
+		SendQSPEvent(QSP_EVT_SAVEGAME, "quicksave.sav");
+		//if (!QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_FALSE))
+		//	ShowError();
+	}
+	else
+	{
+		Message(ICON_INFORMATION, "QSP", "Возможность сохранения отключена", 3000);
+	}
+}
+
+void QuickLoad()
+{
+	if (!IsQuestOpened())
+	{
+		Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
+		return;
+	}
+	SendQSPEvent(QSP_EVT_OPENSAVEDGAME, "quicksave.sav");
+	//if (!QSPOpenSavedGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_TRUE))
+	//	ShowError();
+}
+
+void RestartGame()
+{
+	if (!IsQuestOpened())
+	{
+		Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
+		return;
+	}
+	Dialog(ICON_QUESTION, "QSP", "Вы действительно хотите начать заново?", "Да", "Нет", HandleRestartDialog);
+}
+
+void SelectFont()
+{
+	OpenFontSelector("Выберите шрифт", (char*)std::string(defaultFont->name).c_str(), defaultFont->size, font_selected);
+}
+
+void SelectOrientation()
+{
+	OpenRotateBox(orientation_selected);
+}
+
+void HandleMainMenuItem(int index)
+{			
 	switch(index)
 	{
 		case MAINMENU_OPEN:
-			OpenDirectorySelector("Выберите каталог", dirbuf, 1024, dir_selected);
-			
-			// PC hack
-			//QSPLoadGameWorld("filimon\\filimon.qsp");
-			//QSPLoadGameWorld("darkcstl\\dark.gam");
-			//fileName = "pirates\\pirates_bmp.qsp";
-			//fileName = "box\\box.gam";
-			//fileName = "zone\\zone.qsp";
-			//fileName = "komm\\launch.qsp";
-			//fileName = utf8_to((const unsigned char *)fileName.c_str(), koi8_to_unicode);
-			/*
-			if (!QSPLoadGameWorld(fileName.c_str()))
-				ShowError();
-			else
-			{
-				chdir(GetQuestPath().c_str());
-				QSPRestartGame(QSP_TRUE);
-			}*/
+			OpenNewGame();
 			break;
 		case MAINMENU_QUICKSAVE:
-			if (!IsQuestOpened())
-			{
-				Message(ICON_INFORMATION, "QSP", "Перед загрузкой состояния необходимо открыть книгу", 3000);
-				break;
-			}
-			long numVal;
-			QSP_CHAR *strVal;
-			if (!(GetVarValue(QSP_FMT("NOSAVE"), &numVal, &strVal) && numVal))
-			{
-				if (!QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_FALSE))
-					ShowError();
-			}
-			else
-			{
-				Message(ICON_INFORMATION, "QSP", "Возможность сохранения отключена", 3000);
-			}
+			QuickSave();
 			break;
 		case MAINMENU_QUICKLOAD:
-			if (!IsQuestOpened())
-			{
-				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
-				break;
-			}
-			if (!QSPOpenSavedGame((QSP_CHAR*)(/*GetQuestPath()+=*/"quicksave.sav")/*.c_str()*/, QSP_TRUE))
-				ShowError();
+			QuickLoad();
 			break;
 		case MAINMENU_RESTART:
-			if (!IsQuestOpened())
-			{
-				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
-				break;
-			}
-			Dialog(ICON_QUESTION, "QSP", "Вы действительно хотите начать заново?", "Да", "Нет", HandleRestartDialog);
-			
+			RestartGame();
 			break;
 		case MAINMENU_EXIT:
 			CloseApp();
 			break;
 		case MAINMENU_SELECTFONT:
-			OpenFontSelector("Выберите шрифт", (char*)std::string(defaultFont->name).c_str(), defaultFont->size, font_selected);
+			SelectFont();
 			break;
 		case MAINMENU_ORIENTATION:
-			OpenRotateBox(orientation_selected);
+			SelectOrientation();
 			break;
 		default:
-			SetDefaultFont(defaultFont->name, index);
+			if (index > 500 && index < 600)
+				SetDefaultFont(defaultFont->name, index-500);
 			break;
 	}
 }
 
+void menu3x3_handler(int pos) 
+{
+	switch (pos)
+	{
+		case 0:
+			OpenNewGame();
+			break;
+		case 1:
+			CloseApp();
+			break;
+		case 2:
+			RestartGame();
+			break;
+		case 3:
+			SelectFont();
+			break;
+		case 4:
+			break;
+		case 5:
+			SelectOrientation();
+			break;
+		case 6:
+			QuickLoad();
+			break;
+		case 7:
+			QuickSave();
+			break;
+		case 8:
+			if (!IsQuestOpened())
+			{
+				Message(ICON_INFORMATION, "QSP", "Нет открытой книги", 3000);
+				break;
+			}
+			mainScreen.GetGameScreen()->ShowCommandBox();
+			break;
+	}
+}
 
 MainScreen::MainScreen(std::string name, PBControl *parent) : PBControl(name, parent),
 	gameScreen("gameScreen", this)
@@ -231,11 +330,29 @@ MainScreen::MainScreen(std::string name, PBControl *parent) : PBControl(name, pa
 	gameScreen.SetVisible(false);
 	gameScreen.SetLeaveOnKeys(false);
 	gameScreen.SetDrawBorder(false);
+}
 
+bool ignoreEvents = false;
+void IgnoreEventsTimer()
+{
+	if (!ignoreEvents)
+	{
+		ignoreEvents = true;	
+		SetHardTimer("INTERFACE_EVENTS_TIMER", IgnoreEventsTimer, 1000);
+	}
+	else
+	{
+		ignoreEvents = false;
+	}
 }
 
 int MainScreen::HandleMsg(int type, int par1, int par2)
 {
+	if (ignoreEvents)
+	{
+		return 0;
+	}
+	
 	if (type == EVT_EXIT)
 	{
 		CloseApp();
@@ -249,9 +366,33 @@ int MainScreen::HandleMsg(int type, int par1, int par2)
 		UpdateUI();
 		//DispatchMsgToControls(type, par1, par2);
 	}
-	else if (type == EVT_KEYPRESS)
+	else if (type == EVT_KEYREPEAT)
 	{
-		int handled = DispatchMsgToControls(type, par1, par2);
+		switch(par1)
+		{
+			case KEY_OK:
+			case KEY_LEFT:
+				OpenMenu3x3(&menu3x3, strings3x3, menu3x3_handler);
+				break;
+			case KEY_UP:
+				if (defaultFont->size < 36)
+				{
+					SetDefaultFont(defaultFont->name, defaultFont->size + 2);
+					IgnoreEventsTimer();
+				}
+				break;
+			case KEY_DOWN:
+				if (defaultFont->size > 18)
+				{
+					SetDefaultFont(defaultFont->name, defaultFont->size - 2);
+					IgnoreEventsTimer();
+				}
+				break;
+		}
+	}
+	else if (type == EVT_KEYRELEASE)
+	{
+		int handled = DispatchMsgToControls(EVT_KEYPRESS, par1, par2);
 	}
 	else
 	{
@@ -280,11 +421,12 @@ bool IsFullRefresh()
 void MainScreen::UpdateUI(bool forceUpdate)
 {
 	if (IsFullRefresh())
-		QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"autosave.sav")/*.c_str()*/, QSP_FALSE);
+		SendQSPEvent(QSP_EVT_SAVEGAME, "autosave.sav");
+		//QSPSaveGame((QSP_CHAR*)(/*GetQuestPath()+=*/"autosave.sav")/*.c_str()*/, QSP_FALSE);
 	
 	bool updateNeeded = gameScreen.Reload();
 	if (forceUpdate || updateNeeded)
-		Update();
+		Update(IsFullRefresh());
 	oldFullRefreshCount = QSPGetFullRefreshCount();
 }
 
@@ -369,7 +511,7 @@ void GameScreen::DialogLeavedHandler(PBControl *sender, bool next)
 		else
 			actionsDialog.SetFocused(true);
 			
-		Update();
+		Update(true);
 	}
 }
 
@@ -390,7 +532,7 @@ void GameScreen::PlaceControls()
 		objectsButton.SetSize(menuButton.GetLeft() + menuButton.GetWidth() + commandBoxButton.GetWidth() + BORDER_SPACE*2, top, width - menuButton.GetWidth() - commandBoxButton.GetWidth() - BORDER_SPACE*2, buttonsHeight);
 	}
 	locationDescription.SetSize(left, top+buttonsHeight+BORDER_SPACE, width, height*5/7-buttonsHeight-BORDER_SPACE);
-	actionsDialog.SetSize(left, locationDescription.GetTop() + locationDescription.GetHeight() + BORDER_SPACE, width, height - locationDescription.GetHeight() - BORDER_SPACE);
+	actionsDialog.SetSize(left, locationDescription.GetTop() + locationDescription.GetHeight() + BORDER_SPACE, width, height - locationDescription.GetTop() - locationDescription.GetHeight() - BORDER_SPACE);
 	objectsScreen.SetSize(left, top, width, height);
 	imageScreen.SetSize(left, top, width, height);
 	
@@ -404,13 +546,13 @@ void GameScreen::SwitchObjectsScreen()
 	{
 		objectsScreen.SetVisible(false);
 		actionsDialog.SetFocused(true);
-		Update();
+		Update(true);
 	}
 	else
 	{
 		objectsScreen.SetVisible(true);
 		objectsScreen.SetFocused(true);
-		Update();
+		Update(true);
 	}
 }
 
@@ -421,10 +563,12 @@ void HandleCommandBox(char *s)
 {
 	std::string text = utf8_to((const unsigned char *)s, koi8_to_unicode);
 	
-	QSPSetInputStrText(text.c_str());
+	SendQSPEvent(QSP_EVT_SETUSERINPUT, text);
+	//QSPSetInputStrText(text.c_str());
 	
-	if (!QSPExecUserInput(QSP_TRUE))
-		ShowError();
+	SendQSPEvent(QSP_EVT_EXECUSERINPUT);
+	//if (!QSPExecUserInput(QSP_TRUE))
+	//	ShowError();
 	
 	if (s != 0)
 		lastCommand.assign(s);
@@ -464,9 +608,10 @@ int GameScreen::HandleMsg(int type, int par1, int par2)
 	return handled;
 }
 
-void GameScreen::Update()
+void GameScreen::Update(bool fullUpdate)
 {
-	PBControl::Update();
+	PBControl::Update(fullUpdate);
+	
 	if (imageScreen.GetVisible())
 		FineUpdate();
 }
@@ -506,6 +651,10 @@ bool GameScreen::Reload()
 		
 	updateNeeded = objectsScreen.Reload() || updateNeeded;
 	
+	// imageScreen fills all the space so don't need to update
+	if (imageScreen.GetVisible())
+		return false;
+	
 	return updateNeeded;
 }
 
@@ -524,7 +673,7 @@ void GameScreen::ShowWindow(int window, bool show)
 	switch (window)
 	{
 		case QSP_WIN_INPUT:
-			//commandBoxButton.SetVisible(show);
+			commandBoxButton.SetVisible(show);
 		break;
 	}
 }
@@ -534,7 +683,7 @@ void GameScreen::ShowImage(ibitmap *image)
 	imageScreen.SetImage(image);
 	imageScreen.SetVisible(true);
 	imageScreen.SetFocused(true);
-	Update();
+	Update(true);
 }
 
 ObjectsScreen::ObjectsScreen(std::string name, PBControl *parent) : PBControl(name, parent),
@@ -592,7 +741,12 @@ bool LocationDescription::Reload()
 
 		// scroll if text was added
 		if (QSPIsMainDescChanged() && !IsFullRefresh() && listBox.GetItems().size() > 0)
-			listBox.GetPageItems(listBox.GetItems().size()-1, false);
+		{
+			long numVal;
+			QSP_CHAR *strVal;
+			if (!(GetVarValue(QSP_FMT("DISABLESCROLL"), &numVal, &strVal) && numVal))
+				listBox.GetPageItems(listBox.GetItems().size()-1, false);
+		}
 
 		return true;
 	}
@@ -701,8 +855,9 @@ int ObjectsDialog::HandleMsg(int type, int par1, int par2)
 						
 					if (index != QSPGetSelObjectIndex())
 					{
-						if (!QSPSetSelObjectIndex(index, QSP_TRUE))
-							ShowError();
+						SendQSPEvent(QSP_EVT_SETOBJINDEX, "", index);
+						//if (!QSPSetSelObjectIndex(index, QSP_TRUE))
+						//	ShowError();
 						/*
 						else
 							for (lbitem_it it = listBox.GetItems().begin(); it != listBox.GetItems().end(); it++)
@@ -844,18 +999,20 @@ int ActionsDialog::HandleMsg(int type, int par1, int par2)
 
 				if (item->GetTag().size() > 5)
 				{
-					if (item->GetTag().substr(5, 5) == "EXEC:" || item->GetTag().substr(5, 5) == "exec:")
+					if (ToLower(item->GetTag().substr(5, 5)) == "exec:")
 					{
-						if (!QSPExecString((const QSP_CHAR *)item->GetTag().substr(5+5).c_str(), QSP_TRUE))
-							ShowError();
+						SendQSPEvent(QSP_EVT_EXECSTRING, item->GetTag().substr(5+5));
+						//if (!QSPExecString((const QSP_CHAR *)item->GetTag().substr(5+5).c_str(), QSP_TRUE))
+							//ShowError();
 						//else
 							//OnActionExecuted.emit_sig(this);
 					}
 				}
 				else
 				{
-					if (!QSPExecuteSelActionCode(QSP_TRUE))
-						ShowError();
+					SendQSPEvent(QSP_EVT_EXECSELACTION);
+					//if (!QSPExecuteSelActionCode(QSP_TRUE))
+					//	ShowError();
 					//OnActionExecuted.emit_sig(this);
 				}
 				break;

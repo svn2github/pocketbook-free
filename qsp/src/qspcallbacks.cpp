@@ -2,6 +2,7 @@
 #include "string.h"
 #include "qspcallbacks.h"
 #include "screens.h"
+#include "qspthread.h"
 
 extern MainScreen mainScreen;
 
@@ -49,7 +50,8 @@ void QSPCallbacks::SetTimer(long msecs)
 
 void QSPCallbacks::RefreshInt(QSP_BOOL isRedraw)
 {
-	mainScreen.UpdateUI(false);
+	SendIntEvent(INT_EVT_UPDATE);
+	//mainScreen.UpdateUI(false);
 }
 
 void QSPCallbacks::SetInputStrText(const QSP_CHAR *text)
@@ -79,7 +81,7 @@ void QSPCallbacks::ShowPane(long type, QSP_BOOL isShow)
 
 void QSPCallbacks::Sleep(long msecs)
 {
-	sleep(msecs/1000);
+	usleep(msecs);
 }
 
 long QSPCallbacks::GetMSCount()
@@ -103,6 +105,7 @@ void QSPCallbacks::Msg(const QSP_CHAR *str)
 	std::string text;
 	to_utf8((unsigned char *)str, &text, koi8_to_unicode);
 	Message(ICON_INFORMATION, "", (char *)text.c_str(), 5000);
+	//SendIntEvent(INT_EVT_MESSAGE, text);
 }
 
 
@@ -152,24 +155,41 @@ void QSPCallbacks::ShowMenu()
 	OpenMenu(dynamicMenu, 0, ScreenWidth()/3, ScreenHeight()/4, HandleDynamicMenuItem);
 }
 
+static char inputBuf[1024] = "";
+volatile bool keyb_closed;
 void keyboard_entry(char *s)
 {
+	keyb_closed = true;
 }
+
+std::string inputTitle;
+long inputMaxLen;
 
 void QSPCallbacks::Input(const QSP_CHAR *text, QSP_CHAR *buffer, long maxLen)
 {
-	// HACK instead of input box return last command
+	inputMaxLen = maxLen / 2;
+	to_utf8((unsigned char *)text, &inputTitle, koi8_to_unicode);
 	
+   	keyb_closed = false;
+	OpenKeyboard((char*)inputTitle.c_str(), inputBuf, inputMaxLen, 0, keyboard_entry);
+	while (!keyb_closed) usleep(500);
+
+	std::string encoded_text = utf8_to((const unsigned char *)inputBuf, koi8_to_unicode);
+	SetStringToCharString(buffer, encoded_text, maxLen);
+	
+	
+	// HACK instead of input box return last command
+	/*
 	static std::string lastText = "";
 	static int textCounter = 0;
 	std::string command = mainScreen.GetGameScreen()->GetLastCommand();
 	if (lastText == command)
 	{
 		textCounter++;
-		if (textCounter > 3)
+		if (textCounter > 2)
 		{
 			textCounter = 0;
-			if (!QSPOpenSavedGame((QSP_CHAR*)(/*GetQuestPath()+=*/"autosave.sav")/*.c_str()*/, QSP_TRUE))
+			if (!QSPOpenSavedGame((QSP_CHAR*)"autosave.sav", QSP_TRUE))
 			{
 				Message(ICON_INFORMATION, "", "Чтобы прервать бесконечный цикл ввода текста, квест будет перезапущен", 4000);
 				QSPRestartGame(QSP_TRUE);
@@ -178,7 +198,10 @@ void QSPCallbacks::Input(const QSP_CHAR *text, QSP_CHAR *buffer, long maxLen)
 		}
 	}
 	else
+	{
+		lastText = command;
 		textCounter = 0;
+	}
 	
 		
 	std::string title;
@@ -188,6 +211,7 @@ void QSPCallbacks::Input(const QSP_CHAR *text, QSP_CHAR *buffer, long maxLen)
 	SetStringToCharString(buffer, encoded_command, maxLen);
 	
 	Message(ICON_INFORMATION, (char *)title.c_str(), (char *)command.c_str(), 2000);
+	*/
 }
  
 void QSPCallbacks::ShowImage(const QSP_CHAR *file)

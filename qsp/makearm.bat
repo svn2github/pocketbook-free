@@ -5,7 +5,7 @@ pause
 set PATH=%POCKETBOOKSDK%\arm-linux\bin;%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=-I/arm-linux/include
-set LIBS=-linkview -lfreetype -lz
+set LIBS=-linkview -lfreetype -lz -lpthread
 set OUTPUT=QSP.app
 
 rm -f %OUTPUT%

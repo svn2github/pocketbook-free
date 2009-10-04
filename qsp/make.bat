@@ -5,7 +5,7 @@ pause
 set PATH=%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=
-set LIBS=-linkview -lfreetype -ljpeg -lgdi32 -lz -lc
+set LIBS=-linkview -lfreetype -ljpeg -lgdi32 -lz -lc -lpthread
 set OUTPUT=qsp.exe
 
 rm -f %OUTPUT%
