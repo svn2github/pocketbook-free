@@ -22,7 +22,7 @@ gcc -Wall -O2 -fomit-frame-pointer -I/arm-linux/include -I../src -o %OUTPUT% ../
 gcc -Wall -O2 -fomit-frame-pointer -I/arm-linux/include -I../src -o LinesR.app ../src/*.c runes.c -linkview -lfreetype -lz
 if errorlevel 1 goto L_ER
 strip %OUTPUT%
-string LinesR.app
+strip LinesR.app
 exit 0
 
 :L_ER

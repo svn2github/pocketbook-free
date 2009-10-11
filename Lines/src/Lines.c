@@ -12,9 +12,10 @@
 #define ITEMS 7
 #define LINE_SIZE 5
 #define STEP_EMITS 3
+#define GAME_BEGIN_EMITS 5
 #define CURSOR_DELTA 2
 #define SELECT_DELTA 3
-#define IMAGE_DELTA 5
+#define IMAGE_DELTA 6
 #define EMPTY -1
 
 extern const ibitmap item0, item1, item2, item3, item4, item5, item6;
@@ -42,7 +43,7 @@ void prepareBoard()
 	selectedX = selectedY = EMPTY;
 }
 
-void emit();
+void emit(int items);
 void drawCell(int x, int y, int refresh);
 
 void drawBoard()
@@ -98,7 +99,11 @@ void drawCell(int x, int y, int refresh)
 	}
 	if (x == selectedX && y == selectedY)
 	{
-		DrawRect(baseX + x * CELL_SIZE + SELECT_DELTA, baseY + y * CELL_SIZE + SELECT_DELTA, CELL_SIZE - 2 * SELECT_DELTA + 1, CELL_SIZE - 2 * SELECT_DELTA + 1, BLACK);
+		if (x != cursorX || y != cursorY)
+		{
+			DrawRect(baseX + x * CELL_SIZE + SELECT_DELTA, baseY + y * CELL_SIZE + SELECT_DELTA, CELL_SIZE - 2 * SELECT_DELTA + 1, CELL_SIZE - 2 * SELECT_DELTA + 1, BLACK);
+		}
+		DrawRect(baseX + x * CELL_SIZE + SELECT_DELTA + 1, baseY + y * CELL_SIZE + SELECT_DELTA + 1, CELL_SIZE - 2 * SELECT_DELTA - 1, CELL_SIZE - 2 * SELECT_DELTA - 1, BLACK);
 	}
 	if (refresh)
 	{
@@ -112,7 +117,7 @@ void gameOver()
 			"Sorry, no more room for balls available", 10000);
 	prepareBoard();
 	drawBoard();
-	emit();
+	emit(GAME_BEGIN_EMITS);
 }
 
 int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
@@ -271,12 +276,12 @@ int matchLines()
 	return found;
 }
 
-void emit()
+void emit(int items)
 {
 	int k, i, j;
 	int address, currentAddress;
 	int breakFlag;
-	for (k = 0; k < STEP_EMITS; k++)
+	for (k = 0; k < items; k++)
 	{
 		breakFlag = 0;
 		address = rand() % emptyCount;
@@ -412,9 +417,9 @@ void trySelect()
 	{
 		if (board[cursorX][cursorY] == EMPTY)
 		{
-			//moving item
 			if (findPath())
 			{
+				//moving item
 				board[cursorX][cursorY] = board[selectedX][selectedY];
 				oldX = selectedX;
 				oldY = selectedY;
@@ -424,9 +429,27 @@ void trySelect()
 				drawCell(cursorX, cursorY, 1);
 				if (!matchLines())
 				{
-					emit();
+					emit(STEP_EMITS);
 				}
 			}
+			else
+			{
+				//unselecting cell
+				oldX = selectedX;
+				oldY = selectedY;
+				selectedX = selectedY = EMPTY;
+				drawCell(oldX, oldY, 1);
+			}
+		}
+		else
+		{
+			// selecting different item
+			oldX = selectedX;
+			oldY = selectedY;
+			selectedX = cursorX;
+			selectedY = cursorY;
+			drawCell(oldX, oldY, 1);
+			drawCell(selectedX, selectedY, 1);
 		}
 	}
 }
@@ -454,7 +477,7 @@ int main_handler(int type, int par1, int par2)
 	else if (type == EVT_SHOW)
 	{
 		drawBoard();
-		emit();
+		emit(GAME_BEGIN_EMITS);
 	}
 	else if (type == EVT_KEYPRESS && par1 != KEY_OK)
 	{
