@@ -19,6 +19,9 @@
 #define EMPTY -1
 
 extern const ibitmap item0, item1, item2, item3, item4, item5, item6;
+ifont *font;
+
+const char *configFileName = STATEPATH "/lines.cfg";
 
 int board[SIZE][SIZE];
 int lines[SIZE][SIZE];
@@ -27,6 +30,9 @@ int baseX, baseY;
 int cursorX, cursorY;
 int selectedX, selectedY;
 int emptyCount;
+
+int score;
+int maxScore;
 
 void prepareBoard()
 {
@@ -37,14 +43,26 @@ void prepareBoard()
 		board[i][j] = EMPTY;
 	}
 	emptyCount = SIZE * SIZE;
-	baseX = (ScreenWidth() - SIZE * CELL_SIZE) / 2;
-	baseY = (ScreenHeight() - SIZE * CELL_SIZE) / 2;
 	cursorX = cursorY = SIZE / 2;
 	selectedX = selectedY = EMPTY;
+	score = 0;
 }
 
 void emit(int items);
 void drawCell(int x, int y, int refresh);
+
+void drawScores()
+{
+	SetFont(font, WHITE);
+
+	FillArea(0, ScreenHeight() - 50, ScreenWidth(), 50, DGRAY);
+	char buf[16];
+	sprintf(buf, "Current Score: %i", score);
+	DrawString(5, ScreenHeight() - 45, buf);
+	sprintf(buf, "Highest Score: %i", maxScore);
+	DrawString(5, ScreenHeight() - 20, buf);
+	PartialUpdate(0, ScreenHeight() - 50, ScreenWidth(), 50);
+}
 
 void drawBoard()
 {
@@ -58,6 +76,7 @@ void drawBoard()
 	}
 	FullUpdate();
 	drawCell(cursorX, cursorY, 1);
+	drawScores();
 }
 
 void drawCell(int x, int y, int refresh)
@@ -122,7 +141,7 @@ void gameOver()
 
 int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
 {
-	int i, j, counter, found = 0;
+	int i, j, counter, points = 0;
 	char item;
 	for (i = 0; i < SIZE; i++)
 	{
@@ -160,7 +179,7 @@ int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
 		}
 		if (counter >= LINE_SIZE)
 		{
-			found = 1;
+			points = counter * counter + (1 - 2 * LINE_SIZE) * counter + LINE_SIZE * (LINE_SIZE + 1);
 			setFunc(i, SIZE / 2);
 			for (j = SIZE / 2 - 1; j >= 0; j--)
 			{
@@ -186,7 +205,7 @@ int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
 			}
 		}
 	}
-	return found;
+	return points;
 }
 
 int getBoardCols(int x, int y)
@@ -238,9 +257,33 @@ void setForSecDiags(int x, int y)
 	lines[x - y + SIZE / 2][y] = 1;
 }
 
+int (*getFunctions[4])(int, int)  = {getBoardRows, getBoardCols, getBoardMainDiags, getBoardSecDiags};
+void (*setFunctions[4])(int, int) = {setForRows, setForCols, setForMainDiags, setForSecDiags};
+
+void updateMaxScore()
+{
+	if (maxScore < score)
+	{
+		maxScore = score;
+		FILE *config = fopen(configFileName, "w");
+		fprintf(config, "%i", maxScore);
+		fclose(config);
+	}
+}
+
+int pow3(int power)
+{
+	int i, result = 1;
+	for (i = 1; i < power; i++)
+	{
+		result *= 3;
+	}
+	return result;
+}
+
 int matchLines()
 {
-	int i, j, found = 0;
+	int i, j, curPoints, points = 0, linesFound = 0;
 	for (i = 0; i < SIZE; i++)
 	{
 		for (j = 0; j < SIZE; j++)
@@ -249,17 +292,29 @@ int matchLines()
 		}
 	}
 
-	// This algorithm is only valid when (SIZE / 2 + 1) = LINE_SIZE, and only for ODD sizes
+	// This algorithm is only valid when LINE_SIZE > SIZE / 2, and only for ODD sizes
 	// In this case only one line is possible per row/column/diagonal - and it's color is definitely same as central item in it.
 	// Besides we can handle diagonals as just special rows/columns because of it count of diagonals is exact.
-	found |= lookOver(getBoardRows, setForRows);
-	found |= lookOver(getBoardCols, setForCols);
-	found |= lookOver(getBoardMainDiags, setForMainDiags);
-	found |= lookOver(getBoardSecDiags, setForSecDiags);
-
-	if (found)
+	for (i = 0; i < 4; i++)
 	{
-		//TODO: count bonuses
+		curPoints = lookOver(getFunctions[i], setFunctions[i]);
+		if (curPoints != 0)
+		{
+			linesFound++;
+		}
+		points += curPoints;
+	}
+
+	if (points)
+	{
+		points *= pow3(linesFound);
+
+		score += points;
+		if (score > maxScore)
+		{
+			updateMaxScore();
+		}
+
 		for (i = 0; i < SIZE; i++)
 		{
 			for (j = 0; j < SIZE; j++)
@@ -272,8 +327,9 @@ int matchLines()
 				}
 			}
 		}
+		drawScores();
 	}
-	return found;
+	return points;
 }
 
 void emit(int items)
@@ -472,6 +528,22 @@ int main_handler(int type, int par1, int par2)
 	if (type == EVT_INIT)
 	{
 		srand(time(NULL));
+		font = OpenFont("LiberationSans", 16, 0);
+
+		FILE *config = fopen(configFileName, "r");
+		if (config != NULL)
+		{
+			fscanf(config, "%i", &maxScore);
+			fclose(config);
+		}
+		else
+		{
+			maxScore = 0;
+		}
+
+		baseX = (ScreenWidth() - SIZE * CELL_SIZE) / 2;
+		baseY = (ScreenHeight() - SIZE * CELL_SIZE) / 2;
+
 		prepareBoard();
 	}
 	else if (type == EVT_SHOW)
