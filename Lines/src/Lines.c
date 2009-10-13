@@ -26,7 +26,9 @@ const char *configFileName = STATEPATH "/lines.cfg";
 int board[SIZE][SIZE];
 int lines[SIZE][SIZE];
 int wave[SIZE][SIZE];
+int cache[STEP_EMITS];
 int baseX, baseY;
+int previewBaseX, previewBaseY;
 int cursorX, cursorY;
 int selectedX, selectedY;
 int emptyCount;
@@ -74,6 +76,12 @@ void drawBoard()
 		DrawLine(baseX, baseY + i * CELL_SIZE, baseX + SIZE * CELL_SIZE, baseY + i * CELL_SIZE, BLACK);
 		DrawLine(baseX + i * CELL_SIZE, baseY, baseX + i * CELL_SIZE, baseY + SIZE * CELL_SIZE, BLACK);
 	}
+	DrawLine(previewBaseX, previewBaseY, previewBaseX + CELL_SIZE * STEP_EMITS, previewBaseY, BLACK);
+	DrawLine(previewBaseX, previewBaseY + CELL_SIZE, previewBaseX + CELL_SIZE * STEP_EMITS, previewBaseY + CELL_SIZE, BLACK);
+	for (i = 0; i <= STEP_EMITS; i++)
+	{
+		DrawLine(previewBaseX + CELL_SIZE * i, previewBaseY, previewBaseX + CELL_SIZE * i, previewBaseY + CELL_SIZE, BLACK);
+	}
 	FullUpdate();
 	drawCell(cursorX, cursorY, 1);
 	drawScores();
@@ -81,13 +89,23 @@ void drawBoard()
 
 void drawCell(int x, int y, int refresh)
 {
-	int xShift, yShift;
+	int xShift, yShift, item;
 	FillArea(baseX + x * CELL_SIZE + 1, baseY + y * CELL_SIZE + 1, CELL_SIZE - 1, CELL_SIZE - 1, WHITE);
-	if (board[x][y] != EMPTY)
+	if (y != EMPTY)
 	{
+		item = board[x][y];
 		xShift = baseX + x * CELL_SIZE + IMAGE_DELTA;
 		yShift = baseY + y * CELL_SIZE + IMAGE_DELTA;
-		switch (board[x][y]) {
+	}
+	else
+	{
+		item = cache[x];
+		xShift = previewBaseX + x * CELL_SIZE + IMAGE_DELTA;
+		yShift = previewBaseY + IMAGE_DELTA;
+	}
+	if (item != EMPTY)
+	{
+		switch (item) {
 		case 0:
 			DrawBitmap(xShift, yShift, &item0);
 			break;
@@ -128,6 +146,16 @@ void drawCell(int x, int y, int refresh)
 	{
 		PartialUpdateBW(baseX + x * CELL_SIZE, baseY + y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
 	}
+}
+
+void drawPreview()
+{
+	int i;
+	for (i = 0; i < STEP_EMITS; i++)
+	{
+		drawCell(i, EMPTY, 0);
+	}
+	PartialUpdateBW(previewBaseX, previewBaseY, STEP_EMITS * CELL_SIZE, CELL_SIZE);
 }
 
 void gameOver()
@@ -350,7 +378,15 @@ void emit(int items)
 				{
 					if (currentAddress == address)
 					{
-						board[i][j] = rand() % ITEMS;
+						if (k < STEP_EMITS)
+						{
+							board[i][j] = cache[k];
+							cache[k] = rand() % ITEMS;
+						}
+						else
+						{
+							board[i][j] = rand() % ITEMS;
+						}
 						emptyCount--;
 						drawCell(i, j, 1);
 
@@ -374,6 +410,7 @@ void emit(int items)
 			}
 		}
 	}
+	drawPreview();
 	matchLines();
 }
 
@@ -525,6 +562,7 @@ void tryExit()
 
 int main_handler(int type, int par1, int par2)
 {
+	int i;
 	if (type == EVT_INIT)
 	{
 		srand(time(NULL));
@@ -543,6 +581,12 @@ int main_handler(int type, int par1, int par2)
 
 		baseX = (ScreenWidth() - SIZE * CELL_SIZE) / 2;
 		baseY = (ScreenHeight() - SIZE * CELL_SIZE) / 2;
+		previewBaseX = (ScreenWidth() - STEP_EMITS * CELL_SIZE) / 2;
+		previewBaseY = (baseY - CELL_SIZE) / 2;
+		for (i = 0; i < STEP_EMITS; i++)
+		{
+			cache[i] = rand() % ITEMS;
+		}
 
 		prepareBoard();
 	}
