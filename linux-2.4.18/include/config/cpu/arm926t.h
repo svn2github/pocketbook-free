@@ -1,1 +1,0 @@
-#undef  CONFIG_CPU_ARM926T

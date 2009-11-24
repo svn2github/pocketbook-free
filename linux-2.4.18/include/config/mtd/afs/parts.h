@@ -1,1 +1,0 @@
-#undef  CONFIG_MTD_AFS_PARTS

@@ -1,1 +1,0 @@
-#undef  CONFIG_MIDI_EMU10K1

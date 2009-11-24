@@ -1,1 +1,0 @@
-#undef  CONFIG_NO_OOM_KILLER

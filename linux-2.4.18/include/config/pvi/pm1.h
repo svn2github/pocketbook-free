@@ -1,1 +1,0 @@
-#define CONFIG_PVI_PM1 1

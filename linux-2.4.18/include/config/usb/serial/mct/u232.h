@@ -1,1 +1,0 @@
-#undef  CONFIG_USB_SERIAL_MCT_U232

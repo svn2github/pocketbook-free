@@ -1,7 +1,0 @@
-module.o: module.c \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/module.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/signal.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/sched.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h

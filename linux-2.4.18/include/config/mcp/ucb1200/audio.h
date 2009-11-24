@@ -1,1 +1,0 @@
-#undef  CONFIG_MCP_UCB1200_AUDIO

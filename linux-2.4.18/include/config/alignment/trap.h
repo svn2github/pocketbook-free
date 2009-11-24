@@ -1,1 +1,0 @@
-#define CONFIG_ALIGNMENT_TRAP 1

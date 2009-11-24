@@ -1,8 +1,0 @@
-dio.o: dio.c \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/kernel.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/types.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/dio.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/slab.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/linux/init.h \
-   /usr/local/src/wanghp/KernelVer/kernel_32M/include/asm/io.h \
-   $(wildcard /usr/local/src/wanghp/KernelVer/kernel_32M/include/config/dio/constants.h)

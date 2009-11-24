@@ -1,1 +1,0 @@
-#define CONFIG_LEDS_CPU 1

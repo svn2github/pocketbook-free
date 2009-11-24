@@ -1,1 +1,0 @@
-#undef  CONFIG_PCMCIA_CLPS6700

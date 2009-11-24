@@ -1,1 +1,0 @@
-#define CONFIG_CPU_ARM920_D_CACHE_ON 1

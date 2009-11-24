@@ -1,1 +1,0 @@
-#define CONFIG_ZBOOT_ROM_TEXT 0x0

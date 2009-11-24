@@ -1,1 +1,0 @@
-#define CONFIG_EXT3_FS 1

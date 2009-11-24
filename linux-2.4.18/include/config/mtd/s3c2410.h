@@ -1,1 +1,0 @@
-#define CONFIG_MTD_S3C2410 1
