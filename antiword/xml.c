@@ -55,6 +55,8 @@ static BOOL	bEmptyHeaderLevel = TRUE;
 static int	iTableColumnsCurrent = 0;
 /* Footnote number */
 static UINT	uiFootnoteNumber = 0;
+/* do not convert to utf-8 (for non-unicode word documents) */
+static BOOL	bNoCharTrans = FALSE;
 
 /* Constants for the stack */
 #define INITIAL_STACK_SIZE	10
@@ -400,8 +402,13 @@ vAddStartTag(diagram_type *pDiag, UCHAR ucTag, const char *szAttribute)
 		fprintf(pDiag->pOutFile, "\n");
 		vPrintLevel(pDiag->pOutFile);
 	}
-	if (ucTag==TAG_CHAPTER)
-		fprintf(pDiag->pOutFile, "<meta http-equiv=Content-Type content=\"text/html; charset=UTF-8\">\n");
+	if (ucTag==TAG_CHAPTER) {
+		if (bNoCharTrans) {
+			fprintf(pDiag->pOutFile, "<meta http-equiv=Content-Type content=\"text/html\">\n");
+		} else {
+			fprintf(pDiag->pOutFile, "<meta http-equiv=Content-Type content=\"text/html; charset=UTF-8\">\n");
+		}
+	}
 
 	if (szAttribute == NULL || szAttribute[0] == '\0') {
 		if (ucTag!=TAG_TITLE && ucTag!=TAG_TBODY && ucTag!=TAG_INFORMALTABLE)
@@ -789,6 +796,7 @@ vPrologueXML(diagram_type *pDiag, const options_type *pOptions)
 
 	/* Set global variables to their start values */
 	eEncoding = pOptions->eEncoding;
+	bNoCharTrans = pOptions->bNoCharTrans;
 	bEmphasisOpen = FALSE;
 	bSuperscriptOpen = FALSE;
 	bSubscriptOpen = FALSE;

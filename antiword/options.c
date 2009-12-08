@@ -82,6 +82,7 @@ static const options_type	tOptionsDefault = {
 	TRUE,
 	DEFAULT_SCALE_FACTOR,
 #endif /* __riscos */
+	FALSE,
 };
 
 
@@ -388,7 +389,7 @@ iReadOptions(int argc, char **argv)
 	strncpy(szLeafname, szGetDefaultMappingFile(), sizeof(szLeafname) - 1);
 	szLeafname[sizeof(szLeafname) - 1] = '\0';
 /* Command line */
-	while ((iChar = getopt(argc, argv, "La:fhi:m:p:rstw:x:")) != -1) {
+	while ((iChar = getopt(argc, argv, "La:efhi:m:p:rstw:x:")) != -1) {
 		switch (iChar) {
 		case 'L':
 			tOptionsCurr.bUseLandscape = TRUE;
@@ -398,6 +399,9 @@ iReadOptions(int argc, char **argv)
 				werr(0, "-a without a valid papersize");
 				return -1;
 			}
+			break;
+		case 'e':
+			tOptionsCurr.bNoCharTrans = TRUE;
 			break;
 		case 'f':
 			tOptionsCurr.eConversionType = conversion_fmt_text;

@@ -56,7 +56,7 @@ private:
     void HandleEvents(int key);
 
     // draw zoomer
-    void Draw();
+    void Draw(int gu);
 
     // get bounding rectangle of window
     void GetWindowFrameRect(int& x, int& y, int& w, int& h);
@@ -178,7 +178,7 @@ void Zoomer::Show()
     m_PrevHandler = iv_seteventhandler(HandleEvents);
 
     // draw zoomer
-    Draw();
+    Draw(1);
 }
 
 // handle input events from zoomer
@@ -205,7 +205,8 @@ void Zoomer::HandleEvents(int key)
                 m_Position = ZOOM_STRATEGY_LAST;
             }
 
-            Draw();
+            s_Strategies[m_Position]->Validate();
+            Draw(0);
 
             break;
         }
@@ -217,7 +218,8 @@ void Zoomer::HandleEvents(int key)
                 m_Position = ZOOM_STRATEGY_FIRST;
             }
 
-            Draw();
+            s_Strategies[m_Position]->Validate();
+            Draw(0);
 
             break;
         }
@@ -225,14 +227,14 @@ void Zoomer::HandleEvents(int key)
         case KEY_DOWN:
         {
             s_Strategies[m_Position]->ZoomOut();
-            Draw();
+            Draw(0);
             break;
         }
         // increase current value:
         case KEY_UP:
         {
             s_Strategies[m_Position]->ZoomIn();
-            Draw();
+            Draw(0);
             break;
         }
         // close zoomer
@@ -242,11 +244,18 @@ void Zoomer::HandleEvents(int key)
             delete m_Instance;
             break;
         }
+        // close zoomer
+        case KEY_BACK:
+        case KEY_PREV:
+        {
+            delete m_Instance;
+            break;
+        }
     }
 }
 
 // draw zoomer
-void Zoomer::Draw()
+void Zoomer::Draw(int gu)
 {
     // draw frame
     int xframe, yframe, wframe, hframe;
@@ -268,7 +277,11 @@ void Zoomer::Draw()
     InvertAreaBW(xbitmap + m_IconWidth * m_Position, ybitmap, m_IconWidth, m_IconHeight);
 
     // update screen
-    PartialUpdate(xframe, yframe, wframe, hframe);
+    if (gu) {
+	    PartialUpdate(xframe, yframe, wframe, hframe);
+    } else {
+	    PartialUpdateBW(xframe, yframe, wframe, hframe);
+    }
 }
 
 // get bounding rectangle of window

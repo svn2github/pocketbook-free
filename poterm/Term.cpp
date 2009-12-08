@@ -697,7 +697,7 @@ bool Term::redrawLine_backward(const string &line, int &y)
     if (StringWidth((char *)line.c_str()) > _width)
     {
         unsigned n = line.size()-1;
-        for (; n && StringWidth((char *)line.substr(0, n).c_str()) > _width; n--);
+        for (; n && StringWidth((char *)line.substr(0, n).c_str()) > _width; n--) ;
         if (!redrawLine_backward(line.substr(n), y))
             return false;
         return redrawLine_backward(line.substr(0, n), y);
@@ -721,7 +721,7 @@ bool Term::redrawLine_forward(const string &line, int &y)
     if (StringWidth((char *)line.c_str()) > _width)
     {
         unsigned n = line.size()-1;
-        for (; n && StringWidth((char *)line.substr(0, n).c_str()) > _width; n--);
+        for (; n && StringWidth((char *)line.substr(0, n).c_str()) > _width; n--) ;
         if (!redrawLine_forward(line.substr(0, n), y))
             return false;
         return redrawLine_forward(line.substr(n), y);

@@ -23,6 +23,7 @@
 #include "ZLStreamImage.h"
 
 const shared_ptr<std::string> ZLStreamImage::stringData() const {
+
 	shared_ptr<ZLInputStream> stream = inputStream();
 
 	shared_ptr<std::string> imageData = new std::string();

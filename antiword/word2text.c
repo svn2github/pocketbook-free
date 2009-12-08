@@ -170,7 +170,7 @@ vStoreChar(ULONG ulChar, BOOL bChangeAllowed, output_type *pOutput)
 
 	fail(pOutput == NULL);
 
-	if (tOptions.eEncoding == encoding_utf_8 && bChangeAllowed) {
+	if (tOptions.eEncoding == encoding_utf_8 && bChangeAllowed && ! tOptions.bNoCharTrans) {
 		DBG_HEX_C(ulChar > 0xffff, ulChar);
 		fail(ulChar > 0xffff);
 		tLen = tUcs2Utf8(ulChar, szResult, sizeof(szResult));

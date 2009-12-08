@@ -69,3 +69,4 @@ void ZLPosixFileInputStream::seek(int offset, bool absoluteOffset) {
 size_t ZLPosixFileInputStream::offset() const {
 	return iv_ftell(myFile);
 }
+

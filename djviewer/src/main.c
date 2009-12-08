@@ -38,11 +38,10 @@
 #include "zoomer.h"
 
 extern const ibitmap zoombm;
+extern const ibitmap searchbm;
 extern const ibitmap hgicon;
 
 #define MAXRESULTS 200
-
-#define WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
 
 // #define die(x...) { fprintf(stderr, x); exit(1); }
 
@@ -67,14 +66,18 @@ tdocstate docstate;
 
 pid_t bgpid = 0;
 
-static int SCALES[9] = { 33, 50, 90, 100, 110, 120, 200, 300, 400};
+static int SCALES[19] = { 33, 50, 70, 80, 85, 90, 95, 100, 105, 110, 120, 130, 140, 150, 160, 170, 200, 300, 400};
 #define NSCALES ((int)(sizeof(SCALES)/sizeof(int)))
+
+static iconfig *gcfg;
+static int ko;
 
 static char *book_title="";
 static int orient=0;
 static int cpage=1, npages=1;
 static int cpagew, cpageh;
 static int offx, offy, oldoffy;
+static int scrx, scry;
 static int scale=100;
 static int offset;
 static int calc_optimal_zoom;
@@ -92,9 +95,15 @@ static int pageoffsetx;
 static int pageoffsety;
 
 static iv_wlist *diclist=NULL;
-static int diclen=0;
+static int diclen=0, dicsize=0;
 
 static long long bmkpos[32];
+
+static char kbdbuffer[64];
+
+int search_mode=0;
+static char *stext;
+static int spage, sdir;
 
 static char *keyact0[32], *keyact1[32];
 
@@ -103,6 +112,23 @@ static ibitmap *bmk_flag;
 
 static ddjvu_page_t* last_decoded_page;
 static int last_decoded_cpage = -1;
+
+// Denis //
+
+#define EPSX 100
+#define EPSY 100
+#define MENUMARGIN 100
+#define BOOKMARKMARGIN 200
+#define SCROLLPAGEMARGINWIDTH 200
+#define SCROLLPAGEMARGINHEIGHT 70
+#define FONTMARGIN 100
+
+static int px0, py0;
+static bool AddBkMark, Move;
+
+// Denis //
+
+void fill_words( int page );
 
 static void handle(int wait)
 {
@@ -127,10 +153,37 @@ static void handle(int wait)
 
 static inline int is_portrait() { return (orient == 0 || orient == 3); }
 
+static void find_off_x(int step)
+{
+ int sw=ScreenWidth();
+ step *= (sw/3);
+
+ //fprintf(stderr, "step=%i offx=%i offy=%i mx=%i ,my=%i pw=%i ph=%i\n", step,offx,offy,marginx,marginy,pw,ph);
+
+ if (step < 0) {
+	if (offx <= 0) {
+		if (cpage == 1) return;
+		cpage--;
+		offx = cpagew-sw;
+	} else {
+		offx += step;
+	}
+ } else {
+	if (offx >= cpagew-sw) {
+		if (cpage >= npages) return;
+		cpage++;
+		offx = 0;
+	} else {
+		offx += step;
+	}
+  }
+
+}
+
 static void find_off(int step)
 {
 	int sw=ScreenWidth();
-	int sh=ScreenHeight()-thh;
+	int sh=ScreenHeight()-PanelHeight();
 
         oldoffy = offy;
 
@@ -181,7 +234,7 @@ static void find_off(int step)
 
 static void draw_page_image() {
 
-	int sw, sh, pw, ph, scrx, scry, w, h, rowsize;
+	int sw, sh, pw, ph, w, h, rowsize;
 	ddjvu_page_t *page;
 	ddjvu_rect_t prect;
 	ddjvu_rect_t rrect;
@@ -197,7 +250,7 @@ static void draw_page_image() {
 
 	SetOrientation(orient);
 	sw = ScreenWidth();
-	sh = ScreenHeight()-thh;
+	sh = ScreenHeight() - PanelHeight();
 
         if (last_decoded_cpage != cpage - 1)
         {
@@ -290,6 +343,7 @@ static void draw_page_image() {
 	}
 	ddjvu_format_set_row_order(fmt, 1);
 	ddjvu_format_set_y_direction(fmt, 1);
+	//ddjvu_format_set_ditherbits(fmt, 8);
 	rowsize = rrect.w;
 	if (! (data = (unsigned char *)malloc(rowsize * rrect.h))) {
 		fprintf(stderr, "Cannot allocate image buffer\n");
@@ -316,26 +370,38 @@ static void draw_page_image() {
 	}
 
         // auto adjust
-        int i, min = 255, max = 0;
-        for (i = 0; i < rrect.w * rrect.h; ++i)
+        int pp, xx, min = 255, max = 0;
+        for (pp = 0; pp < rrect.h*rrect.w; pp+=rrect.w*3)
         {
-            if (data[i] < min) min = data[i];
-            if (data[i] > max) max = data[i];
+	        for (xx = 0; xx < rrect.w; xx+=3)
+	        {
+	            if (data[pp+xx] < min) min = data[pp+xx];
+	            if (data[pp+xx] > max) max = data[pp+xx];
+		}
         }
 
-        if (min > 255 / 8)
+	int c, i;
+        if (max-min >= 100)
         {
-            float coeff = (float)max / (max - min);
+            fprintf(stderr, "adjust: min=%i max=%i\n", min, max);
+            int coeff = (270 * 1000 - 1) / (max - min);
 
             for (i = 0; i < rrect.w * rrect.h; ++i)
             {
-                data[i] = (data[i] - min) * coeff;
+                c = ((data[i] - min) * coeff) / 1000;
+		if (c > 255) c = 255;
+		data[i] = c;
             }
         }
 
 	w = rrect.w;
 	h = rrect.h;
 	Stretch(data, IMAGE_GRAY8, w, h, rowsize, scrx, scry, w, h, 0);
+	//int grads = (1 << GetHardwareDepth());
+	//if (grads > 4) DitherArea(scrx, scry, w, h, grads, DITHER_DIFFUSION);
+	int grads = (1 << GetHardwareDepth());
+	if (grads < 8)grads = 8;
+	DitherArea(scrx, scry, w, h, grads, DITHER_DIFFUSION);
 
 	ddjvu_format_release(fmt);
 	free(data);
@@ -542,10 +608,14 @@ static void draw_bmk_flag(int update) {
 	if (update) PartialUpdate(x, y, bmk_flag->width, bmk_flag->height);
 }
 
+static void draw_searchpan() {
+	DrawBitmap(ScreenWidth()-searchbm.width-10, ScreenHeight()-searchbm.height-35, &searchbm);
+}
+
 static void out_page(int full) {
 
 	char buf[48];
-	int n=1, h;
+	int i, n=1, h;
 
 	ClearScreen();
 
@@ -572,6 +642,16 @@ static void out_page(int full) {
 		FillArea(thx+(thw*thix)/100, thy+(thh*thiy)/100, (thw*thiw)/100, (thh*thih)/100, BLACK);
 	}
 	draw_bmk_flag(0);
+
+	if (search_mode) {
+		fill_words(cpage-1);
+		for (i=0; i<diclen; i++) {
+			if (utfcasestr(diclist[i].word, stext) != NULL) {
+				InvertArea(diclist[i].x1, diclist[i].y1, diclist[i].x2-diclist[i].x1, diclist[i].y2-diclist[i].y1);
+			}
+		}
+		draw_searchpan();
+	}
 
 	if (full) {
 		FullUpdate();
@@ -634,29 +714,60 @@ static void new_bookmark() {
 
 static void rotate_handler(int n) {
 
-	orient = n;
-	offx = offy = 0;
+	if (n == -1 || ko == 0) {
+		SetGlobalOrientation(n);
+	} else {
+		SetOrientation(n);
+	}
+	orient = GetOrientation();
+	//offx = offy = 0;
 	out_page(1);
 
 }
 
+static void draw_jump_info(char *text) {
+
+	int x, y, w, h;
+
+	SetFont(menu_n_font, BLACK);
+	w = StringWidth("999%")+20;
+	if (StringWidth(text) > w-10) w = StringWidth(text) + 20;
+	h = (menu_n_font->height*3) / 2;
+	x = ScreenWidth()-w-5;
+	y = ScreenHeight()-h-30;
+	FillArea(x+1, y+1, w-2, h-2, WHITE);
+	DrawRect(x+1, y, w-2, h, BLACK);
+	DrawRect(x, y+1, w, h-2, BLACK);
+	DrawTextRect(x, y, w, h, text, ALIGN_CENTER | VALIGN_MIDDLE);
+	PartialUpdateBW(x, y, w, h);
+
+}
+
+static void zoom_timer() { out_page(1); }
+
 static void do_zoom(int add) {
 
+	char buf[16];
 	int i;
+
+	calc_optimal_zoom = 0;
 
 	for (i=0; i<NSCALES; i++) {
 		if (SCALES[i] == scale) break;
 	}
 	if (i == NSCALES) {
 		scale = 100;
-		out_page(0);
 	} else {
 		if (i+add >= 0 && i+add < NSCALES) {
 			i+=add;
 			scale = SCALES[i];
-			out_page(0);
+		} else {
+			return;
 		}
 	}
+	sprintf(buf, "%i%%", scale);
+	draw_jump_info(buf);
+	SetHardTimer("ZOOM", zoom_timer, 1000);
 
 }
 
@@ -680,23 +791,13 @@ static void turn_page(int n) {
 static void jump_pages(int n) {
 
 	char buf[16];
-	int x, y, w, h;
 
 	cpage += n;
 	if (cpage < 1) cpage = 1;
 	if (cpage > npages) cpage = npages;
 	offx = offy = 0;
-	w = 50;
-	h = (menu_n_font->height*3) / 2;
-	x = ScreenWidth()-w-5;
-	y = ScreenHeight()-h-30;
-	FillArea(x+1, y+1, w-2, h-2, WHITE);
-	DrawRect(x+1, y, w-2, h, BLACK);
-	DrawRect(x, y+1, w, h-2, BLACK);
 	sprintf(buf, "%i", cpage);
-	SetFont(menu_n_font, BLACK);
-	DrawTextRect(x, y, w, h, buf, ALIGN_CENTER | VALIGN_MIDDLE);
-	PartialUpdate(x, y, w, h);
+	draw_jump_info(buf);
 
 }
 
@@ -761,7 +862,7 @@ static void BuildToc()
     {
         readTocRecurse( outline, 1, 1 );
 
-        toc = malloc(sizeof(tocentry) * toclen);
+        toc = (tocentry *) malloc(sizeof(tocentry) * toclen);
 
         toclen = 0;
 
@@ -795,7 +896,89 @@ static void open_contents()
     }
 }
 
-int add_word(miniexp_t word, int page_height, int just_calculate)
+void search_timer()
+{
+	if (stext == NULL || ! search_mode) return;
+
+	if (spage < 1 || spage > npages) {
+		HideHourglass();
+		Message(ICON_INFORMATION, GetLangText("@Search"), GetLangText("@No_more_matches"), 2000);
+		return;
+	}
+
+	miniexp_t r = miniexp_nil;
+	while ((r = ddjvu_document_get_pagetext(doc, spage-1, "page"))==miniexp_dummy)
+		handle(1);
+
+	if (r != miniexp_nil && (r = miniexp_nth(5, r)) && miniexp_stringp(r)) {
+		const char *s = miniexp_to_str(r);
+		//fprintf(stderr, "\n[%s]\n", s);
+		if (utfcasestr((char *)s, stext) != NULL) {
+			cpage = spage;
+			out_page(1);
+			return;
+		}
+	}
+
+	spage += sdir;
+	SetHardTimer("SEARCH", search_timer, 1);
+
+}		
+
+static void do_search(char *text, int frompage, int dir) {
+
+	search_mode = 1;
+	stext = strdup(text);
+	spage = frompage;
+	sdir = dir;
+	ShowHourglass();
+	search_timer();
+
+}
+
+static void stop_search() {
+
+	ClearTimer(search_timer);
+	free(stext);
+	stext = NULL;
+	search_mode = 0;
+	SetEventHandler(main_handler);
+
+}
+
+static int search_handler(int type, int par1, int par2) {
+
+	if (type == EVT_SHOW) {
+		//out_page(0);
+	}
+
+	if (type == EVT_KEYPRESS) {
+
+		if (par1 == KEY_OK || par1 == KEY_BACK) {
+			stop_search();
+		}
+		if (par1 == KEY_LEFT) {
+			do_search(stext, spage-1, -1);
+		}
+		if (par1 == KEY_RIGHT) {
+			do_search(stext, spage+1, +1);
+		}
+
+	}
+
+	return 0;
+
+}
+
+static void search_enter(char *text) {
+	if (text == NULL || text[0] == 0) return;
+	SetEventHandler(search_handler);
+	do_search(text, cpage, +1);
+}
+
+static void start_search() { OpenKeyboard(GetLangText("@Search"), kbdbuffer, 30, 0, search_enter); }
+
+int add_word(miniexp_t word, int page_height)
 {
     int size = miniexp_length( word );
     if ( size >= 6 )
@@ -805,32 +988,67 @@ int add_word(miniexp_t word, int page_height, int just_calculate)
         int xmax = miniexp_to_int( miniexp_nth( 3, word ) );
         int ymax = miniexp_to_int( miniexp_nth( 4, word ) );
 
-        xmin = xmin * pagescalex - pageoffsetx+offx;
-        ymin = (page_height - ymin) * pagescaley + pageoffsety-offy;
-        xmax = xmax * pagescalex - pageoffsetx+offx;
-        ymax = (page_height - ymax) * pagescaley + pageoffsety-offy;
+        xmin = xmin * pagescalex - pageoffsetx+offx+scrx;
+        ymin = (page_height - ymin) * pagescaley + pageoffsety-offy+scry;
+        xmax = xmax * pagescalex - pageoffsetx+offx+scrx;
+        ymax = (page_height - ymax) * pagescaley + pageoffsety-offy+scry;
+	if (xmax < xmin) { int tmp = xmax; xmax = xmin; xmin = tmp; }
+	if (ymax < ymin) { int tmp = ymax; ymax = ymin; ymin = tmp; }
+	ymin -= 2;
+	ymax += 2;
 
         if (ymax > offy && ymin < ScreenHeight() + offy - thh &&  xmin > offx && xmax < ScreenWidth() + offx)
         {
-            if (!just_calculate)
-            {
-                diclist[diclen].word = strdup(miniexp_to_str( miniexp_nth( 5, word ) ));
-                diclist[diclen].x1 = xmin-offx;
-                diclist[diclen].y1 = ymin-offy;
-                diclist[diclen].x2 = xmax-offx;
-                diclist[diclen].y2 = ymax-offy;
-            }
-
+	    if (diclen+2 >= dicsize) {
+		dicsize += 50;
+		diclist = (iv_wlist *) realloc(diclist, dicsize * sizeof(iv_wlist));
+	    }
+            diclist[diclen].word = strdup(miniexp_to_str( miniexp_nth( 5, word ) ));
+            diclist[diclen].x1 = xmin-offx;
+            diclist[diclen].y1 = ymin-offy;
+            diclist[diclen].x2 = xmax-offx;
+            diclist[diclen].y2 = ymax-offy;
+	    //fprintf(stderr, "[%i %i %i %i %s]\n", diclist[diclen].x1, diclist[diclen].y1, diclist[diclen].x2-diclist[diclen].x1, diclist[diclen].y2-diclist[diclen].y1, diclist[diclen].word);
             ++diclen;
+            diclist[diclen].word = NULL;
         }
     }
 
     return 1;
 }
 
-void fill_words( int page, int just_calculate)
+static void make_wordlist_recursive(miniexp_t exp, int height) {
+
+	int i;
+
+	if (exp == NULL) return;
+	int l = miniexp_length(exp);
+	for (i=0; i<l; i++) {
+		miniexp_t cur = miniexp_nth( i, exp );
+	        if (miniexp_listp(cur) && (miniexp_length(cur) > 0) && miniexp_symbolp(miniexp_nth(0, cur))) {
+			const char *s = miniexp_to_name(miniexp_nth(0, cur));
+			if (strcmp(s, "word") == 0) {
+				add_word(cur, height);
+			} else {
+				make_wordlist_recursive(cur, height);
+			}
+		}
+	}
+}
+
+
+void fill_words( int page )
 {
     miniexp_t r;
+    int i;
+
+    if (diclist != NULL) {
+            for (i=0; i<diclen; i++) free(diclist[i].word);
+            free(diclist);
+            diclist = NULL;
+            diclen = dicsize = 0;
+    }
+
     while ( ( r = ddjvu_document_get_pagetext( doc, page, 0 ) ) == miniexp_dummy )
         handle( 1 );
 
@@ -841,42 +1059,15 @@ void fill_words( int page, int just_calculate)
 
     ddjvu_pageinfo_t in;
     ddjvu_document_get_pageinfo(doc,page,&in);
+    make_wordlist_recursive(r, in.height);
 
-    int l = miniexp_length( r );
-
-    int i;
-    for ( i = 0; i < l;++i)
-    {
-            miniexp_t cur = miniexp_nth( i, r );
-            int size = miniexp_length(cur);
-
-        if ( miniexp_listp( cur )
-             && ( miniexp_length( cur ) > 0 )
-             && miniexp_symbolp( miniexp_nth( 0, cur ) ) )
-        {
-            const char* tag = miniexp_to_name( miniexp_nth( 0, cur ) );
-
-            if (!strcmp(tag, "line"))
-            {
-                int j;
-                for ( j = 5; j < size; ++j )
-                {
-                    miniexp_t word = miniexp_nth( j, cur );
-
-                    if (!strcmp(miniexp_to_name( miniexp_nth( 0, word ) ), "word"))
-                    {
-                        if (!add_word(word, in.height, just_calculate)) return;
-                    }
-                }
-            }
-            else if (!strcmp(tag, "word"))
-            {
-                if (!add_word(cur, in.height, just_calculate)) return;
-            }
-        }
-    }
 }
 
+static void show_hide_panel() {
+	SetPanelType((PanelHeight() == 0) ? 1 : 0);
+	panh = PanelHeight();
+	out_page(1);
+}
 
 static void open_quickmenu() { OpenMenu3x3(m3x3, (const char **)strings3x3, menu_handler); }
 static void prev_page() { turn_page(-1); }
@@ -892,44 +1083,9 @@ static void save_page_note() { CreateNoteFromPage(FileName, book_title, cpage); 
 static void open_notes() { OpenNotepad(NULL); }
 static void open_dictionary()
 {
-    if (diclist != NULL) {
-            int i;
-            for (i=0; i<diclen; i++) free(diclist[i].word);
-            free(diclist);
-            diclist = NULL;
-            diclen = 0;
-    }
-
-    if (scale > 50)
-    {
-        fill_words(cpage-1, 1);
-
-        diclist = (iv_wlist *) malloc((diclen+1) * sizeof(iv_wlist));
-        diclist[diclen].word = NULL;
-        diclen = 0;
-
-        fill_words(cpage-1, 0);
-    }
-
-#ifdef WORKAROUND_OF_CRASH_ON_EMPTY_DICTIONARY
-    if (diclen == 0)
-    {
-        static iv_wlist diclist[2];
-        diclist[0].word="";
-        diclist[0].x1=0;
-        diclist[0].x2=0;
-        diclist[0].y1=0;
-        diclist[0].y2=0;
-        diclist[1].word=0;
-        OpenDictionaryView(diclist, NULL);
-    }
-    else
-    {
-        OpenDictionaryView(diclist, NULL);
-    }
-#else
+    if (scale > 50) fill_words(cpage-1);
     OpenDictionaryView(diclist, NULL);
-#endif
+
 }
 static void zoom_in() { do_zoom(+1); }
 static void zoom_out() { do_zoom(-1); }
@@ -976,11 +1132,21 @@ static void handle_navikey(int key) {
 	switch (key) {
 
 		case KEY_LEFT:
-			turn_page(-pageinc);
+			if (scale >= 200) {
+				find_off_x(-1);
+				out_page(1);
+			} else {
+				turn_page(-pageinc);
+			}
 			break;
 
 		case KEY_RIGHT:
-			turn_page(pageinc);
+			if (scale >= 200) {
+				find_off_x(+1);
+				out_page(1);
+			} else {
+				turn_page(pageinc);
+			}
 			break;
 
 		case KEY_UP:
@@ -1040,13 +1206,14 @@ static const struct {
 	{ "@KA_onot", open_notes, NULL, NULL },
 	//{ "@KA_olnk", open_links, NULL, NULL },
 	//{ "@KA_blnk", back_link, NULL, NULL },
-	//{ "@KA_cnts", open_contents, NULL, NULL },
-	//{ "@KA_srch", start_search, NULL, NULL },
+	{ "@KA_cnts", open_contents, NULL, NULL },
+	{ "@KA_srch", start_search, NULL, NULL },
 	{ "@KA_dict", open_dictionary, NULL, NULL },
 	{ "@KA_zoom", open_new_zoomer, NULL, NULL },
 	{ "@KA_cnts", open_contents, NULL, NULL },
 	{ "@KA_zmin", zoom_in, NULL, NULL },
 	{ "@KA_zout", zoom_out, NULL, NULL },
+	{ "@KA_hidp", show_hide_panel, NULL, NULL },
 	{ "@KA_rtte", open_rotate, NULL, NULL },
 	{ "@KA_mmnu", main_menu, NULL, NULL },
 	{ "@KA_exit", exit_reader, NULL, NULL },
@@ -1073,6 +1240,102 @@ static void menu_handler(int pos) {
 		break;
 	}
 
+}
+
+static void find_pointer_off(int dx, int dy)
+{
+	int sw=ScreenWidth();
+	int sh=ScreenHeight();
+
+	offy+=dy;
+	offx+=dx;
+
+	if (offx<0)
+		offx=0;
+	if (offx>cpagew-sw)
+		offx=cpagew-sw;
+	if (offy<0)
+		offy=0;
+	if (offy>cpageh-(sh-panh))
+		offy=cpageh-(sh-panh);
+}
+
+static int pointer_handler(int type, int par1, int par2){
+
+	int i;
+
+	if (type == EVT_POINTERDOWN){
+		px0=par1;
+		py0=par2;
+		Move=false;
+		return 1;
+	} else if (type == EVT_POINTERUP){
+		if (AddBkMark){
+			if (par1>ScreenWidth()-BOOKMARKMARGIN && par2<BOOKMARKMARGIN){
+				for (i=0; KA[i].action != NULL; i++) {
+					if (strcmp("@KA_nbmk", KA[i].action) != 0) continue;
+					if (KA[i].f1 != NULL) (KA[i].f1)();
+					break;
+				}
+			}
+			AddBkMark=false;
+			return 1;
+		}
+		if (!Move){
+			if ((par1>ScreenWidth()/2-MENUMARGIN && par1<ScreenWidth()/2+MENUMARGIN)
+			      && (par2>ScreenHeight()/2-MENUMARGIN && par2<ScreenHeight()/2+MENUMARGIN)){
+				for (i=0; KA[i].action != NULL; i++) {
+					if (strcmp("@KA_menu", KA[i].action) != 0) continue;
+					if (KA[i].f1 != NULL) (KA[i].f1)();
+					break;
+				}
+				return 1;
+			}
+			if (par1>ScreenWidth()-BOOKMARKMARGIN && par2<BOOKMARKMARGIN){
+				for (i=0; KA[i].action != NULL; i++) {
+					if (strcmp("@KA_obmk", KA[i].action) != 0) continue;
+					if (KA[i].f1 != NULL) (KA[i].f1)();
+					break;
+				}
+				return 1;
+			}
+		} else {
+			if (px0<SCROLLPAGEMARGINWIDTH && py0>ScreenHeight()-SCROLLPAGEMARGINHEIGHT && par1-px0>EPSX){
+				for (i=0; KA[i].action != NULL; i++) {
+					if (strcmp("@KA_prev", KA[i].action) != 0) continue;
+					if (KA[i].f1 != NULL) (KA[i].f1)();
+					break;
+				}
+				return 1;					
+			} else if (px0>ScreenWidth()-SCROLLPAGEMARGINWIDTH && py0>ScreenHeight()-SCROLLPAGEMARGINHEIGHT &&
+					par2>ScreenHeight()-SCROLLPAGEMARGINHEIGHT && px0-par1>EPSX){
+				for (i=0; KA[i].action != NULL; i++) {
+					if (strcmp("@KA_next", KA[i].action) != 0) continue;
+					if (KA[i].f1 != NULL) (KA[i].f1)();
+					break;
+				}
+				return 1;
+			} else if ((abs(px0-par1)>EPSX || abs(py0-par2)>EPSY)&& scale>100){
+				find_pointer_off(px0-par1, py0-par2);
+				out_page(1);			
+				return 1;
+			}
+		}
+		return 1;
+	} else if (type == EVT_POINTERMOVE){
+		Move=true;
+		return 1;
+	} else if (type == EVT_POINTERHOLD){
+
+		return 1;
+	} else if (type == EVT_POINTERLONG){
+		AddBkMark=false;
+		if (par1>ScreenWidth()-BOOKMARKMARGIN && par2<BOOKMARKMARGIN){
+				AddBkMark=true;
+		}
+		return 1;
+	}
+	return 0;
 }
 
 static int key_handler(int type, int par1, int par2) {
@@ -1160,6 +1423,37 @@ static int main_handler(int type, int par1, int par2) {
 		return key_handler(type, par1, par2);
 	}
 
+	if (type == EVT_POINTERDOWN || type == EVT_POINTERUP || type == EVT_POINTERMOVE || type == EVT_POINTERHOLD || type == EVT_POINTERLONG){
+		return pointer_handler(type, par1, par2);
+	}
+
+	if (type == EVT_ORIENTATION) {
+		orient = par1;
+		SetOrientation(orient);
+		out_page(1);
+	}
+
+	if (type == EVT_SNAPSHOT) {
+		fprintf(stderr, "EVT_SNAPSHOT\n");
+		DrawPanel((ibitmap *)PANELICON_LOAD, "@snapshot_info", NULL, -1);
+		PageSnapshot();
+	}
+
+	if (type == EVT_PREVPAGE) {
+		prev_page();
+		return 0;
+	}
+
+	if (type == EVT_NEXTPAGE) {
+		next_page();
+		return 0;
+	}
+
+	if (type == EVT_OPENDIC) {
+		open_dictionary();
+		return 0;
+	}
+
 	return 0;
 
 }
@@ -1173,6 +1467,7 @@ static void save_settings() {
   docstate.offy = offy;
 
   docstate.scale = scale | (abs(offset) << 16);
+  docstate.orient = orient;
 
   if (offset > 0)
   {
@@ -1259,7 +1554,14 @@ int main(int argc, char **argv) {
   if (!(docstate.scale >> 31)) offset =-offset;
   if (((docstate.scale >> 30) & 0x1)) calc_optimal_zoom = 1;
 
-  orient = docstate.orient;
+  gcfg = GetGlobalConfig();
+  ko = ReadInt(gcfg, "keeporient", 0);
+  if (GetGlobalOrientation() == -1 || ko == 0) {
+	orient = GetOrientation();
+  } else {
+	orient = docstate.orient & 0x7f;
+	SetOrientation(orient);
+  }
   panh = PanelHeight();
 
   if (argc >= 3 && argv[2][0] == '=') cpage = atoi(argv[2]+1);

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007-2008 Geometer Plus <contact@geometerplus.com>
+ * Copyright (C) 2007-2009 Geometer Plus <contact@geometerplus.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,8 @@
  * 02110-1301, USA.
  */
 
+#include <ZLFile.h>
+#include <ZLInputStream.h>
 #include <ZLDir.h>
 #include <ZLUnicodeUtil.h>
 
@@ -51,7 +53,9 @@ ZLLanguageDetector::LanguageInfo::LanguageInfo(const std::string &language, cons
 }
 
 ZLLanguageDetector::ZLLanguageDetector() {
-	shared_ptr<ZLDir> dir = ZLLanguageList::patternsDirectory();
+	const ZLFile patternsArchive(ZLLanguageList::patternsDirectoryPath());
+	shared_ptr<ZLInputStream> lock = patternsArchive.inputStream();
+	shared_ptr<ZLDir> dir = patternsArchive.directory(false);
 	if (!dir.isNull()) {
 		std::vector<std::string> fileNames;
 		dir->collectFiles(fileNames, false);
@@ -85,6 +89,15 @@ ZLLanguageDetector::~ZLLanguageDetector() {
 shared_ptr<ZLLanguageDetector::LanguageInfo> ZLLanguageDetector::findInfo(const char *buffer, size_t length, int matchingCriterion) {
 	const char *start = buffer;
 	const char *end = start + length;
+
+	if (end >= start + 2) {
+		if ((*start == (const char)0xFF) && (*(start + 1) == (const char)0xFE)) {
+			return new LanguageInfo("", "UTF-16");
+		}
+		if ((*start == (const char)0xFE) && (*(start + 1) == (const char)0xFF)) {
+			return new LanguageInfo("", "UTF-16BE");
+		}
+	}
 
 	enum { ASCII, UTF8, OTHER } encodingType = ASCII;
 	int nonLeadingCharsCounter = 0;
@@ -166,10 +179,12 @@ shared_ptr<ZLLanguageDetector::LanguageInfo> ZLLanguageDetector::findInfo(const 
 		}
 	}
 
-	if (!info.isNull() &&
-			(encodingType == UTF8) &&
-			(info->Encoding != ZLLanguageMatcher::UTF8_ENCODING_NAME)) {
-		return new LanguageInfo(info->Language, ZLLanguageMatcher::UTF8_ENCODING_NAME);
+	if (encodingType == UTF8) {
+		if (info.isNull()) {
+			return new LanguageInfo("", ZLLanguageMatcher::UTF8_ENCODING_NAME);
+		} else if (info->Encoding != ZLLanguageMatcher::UTF8_ENCODING_NAME) {
+			return new LanguageInfo(info->Language, ZLLanguageMatcher::UTF8_ENCODING_NAME);
+		}
 	}
 	return info;
 }

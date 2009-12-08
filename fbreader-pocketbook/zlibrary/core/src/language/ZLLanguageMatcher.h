@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007-2008 Geometer Plus <contact@geometerplus.com>
+ * Copyright (C) 2007-2009 Geometer Plus <contact@geometerplus.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -78,6 +78,7 @@ private:
 	int criterion() const;
 
 private:
+	unsigned int myNeutralCharacterCounter;
 	unsigned int myChineseCharacterCounter;
 	unsigned int myNonChineseCharacterCounter;
 };
@@ -93,6 +94,7 @@ public:
 	virtual void processBuffer(const unsigned char *start, const unsigned char *end) = 0;
 
 protected:
+	unsigned int myNeutralCharacterCounter;
 	unsigned int myChineseCharacterCounter;
 	unsigned int myNonChineseCharacterCounter;
 };

@@ -29,6 +29,9 @@ public:
     // decrease zoom
     virtual void ZoomOut() = 0;
 
+    // check whether current zoom is allowed
+    virtual void Validate() = 0;
+
     // get zoom parameters
     const ZoomerParameters& GetZoomParameters() const
     {
@@ -68,6 +71,13 @@ public:
     virtual void ZoomOut()
     {
         m_Parameters.zoom = 50;
+    }
+
+    // check zoom value
+    virtual void Validate()
+    {
+        if (m_Parameters.zoom < 40) m_Parameters.zoom = 33;
+        if (m_Parameters.zoom >= 40) m_Parameters.zoom = 50;
     }
 
     // get description of zoom strategy
@@ -157,6 +167,11 @@ public:
     {
     }
 
+    // check zoom value
+    virtual void Validate()
+    {
+    }
+
     // get description of zoom strategy
     virtual void GetDescription(char* buffer, unsigned int size) const
     {
@@ -221,7 +236,7 @@ public:
         m_Parameters.zoom += 5 - (m_Parameters.zoom % 5);
         if (m_Parameters.zoom > 195)
         {
-            m_Parameters.zoom = 195;
+            m_Parameters.zoom = 70;
         }
 
         m_Parameters.optimal_zoom = 0;
@@ -238,13 +253,20 @@ public:
             m_Parameters.zoom += 5 - (m_Parameters.zoom % 5);
         }
 
-        if (m_Parameters.zoom < 55)
+        if (m_Parameters.zoom < 70)
         {
-            m_Parameters.zoom = 55;
+            m_Parameters.zoom = 195;
         }
 
         m_Parameters.optimal_zoom = 0;
         m_Parameters.offset = 0;
+    }
+
+    // check zoom value
+    virtual void Validate()
+    {
+        if (m_Parameters.zoom < 70) m_Parameters.zoom = 100;
+        if (m_Parameters.zoom > 195) m_Parameters.zoom = 100;
     }
 
     // get description of zoom strategy
@@ -266,7 +288,7 @@ public:
     {
         if (m_Parameters.zoom < 200)
         {
-            m_Parameters.zoom = 100;
+            m_Parameters.zoom = 200;
         }
         
         m_Parameters.offset = 0;
@@ -276,18 +298,18 @@ public:
     // increase zoom
     virtual void ZoomIn()
     {
-        if (m_Parameters.zoom < 100)
+        if (m_Parameters.zoom < 200)
         {
-            m_Parameters.zoom = 100;
+            m_Parameters.zoom = 200;
         }
         else
         {
             m_Parameters.zoom += 100 - (m_Parameters.zoom % 100);
         }
 
-        if (m_Parameters.zoom > 400)
+        if (m_Parameters.zoom > 500)
         {
-            m_Parameters.zoom = 400;
+            m_Parameters.zoom = 200;
         }
     }
 
@@ -301,10 +323,17 @@ public:
             m_Parameters.zoom += 100 - (m_Parameters.zoom % 100);
         }
 
-        if (m_Parameters.zoom < 100)
+        if (m_Parameters.zoom < 200)
         {
-            m_Parameters.zoom = 100;
+            m_Parameters.zoom = 500;
         }
+    }
+
+    // check zoom value
+    virtual void Validate()
+    {
+        if (m_Parameters.zoom < 200) m_Parameters.zoom = 200;
+        if (m_Parameters.zoom > 500) m_Parameters.zoom = 500;
     }
 
     // get description of zoom strategy

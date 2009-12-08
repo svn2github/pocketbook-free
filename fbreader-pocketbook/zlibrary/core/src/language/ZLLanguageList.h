@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007-2008 Geometer Plus <contact@geometerplus.com>
+ * Copyright (C) 2007-2009 Geometer Plus <contact@geometerplus.com>
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,10 +27,9 @@
 class ZLLanguageList {
 
 public:
+	static std::string patternsDirectoryPath();
 	static const std::vector<std::string> &languageCodes();
 	static std::string languageName(const std::string &code);
-
-	static shared_ptr<ZLDir> patternsDirectory();
 
 private:
 	static std::vector<std::string> ourLanguageCodes;

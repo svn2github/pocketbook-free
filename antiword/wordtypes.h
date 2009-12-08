@@ -109,6 +109,7 @@ typedef struct options_tag {
 	BOOL		bAutofiletypeAllowed;
 	int		iScaleFactor;		/* As a percentage */
 #endif /* __riscos */
+	BOOL		bNoCharTrans;
 } options_type;
 
 /* Property Set Storage */
