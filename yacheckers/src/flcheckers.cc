@@ -39,12 +39,25 @@ using std::endl;
 #include "img/manblack.xpm"
 #include "img/manwhite.xpm"
 
-#if FL_MINOR_VERSION <3
+//#if FL_MINOR_VERSION <3
   #define _(a) a
-#else
-  #warning GETTEXT HERE
-  #define _(a) a
+/*#else
+  #include "src/nls.h"
+namespace {
+  struct locinit{
+    locinit(){
+#ifdef ENABLE_NLS
+  setlocale(LC_ALL,"");
+  //std::cerr<<MNW_LOC_DIR<<'\t'<<PACKAGE<<std::endl;
+  const char* btd=bindtextdomain(PACKAGE,MNW_LOC_DIR);
+  const char* tdc=bind_textdomain_codeset(PACKAGE,"UTF-8");
+  textdomain(PACKAGE);
 #endif
+  }
+}aaaa;
+};
+
+#endif*/
 
 namespace{
   char *skill_v[] = {"Beginner","Novice","Average","Good","Expert","Master", NULL };
@@ -94,10 +107,10 @@ protected:
   }
   // create new game
 public:
-  void new_game()
+  void new_game(bool h2)
   { 
-    CheckersBoard::new_game();
-  	redraw();
+    CheckersBoard::new_game(h2);
+    redraw();
   }
   
   Fl_Board(int X,int Y,const char L=0) : Fl_Widget(X,Y,400,440){
@@ -135,7 +148,7 @@ public:
 	  sprintf(str,_("Game type:%s    Level:%s "),Checkers::RUSSIAN==rules?_("Russian"):_("English"),skill_v[Checkers::skill2index(skill)]);
 	  fl_draw(str,x()+5,y()+410);
 	  if(game_over){
-	   sprintf(str,_("Game Over! %s"),(winner==1)?"Winner Computer":((winner==2)?"You Win!":"Nobody can move!"));
+	   sprintf(str,_("Game Over! %s"),(winner==1)?_("Winner Computer"):((winner==2)?_("You Win!"):_("Nobody can move!")));
 	   fl_draw(str,x()+5,y()+420);
 	  }
   }
@@ -147,15 +160,23 @@ public:
       int Y=(Fl::event_y()-y())/50;
 	    int gm_ind=((X+Y)%2)?(X/2+4*Y):-1;
       //cerr<<"match:"<<gm_ind<<" cp:"<<cp<<" free:"<< game->item(gm_ind)<<endl;
-	    if(Checkers::FREE==game->item(gm_ind) && cp!=-1 && gm_ind !=-1 && game->go1(cp,gm_ind)){
+	    if(go1 && Checkers::FREE==game->item(gm_ind) && cp!=-1 && gm_ind !=-1 && game->go1(cp,gm_ind)){
 	      if(!check_win(false)){
-	       redraw();Fl::check();
-	       game->go2();
-	       cp = -1;
-	       check_win(true);
+	        redraw();Fl::check();
+                if(!ai2){
+	          game->go2();
+	          cp = -1;
+	          check_win(true);
+	        }else{
+                  go1=false;
+		      }
 	      }
-	    }
-	    else cp=gm_ind;
+	    }else if(!go1 && Checkers::FREE==game->item(gm_ind) && cp!=-1 && gm_ind !=-1 && game->go2_human(cp,gm_ind)){
+	      if(!check_win(true)){
+	        redraw();Fl::check();
+                go1=true;
+	      }
+      }else cp=gm_ind;
       move=false;
 	    redraw();
       return 1;
@@ -165,8 +186,8 @@ public:
 
 static Fl_Board* brd = (Fl_Board*)0;
 
-void cb_new(Fl_Widget*,void*){
-  brd->new_game();
+void cb_new(Fl_Widget*,long p){
+  brd->new_game(p);
 }
 
 static Fl_Window* setw = (Fl_Window*)0;
@@ -201,7 +222,7 @@ void cb_setup(Fl_Widget*,void*){
     brd->rules=(1==ch_rules->value())?Checkers::ENGLISH:Checkers::RUSSIAN;
     brd->is_white=chb_white->value();
     brd->skill=Checkers::index2skill(ch_level->value());
-    brd->new_game();    
+    brd->new_game(0);
     break;
     }
     else if (o == setw) {break;}
@@ -218,23 +239,24 @@ void cb_rules(Fl_Widget*,void*){
 		    "-to one square only (english rules);\n"
 		    "-to any number of squares (russian rules).\n"
 		    "The kings capture by jumping forward or backward.\n  "
-		    "Whenever a player is able to make a capture he must do so.");		
+		    "Whenever a player is able to make a capture he must do so.");
 }
 void cb_about(Fl_Widget*,void*){
         fl_message(
-        "Checkers game x 1.0.1\n"
+        _("Checkers game x 1.0.1\n"
 				"by Yury P. Fedorchenko.\n"
 				"AI based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of"
         "GNU GPL License\n"
-        "www.fedorchenko.net");		
+        "www.fedorchenko.net") );
 }
 void cb_exit(Fl_Widget*,void*){
   if(fl_ask(_("Exit Game?")))exit(0);
 }
 Fl_Menu_Item mmenu[]={
   {_("Game"),0,0,0,FL_SUBMENU},
-    {_("New"),0,cb_new},
+    {_("New"),0,(Fl_Callback*)cb_new,(void*)0},
+    {_("New 2 player"),0,(Fl_Callback*)cb_new,(void*)1},
     {_("Settings"),0,cb_setup},
     {_("Exit"),0,cb_exit},
   {0},

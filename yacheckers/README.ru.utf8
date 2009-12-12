@@ -7,14 +7,15 @@
 
 Код частично основан на kcheckers (qcheckers.sf.net).
 
-сборка:
+сборка PB версия:
  Linux для эмулятора и покетбука
-  make -f Makefile.pb
+  make
  Windows для эмулятора 
-  make -f Makefile.pb
+  make
  для покетбука 
   makearm.bat 
-
+сборка fltk версия:
+ make -f Makefile.fl
 
 TODO:
 Все платформы:

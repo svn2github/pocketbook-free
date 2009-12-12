@@ -1,3 +1,9 @@
+11.12.2009
+    - yacheckers 1.1.0
+      - add 2 players game
+      - speed up cursor in PB checkers
+      - remove square checkers
+      - fix some draw bugs in PB version
 24.07.2009
     - yacheckers 1.0.1
     - only changes for pb (fltk version not changed)

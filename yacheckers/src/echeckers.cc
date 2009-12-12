@@ -86,6 +86,56 @@ bool ECheckers::go1(int from, int field)
 }
 
 
+bool ECheckers::go2_human(int from, int field)
+{
+    from=internal(from);
+    field=internal(field);
+
+    to=field;
+
+    if(checkCapture2()) {
+        bool capture=false;
+
+        switch(board[from]) {
+        case MAN2:
+            if(manCapture2(from, DL, capture)) return true;
+            if(manCapture2(from, DR, capture)) return true;
+            return false;
+        case KING2:
+            if(kingCapture2(from, UL, capture)) return true;
+            if(kingCapture2(from, UR, capture)) return true;
+            if(kingCapture2(from, DL, capture)) return true;
+            if(kingCapture2(from, DR, capture)) return true;
+            return false;
+        }
+
+    } else {
+        switch(board[from]) {
+        case MAN2:
+            if((to==(from+6))||(to==(from+5))) {
+                board[from]=FREE;
+                if(to>42)//check this
+		    board[to]=KING2;
+                else
+		    board[to]=MAN2;
+                return true;
+            }
+            return false;
+        case KING2:
+	    if((to==(from-6))||(to==(from-5)) ||
+		    (to==(from+5))||(to==(from+6)) ) {
+		board[from]=FREE;
+                board[to]=KING2;
+                return true;
+            }
+            return false;
+        }
+    }
+
+    return false;
+}
+
+
 bool ECheckers::checkCapture1() const
 {
     for(int i=6;i<48;i++)
@@ -125,42 +175,6 @@ bool ECheckers::checkCapture1(int i) const
 
     return false;
 }
-
-
-/* ORIG FUNC aw???
-bool ECheckers::checkCapture1()
-{
-    for(int i=6;i<48;i++) {
-        switch(board[i]) {
-        case MAN1:
-	    // forward-left
-            if(board[i-6]==MAN2 || board[i-6]==KING2)
-                if(board[i-12]==FREE) return true;
-	    // forward-right
-            if(board[i-5]==MAN2 || board[i-5]==KING2)
-                if(board[i-10]==FREE) return true;
-            break;
-
-        case KING1:
-	    // forward-left
-            if(board[i-6]==MAN2 || board[i-6]==KING2)
-                if(board[i-12]==FREE) return true;
-	    // forward-right
-            if(board[i-5]==MAN2 || board[i-5]==KING2)
-                if(board[i-10]==FREE) return true;
-	    // backward-left
-            if(board[i+5]==MAN2 || board[i+5]==KING2)
-                if(board[i+10]==FREE) return true;
-	    // backward-right
-            if(board[i+6]==MAN2 || board[i+6]==KING2)
-                if(board[i+12]==FREE) return true;
-        }
-    }
-
-    return false;
-}
-*/
-
 
 // Return TRUE if a course of the player true
 // Return FALSE if a course of the player incorrect
@@ -236,6 +250,83 @@ bool ECheckers::kingCapture1(int from, int direction, bool& capture)
             board[k]=FREE;
             board[i]=save;
             board[from]=KING1;
+            capture=true;
+        }
+    }
+    return false;
+}
+// for 2 human players
+bool ECheckers::manCapture2(int from, int direction, bool& capture)
+{
+    int i=from+direction;
+
+    if(board[i]==MAN1 || board[i]==KING1) {
+        int k=i+direction;
+        if(board[k]==FREE) {
+            bool next=false;
+            int save=board[i];
+            board[from]=FREE;
+            board[i]=NONE;
+
+	    // become a king!
+            if(k>42) {//check this
+                board[k]=KING2;
+		/*aw?1            // hm see rules?
+		if(kingCapture1(k, direction+11, next)) {
+		    board[i]=FREE;
+		    return true;
+		}
+		*/
+            } else {
+                board[k]=MAN2;
+                if(manCapture2(k,DL,next)) {board[i]=FREE; return true;}
+                if(manCapture2(k,DR,next)) {board[i]=FREE; return true;}
+            }
+
+	    //?? make move here, too???
+            if((!next) && k==to) {board[i]=FREE; return true;}// move success
+
+	    // move failed, restore
+            board[k]=FREE;
+            board[i]=save;
+            board[from]=MAN2;
+            capture=true;
+        }
+    }
+
+    return false;
+}
+
+
+bool ECheckers::kingCapture2(int from, int direction, bool& capture)
+{
+    int i=from+direction;
+    if(board[i]==MAN1 || board[i]==KING1)
+    {
+        int k=i+direction;
+        if(board[k]==FREE)
+        {
+            bool next=false;
+            int save=board[i];
+            board[from]=FREE;
+            board[i]=NONE;
+            board[k]=KING2;
+
+            if(direction==UL || direction==DR) {
+                if(kingCapture2(k,UR,next)) {board[i]=FREE;return true;}
+                if(kingCapture2(k,DL,next)) {board[i]=FREE;return true;}
+            } else {
+                if(kingCapture2(k,UL,next)) {board[i]=FREE;return true;}
+                if(kingCapture2(k,DR,next)) {board[i]=FREE;return true;}
+            }
+	    if(kingCapture2(k,direction,next)) {board[i]=FREE;return true;}
+
+            if((!next) && k==to) {board[i]=FREE;return true;}// move ok
+
+	    // move failed, restore
+            board[k]=FREE;
+            board[i]=save;
+            board[from]=KING2;
             capture=true;
         }
     }

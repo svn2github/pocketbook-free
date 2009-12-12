@@ -33,6 +33,7 @@ public:
   bool is_white;
   Checkers::GameSkill skill;
   //
+  bool ai2,go1;
 protected:  
   bool check_win(bool human_move){
 	  if(game_over) return true;
@@ -60,7 +61,7 @@ protected:
   virtual void set_checkers() = 0;
 public:
   // create new game
-  void new_game()
+  void new_game(bool h2)
   {
     if(game) delete game;
     if(Checkers::RUSSIAN == rules ) game=new RCheckers();
@@ -69,7 +70,11 @@ public:
     set_checkers();
     game_over = false;
     winner = 0;
-    if(!is_white)game->go2();
+    ai2=h2;
+    if(!is_white){
+      if(ai2){game->go2();go1=true;}
+      else go1=false;
+    }else go1=true;
     set_checkers();
   }
   

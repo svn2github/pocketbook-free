@@ -53,6 +53,8 @@ public:
   bool setup(int setupboard[]);// warn allways return true now
   // human side 
   virtual bool go1(int from, int to)=0;
+  // human2 side
+  virtual bool go2_human(int from, int to)=0;
   // ai side
   void go2();
 
@@ -116,6 +118,9 @@ protected:
 
   virtual bool manCapture1(int,int,bool &)=0;
   virtual bool kingCapture1(int,int,bool &)=0;
+  // for 2 player game
+  virtual bool manCapture2(int,int,bool &)=0;
+  virtual bool kingCapture2(int,int,bool &)=0;
 
   int internal(int) const;	// Return internal board position
 };

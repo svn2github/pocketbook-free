@@ -33,6 +33,7 @@ class RCheckers:public Checkers
 
 public:
     virtual bool go1(int,int);
+    virtual bool go2_human(int,int);
 
 
     virtual int type() const { return RUSSIAN; }
@@ -52,7 +53,9 @@ private:
 
     bool manCapture2(int,int &);
     bool kingCapture2(int,int,int &);
-
+    // for 2 player game
+    bool manCapture2(int,int,bool &);
+    bool kingCapture2(int,int,bool &);
 };
 
 #endif

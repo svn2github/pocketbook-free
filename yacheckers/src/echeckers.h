@@ -31,6 +31,7 @@ class ECheckers:public Checkers
 {
 public:
     virtual bool go1(int,int);
+    virtual bool go2_human(int,int);
 
     virtual int type() const { return ENGLISH; }
 
@@ -48,7 +49,9 @@ private:
 
     bool manCapture2(int,int &);
     bool kingCapture2(int,int,int &);
-
+    // for 2 player game not implimented yet! fix this
+    bool manCapture2(int,int,bool &);
+    bool kingCapture2(int,int,bool &);
 };
 
 #endif
