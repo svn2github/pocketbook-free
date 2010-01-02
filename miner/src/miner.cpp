@@ -89,7 +89,7 @@ void DrawFieldCell( int x, int y, int cursor)
 
 void PrepareGameField( void)
 {
-	char buffer [2];
+	char buffer [3];//last is '\0'
 	cursor_x = FIELDWIDE/2;
 	cursor_y = FIELDWIDE/2;
 	screen_offs = (ScreenWidth()-CELLWIDE*FIELDWIDE)/2; //screen offset from top left
