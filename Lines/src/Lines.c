@@ -35,6 +35,7 @@ int emptyCount;
 
 int score;
 int maxScore;
+int gameInProgress = 0;
 
 void prepareBoard()
 {
@@ -165,6 +166,7 @@ void gameOver()
 	prepareBoard();
 	drawBoard();
 	emit(GAME_BEGIN_EMITS);
+	gameInProgress = 0;
 }
 
 int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
@@ -512,6 +514,7 @@ void trySelect()
 		{
 			if (findPath())
 			{
+				gameInProgress = 1;
 				//moving item
 				board[cursorX][cursorY] = board[selectedX][selectedY];
 				oldX = selectedX;
@@ -557,7 +560,14 @@ void exitDialog(int key)
 
 void tryExit()
 {
-	Dialog(ICON_QUESTION, "Exit", "Do you really want to leave application? Your progress won't be saved.", "Yes", "No", exitDialog);
+	if (gameInProgress)
+	{
+		Dialog(ICON_QUESTION, "Exit", "Do you really want to leave application? Your progress won't be saved.", "Yes", "No", exitDialog);
+	}
+	else
+	{
+		CloseApp();
+	}
 }
 
 int main_handler(int type, int par1, int par2)
