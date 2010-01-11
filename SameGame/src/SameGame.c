@@ -9,6 +9,7 @@
 
 #define H_SIZE 5
 #define W_SIZE 6
+#define BONUS_LEVEL 0.85
 #define CELL_SIZE 46
 #define ITEMS 5
 #define CURSOR_DELTA 1
@@ -16,7 +17,7 @@
 #define EMPTY -1
 
 int minX, maxX, minY, maxY;
-
+int baseBonus = 50, maxBonus = 1000;
 extern const ibitmap item0, item1, item2, item3, item4;
 ifont *font;
 
@@ -28,6 +29,7 @@ int cursorX, cursorY;
 int briksErased;
 int score;
 int maxScore;
+int gameInProgress = 0;
 
 void prepareBoard()
 {
@@ -124,13 +126,6 @@ void drawCell(int x, int y, int refresh)
 	}
 }
 
-void gameOver()
-{
-	Message(ICON_INFORMATION, "Game over!",
-			"No more matches available!", 10000);
-	prepareBoard();
-	drawBoard();
-}
 
 void updateMaxScore()
 {
@@ -141,6 +136,42 @@ void updateMaxScore()
 		fprintf(config, "%i", maxScore);
 		fclose(config);
 	}
+}
+
+void gameOver()
+{
+	int i, j, bonus, count = 0;
+	double coefficient;
+	char buf[256];
+
+	for (i = 0; i < H_SIZE; i++)
+	{
+		for (j = 0; j < W_SIZE; j++)
+		{
+			if (board[i][j] == EMPTY)
+			{
+				count++;
+			}
+		}
+	}
+
+	if (BONUS_LEVEL * W_SIZE * H_SIZE < count)
+	{
+		coefficient = (1.0 * count / (H_SIZE * W_SIZE) - BONUS_LEVEL) / (1 - BONUS_LEVEL);
+		bonus = baseBonus + coefficient * coefficient * (maxBonus - baseBonus);
+		score += bonus;
+		sprintf(buf, "No more matches available! You scored %i, including %i for cleared %i%% of screen cleared.", score, bonus, 100 * count / (H_SIZE * W_SIZE));
+		updateMaxScore();
+	}
+	else
+	{
+		sprintf(buf, "No more matches available! You scored %i and cleared %i%% of screen.", score, 100 * count / (H_SIZE * W_SIZE));
+	}
+
+	Message(ICON_INFORMATION, "Game over!", buf, 10000);
+	prepareBoard();
+	drawBoard();
+	gameInProgress = 0;
 }
 
 void move(int dx, int dy)
@@ -312,14 +343,15 @@ void trySelect()
 {
 	if (hasSameNeighbours(cursorX, cursorY))
 	{
+		gameInProgress = 1;
 		resetCounters();
 		int briksErased = erase(cursorX, cursorY);
 		score += briksErased * (briksErased - 1);
-		drawScores();
 		if (score > maxScore)
 		{
 			updateMaxScore();
 		}
+		drawScores();
 		applyGravity();
 		updateCountedArea();
 		if (!areMatches())
@@ -339,7 +371,14 @@ void exitDialog(int key)
 
 void tryExit()
 {
-	Dialog(ICON_QUESTION, "Exit", "Do you really want to leave application? Your progress won't be saved.", "Yes", "No", exitDialog);
+	if (gameInProgress)
+	{
+		Dialog(ICON_QUESTION, "Exit", "Do you really want to leave application? Your progress won't be saved.", "Yes", "No", exitDialog);
+	}
+	else
+	{
+		CloseApp();
+	}
 }
 
 int main_handler(int type, int par1, int par2)
