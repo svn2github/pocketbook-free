@@ -22,9 +22,9 @@ extern const ibitmap item0, item1, item2, item3, item4, item5, item6;
 ifont *font;
 
 #ifndef EMULATOR
-const char *configFileName = STATEPATH "/sokoban.cfg";
+const char *configFileName = STATEPATH "/lines.cfg";
 #else
-const char *configFileName = "sokoban.cfg";
+const char *configFileName = "lines.cfg";
 #endif
 
 int board[SIZE][SIZE];
