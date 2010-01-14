@@ -21,7 +21,11 @@
 extern const ibitmap item0, item1, item2, item3, item4, item5, item6;
 ifont *font;
 
-const char *configFileName = STATEPATH "/lines.cfg";
+#ifndef EMULATOR
+const char *configFileName = STATEPATH "/sokoban.cfg";
+#else
+const char *configFileName = "sokoban.cfg";
+#endif
 
 int board[SIZE][SIZE];
 int lines[SIZE][SIZE];
@@ -37,6 +41,14 @@ int score;
 int maxScore;
 int gameInProgress = 0;
 
+static imenu mainMenu[] = {
+	{ ITEM_HEADER,   0, "Menu", NULL },
+	{ ITEM_ACTIVE, 101, "Start New Game", NULL },
+	{ ITEM_ACTIVE, 102, "Help", NULL },
+	{ ITEM_ACTIVE, 103, "About", NULL },
+	{ ITEM_ACTIVE, 104, "Exit", NULL },
+	{ 0, 0, NULL, NULL }
+};
 void prepareBoard()
 {
 	int i, j;
@@ -159,14 +171,19 @@ void drawPreview()
 	PartialUpdateBW(previewBaseX, previewBaseY, STEP_EMITS * CELL_SIZE, CELL_SIZE);
 }
 
+void startNewGame()
+{
+    prepareBoard();
+    drawBoard();
+    emit(GAME_BEGIN_EMITS);
+    gameInProgress = 0;
+}
+
 void gameOver()
 {
 	Message(ICON_INFORMATION, "Game over!",
 			"Sorry, no more room for balls available", 10000);
-	prepareBoard();
-	drawBoard();
-	emit(GAME_BEGIN_EMITS);
-	gameInProgress = 0;
+    startNewGame();
 }
 
 int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
@@ -570,6 +587,31 @@ void tryExit()
 	}
 }
 
+int selectedIndex = 0;
+void mainMenuHandler(int index) {
+	selectedIndex = index;
+	switch (index) {
+	case 101:
+		startNewGame();
+		break;
+	case 102:
+		Message(0, "Help", "This game was originally created as Color Lines in 1992 by Oleg Demin for the Gamos company. It starts with a 9x9 board with five balls chosen out of seven different kinds. You can move one ball per turn, moving cursor, clicking OK on ball to move and again OK on empty cell to move. You may only move a ball to a particular place if there is a path (linked set of vertical and horizontal empty cells) between the current position of the ball and the desired destination. The goal is to remove balls by forming lines (horizontal, vertical or diagonal) of at least five balls of the same kind. If you do form such lines, the balls in them disappear, and you gain one turn, i.e. you can move another ball. If not, three new balls are added, and the game continues until the board is full.\n(Wikipedia: http://en.wikipedia.org/wiki/Lines_(video_game) )\n"
+				"You are scoring points for removing lines, points are higher for more balls in removed in one time.", 60000);
+		break;
+	case 103:
+		Message(0, "About", "Lines for Pocketbook\nDeveloped by Andriy Kvasnytsya (professor.kam at gmail.com), 2010\nGraphics by Tetiana Sherbul, 2010\nOriginal idea by Oleg Demin, 1992", 10000);
+		break;
+	case 104:
+		tryExit();
+		break;
+	}
+}
+
+void showMenu()
+{
+	OpenMenu(mainMenu, selectedIndex, 20, 20, mainMenuHandler);
+}
+
 int main_handler(int type, int par1, int par2)
 {
 	int i;
@@ -628,7 +670,7 @@ int main_handler(int type, int par1, int par2)
 	}
 	else if (type == EVT_KEYREPEAT && par1 == KEY_OK)
 	{
-		tryExit();
+		showMenu();
 	}
 	else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0)
 	{
