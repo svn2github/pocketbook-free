@@ -7,36 +7,77 @@
 #include <dlfcn.h>
 #include "inkview.h"
 
-#define H_SIZE 5
-#define W_SIZE 6
+#define MAX_H_SIZE 15
+#define MAX_W_SIZE 19
+#define MIN_H_SIZE 10
+#define MIN_W_SIZE 12
+#define MODES_COUNT 4
+#define MIN_BONUS_FOR_MIN_BOARD 50
+#define MAX_BONUS_FOR_MIN_BOARD 1000
+#define MIN_BONUS_FOR_MAX_BOARD 200
+#define MAX_BONUS_FOR_MAX_BOARD 5000
 #define BONUS_LEVEL 0.85
-#define CELL_SIZE 46
+#define CELL_SIZE 40
+#define CURSOR_DELTA 10
+#define CURSOR_SIZE 10
 #define ITEMS 5
-#define CURSOR_DELTA 1
-#define IMAGE_DELTA 3
 #define EMPTY -1
 
 int minX, maxX, minY, maxY;
-int baseBonus = 50, maxBonus = 1000;
 extern const ibitmap item0, item1, item2, item3, item4;
 ifont *font;
 
-const char *configFileName = STATEPATH "/samegame.cfg";
+#ifndef EMULATOR
+const char *configFileName = STATEPATH "/games/samegame.cfg";
+#else
+const char *configFileName = "samegame.cfg";
+#endif
 
-int board[H_SIZE][W_SIZE];
+int board[MAX_H_SIZE][MAX_W_SIZE];
+int hSize, wSize;
+int mode = 3;
 int baseX, baseY;
 int cursorX, cursorY;
 int briksErased;
 int score;
-int maxScore;
+int maxScores[MODES_COUNT];
 int gameInProgress = 0;
+
+static imenu levelSizesMenu[] = {
+	{ ITEM_ACTIVE, 110, "19*15", NULL },
+	{ ITEM_ACTIVE, 111, "16*14", NULL },
+	{ ITEM_ACTIVE, 112, "14*12", NULL },
+	{ ITEM_ACTIVE, 113, "12*10", NULL },
+	{ 0, 0, NULL, NULL }
+};
+
+static int modesHeight[] = { 19, 16, 14, 12 };
+static int modesWidth[] = { 15, 14, 12, 10 };
+
+static imenu mainMenu[] = {
+	{ ITEM_HEADER,   0, "Menu", NULL },
+	{ ITEM_ACTIVE, 101, "Start New Game", NULL },
+	{ ITEM_SUBMENU, 0, "Select Board Size", levelSizesMenu },
+	{ ITEM_ACTIVE, 103, "Help", NULL },
+	{ ITEM_ACTIVE, 104, "About", NULL },
+	{ ITEM_ACTIVE, 105, "Exit", NULL },
+	{ 0, 0, NULL, NULL }
+};
+
+void setMode()
+{
+    hSize = modesWidth[mode];
+    wSize = modesHeight[mode];
+    baseX = (ScreenWidth() - hSize * CELL_SIZE) / 2;
+    baseY = (ScreenHeight() - wSize * CELL_SIZE - 40) / 2;
+}
 
 void prepareBoard()
 {
 	int i, j;
-	for (i = 0; i < H_SIZE; i++)
+	for (i = 0; i < hSize; i++)
 	{
-		for (j = 0; j < W_SIZE; j++)
+		for (j = 0; j < wSize; j++)
 		board[i][j] = rand() % ITEMS;
 	}
 	cursorX = cursorY = 0;
@@ -49,22 +90,23 @@ void drawScores()
 {
 	SetFont(font, WHITE);
 
-	FillArea(0, ScreenHeight() - 50, ScreenWidth(), 50, DGRAY);
+	FillArea(0, ScreenHeight() - 40, ScreenWidth(), 40, DGRAY);
 	char buf[16];
 	sprintf(buf, "Current Score: %i", score);
-	DrawString(5, ScreenHeight() - 45, buf);
-	sprintf(buf, "Highest Score: %i", maxScore);
+	DrawString(5, ScreenHeight() - 40, buf);
+	sprintf(buf, "Highest Score: %i", maxScores[mode]);
 	DrawString(5, ScreenHeight() - 20, buf);
-	PartialUpdate(0, ScreenHeight() - 50, ScreenWidth(), 50);
+	PartialUpdate(0, ScreenHeight() - 40, ScreenWidth(), 40);
 }
 
 void drawBoard()
 {
 	int i, j;
 	ClearScreen();
-	for (i = 0; i < H_SIZE; i++)
+	DrawRect(baseX - 2, baseY - 2, hSize * CELL_SIZE + 4, wSize * CELL_SIZE + 4, BLACK);
+	for (i = 0; i < hSize; i++)
 	{
-		for (j = 0; j < W_SIZE; j++)
+		for (j = 0; j < wSize; j++)
 		{
 			drawCell(i, j, 0);
 		}
@@ -89,11 +131,11 @@ void updateCountedArea()
 void drawCell(int x, int y, int refresh)
 {
 	int xShift, yShift, item;
-	FillArea(baseX + x * CELL_SIZE + 1, baseY + y * CELL_SIZE + 1, CELL_SIZE - 1, CELL_SIZE - 1, WHITE);
+	FillArea(baseX + x * CELL_SIZE, baseY + y * CELL_SIZE, CELL_SIZE, CELL_SIZE, WHITE);
 
 	item = board[x][y];
-	xShift = baseX + x * CELL_SIZE + IMAGE_DELTA;
-	yShift = baseY + y * CELL_SIZE + IMAGE_DELTA;
+	xShift = baseX + x * CELL_SIZE;
+	yShift = baseY + y * CELL_SIZE;
 
 	if (item != EMPTY)
 	{
@@ -118,7 +160,8 @@ void drawCell(int x, int y, int refresh)
 
 	if (x == cursorX && y == cursorY)
 	{
-		DrawRect(baseX + x * CELL_SIZE + CURSOR_DELTA, baseY + y * CELL_SIZE + CURSOR_DELTA, CELL_SIZE - 2 * CURSOR_DELTA, CELL_SIZE - 2 * CURSOR_DELTA, BLACK);
+		FillArea(baseX + x * CELL_SIZE + CURSOR_DELTA, baseY + y * CELL_SIZE + CURSOR_DELTA, CURSOR_SIZE, CURSOR_SIZE, WHITE);
+		DrawRect(baseX + x * CELL_SIZE + CURSOR_DELTA, baseY + y * CELL_SIZE + CURSOR_DELTA, CURSOR_SIZE, CURSOR_SIZE, BLACK);
 	}
 	if (refresh)
 	{
@@ -126,27 +169,43 @@ void drawCell(int x, int y, int refresh)
 	}
 }
 
+void saveSettings()
+{
+	int i = 0;
+    FILE *config = fopen(configFileName, "w");
+    fprintf(config, "%i\n", mode);
+    for (i = 0; i < MODES_COUNT; i++)
+	{
+		fprintf(config, "%i\n", maxScores[i]);
+	}
+    fclose(config);
+}
 
 void updateMaxScore()
 {
-	if (maxScore < score)
+	if (maxScores[mode] < score)
 	{
-		maxScore = score;
-		FILE *config = fopen(configFileName, "w");
-		fprintf(config, "%i", maxScore);
-		fclose(config);
+		maxScores[mode] = score;
+	    saveSettings();
 	}
+}
+
+void startNewGame()
+{
+    prepareBoard();
+    drawBoard();
+    gameInProgress = 0;
 }
 
 void gameOver()
 {
 	int i, j, bonus, count = 0;
-	double coefficient;
+	double clearanceCoefficient, boardCoefficeint, baseBonus, maxBonus;
 	char buf[256];
 
-	for (i = 0; i < H_SIZE; i++)
+	for (i = 0; i < hSize; i++)
 	{
-		for (j = 0; j < W_SIZE; j++)
+		for (j = 0; j < wSize; j++)
 		{
 			if (board[i][j] == EMPTY)
 			{
@@ -155,35 +214,36 @@ void gameOver()
 		}
 	}
 
-	if (BONUS_LEVEL * W_SIZE * H_SIZE < count)
+	if (BONUS_LEVEL * wSize * hSize < count)
 	{
-		coefficient = (1.0 * count / (H_SIZE * W_SIZE) - BONUS_LEVEL) / (1 - BONUS_LEVEL);
-		bonus = baseBonus + coefficient * coefficient * (maxBonus - baseBonus);
+		boardCoefficeint = ((double)hSize * wSize - MIN_H_SIZE * MIN_W_SIZE) / (MAX_H_SIZE * MAX_W_SIZE - MIN_H_SIZE * MIN_W_SIZE);
+		clearanceCoefficient = ((double)count / (hSize * wSize) - BONUS_LEVEL) / (1 - BONUS_LEVEL);
+		baseBonus = MIN_BONUS_FOR_MIN_BOARD + boardCoefficeint * (MIN_BONUS_FOR_MAX_BOARD - MIN_BONUS_FOR_MIN_BOARD);
+		maxBonus = MAX_BONUS_FOR_MIN_BOARD + boardCoefficeint * (MAX_BONUS_FOR_MAX_BOARD - MAX_BONUS_FOR_MIN_BOARD);
+		bonus = baseBonus + clearanceCoefficient * clearanceCoefficient * (maxBonus - baseBonus);
 		score += bonus;
-		sprintf(buf, "No more matches available! You scored %i, including %i for cleared %i%% of screen cleared.", score, bonus, 100 * count / (H_SIZE * W_SIZE));
+		sprintf(buf, "No more matches available! You scored %i, including %i for cleared %i%% of screen.", score, bonus, 100 * count / (hSize * wSize));
 		updateMaxScore();
 	}
 	else
 	{
-		sprintf(buf, "No more matches available! You scored %i and cleared %i%% of screen.", score, 100 * count / (H_SIZE * W_SIZE));
+		sprintf(buf, "No more matches available! You scored %i and cleared %i%% of screen.", score, 100 * count / (hSize * wSize));
 	}
 
 	Message(ICON_INFORMATION, "Game over!", buf, 10000);
-	prepareBoard();
-	drawBoard();
-	gameInProgress = 0;
+    startNewGame();
 }
 
 void move(int dx, int dy)
 {
 	int minX, minY;
 	int oldX, oldY;
-	if ((cursorX + dx < 0 || cursorX + dx >= H_SIZE || cursorY + dy < 0 || cursorY + dy >= W_SIZE))
+	if ((cursorX + dx < 0 || cursorX + dx >= hSize || cursorY + dy < 0 || cursorY + dy >= wSize))
 	{
 		oldX = cursorX;
 		oldY = cursorY;
-		cursorX = (H_SIZE + cursorX + dx) % H_SIZE;
-		cursorY = (W_SIZE + cursorY + dy) % W_SIZE;
+		cursorX = (hSize + cursorX + dx) % hSize;
+		cursorY = (wSize + cursorY + dy) % wSize;
 		drawCell(oldX, oldY, 1);
 		drawCell(cursorX, cursorY, 1);
 	}
@@ -204,8 +264,8 @@ void move(int dx, int dy)
 
 void resetCounters()
 {
-	minX = H_SIZE;
-	minY = W_SIZE;
+	minX = hSize;
+	minY = wSize;
 	maxX = maxY = -1;
 }
 
@@ -234,8 +294,8 @@ int hasSameNeighbours(int i, int j)
 	if (board[i][j] != EMPTY &&
 			((i > 0 && board[i - 1][j] == board[i][j]) ||
 			(j > 0 && board[i][j - 1] == board[i][j]) ||
-			(i < H_SIZE - 1 && board[i + 1][j] == board[i][j]) ||
-			(j < W_SIZE - 1 && board[i][j + 1] == board[i][j])))
+			(i < hSize - 1 && board[i + 1][j] == board[i][j]) ||
+			(j < wSize - 1 && board[i][j + 1] == board[i][j])))
 	{
 		return 1;
 	}
@@ -248,9 +308,9 @@ int hasSameNeighbours(int i, int j)
 int areMatches()
 {
 	int i, j;
-	for(i = 0; i < H_SIZE; i++)
+	for(i = 0; i < hSize; i++)
 	{
-		for (j = 0; j < W_SIZE; j++)
+		for (j = 0; j < wSize; j++)
 		{
 			if (hasSameNeighbours(i, j))
 			{
@@ -275,11 +335,11 @@ int erase(int x, int y)
 	{
 		briksErased += erase(x, y - 1);
 	}
-	if (x < H_SIZE - 1 && board[x + 1][y] == item)
+	if (x < hSize - 1 && board[x + 1][y] == item)
 	{
 		briksErased += erase(x + 1, y);
 	}
-	if (y < W_SIZE - 1 && board[x][y + 1] == item)
+	if (y < wSize - 1 && board[x][y + 1] == item)
 	{
 		briksErased += erase(x, y + 1);
 	}
@@ -289,9 +349,9 @@ int erase(int x, int y)
 void applyGravity()
 {
 	int i, j, k;
-	for (i = 0; i < H_SIZE; i++)
+	for (i = 0; i < hSize; i++)
 	{
-		for (j = W_SIZE - 1; j >= 0; j--)
+		for (j = wSize - 1; j >= 0; j--)
 		{
 			if (board[i][j] == EMPTY)
 			{
@@ -315,17 +375,17 @@ void applyGravity()
 			}
 		}
 	}
-	for (i = H_SIZE - 1; i >= 0; i--)
+	for (i = hSize - 1; i >= 0; i--)
 	{
 		int found = 0;
-		if (board[i][W_SIZE - 1] == EMPTY)
+		if (board[i][wSize - 1] == EMPTY)
 		{
 			for (k = i - 1; k >= 0; k--)
 			{
-				if (board[k][W_SIZE - 1] != EMPTY)
+				if (board[k][wSize - 1] != EMPTY)
 				{
 					found = 1;
-					for (j = W_SIZE - 1; j >= 0 && board[k][j] != EMPTY; j--)
+					for (j = wSize - 1; j >= 0 && board[k][j] != EMPTY; j--)
 					{
 						board[i][j] = board[k][j];
 						board[k][j] = EMPTY;
@@ -347,7 +407,7 @@ void trySelect()
 		resetCounters();
 		int briksErased = erase(cursorX, cursorY);
 		score += briksErased * (briksErased - 1);
-		if (score > maxScore)
+		if (score > maxScores[mode])
 		{
 			updateMaxScore();
 		}
@@ -359,6 +419,41 @@ void trySelect()
 			gameOver();
 		}
 	}
+}
+
+void tryExit();
+
+int selectedIndex = 0;
+void mainMenuHandler(int index) {
+	selectedIndex = index;
+	switch (index) {
+	case 101:
+		startNewGame();
+		break;
+	case 103:
+		Message(0, "Help", "This game is played on a rectangular field initially filled with 5 kinds of blocks placed at random. If there are groups of adjoining blocks (more than one) of the same kind, you may remove them from the screen by pressing OK. Blocks that are no longer supported by removed blocks will fall down, and a column without any blocks will be trimmed away by other columns sliding to the left. The goal of the game is to remove as many blocks from the playing field as possible. \n(Wikipedia: http://en.wikipedia.org/wiki/SameGame)\n"
+				"You are scoring points for each removed group, bonus is higher more tiles you remove. Also if you manage to clear more that 85% of board, you'll receive bonus up to... Try find out yourself, how big can it be ;)", 60000);
+		break;
+	case 104:
+		Message(0, "About", "SameGame for Pocketbook\nDeveloped by Andriy Kvasnytsya (professor.kam at gmail.com), 2010\nOriginal idea by Kuniaki Moribe, 1985", 10000);
+		break;
+	case 105:
+		tryExit();
+		break;
+	case 110:
+	case 111:
+	case 112:
+	case 113:
+		mode = index - 110;
+		setMode();
+		saveSettings();
+		startNewGame();
+	}
+}
+
+void showMenu()
+{
+	OpenMenu(mainMenu, selectedIndex, 20, 20, mainMenuHandler);
 }
 
 void exitDialog(int key)
@@ -383,6 +478,7 @@ void tryExit()
 
 int main_handler(int type, int par1, int par2)
 {
+	int i, temp;
 	if (type == EVT_INIT)
 	{
 		srand(time(NULL));
@@ -391,16 +487,23 @@ int main_handler(int type, int par1, int par2)
 		FILE *config = fopen(configFileName, "r");
 		if (config != NULL)
 		{
-			fscanf(config, "%i", &maxScore);
+			fscanf(config, "%i", &mode);
+			for (i = 0; i < MODES_COUNT; i++)
+			{
+				fscanf(config, "%i", &temp);
+				maxScores[i] = temp;
+			}
 			fclose(config);
 		}
 		else
 		{
-			maxScore = 0;
+			mode = 3;
+			for (i = 0; i < MODES_COUNT; i++)
+			{
+				maxScores[i] = 0;
+			}
 		}
-
-		baseX = (ScreenWidth() - H_SIZE * CELL_SIZE) / 2;
-		baseY = (ScreenHeight() - W_SIZE * CELL_SIZE) / 2;
+	    setMode();
 
 		prepareBoard();
 	}
@@ -427,11 +530,13 @@ int main_handler(int type, int par1, int par2)
 			case KEY_BACK:
 				tryExit();
 				break;
+			case KEY_MENU:
+				showMenu();
 		}
 	}
 	else if (type == EVT_KEYREPEAT && par1 == KEY_OK)
 	{
-		tryExit();
+		showMenu();
 	}
 	else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0)
 	{
