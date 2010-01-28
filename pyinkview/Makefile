@@ -1,13 +1,9 @@
-# Makefile
-PROJECT=_inkview.dll
+# PBSDK Makefile
 
-PBSDKDIR=/cygdrive/c/PBSDK
-PYTHONDIR=/cygdrive/C/PBSDK/src/Python-3.1.1-pc
-SWIGDIR=/cygdrive/c/PBSDK/src/swigwin-1.3.40
+TARGET=_inkview.dll
 
-INCLUDE=-I$(PBSDKDIR)/usr/include -I$(PYTHONDIR) -I$(PYTHONDIR)/Include -I./libffi
-LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 $(PYTHONDIR)/libpython3.1.dll.a -L./libffi -lffi
-#-L$(PBSDKDIR)/lib 
+INCLUDE=-I/usr/include -I/usr/local/include/python3.1 -I/usr/local/lib/libffi-3.0.9/include
+LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 -L/usr/local/lib -lpython3.1.dll -lffi
 
 IMAGES=$(foreach dir, demo/images/, $(wildcard demo/images/*.bmp))
 INTERFACES=$(foreach dir, ./, $(wildcard ./*.i))
@@ -18,13 +14,13 @@ OBJECTS=$(SOURCES:.c=.o)
 CC=gcc
 CCFLAGS=-Wall -g -O0
 
-SWIG=$(SWIGDIR)/swig
+SWIG=/cygdrive/c/PBSDK/src/swigwin-1.3.40/swig
 PBRES=pbres
 
-all: $(PROJECT)
+all: $(TARGET)
 
-$(PROJECT): $(OBJECTS)
-	$(CC) $(CCFLAGS) -shared -o $(PROJECT) $(OBJECTS) $(LIBS)
+$(TARGET): $(OBJECTS)
+	$(CC) $(CCFLAGS) -shared -o $(TARGET) $(OBJECTS) $(LIBS)
 
 %.o: %.c
 	$(CC) $(CCFLAGS) $(INCLUDE) -c $< -o $@
