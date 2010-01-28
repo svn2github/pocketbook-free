@@ -1,9 +1,9 @@
 # PBSDK Makefile
 
-TARGET=_inkview.dll
+TARGET=_inkview.so
 
-INCLUDE=-I/usr/include -I/usr/local/include/python3.1 -I/usr/local/lib/libffi-3.0.9/include
-LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 -L/usr/local/lib -lpython3.1.dll -lffi
+INCLUDE=-I/arm-linux/include -I/usr/local/arm-linux/include/python3.1 -I/usr/local/arm-linux/lib/libffi-3.0.9/include
+LIBS=-linkview -lfreetype -ljpeg -lz -L/usr/local/arm-linux/lib -lpython3.1 -lffi
 
 IMAGES=$(foreach dir, demo/images/, $(wildcard demo/images/*.bmp))
 INTERFACES=$(foreach dir, ./, $(wildcard ./*.i))
