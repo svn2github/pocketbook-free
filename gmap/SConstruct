@@ -33,7 +33,7 @@ emu.ParseConfig('libpng-config --libs --cflags')
 arm = Environment(CC='arm-linux-gcc', ENV=myenv)
 arm.Prepend(
     SDKDIR=sdkdir,
-    CFLAGS=['-I$SDKDIR/arm-linux/include','-I$SDKDIR/include','-I/usr/include',
+    CFLAGS=['-I$SDKDIR/arm-linux/include','-I$SDKDIR/include',
         '-DARM','-Wall']+cflags,
     LIBS=['-linkview','-lfreetype','-ljpeg','-lpng','-lz','-lm'],
     LIBPATH=['$SDKDIR/arm-linux/lib'],

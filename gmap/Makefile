@@ -1,7 +1,7 @@
 SDKDIR = /usr/local/pocketbook
 LIBDIR=-L$(SDKDIR)/lib
-LIBS = -linkview -ljpeg `freetype-config --libs` `libpng-config --libs`
-INCLUDE = -I/usr/include -I$(SDKDIR)/include `freetype-config --cflags` \
+LIBS = -linkview -ljpeg `freetype-config --libs` `libpng-config --libs`  -lstdc++
+INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags` \
 	  `libpng-config --cflags`
 OUT = gmap
 WINEOUT = $(OUT).exe.so
@@ -10,7 +10,7 @@ CFLAGS = -Wall -fomit-frame-pointer -O2
 WINEFLAGS = -mwindows -m32
 CFILES = src/*.c
 IMGC = src/images.temp.c
-ARMCC = arm-linux-gnu-gcc-3.4
+ARMCC = arm-linux-gcc-3.4.1
 ARMLIBDIR = -L$(SDKDIR)/arm-linux/lib $(LIBDIR)
 ARMINCLUDE = -I$(SDKDIR)/arm-linux/include $(INCLUDE)
 ARMOUT = $(OUT).app

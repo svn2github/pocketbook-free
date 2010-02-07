@@ -395,11 +395,11 @@ static char* choice_orientation[] =
 	{ "Portrait", "Left landscape", "Right landscape", "Upside-down", NULL };
 
 static iconfigedit confedit[] = {
-	{ "Start position", "usepos", CFG_INDEX, "0", choice_startwith },
-	{ "Maps located on", "disk", CFG_INDEX, "0", choice_disk },
-	{ "Path within disk", "path", CFG_TEXT, MAP_DEFAULT_DIR, NULL },
-	{ "Initial orientation", "orientation", CFG_INDEX, "0", choice_orientation },
-	{ NULL, NULL, 0, NULL, NULL}
+	{ CFG_INDEX, NULL, "Start position", "hint.usepos", "usepos", "0", choice_startwith, NULL },
+	{ CFG_INDEX, NULL, "Maps located on", "hint.disk", "disk", "0", choice_disk, NULL },
+	{ CFG_TEXT, NULL, "Path within disk", "hint.path", "path", MAP_DEFAULT_DIR, NULL, NULL },
+	{ CFG_INDEX, NULL, "Initial orientation", "hint.orientation", "orientation", "0", choice_orientation, NULL },
+    { 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL }
 };
 
 void load_config() {
