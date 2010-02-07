@@ -163,6 +163,31 @@ void rotate_handler(int o) {
 	main_repaint();
 }
 
+int shift_pixel(int direction, int hold) {
+    int shift=0;
+    int divider=4;
+    switch(hold) {
+        case 1:
+            divider=2;
+            break;
+        case 2:
+            divider=1;
+            break;
+    }
+    switch(direction) {
+        case KEY_LEFT:
+        case KEY_RIGHT:
+            shift=ScreenWidth()/divider;
+            break;
+        case KEY_DOWN:
+            shift-=STATUSBAR_HEIGHT;
+        case KEY_UP:
+            shift=ScreenHeight()/divider;
+            break;
+    }
+    return shift;
+}
+
 void zoom_world() {
 	centerx=0x80000000U;
 	centery=0x80000000U;
@@ -281,7 +306,7 @@ int show_statusbar() {
 	// TODO: bitmap with map/satellite/terrain
 	double lat, lon;
 	char buf[200];
-	int w=ScreenWidth(), yb=ScreenHeight(), yt=yb-20;
+	int w=ScreenWidth(), yb=ScreenHeight(), yt=yb-STATUSBAR_HEIGHT;
 	DrawLine(0, yt, w, yt, DGRAY);
 	DrawLine(0, yt+1, w, yt+1, LGRAY);
 	FillArea(0, yt+2, w, yb-yt-2, DGRAY);
@@ -335,6 +360,8 @@ void main_repaint() {
 }
 
 int main_handler(int type, int par1, int par2) {
+    static int latest_key=0;
+    static int repeat=0;
 	if (type == EVT_INIT) {
 		fprintf(stderr,"EVT_INIT\n");
 		SetOrientation(orientation);
@@ -344,10 +371,17 @@ int main_handler(int type, int par1, int par2) {
 	if (type == EVT_SHOW) {
 		main_repaint();
 	}
-	if (type == EVT_KEYPRESS || type == EVT_KEYREPEAT) {
-                int shift = (type==EVT_KEYPRESS)?CLICK_SHIFT:HOLD_SHIFT;
-		fprintf(stderr,"EVT_KEYPRESS(%d,%d)\n", par1,par2);
-		switch(par1) {
+    if(type == EVT_KEYPRESS) {
+        repeat=0;
+        latest_key=par1;
+    }
+    if(type == EVT_KEYREPEAT) {
+        if(repeat<2) repeat++;
+    }
+	if ((type == EVT_KEYRELEASE && repeat==0) || type==EVT_KEYREPEAT) {
+        int shift = shift_pixel(latest_key, repeat);
+		//fprintf(stderr,"EVT_KEYPRESS(%d,%d)\n", par1,par2);
+		switch(latest_key) {
 		case KEY_LEFT:
 			centerx-=shift*tile_pixel_size(zoom);
 			Repaint();
@@ -364,22 +398,33 @@ int main_handler(int type, int par1, int par2) {
 			centery+=shift*tile_pixel_size(zoom);
 			Repaint();
 			break;
+		case KEY_NEXT:
 		case KEY_PLUS:
-			if(zoom>MIN_ZOOM) --zoom;
+			if(zoom>MIN_ZOOM) zoom-=(repeat>0?2:1);
 			Repaint();
 			break;
+		case KEY_PREV:
+            if(repeat>0) {
+                //Exit on PB360
+                CloseApp();
+                break;
+            }
 		case KEY_MINUS:
 			if(zoom<MAX_ZOOM) ++zoom;
 			Repaint();
 			break;
 		case KEY_OK:
-                        if(type == EVT_KEYPRESS) OpenMenu3x3(&m3x3, s3x3, m3x3_handler);
+            OpenMenu3x3(&m3x3, s3x3, m3x3_handler);
 			break;
 		case KEY_BACK:
 			CloseApp();
 			break;
 		}
 	}
+    if(type == EVT_KEYRELEASE) {
+        repeat=0;
+        latest_key=0;
+    }
 	return 0;
 }
 

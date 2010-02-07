@@ -8,10 +8,7 @@
 /* how many tiles to store in memory */
 #define TILE_CACHE_SIZE 253
 
-/* how many pixels to shift on pressing left/right/up/down */
-#define CLICK_SHIFT 64
-/* how many pixels to shift on holding left/right/up/down */
-#define HOLD_SHIFT 256
+#define STATUSBAR_HEIGHT 20
 
 /* Where are the maps */
 #define MAP_DEFAULT_DIR ".googlemaps"
