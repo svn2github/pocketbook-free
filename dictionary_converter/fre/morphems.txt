@@ -1,0 +1,4 @@
+﻿%1=aeiouy
+%2=bcdfghjklmnpqrstvwxz
+^?s=.
+^ee=er

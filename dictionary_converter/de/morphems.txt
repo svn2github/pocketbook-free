@@ -1,0 +1,14 @@
+﻿%1=aäeioöuüy
+%2=bcdfghjklmnpqrsßtvwxz
+^?s=.
+
+^ies=y
+
+
+^?s=.
+^ies=y
+^?d=.
+^ied=y
+^?ing=.
+^2ing=.e
+^?ly=.
