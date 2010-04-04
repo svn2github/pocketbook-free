@@ -4,7 +4,7 @@ ifeq (${OS},CYGWIN)
 
 SDKDIR = C:/PBSDK
 LIBDIR=-L$(SDKDIR)/lib
-LIBS = -linkview -lfreetype -ljpeg -lz -lgdi32 -lsupc++
+LIBS = -linkview -lfreetype -ljpeg -lgdi32 -lcurl -lstdc++ -lz
 INCLUDE = -I$(SDKDIR)/include
 OUT = pbcheckers
 WINEOUT = $(OUT).exe.so

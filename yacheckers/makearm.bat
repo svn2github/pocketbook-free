@@ -5,7 +5,7 @@ pause
 set PATH=%POCKETBOOKSDK%\arm-linux\bin;%POCKETBOOKSDK%\bin;%PATH%
 
 set INCLUDE=-I/arm-linux/include -DNO_STL
-set LIBS=-linkview -lfreetype -lz -lsupc++
+set LIBS=-linkview -lfreetype -lz -lstdc++ -lcurl
 set OUTPUT=pbcheckers-win.app
 
 rm -f %OUTPUT%

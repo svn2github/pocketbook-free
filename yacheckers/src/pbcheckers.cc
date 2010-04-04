@@ -105,6 +105,21 @@ public:
   void cursor_left();
   void cursor_right();
   void click();
+  int x2i(int i){
+    int ret=(i-xb)/csize;
+    if(ret <0 || ret>=8)return -1;
+    return ret;
+  }
+  int y2j(int i){
+    int ret=(i-yb)/csize;
+    if(ret <0 || ret>=8)return -1;
+    return ret;
+  }
+  void click(int i,int j){
+    curs_x=i;
+    curs_y=j;
+    click();
+  }
 public:
   //
   void new_game(){
@@ -204,7 +219,7 @@ public:
         if(winner>0){sprintf(str2,"Game Over! %s",(winner==1)?"Winner Computer":((winner==2)?"You Win!":"Nobody can move!"));
           DrawString(xb,yb+8.5*csize,str2);
         }
-        sprintf(str2,"%s","Press Ok button for menu");
+        sprintf(str2,"%s","Press Ok(or BACK) button for menu");
         DrawString(xb,yb+9*csize,str2);
       }
     }//ds
@@ -402,9 +417,26 @@ int set_field_handler(int type, int par1, int par2)
         if(board.game_over)SetEventHandler(main_handler);
       }
       break;
+    case KEY_BACK:
+      if(type == EVT_KEYREPEAT){
+        OpenMenu(menu1, cindex, 20, 20, menu1_handler);
+      }
+      break;
     }
     return 1;
+    
   }
+    if (type == EVT_POINTERDOWN ){
+      int i = board.x2i(par1);
+      if( i>=0 ){
+	      int j = board.y2j(par2);
+	      if( j>=0 ){
+    	    board.click(i,j);
+    	    if(board.game_over)SetEventHandler(main_handler);
+    	    return 1;
+	      }
+      }
+    }
   return 0;
 }
 
@@ -437,12 +469,12 @@ void menu1_handler(int index) {
         "If move is possible by rules your checkers will move.", 30000);    
       break;
     case 104:
-      Message(ICON_INFORMATION, "About","Checkers game 1.1.0\n"
+      Message(ICON_INFORMATION, "About","Checkers game 1.2.0\n"
         "by Yury P. Fedorchenko.\n"
         "based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of "
         "GNU GPL License\n"
-        "www.fedorchenko.net", 10000);    
+        "http://www.fedorchenko.net", 10000);    
       break;
     case 121:
       Dialog(ICON_QUESTION, "Quit", "Quit game?", "Yes", "No", dialog_exit_handler);
@@ -455,6 +487,7 @@ void menu1_handler(int index) {
 int main_handler(int type, int par1, int par2)
 {
   if (type == EVT_INIT) {
+    //CalibrateTouchpanel();
     boardf=OpenFont("cour",24,1);
     pbchcfg = OpenConfig(FLASHDIR "/pbchce.cfg", pbchce);
     apply_config();
@@ -470,12 +503,18 @@ int main_handler(int type, int par1, int par2)
 
       case KEY_OK:
       case KEY_MENU:
+      case KEY_BACK:
         msg("KEY_OK");
         OpenMenu(menu1, cindex, 20, 20, menu1_handler);
         return 1;
 
     }
   }
+  if(type == EVT_POINTERDOWN){
+    OpenMenu(menu1, cindex, 20, 20, menu1_handler);
+    return 1;
+  }
+
   if (type == EVT_EXIT) {
     // occurs only in main handler when exiting or when SIGINT received.
     // save configuration here, if needed

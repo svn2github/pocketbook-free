@@ -1,5 +1,13 @@
-CXXFLAGS = `fltk-config --use-images --cxxflags`
-LIBS = `fltk-config --use-images --ldflags`
+ifeq (${MINGW},1)
+CXX=i686-pc-mingw32-g++
+FLTK=/usr/local/cross-tools/i386-mingw32/bin/fltk-config
+EXE=.exe
+else
+FLTK=fltk-config
+endif
+
+CXXFLAGS = `${FLTK} --use-images --cxxflags`
+LIBS = `${FLTK} --use-images --ldflags`
 CPPFILES = src/checkers.cc \
 	src/rcheckers.cc\
 	src/echeckers.cc\
@@ -10,9 +18,9 @@ CPPFILES = src/checkers.cc \
 
 OBJ   = $(CPPFILES:.cc=.o)
 
-all: flchekers
+all: flchekers${EXE}
 
 
-flchekers: $(OBJ) 
+flchekers${EXE}: $(OBJ) 
 	$(CXX) -o $@ $^ $(LIBS) $(CXXFLAGS) 
 
