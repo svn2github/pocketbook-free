@@ -356,7 +356,7 @@ bool RCheckers::manCapture2(int from,int direction,bool &capture)
 
       if(k>42){//if(k<10){//Is it True?
         board[k]=KING2;
-		    if(kingCapture2(k,direction+11,next)){
+		    if(kingCapture2(k,direction-11,next)){
 		      board[i]=FREE;
 		      return true;
 		    }

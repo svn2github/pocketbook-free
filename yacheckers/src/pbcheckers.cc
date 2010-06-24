@@ -469,7 +469,7 @@ void menu1_handler(int index) {
         "If move is possible by rules your checkers will move.", 30000);    
       break;
     case 104:
-      Message(ICON_INFORMATION, "About","Checkers game 1.2.0\n"
+      Message(ICON_INFORMATION, "About","Checkers game 1.2.1\n"
         "by Yury P. Fedorchenko.\n"
         "based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of "

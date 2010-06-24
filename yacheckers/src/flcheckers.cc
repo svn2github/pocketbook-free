@@ -17,15 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
-#include <Fl/Fl_Double_Window.H>
-#include <Fl/Fl.H>
-#include <Fl/Fl_Menu_Bar.H>
-#include <Fl/Fl_Choice.H>
-#include <Fl/Fl_Check_Button.H>
-#include <Fl/Fl_Return_Button.H>
-#include <Fl/fl_draw.H>
-#include <Fl/Fl_Pixmap.H>
-#include <Fl/fl_ask.H>
+#include <FL/Fl_Double_Window.H>
+#include <FL/Fl.H>
+#include <FL/Fl_Menu_Bar.H>
+#include <FL/Fl_Choice.H>
+#include <FL/Fl_Check_Button.H>
+#include <FL/Fl_Return_Button.H>
+#include <FL/fl_draw.H>
+#include <FL/Fl_Pixmap.H>
+#include <FL/fl_ask.H>
 
 #include <iostream>
 
@@ -243,7 +243,7 @@ void cb_rules(Fl_Widget*,void*){
 }
 void cb_about(Fl_Widget*,void*){
         fl_message(
-        _("Checkers game x 1.0.1\n"
+        _("Checkers game x 1.2.1\n"
 				"by Yury P. Fedorchenko.\n"
 				"AI based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of"
