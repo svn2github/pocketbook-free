@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009 Yury P. Fedorchenko
+ *   Copyright (C) 2009-2010 Yury P. Fedorchenko
  *   yuryfdr@users.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
@@ -60,7 +60,8 @@ namespace {
 #endif*/
 
 namespace{
-  char *skill_v[] = {"Beginner","Novice","Average","Good","Expert","Master", NULL };
+  void update_menus();
+  const char *skill_v[] = {"Beginner","Novice","Average","Good","Expert","Master", NULL };
   Fl_Pixmap king2(kingblack_xpm),king1(kingwhite_xpm);
   Fl_Pixmap man2(manblack_xpm),man1(manwhite_xpm);
 };
@@ -153,6 +154,7 @@ public:
 	  }
   }
   int handle(int e){
+    update_menus();
     static bool move = false;
     if(FL_PUSH == e && !move && !game_over){
       move=true;
@@ -243,7 +245,7 @@ void cb_rules(Fl_Widget*,void*){
 }
 void cb_about(Fl_Widget*,void*){
         fl_message(
-        _("Checkers game x 1.2.1\n"
+        _("Checkers game x 1.3.0\n"
 				"by Yury P. Fedorchenko.\n"
 				"AI based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of"
@@ -253,12 +255,24 @@ void cb_about(Fl_Widget*,void*){
 void cb_exit(Fl_Widget*,void*){
   if(fl_ask(_("Exit Game?")))exit(0);
 }
+void cb_undo(Fl_Widget*,void*){
+  brd->game->undo();
+  brd->redraw();
+}
+void cb_redo(Fl_Widget*,void*){
+  cerr<<brd->game->can_redo()<<endl;
+  brd->game->redo();
+  brd->redraw();
+}
+
 Fl_Menu_Item mmenu[]={
   {_("Game"),0,0,0,FL_SUBMENU},
-    {_("New"),0,(Fl_Callback*)cb_new,(void*)0},
-    {_("New 2 player"),0,(Fl_Callback*)cb_new,(void*)1},
-    {_("Settings"),0,cb_setup},
-    {_("Exit"),0,cb_exit},
+    {_("New"),FL_ALT+'n',(Fl_Callback*)cb_new,(void*)0},
+    {_("New 2 player"),0,(Fl_Callback*)cb_new,(void*)1,FL_MENU_DIVIDER},
+    {_("Undo"),FL_CTRL+'z',cb_undo,0,FL_MENU_INACTIVE},
+    {_("Redo"),FL_CTRL+'y',cb_redo,0,FL_MENU_DIVIDER|FL_MENU_INACTIVE},
+    {_("Settings"),0,cb_setup,0,FL_MENU_DIVIDER},
+    {_("Exit"),FL_CTRL+'x',cb_exit},
   {0},
   {_("Help"),0,0,0,FL_SUBMENU},
     {_("Rules"),0,cb_rules},
@@ -267,6 +281,20 @@ Fl_Menu_Item mmenu[]={
   {0}
 };
 
+namespace{
+  void update_menus(){
+    if(brd->game->can_redo() && !brd->ai2){
+      mmenu[4].activate();
+    }else{
+      mmenu[4].deactivate();
+    }
+    if(brd->game->can_undo() && !brd->ai2){
+      mmenu[3].activate();
+    }else{
+      mmenu[3].deactivate();
+    }
+  }
+};
 
 int main(int argc,char** argv){
   Fl_Double_Window mainwnd(410,480,_("Shashki"));

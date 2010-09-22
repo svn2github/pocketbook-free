@@ -34,6 +34,7 @@
 
 bool RCheckers::go1(int from,int field)
 {
+    std::string u=toString();
     from=internal(from);
     field=internal(field);
 
@@ -45,16 +46,16 @@ bool RCheckers::go1(int from,int field)
         switch(board[from])
         {
         case MAN1:
-            if(manCapture1(from,UL,capture)) return true;
-            if(manCapture1(from,UR,capture)) return true;
-            if(manCapture1(from,DL,capture)) return true;
-            if(manCapture1(from,DR,capture)) return true;
+            if(manCapture1(from,UL,capture)) return save_undo(u);
+            if(manCapture1(from,UR,capture)) return save_undo(u);
+            if(manCapture1(from,DL,capture)) return save_undo(u);
+            if(manCapture1(from,DR,capture)) return save_undo(u);
             return false;
         case KING1:
-            if(kingCapture1(from,UL,capture)) return true;
-            if(kingCapture1(from,UR,capture)) return true;
-            if(kingCapture1(from,DL,capture)) return true;
-            if(kingCapture1(from,DR,capture)) return true;
+            if(kingCapture1(from,UL,capture)) return save_undo(u);
+            if(kingCapture1(from,UR,capture)) return save_undo(u);
+            if(kingCapture1(from,DL,capture)) return save_undo(u);
+            if(kingCapture1(from,DR,capture)) return save_undo(u);
             return false;
         }
     }
@@ -68,7 +69,7 @@ bool RCheckers::go1(int from,int field)
                 board[from]=FREE;
                 if(to<10) board[to]=KING1;
                 else board[to]=MAN1;
-                return true;
+                return save_undo(u);
             }
             return false;
         case KING1:
@@ -78,7 +79,7 @@ bool RCheckers::go1(int from,int field)
                 {
                     board[from]=FREE;
                     board[to]=KING1;
-                    return true;
+                    return save_undo(u);
                 }
                 else if(board[i]==FREE) continue;
                 else break;
@@ -89,7 +90,7 @@ bool RCheckers::go1(int from,int field)
                 {
                     board[from]=FREE;
                     board[to]=KING1;
-                    return true;
+                    return save_undo(u);
                 }
                 else if(board[i]==FREE) continue;
                 else break;
@@ -100,7 +101,7 @@ bool RCheckers::go1(int from,int field)
                 {
                     board[from]=FREE;
                     board[to]=KING1;
-                    return true;
+                    return save_undo(u);
                 }
                 else if(board[i]==FREE) continue;
                 else break;
@@ -111,7 +112,7 @@ bool RCheckers::go1(int from,int field)
                 {
                     board[from]=FREE;
                     board[to]=KING1;
-                    return true;
+                    return save_undo(u);
                 }
                 else if(board[i]==FREE) continue;
                 else break;

@@ -1,4 +1,9 @@
-25.05.210
+10.09.2010
+    - yacheckers 1.3.0
+    - undo/redo for AI games
+06.09.2010
+    - remove NO_STL macro
+25.05.2010
     - yacheckers 1.2.1
 19.05.2010
     - fix rcheckers black king catch bug

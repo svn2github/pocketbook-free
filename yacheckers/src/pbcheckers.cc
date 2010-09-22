@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009 Yury P. Fedorchenko
+ *   Copyright (C) 2009-2010 Yury P. Fedorchenko
  *   yuryfdr@users.sf.net
  *
  * This program is free software; you can redistribute it and/or modify
@@ -227,8 +227,8 @@ public:
 };
 
 PBBoard board;
-
 void board_repaint(){
+//  update_menus();
   ClearScreen();
   board.draw();
   if(board.game_over)FullUpdate();
@@ -328,7 +328,7 @@ void PBBoard::click(){
   }
 }
 
-#define msg(a) printf("%s\n",a);
+//#define msg(a) printf("%s\n",a);
 
 
 int main_handler(int, int, int);
@@ -340,6 +340,9 @@ static imenu menu1[] = {
   { ITEM_HEADER,   0, "Menu", NULL },
   { ITEM_ACTIVE, 101, "New Game", NULL },
   { ITEM_SEPARATOR, 0, NULL, NULL },
+  { ITEM_ACTIVE, 110, "Undo", NULL },
+  { ITEM_ACTIVE, 111, "Redo", NULL },
+  { ITEM_SEPARATOR, 0, NULL, NULL },
   { ITEM_ACTIVE, 102, "Setup", NULL },
   { ITEM_SEPARATOR, 0, NULL, NULL },
   { ITEM_ACTIVE, 103, "Help", NULL },
@@ -349,7 +352,18 @@ static imenu menu1[] = {
   { 0, 0, NULL, NULL }
 
 };
-
+static void update_menus(){
+    if(board.game->can_undo() && !board.ai2){
+      menu1[3].type=ITEM_ACTIVE;
+    }else{
+      menu1[3].type=ITEM_INACTIVE;
+    }
+    if(board.game->can_redo() && !board.ai2){
+      menu1[4].type=ITEM_ACTIVE;
+    }else{
+      menu1[4].type=ITEM_INACTIVE;
+    }
+  }
 
 int set_field_handler(int type, int par1, int par2);
 
@@ -368,9 +382,9 @@ void apply_config(){
 
 static void config_ok() {
   int ret=SaveConfig(pbchcfg);
-  printf("seve config return %d file %s\n",ret,pbchcfg->filename);
+  //printf("seve config return %d file %s\n",ret,pbchcfg->filename);
   if(pbchcfg->changed){
-    msg("config changed");
+    //msg("config changed");
     apply_config();
   }
   ClearScreen();
@@ -391,8 +405,9 @@ int set_field_handler(int type, int par1, int par2)
   if ( EVT_SHOW == type ){
     board_repaint();
   }
+  update_menus();
   if (type == EVT_KEYPRESS || type == EVT_KEYREPEAT) {
-  printf("t %d p1 %d p2 %d\n",type,par1,par2);
+  //printf("t %d p1 %d p2 %d\n",type,par1,par2);
     switch (par1) {
     case KEY_MENU:
       OpenMenu(menu1, cindex, 20, 20, menu1_handler);
@@ -469,23 +484,33 @@ void menu1_handler(int index) {
         "If move is possible by rules your checkers will move.", 30000);    
       break;
     case 104:
-      Message(ICON_INFORMATION, "About","Checkers game 1.2.1\n"
+      Message(ICON_INFORMATION, "About","Checkers game 1.3.0\n"
         "by Yury P. Fedorchenko.\n"
         "based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of "
         "GNU GPL License\n"
-        "http://www.fedorchenko.net", 10000);    
+        "http://www.fedorchenko.net", 10000);
       break;
     case 121:
       Dialog(ICON_QUESTION, "Quit", "Quit game?", "Yes", "No", dialog_exit_handler);
       break;
+    case 110:
+      board.game->undo();
+      board_repaint();
+      break;
+    case 111:
+      board.game->redo();
+      board_repaint();
+      break;
   }
+  //update_menus();
   FullUpdate();
 }
 
 
 int main_handler(int type, int par1, int par2)
 {
+  update_menus();
   if (type == EVT_INIT) {
     //CalibrateTouchpanel();
     boardf=OpenFont("cour",24,1);
@@ -504,7 +529,7 @@ int main_handler(int type, int par1, int par2)
       case KEY_OK:
       case KEY_MENU:
       case KEY_BACK:
-        msg("KEY_OK");
+        //msg("KEY_OK");
         OpenMenu(menu1, cindex, 20, 20, menu1_handler);
         return 1;
 

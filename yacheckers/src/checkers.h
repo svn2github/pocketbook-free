@@ -1,5 +1,5 @@
 /*
- *   Copyright (C) 2009 Yury P. Fedorchenko
+ *   Copyright (C) 2009-2010 Yury P. Fedorchenko
  *   yuryfdr@users.sf.net
  *   Copyright (C) 2002-2003 Andi Peredri                                  
  *   andi@ukr.net                                                          
@@ -24,11 +24,10 @@
 #ifndef CHECKERS_H
 #define CHECKERS_H
 
-#ifndef NO_STL
-
 #include <string>
-
-#endif
+#include <stack>
+#include <vector>
+#include <iostream>
 
 class Checkers
 {
@@ -53,6 +52,50 @@ public:
   bool setup(int setupboard[]);// warn allways return true now
   // human side 
   virtual bool go1(int from, int to)=0;
+  bool save_undo(const std::string& u){
+#if 0
+    bundo.push(u);
+    std::stack<std::string> rr;
+    std::swap(rr,bredo);
+#else
+    bundo.push_back(u);
+    std::vector<std::string>().swap(bredo);
+#endif
+    return true;
+  };
+  bool can_undo(){return !bundo.empty();}
+  bool can_redo(){return !bredo.empty();}
+#if 0
+  void undo(){
+    if(!can_undo())return;
+    std::string u = bundo.top();
+    bredo.push(toString());
+    bundo.pop();
+    fromString(u);
+  }
+  void redo(){
+    if(!can_redo())return;
+    std::string u = bredo.top();
+    bundo.push(toString());
+    bredo.pop();
+    fromString(u);
+  }
+#else
+  void undo(){
+    if(!can_undo())return;
+    std::string u = bundo.back();
+    bredo.push_back(toString());
+    bundo.resize(bundo.size()-1);
+    fromString(u);
+  }
+  void redo(){
+    if(!can_redo())return;
+    std::string u = bredo.back();
+    bundo.push_back(toString());
+    bredo.resize(bredo.size()-1);
+    fromString(u);
+  }
+#endif
   // human2 side
   virtual bool go2_human(int from, int to)=0;
   // ai side
@@ -79,13 +122,12 @@ public:
   int item(int i) const { return board[internal(i)]; }
   void setItem(int i, int item) { board[internal(i)] = item; }
 
-#ifndef NO_STL
   // string representation of the game board.
   // set rotate to switch player sides.
   // not used now need rewriten
-  std::string toString(bool rotate) const;
+  std::string toString(const bool rotate=false) const;
   bool fromString(const std::string&);
-#endif
+
   // checks for a capture/move for particular stone in external
   // representation. human player only.
   bool canCapture1(int i) { return checkCapture1(internal(i)); }
@@ -108,6 +150,11 @@ protected:
 
   int to;
   int board[54];
+#if 0
+  std::stack< std::string > bundo,bredo;
+#else
+  std::vector< std::string > bundo,bredo;
+#endif
   int bestboard[54];
   int bestcounter;
 

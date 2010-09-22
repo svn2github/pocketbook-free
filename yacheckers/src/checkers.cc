@@ -38,12 +38,8 @@
 #include <time.h>
 #include <stdlib.h>
 
-#ifndef NO_STL
-
 #include <iostream>
 #include <sstream>
-
-#endif
 
 #include "checkers.h"
 
@@ -82,6 +78,9 @@ Checkers::Checkers()
     levelmax = 2;
 
     srand(time(0)); // Seed the random number generator
+    /*std::stack< std::string > uu,rr;
+    std::swap(uu,bundo);
+    std::swap(rr,bredo);*/
 }
 
 
@@ -417,8 +416,6 @@ int Checkers::turn()
     return resMax;
 }
 
-#ifndef NO_STL
-
 std::string Checkers::toString(bool rotate) const
 {
     int fields[32];
@@ -454,6 +451,4 @@ bool Checkers::fromString(const std::string& str)
 
     return true;
 }
-
-#endif
 
