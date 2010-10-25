@@ -1,0 +1,16 @@
+utelnetd 0.1.9 for pocketbook
+=============================
+
+This is a small telnet daemon for the pocketbook 302. 
+
+Before compiling, make sure that the compiler from the SDK (arm-linux-gcc) is in your PATH
+
+Compile it by running 
+  
+  make
+
+For more information see check the pocketbook wiki on soureforge:
+https://sourceforge.net/apps/mediawiki/pocketbook-free/index.php?title=Utelnetd_for_PocketBook
+
+Stephan Olbrich <reader42@gmx.de>
+
