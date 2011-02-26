@@ -52,6 +52,9 @@ static struct {
 #elif defined(HOST_ARM)
     { "Shell",         "/bin/ash"       },
     { "LogFile",       "/mnt/ext1/games/poterm.log" },
+#elif defined(HOST_ARM_PRO)
+    { "Shell",         "/bin/ash"       },
+    { "LogFile",       "/mnt/ext1/system/poterm.log" },
 #else
 #error "Invalid architecture"
 #endif

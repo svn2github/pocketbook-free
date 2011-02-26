@@ -35,8 +35,62 @@ void timer_handler()
     SetWeakTimer(timer_name, timer_handler, term->checkInterval());
 } // keyboard_entry
 
+static imenu menu1[]={
+  {ITEM_HEADER,  0, "PoTerm",NULL},
+  {ITEM_ACTIVE,101,"Command",NULL},
+  {ITEM_SEPARATOR,0,NULL,NULL},
+  {ITEM_ACTIVE,102,"Line Up",NULL},
+  {ITEM_ACTIVE,103,"Line Down",NULL},
+  {ITEM_ACTIVE,104,"Page Up",NULL},
+  {ITEM_ACTIVE,105,"Page Down",NULL},
+  {ITEM_SEPARATOR,0,NULL,NULL},
+  {ITEM_ACTIVE,106,"Rotate",NULL},
+  {ITEM_SEPARATOR,0,NULL,NULL},
+  {ITEM_ACTIVE,107,"Decrease Font",NULL},
+  {ITEM_ACTIVE,108,"Increase Font",NULL},
+  {ITEM_SEPARATOR,0,NULL,NULL},
+  {ITEM_ACTIVE,109,"Exit",NULL},
+  {0,0,NULL,NULL}
+};
+static int cindex=0;
+void menu_handler(int index){
+  cindex = index;
+  switch(index){
+    case 101:
+      OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, keyboard_entry);
+      term->setHeightNoKbd(iv_msgtop());
+      term->redrawAll();
+      break;
+    case 109:
+      CloseApp();
+      break;
+    case 102:
+      term->lineUp();
+      break;
+    case 103:
+      term->lineDown();
+      break;
+    case 104:
+      term->pageUp();
+      break;
+    case 105:
+      term->pageDown();
+      break;
+    case 106:
+      term->rotate();
+      break;
+    case 107:
+      term->decreaseFont();
+      break;
+    case 108:
+      term->increaseFont();
+      break;
+    default:
+      break;
+  }
+}
 ///////////////////////////////////////////////////////////////////////
-int main_handler(int type, int par1, int)
+int main_handler(int type, int par1, int par2)
 {
     static int prevEvent = 0;
     int        oldOrientation = 0;
@@ -64,6 +118,11 @@ int main_handler(int type, int par1, int)
             delete term;
             SetOrientation(oldOrientation);
             break;
+        /*case EVT_KEYREPEAT:
+            if(KEY_OK == par1){
+              OpenMenu(menu1,cindex,20,20,menu_handler);
+            }
+            break;*/
         case EVT_KEYPRESS:
             switch(par1)
             {
@@ -73,7 +132,8 @@ int main_handler(int type, int par1, int)
                     term->redrawAll();
                     break;
                 case KEY_BACK:
-                    CloseApp();
+                    //CloseApp();
+                    OpenMenu(menu1,cindex,20,20,menu_handler);
                     break;
                 case KEY_LEFT:
                     term->lineUp();
@@ -82,9 +142,11 @@ int main_handler(int type, int par1, int)
                     term->lineDown();
                     break;
                 case KEY_UP:
+                case KEY_PREV:
                     term->pageUp();
                     break;
                 case KEY_DOWN:
+                case KEY_NEXT:
                     term->pageDown();
                     break;
                 case KEY_DELETE:
@@ -99,6 +161,9 @@ int main_handler(int type, int par1, int)
                 default:
                     break;
             }
+            break;
+        case EVT_POINTERDOWN:
+            OpenMenu(menu1,cindex,par1,par2,menu_handler);
             break;
         default:
             break;

@@ -6,7 +6,7 @@
 #ifndef POTERM_H
 #define POTERM_H
 
-#define POTERM_VERSION "1.02"
+#define POTERM_VERSION "1.03"
 
 /* Keyboard buffer length */
 #define KBUFFER_LEN 80
@@ -16,6 +16,8 @@
 #define INI_FILE       "./poterm.ini"
 #elif defined(HOST_ARM)
 #define INI_FILE       "/mnt/ext1/games/poterm.ini"
+#elif defined(HOST_ARM_PRO)
+#define INI_FILE       "/mnt/ext1/system/poterm.ini"
 #else
 #error "Invalid architecture"
 #endif

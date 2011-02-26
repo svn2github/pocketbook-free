@@ -1,0 +1,7 @@
+26.02.2011
+    v 1.03
+    Yury P. Fedorchenko
+    - add menu (key_back or click)
+    - PREV,NEXT keys support for page up and down
+    - add touch screen (stylus) support
+    - add Makefile.pro for 60x-90x unofficial SDK
