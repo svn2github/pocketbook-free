@@ -16,7 +16,7 @@ else
 
 SDKDIR = /usr/local/pocketbook
 LIBDIR=-L$(SDKDIR)/lib
-LIBS = -linkview -ljpeg `freetype-config --libs` -lstdc++
+LIBS = -linkview -ljpeg `freetype-config --libs`
 INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags`
 OUT = Sokoban
 WINEOUT = $(OUT).exe.so

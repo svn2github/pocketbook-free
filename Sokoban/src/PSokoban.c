@@ -15,7 +15,7 @@ extern const ibitmap box50, boxOnTheSpot50, empty50, player50, playerRight50, pl
 ifont *font;
 
 char *originalLevel =
-				";MINICOSMOS 01\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n## #   #\n #@  ###\n #####\n\n;MINICOSMOS 02\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n##$#.  #\n #@  ###\n #####\n\n;MINICOSMOS 03\n\n  #####\n###   #\n# $ # ##\n# #  . #\n# .  # #\n##$#.$ #\n #@  ###\n #####\n\n;MINICOSMOS 04\n\n    ####\n#####  #\n#   $  #\n#  .#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 05\n\n    ####\n#####  #\n#   $  #\n# *.#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 06\n\n    ####\n#####  #\n#   *  #\n# *.#  #\n## ## ##\n# $    #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 07\n\n #####\n #   ##\n## #$ ##\n# $    #\n#. .#  #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 08\n\n #####\n #   ##\n##.#$ ##\n# $    #\n#. .#$ #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 09\n\n #####\n #   #\n##$# ###\n#   $@ #\n# #  # #\n# #. . #\n#   ####\n#####\n\n;MINICOSMOS 10\n\n #####\n #   #\n##$# ###\n#  .$@ #\n# #  # #\n# #..$ #\n#   ####\n#####\n\n;MINICOSMOS 11\n\n #####\n##   ###\n# . .  #\n# # ## ##\n#    $$@#\n### #   #\n  #   ###\n  #####\n\n;MINICOSMOS 12\n\n #####\n##   ###\n# . . .#\n# # ## ##\n#    $$@#\n### # $ #\n  #   ###\n  #####\n\n;MINICOSMOS 13\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@.   ##\n## # #  #\n #      #\n #  #####\n ####\n\n;MINICOSMOS 14\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@..  ##\n## # #  #\n #   $  #\n #  #####\n ####\n\n;MINICOSMOS 15\n\n   ####\n####  #\n# $   #\n#  .# ##\n## #.  #\n# @  $ #\n#   ####\n#####\n\n;MINICOSMOS 16\n\n   ####\n####  #\n# $ $ #\n#  .# ##\n## #.  #\n# @  $ #\n#.  ####\n#####\n\n;MINICOSMOS 17\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##    #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 18\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##  * #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 19\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$  ##\n# . .@ #\n####   #\n   #####\n\n;MINICOSMOS 20\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$$ ##\n# ...@ #\n####   #\n   #####\n\n;MINICOSMOS 21\n\n#####\n#   ###\n#     #\n##    #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 22\n\n#####\n#   ###\n# .   #\n## $  #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 23\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n#  $## # ##\n###   @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 24\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n# $$## # ##\n### . @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 25\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#       #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 26\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#  *    #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 27\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#      #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 28\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#    * #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 29\n\n########\n#   #  #\n#      #\n## #.  #\n#    ###\n# # . #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 30\n\n########\n#   #  #\n#      #\n## #. .#\n#    ###\n# # * #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 31\n\n#####\n#   ##\n# #  ##\n#. #$ #\n#  @  #\n#.##$##\n#    #\n######\n\n;MINICOSMOS 32\n\n####\n#  ###\n#    ##\n# .#$ #\n## @  #\n #.#$##\n #   #\n #####\n\n;MINICOSMOS 33\n\n #######\n #  #  ##\n## **$. #\n#   #   #\n#   @ ###\n#  ####\n####\n\n;MINICOSMOS 34\n\n #######\n##  #  #\n#  **$.##\n#   #   #\n### @   #\n  ####  #\n     ####\n\n;MINICOSMOS 35\n\n  ####\n###  ###\n#   *$ #\n# #  #@#\n# # *. #\n#   ####\n#####\n\n;MINICOSMOS 36\n\n#####\n#   ##\n# #  ###\n#   *$ #\n###  #@#\n  # *. #\n  #  ###\n  ####\n\n;MINICOSMOS 37\n\n  ####\n ##  #\n##   ##\n#  *$ #\n# # #@#\n#  *. #\n###  ##\n  #  #\n  ####\n\n;MINICOSMOS 38\n\n  ####\n  #  ###\n ## .  #\n##@$$$ #\n# . . ##\n#   ###\n#  ##\n####\n\n;MINICOSMOS 39\n\n  #####\n###   #\n#     #\n#  #.###\n##@$$$ #\n #.#.# #\n #     #\n #  ####\n ####\n\n;MINICOSMOS 40\n\n  ####\n ##  #\n## . ##\n#@$$$ #\n#. .# #\n# #   #\n#   ###\n#####\n";
+  ";MINICOSMOS 01\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n## #   #\n #@  ###\n #####\n\n;MINICOSMOS 02\n\n  #####\n###   #\n# $ # ##\n# #  . #\n#    # #\n##$#.  #\n #@  ###\n #####\n\n;MINICOSMOS 03\n\n  #####\n###   #\n# $ # ##\n# #  . #\n# .  # #\n##$#.$ #\n #@  ###\n #####\n\n;MINICOSMOS 04\n\n    ####\n#####  #\n#   $  #\n#  .#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 05\n\n    ####\n#####  #\n#   $  #\n# *.#  #\n## ## ##\n#      #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 06\n\n    ####\n#####  #\n#   *  #\n# *.#  #\n## ## ##\n# $    #\n# @#   #\n#  #####\n####\n\n;MINICOSMOS 07\n\n #####\n #   ##\n## #$ ##\n# $    #\n#. .#  #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 08\n\n #####\n #   ##\n##.#$ ##\n# $    #\n#. .#$ #\n### @ ##\n  # # #\n  #   #\n  #####\n\n;MINICOSMOS 09\n\n #####\n #   #\n##$# ###\n#   $@ #\n# #  # #\n# #. . #\n#   ####\n#####\n\n;MINICOSMOS 10\n\n #####\n #   #\n##$# ###\n#  .$@ #\n# #  # #\n# #..$ #\n#   ####\n#####\n\n;MINICOSMOS 11\n\n #####\n##   ###\n# . .  #\n# # ## ##\n#    $$@#\n### #   #\n  #   ###\n  #####\n\n;MINICOSMOS 12\n\n #####\n##   ###\n# . . .#\n# # ## ##\n#    $$@#\n### # $ #\n  #   ###\n  #####\n\n;MINICOSMOS 13\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@.   ##\n## # #  #\n #      #\n #  #####\n ####\n\n;MINICOSMOS 14\n\n    ####\n ####  #\n## $   #\n#  # #$#\n#.@..  ##\n## # #  #\n #   $  #\n #  #####\n ####\n\n;MINICOSMOS 15\n\n   ####\n####  #\n# $   #\n#  .# ##\n## #.  #\n# @  $ #\n#   ####\n#####\n\n;MINICOSMOS 16\n\n   ####\n####  #\n# $ $ #\n#  .# ##\n## #.  #\n# @  $ #\n#.  ####\n#####\n\n;MINICOSMOS 17\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##    #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 18\n\n    #####\n   ##   ##\n  ## .#  #\n ##   @  #\n##  * #  #\n#  $ #####\n# * ##\n#  ##\n####\n\n;MINICOSMOS 19\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$  ##\n# . .@ #\n####   #\n   #####\n\n;MINICOSMOS 20\n\n####\n#  ####\n#     #\n#     #\n### ###\n# $$$ ##\n# ...@ #\n####   #\n   #####\n\n;MINICOSMOS 21\n\n#####\n#   ###\n#     #\n##    #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 22\n\n#####\n#   ###\n# .   #\n## $  #\n####$##\n#  $ ##\n# @   #\n###. .#\n  #####\n\n;MINICOSMOS 23\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n#  $## # ##\n###   @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 24\n\n      ####\n#######  #\n#        #\n#  $ #.# #\n# $$## # ##\n### . @   #\n  ###  #  #\n    ##.  ##\n     #####\n\n;MINICOSMOS 25\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#       #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 26\n\n     ####\n   ###  #\n ### .. #\n # $$#  #\n## # #@##\n#  *    #\n#   #   #\n######  #\n     ####\n\n;MINICOSMOS 27\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#      #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 28\n\n ####\n #  ####\n #     #\n # #.  #\n##*##$##\n#    * #\n# # @  #\n#    ###\n######\n\n;MINICOSMOS 29\n\n########\n#   #  #\n#      #\n## #.  #\n#    ###\n# # . #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 30\n\n########\n#   #  #\n#      #\n## #. .#\n#    ###\n# # * #\n# $$# #\n###  @#\n  #####\n\n;MINICOSMOS 31\n\n#####\n#   ##\n# #  ##\n#. #$ #\n#  @  #\n#.##$##\n#    #\n######\n\n;MINICOSMOS 32\n\n####\n#  ###\n#    ##\n# .#$ #\n## @  #\n #.#$##\n #   #\n #####\n\n;MINICOSMOS 33\n\n #######\n #  #  ##\n## **$. #\n#   #   #\n#   @ ###\n#  ####\n####\n\n;MINICOSMOS 34\n\n #######\n##  #  #\n#  **$.##\n#   #   #\n### @   #\n  ####  #\n     ####\n\n;MINICOSMOS 35\n\n  ####\n###  ###\n#   *$ #\n# #  #@#\n# # *. #\n#   ####\n#####\n\n;MINICOSMOS 36\n\n#####\n#   ##\n# #  ###\n#   *$ #\n###  #@#\n  # *. #\n  #  ###\n  ####\n\n;MINICOSMOS 37\n\n  ####\n ##  #\n##   ##\n#  *$ #\n# # #@#\n#  *. #\n###  ##\n  #  #\n  ####\n\n;MINICOSMOS 38\n\n  ####\n  #  ###\n ## .  #\n##@$$$ #\n# . . ##\n#   ###\n#  ##\n####\n\n;MINICOSMOS 39\n\n  #####\n###   #\n#     #\n#  #.###\n##@$$$ #\n #.#.# #\n #     #\n #  ####\n ####\n\n;MINICOSMOS 40\n\n  ####\n ##  #\n## . ##\n#@$$$ #\n#. .# #\n# #   #\n#   ###\n#####\n";
 
 char *level;
 
@@ -60,9 +60,10 @@ static imenu mainMenu[] = {
 	{ ITEM_ACTIVE, 103, "Next Level", NULL },
 	{ ITEM_ACTIVE, 104, "Previous Level", NULL },
 	{ ITEM_ACTIVE, 105, "Open Level Collection", NULL },
-	{ ITEM_ACTIVE, 106, "Help", NULL },
-	{ ITEM_ACTIVE, 107, "About", NULL },
-	{ ITEM_ACTIVE, 108, "Exit", NULL },
+	{ ITEM_ACTIVE, 106, "Use G-Sensor", NULL },
+	{ ITEM_ACTIVE, 107, "Help", NULL },
+	{ ITEM_ACTIVE, 108, "About", NULL },
+	{ ITEM_ACTIVE, 109, "Exit", NULL },
 	{ 0, 0, NULL, NULL }
 };
 
@@ -448,7 +449,7 @@ void DrawBoard() {
 	SetFont(font, WHITE);
 
 	FillArea(0, ScreenHeight() - 50, ScreenWidth(), 50, DGRAY);
-	char buf[16];
+	char buf[32];
 	sprintf(buf, "Level %i/%i", levelNo + 1, levels + 1);
 	DrawString(5, ScreenHeight() - 45, buf);
 	DrawString(5, ScreenHeight() - 20, "Move: Up/Down/Left/Right. Undo: OK. Menu: Hold OK. Level navigation: +/-");
@@ -577,6 +578,27 @@ void Undo() {
 }
 
 int selectedIndex = 0;
+
+static int use_timer=0;
+void sensor_thread(){
+  int x,y,z;
+  //static int x_old=-1000,y_old,z_old;
+//  char str[64];
+  if(ReadGSensor(&x,&y,&z)){
+    if(!use_timer)return;
+    if(abs(x)>abs(y)){
+	if( x<-25 ) Move(1,0);
+	else if( x>25 ) Move(-1,0);
+    }else{
+	if( y<-25 ) Move(0,1);
+	else if( y>25 ) Move(0,-1);
+    }
+    DrawCell(playerX, playerY);
+    UpdateRegion(playerX, playerY, 1, 1);
+  }
+  if(use_timer)SetWeakTimer("stmr",sensor_thread,150);
+}
+
 void mainMenuHandler(int index) {
 	selectedIndex = index;
 	switch (index) {
@@ -600,6 +622,17 @@ void mainMenuHandler(int index) {
 		PickLevelSet();
 		break;
 	case 106:
+	  if(ITEM_BULLET==mainMenu[6].type){
+	    use_timer=0;
+	    mainMenu[6].type=ITEM_ACTIVE;
+	    ClearTimer(sensor_thread);
+	  } else{
+	    use_timer=1;
+	    mainMenu[6].type=ITEM_BULLET;
+	    SetWeakTimer("stmr",sensor_thread,250);
+	  }
+	  break;
+	case 107:
 		Message(0, "Help", "Sokoban is a classic puzzle game invented in Japan. The original game of SOKOBAN was written by Hiroyuki Imabayashi.\n"
 "Today Sokoban is one of the most popular thought and logic games.\n"
 "The name comes from Japan and means \"warehouse keeper\".\n"
@@ -612,30 +645,41 @@ void mainMenuHandler(int index) {
 "If you want to extend your game with new levels you can download them in internet and put in the \\system\\share\\sokoban folder in your Pocketbook memory.",
 60000);
 		break;
-	case 107:
-		Message(0, "About", "Socoban for Pocketbook\nDeveloped by Andriy Kvasnytsya, 2009\nDefault level set is Minicosmos set by Aymeric du Peloux", 10000);
-		break;
 	case 108:
+		Message(0, "About", 
+		"Socoban for Pocketbook\n"
+		"Modified by Yury P. Fedorchenko, 2011\n"
+		"Developed by Andriy Kvasnytsya, 2009\n"
+		"Default level set is Minicosmos set by Aymeric du Peloux", 10000);
+		break;
+	case 109:
 		CloseApp();
 		break;
 	}
 }
 
 void ShowMenu() {
-	OpenMenu(mainMenu, selectedIndex, 20, 20, mainMenuHandler);
+  use_timer=0;
+  OpenMenu(mainMenu, selectedIndex, 20, 20, mainMenuHandler);
+  if(ITEM_BULLET==mainMenu[6].type){
+    use_timer=1;
+    SetWeakTimer("stmr",sensor_thread,250);
+  }
 }
 
 void KeyPressed(int key) {
 	switch (key) {
-	case KEY_BACK:
+	/*case KEY_BACK: //removed for use with other models
 		CloseApp();
-		return;
+		return;*/
 	case KEY_PLUS:
+	case KEY_NEXT:
 		if (levelNo < levels) {
 			setLevelNo(levelNo + 1);
 		}
 		return;
 	case KEY_MINUS:
+	case KEY_PREV:
 		if (levelNo > 0) {
 			setLevelNo(levelNo - 1);
 		}
@@ -653,9 +697,11 @@ void KeyPressed(int key) {
 		Move(1, 0);
 		break;
 	case KEY_OK:
+	//case KEY_PREV:
 		Undo();
 		break;
 	case KEY_MENU:
+	case KEY_BACK:
 		ShowMenu();
 		break;
 	}
@@ -673,12 +719,21 @@ void KeyPressed(int key) {
 	}
 }
 
+
 int main_handler(int type, int par1, int par2) {
 	if (type == EVT_INIT) {
 		font = OpenFont("LiberationSans", 16, 0);
 		loadLevel();
 		GetLevelCount();
 		PrepareBoard();
+		if(QueryGSensor()){
+		   use_timer=1;
+		   mainMenu[6].type = ITEM_BULLET;
+		   SetWeakTimer("stmr",sensor_thread,250);
+		}else{
+		   use_timer=0;
+		   mainMenu[6].type = ITEM_INACTIVE;
+		}
 	} else if (type == EVT_SHOW) {
 		DrawBoard();
 	} else if (type == EVT_KEYPRESS && par1 != KEY_OK) {
@@ -687,6 +742,8 @@ int main_handler(int type, int par1, int par2) {
 		KeyPressed(KEY_MENU);
 	} else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0) {
 		KeyPressed(KEY_OK);
+	} else if (EVT_POINTERDOWN ==type ){
+	       ShowMenu();
 	}
 	return 0;
 }
