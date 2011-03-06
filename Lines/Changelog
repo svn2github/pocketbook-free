@@ -1,0 +1,9 @@
+06.03.2011
+yuryfdr:
+    touch screen support
+05.03.2011
+yuryfdr:
+    fix bufer overflow in sprintf
+    fix initial orientation
+    add Makefile.pro Makefile
+    fix signed unsigned comparison

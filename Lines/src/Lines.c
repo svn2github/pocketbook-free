@@ -71,7 +71,7 @@ void drawScores()
 	SetFont(font, WHITE);
 
 	FillArea(0, ScreenHeight() - 50, ScreenWidth(), 50, DGRAY);
-	char buf[16];
+	char buf[32];
 	sprintf(buf, "Current Score: %i", score);
 	DrawString(5, ScreenHeight() - 45, buf);
 	sprintf(buf, "Highest Score: %i", maxScore);
@@ -189,7 +189,7 @@ void gameOver()
 int lookOver(int (*getFunc)(int, int), void (*setFunc)(int, int))
 {
 	int i, j, counter, points = 0;
-	char item;
+	signed char item;
 	for (i = 0; i < SIZE; i++)
 	{
 		//central element is always of kind - as proven below, in calling method
@@ -433,6 +433,23 @@ void emit(int items)
 	matchLines();
 }
 
+int move_pointer(int cx, int cy)
+{
+	double ix=((double)(cx-baseX)/CELL_SIZE);
+	double iy=((double)(cy-baseY)/CELL_SIZE);
+	//int minX, minY;
+	int oldX, oldY;
+	if(ix<0 || ix>=SIZE)return 0;
+	if(iy<0 || iy>=SIZE)return 0;
+	oldX = cursorX;
+	oldY = cursorY;
+	cursorX = (int)ix;
+	cursorY = (int)iy;
+	drawCell(oldX, oldY, 1);
+	drawCell(cursorX, cursorY, 1);
+        return 1;
+}
+
 void move(int dx, int dy)
 {
 	int minX, minY;
@@ -596,10 +613,12 @@ void mainMenuHandler(int index) {
 		break;
 	case 102:
 		Message(0, "Help", "This game was originally created as Color Lines in 1992 by Oleg Demin for the Gamos company. It starts with a 9x9 board with five balls chosen out of seven different kinds. You can move one ball per turn, moving cursor, clicking OK on ball to move and again OK on empty cell to move. You may only move a ball to a particular place if there is a path (linked set of vertical and horizontal empty cells) between the current position of the ball and the desired destination. The goal is to remove balls by forming lines (horizontal, vertical or diagonal) of at least five balls of the same kind. If you do form such lines, the balls in them disappear, and you gain one turn, i.e. you can move another ball. If not, three new balls are added, and the game continues until the board is full.\n(Wikipedia: http://en.wikipedia.org/wiki/Lines_(video_game) )\n"
-				"You are scoring points for removing lines, points are higher for more balls in removed in one time.", 60000);
+			   "You are scoring points for removing lines, points are higher for more balls in removed in one time.", 60000);
 		break;
 	case 103:
-		Message(0, "About", "Lines for Pocketbook\nDeveloped by Andriy Kvasnytsya (professor.kam at gmail.com), 2010\nGraphics by Tetiana Sherbul, 2010\nOriginal idea by Oleg Demin, 1992", 10000);
+		Message(0, "About", "Lines for Pocketbook\n"
+			   "Modifyed by Yury P. Fedorchenko, 2011"
+			   "Developed by Andriy Kvasnytsya (professor.kam at gmail.com), 2010\nGraphics by Tetiana Sherbul, 2010\nOriginal idea by Oleg Demin, 1992", 10000);
 		break;
 	case 104:
 		tryExit();
@@ -619,7 +638,7 @@ int main_handler(int type, int par1, int par2)
 	{
 		srand(time(NULL));
 		font = OpenFont("LiberationSans", 16, 0);
-
+                SetOrientation(0);
 		FILE *config = fopen(configFileName, "r");
 		if (config != NULL)
 		{
@@ -664,7 +683,8 @@ int main_handler(int type, int par1, int par2)
 				move(1, 0);
 				break;
 			case KEY_BACK:
-				tryExit();
+				showMenu();
+				//tryExit();
 				break;
 		}
 	}
@@ -675,6 +695,11 @@ int main_handler(int type, int par1, int par2)
 	else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0)
 	{
 		trySelect();
+	}
+	else if (EVT_POINTERDOWN == type){
+	    if(move_pointer(par1,par2))
+		trySelect();
+	    else showMenu();
 	}
 
 	return 0;
