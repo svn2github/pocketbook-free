@@ -1,8 +1,11 @@
-this program is ported to pocketbook301 (see pocketbook-free.sf.net for details)
+this program is ported to pocketbook301 and poketbook pro 6xx-9xx (see pocketbook-free.sf.net for details)
 
 There is no warranty.
 
-to build PB version just type:
+to build PB 3xx version just type:
 
 make
 
+to build PB Pro version get unoficial SDK and type:
+
+make -f Makefile.pro

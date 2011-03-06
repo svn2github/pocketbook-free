@@ -1,6 +1,6 @@
 ifeq (${MINGW},1)
 CXX=i686-pc-mingw32-g++
-FLTK=/usr/local/cross-tools/i386-mingw32/bin/fltk-config
+FLTK=/usr/i686-pc-mingw32/usr/bin/fltk-config
 EXE=.exe
 #LIBS = -L/usr/local/cross-tools/i386-mingw32/lib -lfltk -lfltk_images
 LIBS = `${FLTK} --use-images --ldstaticflags --libs`
@@ -26,3 +26,5 @@ all: flchekers${EXE}
 flchekers${EXE}: $(OBJ) 
 	$(CXX)  $(CXXFLAGS) -o $@ $^ $(LIBS) 
 
+clean:
+	rm $(OBJ) flchekers${EXE}

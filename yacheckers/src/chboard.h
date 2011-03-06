@@ -71,10 +71,10 @@ public:
     game_over = false;
     winner = 0;
     ai2=h2;
-    if(!is_white){
-      if(ai2){game->go2();go1=true;}
-      else go1=false;
-    }else go1=true;
+    if(!ai2){
+      if(!is_white){game->go2();go1=true;}
+      else go1=true;
+    }else go1=is_white;
     set_checkers();
   }
   

@@ -22,7 +22,7 @@ else
 
 SDKDIR = /usr/local/pocketbook
 LIBDIR=-L$(SDKDIR)/lib
-LIBS = -linkview -ljpeg `freetype-config --libs` -lstdc++
+LIBS = -linkview -ljpeg `freetype-config --libs` -lstdc++ #-lcurl -lpthread
 INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags`
 OUT = pbcheckers
 WINEOUT = $(OUT).exe.so

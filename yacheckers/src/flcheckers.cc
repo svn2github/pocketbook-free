@@ -244,13 +244,12 @@ void cb_rules(Fl_Widget*,void*){
 		    "Whenever a player is able to make a capture he must do so.");
 }
 void cb_about(Fl_Widget*,void*){
-        fl_message(
-        _("Checkers game x 1.3.0\n"
-				"by Yury P. Fedorchenko.\n"
-				"AI based on kcheckers.\n"
-        "This is free sowtware and distributed under terms\n of"
-        "GNU GPL License\n"
-        "www.fedorchenko.net") );
+  fl_message(_("Checkers game v 1.3.1\n"
+             "by Yury P. Fedorchenko.2009-2011\n"
+             "AI based on kcheckers.\n"
+             "This is free sowtware and distributed under terms\n of"
+             "GNU GPL License\n"
+             "www.fedorchenko.net") );
 }
 void cb_exit(Fl_Widget*,void*){
   if(fl_ask(_("Exit Game?")))exit(0);
@@ -260,7 +259,6 @@ void cb_undo(Fl_Widget*,void*){
   brd->redraw();
 }
 void cb_redo(Fl_Widget*,void*){
-  cerr<<brd->game->can_redo()<<endl;
   brd->game->redo();
   brd->redraw();
 }
@@ -297,7 +295,7 @@ namespace{
 };
 
 int main(int argc,char** argv){
-  Fl_Double_Window mainwnd(410,480,_("Shashki"));
+  Fl_Double_Window mainwnd(410,480,_("Checkers"));
   Fl_Menu_Bar menub(0,0,410,25);
   menub.menu(mmenu);
   brd = new Fl_Board(5,30);

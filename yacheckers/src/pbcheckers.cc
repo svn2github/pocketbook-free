@@ -132,10 +132,6 @@ public:
   int ij_toind(int i,int j){
      return ((i+j)%2)?(i/2+4*j):-1;
   }
-/*  void draw_cursor(int X,int Y,int W,int H ,int col){
-    DrawRect(X,Y,W,H,col);
-    DrawRect(X+1,Y+1,W-2,H-2,col);
-  }*/
   void draw_checker(int X,int Y,ibitmap* bm){
     if(2!=theme)DrawBitmap(X,Y,bm);
     else {
@@ -145,7 +141,7 @@ public:
         for(int i=0;i<4;++i)
         FillArea(X+8+i*4,Y+8+i*4,csize-16-i*8,csize-16-i*8,(i%2)?BLACK:WHITE);
       }
-      if(bm==&black_k){//FillArea(X+8,Y+8,csize-16,csize-16,BLACK);FillArea(X+19,Y+20,csize-38,csize-40,WHITE);
+      if(bm==&black_k){
         for(int i=0;i<4;++i)
         FillArea(X+8+i*4,Y+8+i*4,csize-16-i*8,csize-16-i*8,(i%2)?WHITE:BLACK);
       }
@@ -228,7 +224,6 @@ public:
 
 PBBoard board;
 void board_repaint(){
-//  update_menus();
   ClearScreen();
   board.draw();
   if(board.game_over)FullUpdate();
@@ -300,23 +295,6 @@ void PBBoard::click(){
         go1=true;
       }
     }else cp=gm_ind;
-/*    if(Checkers::FREE==game->item(gm_ind) && cp!=-1 && gm_ind !=-1 && game->go1(cp,gm_ind)){
-      if(!check_win(false)){
-        //cerr<<"gmo:"<<game_over<<endl;
-        ClearScreen();
-        draw();
-        SoftUpdate();
-        //FineUpdate();
-        //ShowHourglass();
-        if(pl2nd==1)
-        else game->go2();
-        //HideHourglass();
-        cp = -1;
-        check_win(true);
-        //cerr<<"gmo2:"<<game_over<<endl;
-      }
-    }
-    else cp=gm_ind;*/
     ClearScreen();
     draw();
     if(board.full)FullUpdate();
@@ -327,9 +305,6 @@ void PBBoard::click(){
     clicked=false;
   }
 }
-
-//#define msg(a) printf("%s\n",a);
-
 
 int main_handler(int, int, int);
 void menu1_handler(int index);
@@ -388,6 +363,8 @@ static void config_ok() {
     apply_config();
   }
   ClearScreen();
+  board.new_game();
+  SetEventHandler(set_field_handler);
   SendEvent(set_field_handler,EVT_SHOW,0,0);
 }
 
@@ -446,9 +423,11 @@ int set_field_handler(int type, int par1, int par2)
       if( i>=0 ){
 	      int j = board.y2j(par2);
 	      if( j>=0 ){
-    	    board.click(i,j);
-    	    if(board.game_over)SetEventHandler(main_handler);
-    	    return 1;
+    		board.click(i,j);
+    		if(board.game_over)SetEventHandler(main_handler);
+    		return 1;
+	      }else if((par2-40)/65 > 8){
+    		OpenMenu(menu1, cindex, par1, par2, menu1_handler);
 	      }
       }
     }
@@ -484,8 +463,8 @@ void menu1_handler(int index) {
         "If move is possible by rules your checkers will move.", 30000);    
       break;
     case 104:
-      Message(ICON_INFORMATION, "About","Checkers game 1.3.0\n"
-        "by Yury P. Fedorchenko.\n"
+      Message(ICON_INFORMATION, "About","Checkers game 1.3.1\n"
+        "by Yury P. Fedorchenko.2009-2011\n"
         "based on kcheckers.\n"
         "This is free sowtware and distributed under terms\n of "
         "GNU GPL License\n"
@@ -503,7 +482,6 @@ void menu1_handler(int index) {
       board_repaint();
       break;
   }
-  //update_menus();
   FullUpdate();
 }
 
@@ -525,14 +503,11 @@ int main_handler(int type, int par1, int par2)
 
   if (type == EVT_KEYPRESS || type == EVT_KEYREPEAT ) {
     switch (par1) {
-
       case KEY_OK:
       case KEY_MENU:
       case KEY_BACK:
-        //msg("KEY_OK");
         OpenMenu(menu1, cindex, 20, 20, menu1_handler);
         return 1;
-
     }
   }
   if(type == EVT_POINTERDOWN){
