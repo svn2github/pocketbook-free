@@ -65,7 +65,7 @@ public:
     void InitFromBuff(int aCols, int aRows, char *aBuff);
     void CalcParams();
     void DrawGameGrid();
-    void DrawCursor(int aColor = DGRAY);
+    void DrawCursor(int aColor = BLACK);
        
     void MoveCursor(int aKey);
     void ClickCell();

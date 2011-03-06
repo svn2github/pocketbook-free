@@ -11,7 +11,8 @@ ifont   *arial10n = NULL;
 iconfig *config = NULL;
 
 #define getPuzzle if (puzzle) puzzle
-const char *dataDir = SDCARDDIR"/crosspix/";
+//const char *dataDir = SDCARDDIR"/crosspix/";
+const char *dataDir = "/mnt/ext1/crosspix/";
 
 imenu mainMenu[] = {
   { ITEM_HEADER,   0, "Crosspix", NULL },
@@ -180,7 +181,7 @@ void mainMenuHandler(int index)
           Dialog(ICON_INFORMATION, "How to play", "In order to solve a puzzle, one needs to determine which cells are going to be boxes and which are going to be empty. Determining which cells are to be empty (called spaces) is as important as determining which are to be filled (called boxes). Later in the solving process, the spaces help to determine where a clue (continuing block of boxes and a number in the legend) may spread. Solvers usually use a dot or a cross to mark cells that are spaces for sure.\n"
                                                   "It is also important never to guess. Only cells that can be determined by logic should be filled. If guessing, a single error can spread over the entire field and completely ruin the solution. It usually comes to the surface only after a while, when it is very difficult to correct the puzzle. Usually, only advanced and experienced solvers are able to fix it completely and finish such ruined puzzles.\n"
                                                   "Simpler puzzles can usually be solved by a reasoning on a single row only (or a single column) at each given time, to determine as many boxes and spaces on that row as possible. Then trying another row (or column), until there are rows that contain undetermined cells.\n",
-                                                  "", "", NULL);
+                                                  "OK", NULL);
           break;      
       case 302:
           Dialog(ICON_INFORMATION, "Controls", "Use joystik to move cursor.\n"
@@ -217,7 +218,8 @@ void ReadConfigAndInit()
     bool nameFromConfig = true;
             
     char *lastPuzzle = ReadString(config, "LastPuzzle", "Animals01.cry");
-    char buff[PATH_MAX] = SDCARDDIR"/crosspix/";
+    char buff[PATH_MAX];
+    strcpy(buff, dataDir);
     strcat(buff, lastPuzzle);
     
     if (!isFileExists(buff))
@@ -230,7 +232,7 @@ void ReadConfigAndInit()
             Message(ICON_ERROR, "Init Error", "Can`t find game data.\nYou must place .cry files in folder /crosspix on SD card.", 5);
             return;        
         }
-        strcpy(buff, SDCARDDIR"/crosspix/");
+        strcpy(buff, dataDir);
         strcat(buff, puzzlesList[0].c_str());
     }
 
@@ -261,6 +263,8 @@ int main_handler(int type, int par1, int par2)
         switch (par1) 
 		{
             case KEY_DELETE:
+            case KEY_BACK:
+            case KEY_MENU:
 		        OpenMenu(mainMenu, cindex, 40, 40, mainMenuHandler);
 		        res = 1;
                 break;
@@ -272,11 +276,13 @@ int main_handler(int type, int par1, int par2)
                 res = 1;
                 break;
             case KEY_PLUS:
+            case KEY_PREV:
                 if (puzzle && puzzle->ZoomIn())
                     mainScreenRepaint();
                 res = 1;
                 break;
             case KEY_MINUS:
+            case KEY_NEXT:
                 if (puzzle && puzzle->ZoomOut())
                     mainScreenRepaint();
                 res = 1;

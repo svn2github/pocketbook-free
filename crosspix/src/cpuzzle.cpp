@@ -303,17 +303,17 @@ void CPuzzle::MoveCursor(int aKey)
             if (m_CursorYpos == m_RowsCount - 1)
                 curYnew = 0;
             else
-                ++curYnew;        
+                ++curYnew;
         }; break;
                 
         default: return;
     }
     
-    DrawCursor(m_Grid[m_CursorYpos][m_CursorXpos] & 0x02?BLACK:WHITE);
+    DrawCursor( (m_Grid[m_CursorYpos][m_CursorXpos] & 0x06)==0x02?BLACK:WHITE);
     AddCellToUpdate(m_CursorXpos, m_CursorYpos);
     m_CursorXpos = curXnew;    
     m_CursorYpos = curYnew;    
-    DrawCursor();
+    DrawCursor( (m_Grid[m_CursorYpos][m_CursorXpos] & 0x06)==0x02?WHITE:BLACK);
     UpdateCells();
 }
 
