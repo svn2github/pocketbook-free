@@ -577,6 +577,23 @@ void Undo() {
 	}
 }
 
+int checkWin(){
+	if (boxesOnPlace == boxCount) {
+		if (levelNo < levels) {
+			Message(ICON_INFORMATION, "Congratulations!",
+					"You completed the level, press any key to continue", 10000);
+			setLevelNo(levelNo + 1);
+		}
+		else {
+			Message(ICON_INFORMATION, "Congratulations!",
+					"You completed all the levels", 10000);
+			PickLevelSet();
+		}
+		return 1;
+	}
+	return 0;
+}
+
 int selectedIndex = 0;
 
 static int use_timer=0;
@@ -595,6 +612,7 @@ void sensor_thread(){
     }
     DrawCell(playerX, playerY);
     UpdateRegion(playerX, playerY, 1, 1);
+    checkWin();
   }
   if(use_timer)SetWeakTimer("stmr",sensor_thread,150);
 }
@@ -705,18 +723,7 @@ void KeyPressed(int key) {
 		ShowMenu();
 		break;
 	}
-	if (boxesOnPlace == boxCount) {
-		if (levelNo < levels) {
-			Message(ICON_INFORMATION, "Congratulations!",
-					"You completed the level, press any key to continue", 10000);
-			setLevelNo(levelNo + 1);
-		}
-		else {
-			Message(ICON_INFORMATION, "Congratulations!",
-					"You completed all the levels", 10000);
-			PickLevelSet();
-		}
-	}
+	checkWin();
 }
 
 
