@@ -1,6 +1,6 @@
 SDKDIR = /usr/local/pocketbook
 LIBDIR=-L$(SDKDIR)/lib
-LIBS = -Wl,--as-needed -linkview -ljpeg `freetype-config --libs` -lsupc++
+LIBS = -linkview -ljpeg `freetype-config --libs` -lsupc++
 INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags`
 OUT = Lines
 WINEOUT = $(OUT).exe.so
