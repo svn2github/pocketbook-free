@@ -1,0 +1,7 @@
+10.03.2011
+    yuryfdr:
+    add touchscreen support
+05.03.2011
+    yuryfdr:
+    fix buffer overflow in sprintf
+    add Makefile.pro

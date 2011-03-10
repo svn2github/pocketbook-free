@@ -28,7 +28,7 @@ extern const ibitmap item0, item1, item2, item3, item4;
 ifont *font;
 
 #ifndef EMULATOR
-const char *configFileName = STATEPATH "/games/samegame.cfg";
+const char *configFileName = STATEPATH "/samegame.cfg";
 #else
 const char *configFileName = "samegame.cfg";
 #endif
@@ -91,7 +91,7 @@ void drawScores()
 	SetFont(font, WHITE);
 
 	FillArea(0, ScreenHeight() - 40, ScreenWidth(), 40, DGRAY);
-	char buf[16];
+	char buf[32];
 	sprintf(buf, "Current Score: %i", score);
 	DrawString(5, ScreenHeight() - 40, buf);
 	sprintf(buf, "Highest Score: %i", maxScores[mode]);
@@ -173,6 +173,7 @@ void saveSettings()
 {
 	int i = 0;
     FILE *config = fopen(configFileName, "w");
+    if(config==NULL)return;
     fprintf(config, "%i\n", mode);
     for (i = 0; i < MODES_COUNT; i++)
 	{
@@ -232,6 +233,23 @@ void gameOver()
 
 	Message(ICON_INFORMATION, "Game over!", buf, 10000);
     startNewGame();
+}
+
+int move_pointer(int cx, int cy)
+{
+	double ix=((double)(cx-baseX)/CELL_SIZE);
+	double iy=((double)(cy-baseY)/CELL_SIZE);
+	//int minX, minY;
+	int oldX, oldY;
+	if(ix<0 || ix>=hSize)return 0;
+	if(iy<0 || iy>=wSize)return 0;
+	oldX = cursorX;
+	oldY = cursorY;
+	cursorX = (int)ix;
+	cursorY = (int)iy;
+	drawCell(oldX, oldY, 1);
+	drawCell(cursorX, cursorY, 1);
+        return 1;
 }
 
 void move(int dx, int dy)
@@ -541,6 +559,11 @@ int main_handler(int type, int par1, int par2)
 	else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0)
 	{
 		trySelect();
+	}
+	else if (EVT_POINTERDOWN == type){
+	    if(move_pointer(par1,par2))
+		trySelect();
+	    else showMenu();
 	}
 
 	return 0;
