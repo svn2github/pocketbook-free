@@ -29,7 +29,7 @@ const char *levelsFolder = "SokobanLevels/";
 
 int levelNo;
 int levels;
-char* levelSetFileName;
+char levelSetFileName[1024];
 
 void PrepareBoard();
 void DrawBoard();
@@ -491,7 +491,7 @@ void Move(int dx, int dy) {
 
 void loadLevel() {
 	FILE *levelFile;
-	if ((levelFile = fopen(levelSetFileName, "rb"))){
+	if (levelSetFileName[0] && (levelFile = fopen(levelSetFileName, "rb"))){
 		fseek(levelFile, 0, SEEK_END);
   		int fileSize = ftell (levelFile);
   		rewind(levelFile);
@@ -506,14 +506,12 @@ void loadLevel() {
 }
 
 void loadLevelsHandler(int index) {
-	char fullName[1024];
 	if (levelNames[index] != NULL) {
-		strcpy(fullName, levelsFolder);
-		strcat(fullName, levelNames[index]);
-		levelSetFileName = fullName;
+		strcpy(levelSetFileName, levelsFolder);
+		strcat(levelSetFileName, levelNames[index]);
   	}
 	else {
-		levelSetFileName = NULL;
+		levelSetFileName[0] = '\0';
 	}
 	loadLevel();
 	GetLevelCount();
@@ -758,12 +756,11 @@ int main_handler(int type, int par1, int par2) {
 int main(int argc, char **argv) {
 	FILE *config = fopen(configFileName, "r");
 	if (config != NULL) {
-		levelSetFileName = (char*)malloc(sizeof(char) * 1024);
 		fscanf(config, "%i\n%s", &levelNo, levelSetFileName);
 		fclose(config);
 	} else {
 		levelNo = 0;
-		levelSetFileName = NULL;
+		levelSetFileName[0] = '\0';
 	}
 	InkViewMain(main_handler);
 	return 0;
