@@ -1,0 +1,52 @@
+typedef struct {
+	int cplayer;  // 0 - human player, 1 - computer player
+	int ammo[13]; // we have [0..12] types of weapons, [x] - count of ammo, -1 - infinite
+	int angle;    // angle of firing
+	int power;    // power of firing
+	int life;     // life of player
+	int x,y;      // x,y of player
+	int dead;     // dead or alive :)
+	int money;
+	int wins;     // amount of wins
+	int turned;   // had this player his turn this round?
+} infoplayer; // struct for changable variables of player, except names
+
+typedef struct {
+	char name[10]; //name of player in hiscores table
+	int cplayer; //0 - human player, 1 - computer player
+	int wins; //amound of wins of player
+} hiscoresstruct;
+
+int PLAYERS=2, DIFFICUILTY=1; // PLAYERS [2..8], DIFFICUILTY [1..3]
+char *NPLAYERS [8];  //names of players
+int WIND=0; //global wind variable
+int CHOICE = 1; //global number of player to edit (edit_player_handler)
+int ARENA [800]; // area of fighting. we have 800 y coordinates of peaks (y=0 in left up corner!!!)
+short BOOLARENA [800][545];//representation of arena in 2-array, where =1 - pixel, =0 - empty ([0][0] in left down corner!!!)
+int FLAGCOMPUTERBATTLES = 1; //determining, if we already chose to watch computer battle. it's nullfied, if you go from game to main menu! (feature :)
+int TURNFORSAVE = 1; //player's turn (for save-load process)
+int PHASEFORSAVE = 1; //player's phase (for save-load process)
+// hiscores variables
+int COMPWINS = 0; //computer comand wins
+int HUMANWINS = 0; //human comand wins
+// handler flags
+int STARTFROMBEGINNING = 1; // global flag for beginning of new game (uses in game_handler). 1 - we are beginning from scratch, 0 - returning from handler to game_handler
+int GAMESHOPBEGINNING = 1; // global flag for gameshop, ^^^^
+int FLAGSHTOKGAME = 1; // handlers are very cool
+int FLAGSHTOKSHOP = 1; // maybe they are ignoring return 0 ???
+int FLAGSHTOKINGAMEMENU = 1; // more and more of them.. fuck
+int FLAGSHTOKALLCOMPS = 1; //maybe the last one
+// options flags
+int IMMEDIATETRAECTORY = 0; //immediate traectory drawing, 1 - yes, 0 - no
+int IMMEDIATEDROP = 0; //immediate drop of tanks in the begin of round
+int REFLECTWALLS = 1; //reflect from side walls
+int ORIENTATION = 2;
+int BONUSFLAG = 0; //do we have bonuses in game? 0 - no
+int WINDKOEF = 1; //koeff for wind (1 - normal wind, 0 - disabled)
+int TRANSPARENTSIDEWALLS = 0; //can our shot fly off the side walls, 0 - cannot, 1 - can
+int COMMANDBATTLES = 0; //does computer shoot to other computers (=0) or only to humans (=1)
+
+// -2 - computer command wins
+// -3 - human comand wins
+
+recalc_hiscores()

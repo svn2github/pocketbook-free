@@ -1,0 +1,1 @@
+PLAYERS WIND ORIENTATION COMMANDBATTLES TURNFORSAVE PHASEFORSAVE ARENA massive (0..7) NPLAYERS cplayer ammo[0..12] angle power life x y dead money wins
