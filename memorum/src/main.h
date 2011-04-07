@@ -1,5 +1,3 @@
-#pragma once
-
 using namespace std;
 #include <string>
 #include <vector>
@@ -19,24 +17,27 @@ using namespace std;
 #include "config.h"
 
 //#define FILELOG
+#define VERSION "v1.3.1"
 
-class GLOBAL
-{ public: 
-	static ostream *m_lout;
-	static CONFIG   m_Config;
+class	GLOBAL
+{
+/* */
+public:
+	static std::ostream * m_lout;
+	static CONFIG	m_Config;
 	static CARDLIST m_CardList;
 	static CALENDAR m_Calendar;
 };
+void	SetSState(int state);
 
-#define Config   (GLOBAL::m_Config)
-#define CardList (GLOBAL::m_CardList)
-#define Calendar (GLOBAL::m_Calendar)
-#define lout (*GLOBAL::m_lout)
-
-#define CurrentCard (*(CardList.m_CurCard))
-#define sz(str) (const_cast<char*>((str).c_str()))
-#define RCTVAL(ID) (Config.m_Rects[ID].x), (Config.m_Rects[ID].y), (Config.m_Rects[ID].w), (Config.m_Rects[ID].h)
-#define RCT(ID) (Config.m_Rects[ID])
-//#define RCTVAL2(rect) ((rect).x), ((rect).y), ((rect).w), ((rect).h)
-//#define RCTVALT(ID, i) (Config.m_Rects[ID].x+(i)), (Config.m_Rects[ID].y+(i)), (Config.m_Rects[ID].w-(i)*2), (Config.m_Rects[ID].h-(i)*2)
-//#define RCTVALT2(rect, i) ((rect).x+(i)), ((rect).y+(i)), ((rect).w-(i)*2), ((rect).h-(i)*2)
+#define Config				(GLOBAL::m_Config)
+#define CardList			(GLOBAL::m_CardList)
+#define Calendar			(GLOBAL::m_Calendar)
+#define lout				(*GLOBAL::m_lout)
+#define CurrentCard			(*(CardList.m_CurCard))
+#define sz(str)				(const_cast<char *>((str).c_str ()))
+#define RCTVAL(ID)			(Config.m_Rects[ID].x), (Config.m_Rects[ID].y), (Config.m_Rects[ID].w), (Config.m_Rects[ID].h)
+#define RCT(ID)				(Config.m_Rects[ID])
+#define Beetwen(x, x1, x2)	(x >= (x1) && x <= (x2))
+#define InsideR(r)			(Beetwen(par1, r.x, r.x + r.w) && Beetwen(par2, r.y, r.y + r.h))
+#define Inside(x, w, y, h)	(Beetwen(par1, x, x + w) && Beetwen(par2, y, y + h))

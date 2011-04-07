@@ -1,65 +1,83 @@
-#pragma once
+class	BaseCard
+{
+/* */
+public:
+	bool			m_bKnowing;
+	int				m_iSidesCount;
+	virtual void	Parse(std::string Str) = 0;
+	virtual void	Show(int iSide, irect *irRect) = 0;
+	void			Dublicate();
+	virtual void Sound()
+	{
+	}
 
-class BaseCard
-{
-public:
-	bool m_bKnowing;
-	int m_iSidesCount;
-	virtual void Parse(string Str) = 0;
-	virtual void Show(int iSide, irect* irRect) = 0;
-	virtual void Sound(){}
-	void Dublicate();
-	virtual ~BaseCard(){}
+	virtual~BaseCard()
+	{
+	}
 };
-class QandACard: public BaseCard
+class QandACard :
+	public BaseCard
 {
-	string m_sSide[2];
+	std::string m_sSide[2];
+
+/* */
 public:
-	virtual void Parse(string Str);
-	virtual void Show(int iSide, irect* irRect);
-	virtual ~QandACard(){}
+	virtual void	Parse(std::string Str);
+	virtual void	Show(int iSide, irect *irRect);
+	virtual~QandACard()
+	{
+	}
 };
-class MCLCard: public BaseCard
+class MCLCard :
+	public BaseCard
 {
-	string m_sSide[3];
-	string m_sType[3];
-	string m_sSound;
+	std::string m_sSide[3];
+	std::string m_sType[3];
+	std::string m_sSound;
+
+/* */
 public:
-	virtual void Parse(string Str);
-	virtual void Show(int iSide, irect* irRect);
-	virtual void Sound();
-	virtual ~MCLCard(){}
+	virtual void	Parse(std::string Str);
+	virtual void	Show(int iSide, irect *irRect);
+	virtual void	Sound();
+	virtual~MCLCard()
+	{
+	}
 };
 
-class BaseImpliment;
-class CARDLIST
+class	BaseImpliment;
+class	CARDLIST
 {
-	friend class BaseCard;
-	friend class BaseImpliment;
-	friend class SmplImpliment;
-	friend class MemoImpliment;
-	friend class TestImpliment;
-	friend void UpdateData();
-	friend void MCLCard::Parse(string Str);
-	friend void CALENDAR::AddCurrCL();
-	BaseImpliment* m_MainImpliment;
-	std::string m_sFullFileName;
-	std::string m_sCardListName;
-	std::vector<BaseCard*> m_vList;
-	std::vector<BaseCard*> m_vData;
-	std::vector<BaseCard*>::iterator m_CurCard;
-	bool m_CurSide;
+	friend class						BaseCard;
+	friend class						BaseImpliment;
+	friend class						SmplImpliment;
+	friend class						MemoImpliment;
+	friend class						TestImpliment;
+	friend class						MCLCard;
+	friend void							UpdateData();
+	friend void CALENDAR::				AddCurrCL(time_t ts);
+	friend void							KA_mem_11(int par1, int par2);
+	BaseImpliment						*m_MainImpliment;
+	std::string							m_sFullFileName;
+	std::string							m_sCardListName;
+	std::vector<BaseCard *>				m_vList;
+	std::vector<BaseCard *>				m_vData;
+	std::vector<BaseCard *>::iterator	m_CurCard;
+	int m_CurSide[3];
 	int m_CurSell;
 	int m_CurShowdSide;
 
+/* */
 public:
-	void SetFile(string sName);
+	bool m_Need16;
+	void SetFile(std::string sName);
 	void Init();
 	void Repaint();
 	void SetSmplImpl();
 	void SetMemoImpl();
 	void SetTestImpl();
 	void ChangeSides();
+	void ChangeSides2();
 	void Randomise();
 	void Reset();
 	void MoveNext();
@@ -68,10 +86,12 @@ public:
 	void MoveLast();
 	void Expand();
 	void Sound();
-	void SetSell(int sel);
+	int GetPercent();
+	bool SetSell(int par1, int par2);
 	bool IsSell();
 	bool SellNext();
 	bool SellPrev();
+	bool SellNext2();
 	bool SellOK();
 };
 
@@ -82,12 +102,17 @@ class BaseImpliment
 	virtual void ShowOthSide() = 0;
 	virtual bool ShowMidSide() = 0;
 	virtual void UpdateHeader() = 0;
-	virtual void SellOK(){}
+	virtual void SellOK()
+	{
+	}
+
+/* */
 protected:
-	virtual void EoF();
-	virtual void BoF();
+	virtual void	EoF();
+	virtual void	BoF();
 };
-class SmplImpliment: public BaseImpliment
+class SmplImpliment :
+	public BaseImpliment
 {
 	friend class CARDLIST;
 	int m_iPercent;
@@ -99,15 +124,17 @@ class SmplImpliment: public BaseImpliment
 	virtual void EoF();
 	virtual void BoF();
 };
-class MemoImpliment: public BaseImpliment
+class MemoImpliment :
+	public BaseImpliment
 {
-	virtual void ShowCurSide();
-	virtual void ShowOthSide();
-	virtual bool ShowMidSide();
-	virtual void UpdateHeader();
-	virtual void SellOK();
+	virtual void	ShowCurSide();
+	virtual void	ShowOthSide();
+	virtual bool	ShowMidSide();
+	virtual void	UpdateHeader();
+	virtual void	SellOK();
 };
-class TestImpliment: public BaseImpliment
+class TestImpliment :
+	public BaseImpliment
 {
 	friend class CARDLIST;
 	int m_iCorect;
