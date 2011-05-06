@@ -33,6 +33,7 @@ char levelSetFileName[1024];
 
 void PrepareBoard();
 void DrawBoard();
+void Move(int dx, int dy);
 
 void setLevelNo(int newLevelNo) {
 	levelNo = newLevelNo;
@@ -456,6 +457,18 @@ void DrawBoard() {
 	FullUpdate();
 }
 
+void Push(int par1,int par2){
+    int i=(par1-baseX)/tileSize;
+    int j=(par2-baseY)/tileSize;
+    if(i==playerX){
+	if(j<playerY)Move(0,-1);
+	if(j>playerY)Move(0,1);
+    }else if(j==playerY){
+	if(i<playerX)Move(-1,0);
+	if(i>playerX)Move(1,0);
+    }
+}
+
 void Move(int dx, int dy) {
 	//if there is box in front of player - it will be pushed one square further if possible.
 	//Then, if there free space in front of player - it definitely will, if there was box and it was moved - he'll move himself
@@ -748,7 +761,9 @@ int main_handler(int type, int par1, int par2) {
 	} else if (type == EVT_KEYRELEASE && par1 == KEY_OK && par2 == 0) {
 		KeyPressed(KEY_OK);
 	} else if (EVT_POINTERDOWN ==type ){
-	       ShowMenu();
+	    Push(par1,par2);
+	} else if (EVT_POINTERLONG ==type ){
+	    ShowMenu();
 	}
 	return 0;
 }
