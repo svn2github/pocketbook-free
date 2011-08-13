@@ -1,0 +1,9 @@
+OUT = ShultzTablez
+
+include /usr/local/pocketbook/common.mk
+
+$(OBJDIR)/%.cc.o: %.cc
+	$(CXX) -c -o $@ $(CXXFLAGS) $(INCLUDES) $(CDEPS) $<
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)/src
