@@ -69,6 +69,7 @@ private:
     int             _heightNoKbd;
     std::string                        _currLine;
     std::vector<std::string>           _lines;
+  public:
     std::map<std::string, std::string> _config;
 };
 

@@ -1,94 +1,56 @@
-#
-# PoTerm Makefile
-# ---------------
-#
-TRG = poterm
+OUT = poterm
 
-### Common
-### ------
-SDKDIR   = /usr/local/pocketbook
-CFLAGS   = -pipe -Wall -W -Werror -fomit-frame-pointer
-CPPFLAGS =  -pipe -Wall -W -Werror -fomit-frame-pointer -fno-exceptions
-
-ifeq ($(HOST),x86)
-# x86 specific stuff
-# ------------------
-SYS       = $(shell uname)
-OBJ_DIR   = OBJ_$(SYS)
-CC        = winegcc
-CLINK     = winegcc
-CPP       = wineg++
-CPPLINK   = wineg++
-CFLAGS   += -g
-CPPFLAGS += -g
-DEFS      = -DHOST_X86
-LFLAGS    = -L$(SDKDIR)/lib -mwindows -m32
-INC       = -I$(SDKDIR)/include `freetype-config --cflags`
-LIBS      = -linkview -ljpeg `freetype-config --libs`
-
-else
-ifeq ($(HOST),arm)
-# Arm specific stuff
-#-------------------
-SYS       = ARM
-OBJ_DIR   = OBJ_$(SYS)
-PREFIX    = $(SDKDIR)/bin/arm-linux-
-CC        = $(PREFIX)gcc
-CLINK     = $(PREFIX)gcc
-CPP       = $(PREFIX)g++
-CPPLINK   = $(PREFIX)g++
-CFLAGS   += -O2
-CPPFLAGS += -O2
-DEFS      = -DHOST_ARM
-LFLAGS    = -L$(SDKDIR)/arm-linux/lib
-INC       = -I$(SDKDIR)/arm-linux/include
-LIBS      = -linkview -ljpeg `freetype-config --libs`
-
-else
-
-all:
-	$(error Please specify one of the followong platforms: x86 or arm)
-
-x86:
-	make HOST=x86 $(TRG)
-arm:
-	make HOST=arm $(TRG).app
-clean:
-	@rm -fr $(TRG) $(TRG).app core* $(TRG).exe* OBJ_* valgrind* *.gdb *.o *.d *.obj *~
-
-endif
+ifndef BUILD
+#BUILD=arm_gnueabi
+BUILD=emu
 endif
 
+include /usr/local/pocketbook/common.mk
 
-SRCS  = poterm.cpp Term.cpp
-OBJS  = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+CFLAGS+=-D_POCKETBOOK `freetype-config --cflags` -I../ 
+CXXFLAGS+=-D_POCKETBOOK `freetype-config --cflags` -I../
 
-### Load dependecies
-### ----------------
-DEPS = $(wildcard $(OBJ_DIR)/*.d)
-ifneq ($(strip $(DEPS)),)
-include $(DEPS)
+LDFLAGS+= -L../pbtk/obj_$(BUILD)
+LIBS+=-lpbtk
+#-lWildMidi
+
+ifeq ($(BUILD),arm)
+CXXFLAGS+=-I/usr/local/pocketbook/arm-linux/include\
+  -I/usr/local/pocketbook/arm-linux/include/sigc++-2.0
+LDFLAGS+=-L/usr/local/pocketbook/arm-linux/lib -lsigc-2.0
 endif
 
-### Compilation and dependecies generation
-### --------------------------------------
-define COMPILE
-$(CPP) -c -MD $(CPPFLAGS) $(INC) $(DEFS) -o $@ $<
-endef
-define C_COMPILE
-$(CC) -c -MD $(CFLAGS) $(INC) $(DEFS) -o $@ $<
-endef
+ifeq ($(BUILD),arm_gnueabi)
+CXXFLAGS+=-I/usr/local/pocketbook_eabi/include -DHAS_NO_IV_GET_DEFAULT_FONT\
+  -I/usr/local/pocketbook_eabi/include/sigc++-2.0
+LDFLAGS+=-L/usr/local/pocketbook_eabi/lib -lsigc-2.0
+endif
+
+ifeq ($(BUILD),emu)
+CXXFLAGS+=`pkg-config --cflags sigc++-2.0`
+LDFLAGS+= -lsigc-2.0
+endif
+
+SOURCES_CPP = \
+    poterm.cpp \
+    Term.cpp
+#test.cpp
+
+SOURCES_CXX =
+
+SOURCES_C = 
+CDEPS = -MT$@ -MF`echo $@ | sed -e 's,\.o$$,.d,'` -MD -MP
+
+OBJS  = $(addprefix $(OBJDIR)/,$(SOURCES_C:.c=.o)) \
+        $(addprefix $(OBJDIR)/,$(SOURCES_CXX:.cxx=.o))\
+        $(addprefix $(OBJDIR)/,$(SOURCES_CPP:.cpp=.o))
 
 
-$(OBJ_DIR)/%.o: %.c
-		$(C_COMPILE)
-$(OBJ_DIR)/%.o: %.cpp
-		$(COMPILE)
+$(OBJDIR)/%.o: %.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) $(INCLUDES) $(CDEPS) $<
 
-$(OBJ_DIR):
-		mkdir $(OBJ_DIR)
+$(PROJECT) : $(OBJDIR) $(OBJS)
+	$(LD) -o $@ $(OBJS) $(LDFLAGS) $(LIBS)
 
-$(TRG):		$(OBJ_DIR) $(OBJS)
-		$(CPPLINK) -o $@ $(LFLAGS) $(OBJS) $(LIBS)
-$(TRG).app:	$(OBJ_DIR) $(OBJS)
-		$(CPPLINK) -o $@ $(LFLAGS) $(OBJS) $(LIBS)
+# Dependencies tracking:
+-include $(OBJDIR)/*.d

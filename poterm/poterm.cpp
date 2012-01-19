@@ -5,9 +5,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <fstream>
 
 #include "inkview.h"
-#include "inkinternal.h"
+//#include "inkinternal.h"
+extern "C"{
+int iv_msgtop();
+};
 #include "poterm.h"
 #include "Term.h"
 
@@ -16,7 +20,7 @@ Term        *term = 0;
 
 static char timer_name[] = "poterm_timer";
 ///////////////////////////////////////////////////////////////////////
-void keyboard_entry(char *s)
+void keyboard_entry(const char *s)
 {
     term->setHeightNoKbd(0);
     term->redrawAll();
@@ -52,14 +56,72 @@ static imenu menu1[]={
   {ITEM_ACTIVE,109,"Exit",NULL},
   {0,0,NULL,NULL}
 };
+
+#include "pbtk/pbdialog.h"
+#include "pbtk/pbcombobox.h"
+#include "pbtk/pbbutton.h"
+
+class PBCommandDialog:public PBDialog{
+  PBComboBox bx_history;
+  PBButton bt_ok;
+  PBButton bt_cancel;
+  public:
+  PBCommandDialog(const std::string& ttl):PBDialog(ttl),bx_history("",this),bt_ok("Ok",this),
+  bt_cancel("Cancel",this){
+    addWidget(&bx_history);
+    addWidget(&bt_ok);
+    addWidget(&bt_cancel);
+    bt_ok.onPress.connect(sigc::mem_fun(this,&PBCommandDialog::run_command));
+    bt_cancel.onPress.connect(sigc::mem_fun(this,&PBCommandDialog::run_command));
+    std::ifstream hst(term->_config["HstFile"].c_str());
+    if(!hst.fail()){
+      std::vector<std::string> v;
+      while(!hst.fail() || !hst.eof()){
+        std::string a;
+        std::getline(hst,a);
+        if(!a.empty())v.push_back(a);
+        if(v.size()>20)break;
+      }
+      bx_history.setItems(v);
+    }
+  }
+  ~PBCommandDialog(){
+    std::vector<std::string> v = bx_history.getItems();
+    if(!v.empty()){
+      std::ofstream hst(term->_config["HstFile"].c_str());
+      for(int i=0;i<v.size();++i) hst<<v[i]<<std::endl;
+    }
+  }
+  void placeWidgets(){
+    setSize(5,ScreenHeight()-60,ScreenWidth()-10,60);
+    bx_history.setSize(x()+5,y()+5,w()-10,25);
+    bt_ok.setSize(x()+5,y()+30,w()/2-10,25);
+    bt_cancel.setSize(x()+w()/2+5,y()+30,w()/2-10,25);
+  }
+  void run_command(PBButton* bt){
+    quit((bt==&bt_ok));
+    keyboard_entry((bt==&bt_ok)?bx_history.getText().c_str():NULL);
+  }
+} *comdlg=NULL;
+
+void do_command(){
+#if NO_HISTORY
+      OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, (void (*)(char*))keyboard_entry);
+      term->setHeightNoKbd(iv_msgtop());
+      term->redrawAll();
+#else
+  if(!comdlg)comdlg=new PBCommandDialog("");
+  comdlg->setText(term->prompt());
+  comdlg->run();
+#endif
+}
+
 static int cindex=0;
 void menu_handler(int index){
   cindex = index;
   switch(index){
     case 101:
-      OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, keyboard_entry);
-      term->setHeightNoKbd(iv_msgtop());
-      term->redrawAll();
+      do_command();
       break;
     case 109:
       CloseApp();
@@ -115,6 +177,7 @@ int main_handler(int type, int par1, int par2)
                 term->redraw();
             break;
         case EVT_EXIT:
+            delete comdlg;
             delete term;
             SetOrientation(oldOrientation);
             break;
@@ -127,9 +190,10 @@ int main_handler(int type, int par1, int par2)
             switch(par1)
             {
                 case KEY_OK:
-                    OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, keyboard_entry);
+                    do_command();
+                    /*OpenKeyboard(term->prompt(), kbuffer, KBUFFER_LEN, 0, keyboard_entry);
                     term->setHeightNoKbd(iv_msgtop());
-                    term->redrawAll();
+                    term->redrawAll();*/
                     break;
                 case KEY_BACK:
                     //CloseApp();

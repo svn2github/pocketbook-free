@@ -46,15 +46,14 @@ static struct {
     { "ScrollOutC",    "0xaaaaaa"       },
     { "ScrollBC",      "0x000000"       },
     { "ScrollInC",     "0x555555"       },
-#if defined(HOST_X86)
+#if defined(__EMU__)
     { "Shell",         "/bin/bash"      },
     { "LogFile",       "./poterm.log"   },
-#elif defined(HOST_ARM)
-    { "Shell",         "/bin/ash"       },
-    { "LogFile",       "/mnt/ext1/games/poterm.log" },
-#elif defined(HOST_ARM_PRO)
+    { "HstFile",       "./poterm.hst"   },
+#elif defined(__ARM__)
     { "Shell",         "/bin/ash"       },
     { "LogFile",       "/mnt/ext1/system/poterm.log" },
+    { "HstFile",       "/mnt/ext1/system/poterm.hst" },
 #else
 #error "Invalid architecture"
 #endif

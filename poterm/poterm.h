@@ -12,12 +12,10 @@
 #define KBUFFER_LEN 80
 
 /* Init file with configuration values */
-#if defined(HOST_X86)
+#if defined(__EMU__)
 #define INI_FILE       "./poterm.ini"
-#elif defined(HOST_ARM)
-#define INI_FILE       "/mnt/ext1/games/poterm.ini"
-#elif defined(HOST_ARM_PRO)
-#define INI_FILE       "/mnt/ext1/system/poterm.ini"
+#elif defined(___ARM__)
+#define INI_FILE       "/mnt/ext1/system/config/poterm.ini"
 #else
 #error "Invalid architecture"
 #endif
