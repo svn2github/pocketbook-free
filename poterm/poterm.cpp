@@ -49,6 +49,7 @@ static imenu menu1[]={
   {ITEM_ACTIVE,105,"Page Down",NULL},
   {ITEM_SEPARATOR,0,NULL,NULL},
   {ITEM_ACTIVE,106,"Rotate",NULL},
+  {ITEM_BULLET,110,"Auto Rotate",NULL},
   {ITEM_SEPARATOR,0,NULL,NULL},
   {ITEM_ACTIVE,107,"Decrease Font",NULL},
   {ITEM_ACTIVE,108,"Increase Font",NULL},
@@ -93,10 +94,11 @@ class PBCommandDialog:public PBDialog{
     }
   }
   void placeWidgets(){
-    setSize(5,ScreenHeight()-60,ScreenWidth()-10,60);
-    bx_history.setSize(x()+5,y()+5,w()-10,25);
-    bt_ok.setSize(x()+5,y()+30,w()/2-10,25);
-    bt_cancel.setSize(x()+w()/2+5,y()+30,w()/2-10,25);
+    int ch=captionHeight();
+    setSize(5,ScreenHeight()-60-ch,ScreenWidth()-10,60+ch);
+    bx_history.setSize(x()+5,y()+5+ch,w()-10,25);
+    bt_ok.setSize(x()+5,y()+30+ch,w()/2-10,25);
+    bt_cancel.setSize(x()+w()/2+5,y()+30+ch,w()/2-10,25);
   }
   void run_command(PBButton* bt){
     quit((bt==&bt_ok));
@@ -113,6 +115,8 @@ void do_command(){
   if(!comdlg)comdlg=new PBCommandDialog("");
   comdlg->setText(term->prompt());
   comdlg->run();
+  term->setHeightNoKbd(comdlg->y());
+  term->redrawAll();
 #endif
 }
 
@@ -181,12 +185,15 @@ int main_handler(int type, int par1, int par2)
             delete term;
             SetOrientation(oldOrientation);
             break;
-        /*case EVT_KEYREPEAT:
+        case EVT_ORIENTATION:
+            if(menu1[9].type==ITEM_BULLET)SetOrientation(par1);
+            break;
+        case EVT_KEYREPEAT:
             if(KEY_OK == par1){
               OpenMenu(menu1,cindex,20,20,menu_handler);
             }
-            break;*/
-        case EVT_KEYPRESS:
+            break;
+        case EVT_KEYRELEASE:
             switch(par1)
             {
                 case KEY_OK:

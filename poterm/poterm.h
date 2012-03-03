@@ -14,7 +14,7 @@
 /* Init file with configuration values */
 #if defined(__EMU__)
 #define INI_FILE       "./poterm.ini"
-#elif defined(___ARM__)
+#elif defined(__ARM__)
 #define INI_FILE       "/mnt/ext1/system/config/poterm.ini"
 #else
 #error "Invalid architecture"

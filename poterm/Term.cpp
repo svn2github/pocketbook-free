@@ -425,6 +425,7 @@ void Term::redrawAll()
     if (!_heightNoKbd)
     {
         // Draw botton line
+        char text0[] = "-long: Menu";
         char text1[] = ": Command";
         char text2[] = "Del: Rotate";
         char text3[] = ": Page up/down";
@@ -441,11 +442,16 @@ void Term::redrawAll()
         int symbol_heigh = 16;
         int symbol_width = 12;
         int gap = 15;
-        int x = _offsx + (_width - (StringWidth(text1) + StringWidth(text2) + StringWidth(text3)
+        int x = _offsx + (_width - (StringWidth(text0) + StringWidth(text1) + StringWidth(text2) 
+                                    + StringWidth(text3)
                                     + StringWidth(text4) + StringWidth(text5)
-                                    + 4*gap + 2*symbol_width )) /2;
+                                    + 4*gap + 3*symbol_width )) /2;
         int h = TextRectHeight(StringWidth(text1), text1, 0);
         FillArea(_offsx, _offsy + _height - h, _width, h, LGRAY);
+        DrawSymbol(x, _offsy + _height-symbol_heigh, SYMBOL_OK);
+        x += symbol_width;
+        DrawString(x, _offsy + _height - h, text0);
+        x += StringWidth(text0) + gap;
         DrawSymbol(x, _offsy + _height-symbol_heigh, SYMBOL_OK);
         x += symbol_width;
         DrawString(x, _offsy + _height - h, text1);
