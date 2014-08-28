@@ -1,63 +1,62 @@
-OS=$(shell uname | tr a-z A-Z | sed 's/_.*//')
+OUT=memorum
 
-ifeq (${OS},CYGWIN)
-
-#old
-# All Target
-all: 
-	pbres -c images/temp.c images/*.bmp
-	gcc -static -Wall -O2 -fomit-frame-pointer -o memorum.exe src/*.c images/temp.c -linkview -lfreetype -ljpeg -lz -lgdi32
-
-# Other Targets
-clean:
-	rm -f memorum.exe
-
-else
-
-SDKDIR = /usr/local/pocketbook
-LIBDIR=-L$(SDKDIR)/lib
-LIBS = -linkview -ljpeg `freetype-config --libs` -lstdc++
-INCLUDE = -I$(SDKDIR)/include `freetype-config --cflags`
-OUT = memorum
-WINEOUT = $(OUT).exe.so
-CC = winegcc
-CXX = wineg++
-CFLAGS = -Wall -fomit-frame-pointer -O2
-WINEFLAGS = -mwindows -m32
-
-ARMCC = $(SDKDIR)/bin/arm-linux-gcc
-ARMCXX = $(SDKDIR)/bin/arm-linux-g++
-ARMLIBDIR = -L$(SDKDIR)/arm-linux/lib $(LIBDIR)
-ARMINCLUDE = -I$(SDKDIR)/arm-linux/include  $(INCLUDE)
-
-ARMOUT = $(OUT).app
-
+ifndef BUILD
+BUILD=emu
+#BUILD=arm_gnueabi
 endif
 
+include /usr/local/pocketbook/common.mk
 
-SRC = src/*.cpp
+CXXFLAGS+= -I.. -I/usr/local/pocketbook_eabi/include -I/usr/local/pocketbook_eabi/include/sigc++-2.0 \
+-DHAS_NO_IV_GET_DEFAULT_FONT `freetype-config --cflags`
 
-#IMGC = images/temp.c
-#IMGOBJ = $(IMGC:.c=.o)
+#LDFLAGS+= -L../pbtk/obj_$(BUILD)
+#LIBS+=-lpbtk
 
-OBJ = $(addprefix obj/,$(notdir $(SRC:.cpp=.o)))
+ifeq (${BUILD},emu)
+CXXFLAGS+=-g `pkg-config --cflags sigc++-2.0` -I./../
+LIBS+=-g -lsigc-2.0
+else 
+ifeq (${BUILD},arm)
+CXXFLAGS+=-D_OLD_DEV_
+LIBS+=-L/usr/local/pocketbook/arm-linux/lib -lsigc-2.0
+else
+LIBS+=-L/usr/local/pocketbook_eabi/lib -lsigc-2.0
+endif
+endif
 
-IMGSRC =
-#IMAGES = $(wildcard ./images/*.bmp)
-
-all: pc arm
-pc: $(OUT)
-arm: $(ARMOUT)
-
-$(OUT): $(SRC) $(IMGC)
-	$(CC) -o $@ $^ $(INCLUDE) $(LIBDIR) $(LIBS) $(CFLAGS) $(WINEFLAGS)
-
-$(ARMOUT): $(SRC) $(IMGC)
-	$(ARMCC) $(CFLAGS) $(ARMINCLUDE) -o $@ $^  $(ARMLIBDIR) $(LIBS)
-
-clean:
-	-rm -f $(ARMOUT) $(OUT) $(WINEOUT) $(IMGSRC)
-
-.PHONY: all pc arm clean
+SOURCES=\
+ src/calendar.cpp\
+ src/cards.cpp\
+ src/config.cpp\
+ src/main.cpp
 
 
+PIXMAPS=
+
+PIXMAPS_C=$(PIXMAPS:.xpm=.c)
+PIXMAPS_OBJS=$(addprefix $(OBJDIR)/,$(PIXMAPS_C:.c=.o))
+
+all:$(PROJECT)
+
+$(PROJECT): $(PIXMAPS_C) $(OBJDIR) $(OBJS) $(PIXMAPS_OBJS)
+	$(CXX) -o $@ $(OBJS) $(PIXMAPS_OBJS) $(LDFLAGS) $(LIBS)
+
+$(OBJDIR):
+	mkdir -p $(OBJDIR)/src
+	mkdir -p $(OBJDIR)/images
+
+$(OBJDIR)/%.cxx.o: %.cxx
+	$(CXX) -c -o $@ $(CXXFLAGS) $(INCLUDES) $(CDEPS) $<
+$(OBJDIR)/%.cpp.o: %.cpp
+	$(CXX) -c -o $@ $(CXXFLAGS) $(INCLUDES) $(CDEPS) $<
+
+$(OBJDIR)/images/%.o: images/%.c
+	$(CC) -c -o $@ $(CFLAGS) $(INCLUDES) $(CDEPS) $<
+
+$(PIXMAPS_C): $(PIXMAPS)
+
+images/%.c: images/%.xpm
+	./xpbres -c $@ $<
+
+-include $(OBJDIR)/src/*.d

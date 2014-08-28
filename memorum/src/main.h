@@ -41,3 +41,5 @@ void	SetSState(int state);
 #define Beetwen(x, x1, x2)	(x >= (x1) && x <= (x2))
 #define InsideR(r)			(Beetwen(par1, r.x, r.x + r.w) && Beetwen(par2, r.y, r.y + r.h))
 #define Inside(x, w, y, h)	(Beetwen(par1, x, x + w) && Beetwen(par2, y, y + h))
+
+#define T(x) GetLangText(#x)

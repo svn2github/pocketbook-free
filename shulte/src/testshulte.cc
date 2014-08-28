@@ -75,10 +75,20 @@ static int main_handler(int type, int par1, int par2) {
 		case KEY_UP:
 		case KEY_DOWN:
 		case KEY_OK:
+		case KEY_NEXT:
+		case KEY_PREV:
 			table.regenerate();
 			Repaint();
 			break;
 		case KEY_BACK:
+			CloseApp();
+			break;
+		}
+	}
+	if (type == EVT_KEYREPEAT) {
+		switch (par1) {
+		case KEY_MENU:
+		case KEY_HOME:
 			CloseApp();
 			break;
 		}

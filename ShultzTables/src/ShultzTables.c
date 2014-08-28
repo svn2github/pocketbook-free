@@ -96,11 +96,11 @@ int main_handler(int type, int par1, int par2)
 	{
 		drawBoard();
 	}
-	else if ((type == EVT_KEYPRESS && par1 == KEY_BACK) || (type == EVT_KEYREPEAT && par1 == KEY_OK))
+	else if ((type == EVT_KEYPRESS && par1 == KEY_BACK) || (type == EVT_KEYREPEAT && (par1 == KEY_OK||par1 == KEY_MENU||par1 == KEY_HOME)))
 	{
 		CloseApp();
 	}
-	else if (type == EVT_KEYRELEASE && par1 == KEY_OK)
+	else if (type == EVT_KEYRELEASE && (par1 == KEY_OK||par1 == KEY_NEXT||par1 == KEY_PREV))
 	{
 		prepareBoard();
 		drawBoard();
